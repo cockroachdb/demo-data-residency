@@ -6,7 +6,7 @@ import SiloLockup from '../components/silo-lockup'
 const Page = () => {
   return (
     <section className="flex flex-col gap-8 justify-items-center">
-      <SiloLockup className="max-w-[800px] h-auto mx-auto" />
+      <SiloLockup className="max-w-[1000px] h-auto mx-auto" />
       <CockroachLabsLogo color="brand-white" className="w-[160px] mx-auto" />
       <div>
         <h1 className="m-0 text-lg text-center">The Art of Data Residency and Application Architecture.</h1>
