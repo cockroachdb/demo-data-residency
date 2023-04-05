@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
+import { useSession, signIn, signOut } from 'next-auth/react'
 
 import SiloLogo from './silo-logo'
 import ActiveLink from './active-link'
 import LoginButton from './login-button'
+import GitHubLogo from './github-logo'
 
 const Header = () => {
+  const { data: session } = useSession()
+
   const [isNavOpen, setIsNavOpen] = useState(false)
 
   return (
@@ -23,17 +27,45 @@ const Header = () => {
           <nav className="flex grow justify-center text-brand-iridescent-blue font-medium">
             <ul className="m-0 p-0 flex flex-col sm:flex-row gap-8">
               <li className="text-center">
-                <ActiveLink href="/">Home</ActiveLink>
+                <ActiveLink href="/" onClick={() => setIsNavOpen(false)}>
+                  Home
+                </ActiveLink>
               </li>
               <li className="text-center">
-                <ActiveLink href="/gallery/">Gallery</ActiveLink>
+                <ActiveLink href="/gallery/" onClick={() => setIsNavOpen(false)}>
+                  Gallery
+                </ActiveLink>
               </li>
               <li className="text-center">
-                <ActiveLink href="/app/">App</ActiveLink>
+                <ActiveLink href="/app/" onClick={() => setIsNavOpen(false)}>
+                  App
+                </ActiveLink>
               </li>
             </ul>
           </nav>
-          <LoginButton />
+          <div className="hidden sm:block">
+            <LoginButton />
+          </div>
+          <div className="block sm:hidden">
+            {session ? (
+              <button
+                aria-label="Sign out"
+                className="flex items-center justify-center text-brand-pink text-center border-brand-pink min-w-[115px]"
+                onClick={() => signOut()}
+              >
+                Sign out
+              </button>
+            ) : (
+              <button
+                aria-label="Sign in"
+                className="flex gap-2 items-center text-brand-pink text-center border-brand-pink min-w-[115px]"
+                onClick={() => signIn('github')}
+              >
+                <GitHubLogo />
+                Sign in
+              </button>
+            )}
+          </div>
         </div>
         <button
           role="button"
