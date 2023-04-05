@@ -12,5 +12,4 @@ A CockroachDB .....
 
 - 🚀 Live Preview:
   [https://www.cockroachlabs.com/demos/demo-data-residency](https://www.cockroachlabs.com/demos/demo-data-residency)
-- ✏️ Blog:
-  [https://www.cockroachlabs.com/blog/...](https://www.cockroachlabs.com/blog/...)
+- ✏️ Blog: [https://www.cockroachlabs.com/blog/...](https://www.cockroachlabs.com/blog/...)

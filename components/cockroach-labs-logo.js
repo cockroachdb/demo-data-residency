@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react'
+import PropTypes from 'prop-types'
 
-const CockroachLabsLogo = ({ color }) => {
+const CockroachLabsLogo = ({ color, className }) => {
   return (
     <a href="https://www.cockroachlabs.com/" target="_blank" rel="noopener">
       <svg
@@ -10,7 +10,7 @@ const CockroachLabsLogo = ({ color }) => {
         y="0px"
         viewBox="0 0 170 24"
         aria-label="Cockroach Labs Logo"
-        className="w-[170px]"
+        className={className}
       >
         <g>
           <path
@@ -43,10 +43,7 @@ const CockroachLabsLogo = ({ color }) => {
             d="M120.23,11.76v7.27h-1.86v-6.69c0-1.75-0.87-2.65-2.45-2.65c-1.54,0-2.75,1.19-2.75,2.76v6.58
 			h-1.86V4.95h1.86v4.67c0.71-0.99,1.88-1.51,3.25-1.51C119,8.11,120.23,9.77,120.23,11.76z"
           />
-          <path
-            className={`fill-${color}`}
-            d="M130.1,17.34h6.25v1.68h-8.25V4.95h1.99V17.34z"
-          />
+          <path className={`fill-${color}`} d="M130.1,17.34h6.25v1.68h-8.25V4.95h1.99V17.34z" />
           <path
             className={`fill-${color}`}
             d="M159.67,13.72c0,3.37-1.99,5.59-4.7,5.59c-1.69,0-2.9-0.67-3.64-1.88v1.6h-1.75V4.95h1.86V9.9
@@ -106,14 +103,7 @@ const CockroachLabsLogo = ({ color }) => {
           d="M9.64,3.64c0,0-0.01,0.01-0.01,0.01c0,0-0.01-0.01-0.01-0.01v0.02c-6.34,4.61-0.76,7.77,0.01,8.53v0.01
 	c0,0,0,0,0.01-0.01c0,0,0,0,0.01,0.01v-0.01c0.76-0.76,6.35-3.91,0.01-8.53V3.64z"
         />
-        <linearGradient
-          id="logo-gradient"
-          gradientUnits="userSpaceOnUse"
-          x1="0"
-          y1="12"
-          x2="19.2675"
-          y2="12"
-        >
+        <linearGradient id="logo-gradient" gradientUnits="userSpaceOnUse" x1="0" y1="12" x2="19.2675" y2="12">
           <stop
             offset="0.3"
             className="[--start-color:theme(colors.brand.electric-purple)]"
@@ -138,16 +128,18 @@ const CockroachLabsLogo = ({ color }) => {
         />
       </svg>
     </a>
-  );
-};
+  )
+}
 
 CockroachLabsLogo.defaultProps = {
-  color: "brand-light",
-};
+  color: 'brand-light'
+}
 
 CockroachLabsLogo.propTypes = {
-  /** Colour of the text */
+  /** Color of the text */
   color: PropTypes.string,
-};
+  /** Tailwind class names */
+  className: PropTypes.string
+}
 
-export default CockroachLabsLogo;
+export default CockroachLabsLogo
