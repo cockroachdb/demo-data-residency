@@ -5,7 +5,9 @@ module.exports = {
     // This is for the Cockroach Labs logo
     'fill-brand-white',
     // This is for the Silo Logo
-    'fill-brand-iridescent-blue'
+    'fill-brand-iridescent-blue',
+    // This is for the nav link
+    'border-brand-iridescent-blue'
   ],
   theme: {
     extend: {
@@ -53,6 +55,11 @@ module.exports = {
           'ocean-green': '#033457',
           'ocean-border': '#00538f',
           'neutral-100': '#dee4fa'
+        },
+        depth: {
+          0: '#271d40',
+          1: '#312849',
+          2: '#372e4e'
         }
       },
       typography: (theme) => ({
