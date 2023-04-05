@@ -6,11 +6,15 @@ const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false)
 
   return (
-    <header className="fixed w-full backdrop-blur">
+    <header
+      className={`fixed w-full backdrop-blur  ${
+        isNavOpen ? 'sm:bg-brand-deep-purple/60 bg-brand-deep-purple/90' : 'bg-brand-deep-purple/60'
+      }`}
+    >
       <div className="flex items-center justify-between max-w-7xl mx-auto px-4 py-4 sm:px-8">
         <SiloLogo className="w-[100px]" />
         <div
-          className={`absolute sm:relative w-full sm:w-auto py-8 sm:py-0 top-20 sm:top-0 left-0 flex-col sm:flex-row items-center grow gap-8 sm:gap-0 bg-brand-deep-purple/90 sm:bg-transparent ${
+          className={`absolute sm:relative w-full sm:w-auto py-8 sm:py-0 top-[72px] sm:top-0 left-0 flex-col sm:flex-row items-center grow gap-8 sm:gap-0 bg-brand-deep-purple/90 sm:bg-transparent ${
             isNavOpen ? 'flex' : 'hidden sm:flex'
           }`}
         >
