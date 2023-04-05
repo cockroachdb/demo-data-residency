@@ -11,7 +11,7 @@ const LoginButton = () => {
     return (
       <DropdownMenu.Root>
         <DropdownMenu.Trigger asChild>
-          <button className="flex border-none items-center justify-end gap-2 p-1 min-w-[115px]" aria-label="Sign out">
+          <button className="flex border-none items-center justify-end gap-2 p-1" aria-label="Sign out">
             <img
               alt={session.user.name}
               src={session.user.image}

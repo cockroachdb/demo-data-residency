@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed w-full backdrop-blur h-[84px] ${
+      className={`fixed w-full backdrop-blur h-[86px] ${
         isNavOpen ? 'sm:bg-brand-deep-purple/60 bg-brand-deep-purple/90' : 'bg-brand-deep-purple/60'
       }`}
     >
@@ -43,14 +43,14 @@ const Header = () => {
               </li>
             </ul>
           </nav>
-          <div className="hidden sm:block">
+          <div className="hidden sm:flex justify-end min-w-[115px]">
             <LoginButton />
           </div>
           <div className="block sm:hidden">
             {session ? (
               <button
                 aria-label="Sign out"
-                className="flex items-center justify-center text-brand-pink text-center border-brand-pink min-w-[115px]"
+                className="flex items-center justify-center text-brand-pink text-center border-brand-pink"
                 onClick={() => signOut()}
               >
                 Sign out
@@ -58,7 +58,7 @@ const Header = () => {
             ) : (
               <button
                 aria-label="Sign in"
-                className="flex gap-2 items-center text-brand-pink text-center border-brand-pink min-w-[115px]"
+                className="flex gap-2 items-center text-brand-pink text-center border-brand-pink"
                 onClick={() => signIn('github')}
               >
                 <GitHubLogo />
