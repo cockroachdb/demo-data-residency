@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { useSession, signIn, signOut } from 'next-auth/react'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 

@@ -65,8 +65,41 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            '*': {
+            '*:not(h1, h2, h3,h4, h5, h6)': {
               color: theme('colors.brand.white')
+            },
+            h1: {
+              fontFamily: 'var(--font-anton)',
+              textTransform: 'uppercase',
+              color: theme('colors.brand.pink'),
+              letterSpacing: '0.4em'
+            },
+            h2: {
+              fontFamily: 'var(--font-anton)',
+              textTransform: 'uppercase',
+              color: theme('colors.brand.pink'),
+              letterSpacing: '0.4em'
+            },
+            h3: {
+              fontFamily: 'var(--font-anton)',
+              textTransform: 'uppercase',
+              color: theme('colors.brand.pink'),
+              letterSpacing: '0.4em'
+            },
+            h4: {
+              fontFamily: 'var(--font-anton)',
+              textTransform: 'uppercase',
+              color: theme('colors.brand.pink')
+            },
+            h5: {
+              fontFamily: 'var(--font-anton)',
+              textTransform: 'uppercase',
+              color: theme('colors.brand.pink')
+            },
+            h6: {
+              fontFamily: 'var(--font-anton)',
+              textTransform: 'uppercase',
+              color: theme('colors.brand.pink')
             }
           }
         }

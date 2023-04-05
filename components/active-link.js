@@ -11,13 +11,10 @@ const ActiveLink = ({ children, ...props }) => {
   useEffect(() => {
     if (isReady) {
       const linkPathname = new URL(props.as || props.href, location.href).pathname
-      console.log('linkPathname: ', linkPathname)
 
       const activePathname = new URL(asPath, location.href).pathname
-      console.log('activePathname: ', activePathname)
 
       const newClassName = linkPathname === activePathname ? `${activeClassName}`.trim() : className
-      console.log('newClassName: ', newClassName)
 
       if (newClassName !== computedClassName) {
         setComputedClassName(newClassName)
