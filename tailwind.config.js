@@ -62,6 +62,9 @@ module.exports = {
           2: '#372e4e'
         }
       },
+      boxShadow: {
+        '3xl': '0px 0px 100px 0px rgba(0,0,0,0.75)'
+      },
       typography: (theme) => ({
         DEFAULT: {
           css: {
@@ -72,19 +75,22 @@ module.exports = {
               fontFamily: 'var(--font-anton)',
               textTransform: 'uppercase',
               color: theme('colors.brand.pink'),
-              letterSpacing: '0.6em'
+              letterSpacing: '0.6em',
+              paddingLeft: '0.6em'
             },
             h2: {
               fontFamily: 'var(--font-anton)',
               textTransform: 'uppercase',
               color: theme('colors.brand.pink'),
-              letterSpacing: '0.6em'
+              letterSpacing: '0.6em',
+              paddingLeft: '0.6em'
             },
             h3: {
               fontFamily: 'var(--font-anton)',
               textTransform: 'uppercase',
               color: theme('colors.brand.pink'),
-              letterSpacing: '0.6em'
+              letterSpacing: '0.6em',
+              paddingLeft: '0.6em'
             },
             h4: {
               fontFamily: 'var(--font-anton)',
@@ -100,6 +106,9 @@ module.exports = {
               fontFamily: 'var(--font-anton)',
               textTransform: 'uppercase',
               color: theme('colors.brand.pink')
+            },
+            p: {
+              lineHeight: '1.5rem'
             }
           }
         }
