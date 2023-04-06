@@ -51,7 +51,7 @@ const Header = () => {
               <button
                 aria-label='Sign out'
                 className='flex items-center justify-center text-brand-pink text-center border-brand-pink'
-                onClick={() => signOut()}
+                onClick={() => signOut({ callbackUrl: process.env.NEXT_PUBLIC_ASSET_PREFIX })}
               >
                 Sign out
               </button>
@@ -59,7 +59,7 @@ const Header = () => {
               <button
                 aria-label='Sign in'
                 className='flex gap-2 items-center text-brand-pink text-center border-brand-pink'
-                onClick={() => signIn('github')}
+                onClick={() => signIn('github', { callbackUrl: `${process.env.NEXT_PUBLIC_ASSET_PREFIX}/app/` })}
               >
                 <GitHubLogo />
                 Sign in

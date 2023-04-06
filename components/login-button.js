@@ -46,9 +46,9 @@ const LoginButton = () => {
 
             <DropdownMenu.Item asChild>
               <button
-                aria-label='Sign out'
+                aria-label='Sign out test'
                 className='grow border-2 border-brand-pink text-brand-pink w-full'
-                onClick={() => signOut()}
+                onClick={() => signOut({ callbackUrl: process.env.NEXT_PUBLIC_ASSET_PREFIX })}
               >
                 Sign out
               </button>
@@ -62,7 +62,7 @@ const LoginButton = () => {
     <button
       aria-label='Sign in'
       className='flex gap-2 items-center text-brand-pink border-brand-pink min-w-[115px]'
-      onClick={() => signIn('github')}
+      onClick={() => signIn('github', { callbackUrl: `${process.env.NEXT_PUBLIC_ASSET_PREFIX}/app/` })}
     >
       <GitHubLogo />
       Sign in
