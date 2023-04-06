@@ -72,19 +72,19 @@ module.exports = {
               fontFamily: 'var(--font-anton)',
               textTransform: 'uppercase',
               color: theme('colors.brand.pink'),
-              letterSpacing: '0.4em'
+              letterSpacing: '0.6em'
             },
             h2: {
               fontFamily: 'var(--font-anton)',
               textTransform: 'uppercase',
               color: theme('colors.brand.pink'),
-              letterSpacing: '0.4em'
+              letterSpacing: '0.6em'
             },
             h3: {
               fontFamily: 'var(--font-anton)',
               textTransform: 'uppercase',
               color: theme('colors.brand.pink'),
-              letterSpacing: '0.4em'
+              letterSpacing: '0.6em'
             },
             h4: {
               fontFamily: 'var(--font-anton)',
