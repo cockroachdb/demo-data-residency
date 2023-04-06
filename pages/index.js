@@ -22,14 +22,14 @@ const Page = () => {
           </h1>
           <p className='m-0 text-center'>
             A{' '}
-            <a className='font-bold' href='https://www.cockroachlabs.com/' target='_blank' rel='noopener'>
+            <a className='font-bold' href='https://www.cockroachlabs.com/product/' target='_blank' rel='noopener'>
               CockroachDB Serverless
             </a>{' '}
             demo.
           </p>
         </div>
       </section>
-      <section className='flex flex-col gap-2'>
+      <section>
         <div className='flex flex-col gap-2'>
           <h2 className='m-0 text-center text-6xl sm:text-8xl text-brand-electric-purple'>how</h2>
           <p className='m-0 text-center mx-auto max-w-lg'>
@@ -46,6 +46,18 @@ const Page = () => {
             />
           </div>
         </div>
+        <p className='m-0 text-center'>
+          Read more about this app on the Cockroach Labs Blog.
+          <br />
+          <a
+            className='text-brand-iridescent-blue'
+            href='https://www.cockroachlabs.com/blog'
+            target='_blank'
+            rel='noopener'
+          >
+            The Art of Data Residency and Application Architecture
+          </a>
+        </p>
       </section>
       <NewsletterForm formId={process.env.NEXT_PUBLIC_NEWSLETTER_FORM_ID} />
     </div>
