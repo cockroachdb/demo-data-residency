@@ -40,7 +40,10 @@ const Page = () => {
         <div className='relative flex items-center justify-center mx-auto w-full'>
           <Image src={howItWorks} alt='how it works' width={768} height={432} />
           <div className='absolute w-4/5 sm:w-3/5 max-w-lg shadow-3xl border-2 border-brand-iridescent-blue'>
-            <YouTubeLite url={`https://www.youtube.com/watch?v=${process.env.NEXT_PUBLIC_YOUTUBE_ID}`} title='' />
+            <YouTubeLite
+              url={`https://www.youtube.com/watch?v=${process.env.NEXT_PUBLIC_YOUTUBE_ID}`}
+              title='How Data Residency Works'
+            />
           </div>
         </div>
       </section>
