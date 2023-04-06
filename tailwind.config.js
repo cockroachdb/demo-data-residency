@@ -68,7 +68,7 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            '*:not(h1, h2, h3,h4, h5, h6)': {
+            '*:not(h1, h2, h3,h4, h5, h6, svg, path)': {
               color: theme('colors.brand.white')
             },
             h1: {
