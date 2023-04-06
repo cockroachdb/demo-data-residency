@@ -50,7 +50,7 @@ const Header = () => {
             {session ? (
               <button
                 aria-label='Sign out'
-                className='flex items-center justify-center text-brand-pink text-center border-brand-pink'
+                className='flex items-center justify-center text-brand-pink text-center border-brand-pink transition-color duration-300 hover:text-brand-white hover:border-brand-white'
                 onClick={() => signOut({ callbackUrl: process.env.NEXT_PUBLIC_ASSET_PREFIX })}
               >
                 Sign out
@@ -58,7 +58,7 @@ const Header = () => {
             ) : (
               <button
                 aria-label='Sign in'
-                className='flex gap-2 items-center text-brand-pink text-center border-brand-pink'
+                className='flex gap-2 items-center text-brand-pink text-center border-brand-pink transition-color duration-300 hover:text-brand-white hover:border-brand-white'
                 onClick={() => signIn('github', { callbackUrl: `${process.env.NEXT_PUBLIC_ASSET_PREFIX}/app/` })}
               >
                 <GitHubLogo />

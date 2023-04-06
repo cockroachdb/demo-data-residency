@@ -61,7 +61,7 @@ const NewsletterForm = ({ formId }) => {
 
           <button
             type='submit'
-            className='text-sm min-w-fit border-brand-electric-purple bg-brand-electric-purple text-white disabled:border-brand-evening-hush disabled:bg-brand-evening-hush disabled:text-brand-white disabled:cursor-not-allowed px-2'
+            className='text-sm min-w-fit border-brand-electric-purple bg-brand-electric-purple text-brand-white disabled:border-brand-evening-hush disabled:bg-brand-evening-hush disabled:text-brand-white disabled:cursor-not-allowed px-2 transition-color duration-300 hover:text-brand-white hover:border-brand-white'
             disabled={state.isSubmitting}
             aria-label='Newsletter subscribe'
           >
@@ -92,7 +92,7 @@ const NewsletterForm = ({ formId }) => {
             href='https://www.cockroachlabs.com/email-preferences/'
             target='_blank'
             rel='noreferrer'
-            className='text-brand-evening-hush hover:text-brand-iridescent-blue'
+            className='text-brand-evening-hush transition-color duration-300 hover:text-brand-white'
           >
             cockroachlabs.com
           </a>

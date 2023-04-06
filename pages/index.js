@@ -22,7 +22,12 @@ const Page = () => {
           </h1>
           <p className='m-0 text-center'>
             A{' '}
-            <a className='font-bold' href='https://www.cockroachlabs.com/product/' target='_blank' rel='noopener'>
+            <a
+              href='https://www.cockroachlabs.com/product/'
+              target='_blank'
+              rel='noopener'
+              className='font-bold text-brand-iridescent-blue transition-color duration-300 hover:text-brand-white'
+            >
               CockroachDB Serverless
             </a>{' '}
             demo.
@@ -46,18 +51,42 @@ const Page = () => {
             />
           </div>
         </div>
-        <p className='m-0 text-center'>
-          Read more about this app on the Cockroach Labs Blog.
-          <br />
+        <div className='flex flex-col gap-8'>
+          <p className='m-0 text-center'>
+            Read more about this app on the Cockroach Labs Blog.
+            <br />
+            <a
+              href='https://www.cockroachlabs.com/blog'
+              target='_blank'
+              rel='noopener'
+              className='text-brand-iridescent-blue transition-color duration-300 hover:text-brand-white'
+            >
+              The Art of Data Residency and Application Architecture
+            </a>
+          </p>
           <a
-            className='text-brand-iridescent-blue'
             href='https://www.cockroachlabs.com/blog'
             target='_blank'
             rel='noopener'
+            className='flex gap-2 items-center self-center px-4 py-2 border-2 border-brand-iridescent-blue text-brand-iridescent-blue capitalize no-underline transition-color duration-300 hover:text-brand-white hover:border-brand-white'
           >
-            The Art of Data Residency and Application Architecture
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              fill='none'
+              viewBox='0 0 24 24'
+              strokeWidth={1.5}
+              stroke='currentColor'
+              className='w-5 h-5'
+            >
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                d='M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z'
+              />
+            </svg>
+            read post
           </a>
-        </p>
+        </div>
       </section>
       <NewsletterForm formId={process.env.NEXT_PUBLIC_NEWSLETTER_FORM_ID} />
     </div>

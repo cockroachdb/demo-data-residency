@@ -11,11 +11,14 @@ const LoginButton = () => {
     return (
       <DropdownMenu.Root>
         <DropdownMenu.Trigger asChild>
-          <button className='flex border-none items-center justify-end gap-2 p-1' aria-label='Sign out'>
+          <button
+            className='flex border-none items-center justify-end gap-2 p-1 transition-color duration-300 hover:text-brand-white hover:border-brand-white group'
+            aria-label='Sign out'
+          >
             <img
               alt={session.user.name}
               src={session.user.image}
-              className='rounded-full border-2 border-brand-pink w-10 h-10'
+              className='rounded-full border-2 border-brand-pink w-10 h-10 transition-color duration-300 group-hover:text-brand-white group-hover:border-brand-white'
             />
 
             <svg
@@ -24,7 +27,7 @@ const LoginButton = () => {
               viewBox='0 0 24 24'
               strokeWidth={2}
               stroke='currentColor'
-              className='w-4 h-4 stroke-brand-pink'
+              className='w-4 h-4 stroke-brand-pink transition-color duration-300 group-hover:stroke-brand-white'
               aria-label='Down chevron'
             >
               <path strokeLinecap='round' strokeLinejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' aria-hidden />
@@ -47,7 +50,7 @@ const LoginButton = () => {
             <DropdownMenu.Item asChild>
               <button
                 aria-label='Sign out test'
-                className='grow border-2 border-brand-pink text-brand-pink w-full'
+                className='grow border-2 border-brand-pink text-brand-pink w-full transition-color duration-300 hover:text-brand-white hover:border-brand-white'
                 onClick={() => signOut({ callbackUrl: process.env.NEXT_PUBLIC_ASSET_PREFIX })}
               >
                 Sign out
@@ -61,7 +64,7 @@ const LoginButton = () => {
   return (
     <button
       aria-label='Sign in'
-      className='flex gap-2 items-center text-brand-pink border-brand-pink min-w-[115px]'
+      className='flex gap-2 items-center text-brand-pink border-brand-pink min-w-[115px] transition-color duration-300 hover:text-brand-white hover:border-brand-white'
       onClick={() => signIn('github', { callbackUrl: `${process.env.NEXT_PUBLIC_ASSET_PREFIX}/app/` })}
     >
       <GitHubLogo />
