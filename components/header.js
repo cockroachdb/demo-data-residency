@@ -3,7 +3,7 @@ import { useSession, signOut } from 'next-auth/react'
 
 import SiloLogo from './silo-logo'
 import ActiveLink from './active-link'
-import SignInPortal from './sign-in-button'
+import SignInPortal from './sign-in-portal'
 import SignOutPortal from './sign-out-portal'
 import SignOutButton from './sign-out-button'
 

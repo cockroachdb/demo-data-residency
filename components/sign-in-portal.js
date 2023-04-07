@@ -44,7 +44,12 @@ const SignInPortal = () => {
           </div>
           <div className='flex flex-col gap-8 text-brand-white px-8 pb-8'>
             <div className='flex flex-col gap-2'>
-              <Dialog.Title className='font-[anton] text-2xl sm:text-5xl font-bold text-center text-brand-pink uppercase tracking-[0.6em] pl-[0.6em]'>
+              <Dialog.Title
+                className='text-2xl sm:text-5xl font-bold text-center text-brand-pink uppercase tracking-[0.6em] pl-[0.6em]'
+                style={{
+                  fontFamily: 'anton'
+                }}
+              >
                 Sign in
               </Dialog.Title>
               <Dialog.Description className='text-center'>
