@@ -62,6 +62,9 @@ module.exports = {
           2: '#372e4e'
         }
       },
+      fontFamily: {
+        anton: 'var(--font-anton)'
+      },
       boxShadow: {
         '3xl': '0px 0px 100px 0px rgba(0,0,0,0.75)'
       },
@@ -72,38 +75,38 @@ module.exports = {
               color: theme('colors.brand.white')
             },
             h1: {
-              fontFamily: 'var(--font-anton)',
+              fontFamily: theme('fontFamily.anton'),
               textTransform: 'uppercase',
               color: theme('colors.brand.pink'),
               letterSpacing: '0.6em',
               paddingLeft: '0.6em'
             },
             h2: {
-              fontFamily: 'var(--font-anton)',
+              fontFamily: theme('fontFamily.anton'),
               textTransform: 'uppercase',
               color: theme('colors.brand.pink'),
               letterSpacing: '0.6em',
               paddingLeft: '0.6em'
             },
             h3: {
-              fontFamily: 'var(--font-anton)',
+              fontFamily: theme('fontFamily.anton'),
               textTransform: 'uppercase',
               color: theme('colors.brand.pink'),
               letterSpacing: '0.6em',
               paddingLeft: '0.6em'
             },
             h4: {
-              fontFamily: 'var(--font-anton)',
+              fontFamily: theme('fontFamily.anton'),
               textTransform: 'uppercase',
               color: theme('colors.brand.pink')
             },
             h5: {
-              fontFamily: 'var(--font-anton)',
+              fontFamily: theme('fontFamily.anton'),
               textTransform: 'uppercase',
               color: theme('colors.brand.pink')
             },
             h6: {
-              fontFamily: 'var(--font-anton)',
+              fontFamily: theme('fontFamily.anton'),
               textTransform: 'uppercase',
               color: theme('colors.brand.pink')
             },

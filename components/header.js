@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { useSession, signIn, signOut } from 'next-auth/react'
+import { useSession, signOut } from 'next-auth/react'
 
 import SiloLogo from './silo-logo'
 import ActiveLink from './active-link'
-import LoginButton from './login-button'
-import GitHubLogo from './github-logo'
+import SignInPortal from './sign-in-button'
+import SignOutPortal from './sign-out-portal'
+import SignOutButton from './sign-out-button'
 
 const Header = () => {
   const { data: session } = useSession()
@@ -13,7 +14,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed w-full backdrop-blur h-[86px] z-50 ${
+      className={`fixed w-full backdrop-blur h-[86px] z-30 ${
         isNavOpen ? 'sm:bg-brand-deep-purple/60 bg-brand-deep-purple/90' : 'bg-brand-deep-purple/60'
       }`}
     >
@@ -43,33 +44,14 @@ const Header = () => {
               </li>
             </ul>
           </nav>
+          <div className='block sm:hidden'>{session ? <SignOutButton /> : <SignInPortal />}</div>
           <div className='hidden sm:flex justify-end min-w-[115px]'>
-            <LoginButton />
-          </div>
-          <div className='block sm:hidden'>
-            {session ? (
-              <button
-                aria-label='Sign out'
-                className='flex items-center justify-center text-brand-pink text-center border-brand-pink transition-color duration-300 hover:text-brand-white hover:border-brand-white'
-                onClick={() => signOut({ callbackUrl: process.env.NEXT_PUBLIC_ASSET_PREFIX })}
-              >
-                Sign out
-              </button>
-            ) : (
-              <button
-                aria-label='Sign in'
-                className='flex gap-2 items-center text-brand-pink text-center border-brand-pink transition-color duration-300 hover:text-brand-white hover:border-brand-white'
-                onClick={() => signIn('github', { callbackUrl: `${process.env.NEXT_PUBLIC_ASSET_PREFIX}/app/` })}
-              >
-                <GitHubLogo />
-                Sign in
-              </button>
-            )}
+            {session ? <SignOutPortal /> : <SignInPortal />}
           </div>
         </div>
         <button
           role='button'
-          className='block px-2 border-0 sm:hidden min-w-min'
+          className='block px-2 border-0 text-brand-iridescent-blue in-w-min transition-color duration-300 hover:text-brand-white sm:hidden'
           onClick={() => setIsNavOpen(!isNavOpen)}
         >
           <svg
@@ -78,8 +60,8 @@ const Header = () => {
             viewBox='0 0 24 24'
             strokeWidth='1.5'
             stroke='currentColor'
-            className='w-6 h-6 stroke-brand-iridescent-blue'
-            aria-label='Open menu'
+            className='w-6 h-6 '
+            aria-label={`${isNavOpen ? 'Close menu' : 'Open menu'}`}
           >
             <path
               strokeLinecap='round'
