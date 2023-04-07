@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { useSession, signOut } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 
 import SiloLogo from './silo-logo'
 import ActiveLink from './active-link'
-import SignInPortal from './sign-in-portal'
+import SignInLink from './sign-in-link'
 import SignOutPortal from './sign-out-portal'
 import SignOutButton from './sign-out-button'
 
@@ -44,10 +44,8 @@ const Header = () => {
               </li>
             </ul>
           </nav>
-          <div className='block sm:hidden'>{session ? <SignOutButton /> : <SignInPortal />}</div>
-          <div className='hidden sm:flex justify-end min-w-[115px]'>
-            {session ? <SignOutPortal /> : <SignInPortal />}
-          </div>
+          <div className='block sm:hidden'>{session ? <SignOutButton /> : <SignInLink />}</div>
+          <div className='hidden sm:flex justify-end min-w-[115px]'>{session ? <SignOutPortal /> : <SignInLink />}</div>
         </div>
         <button
           role='button'

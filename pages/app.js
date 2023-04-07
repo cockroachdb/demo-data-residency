@@ -5,7 +5,7 @@ const Page = () => {
   const { data: session } = useSession()
   return (
     <section>
-      <h1 className='m-0 text-center text-6xl sm:text-8xl'>art</h1>
+      <h1 className='m-0 text-center text-6xl md:text-8xl'>art</h1>
       <p className='mx-auto max-w-lg text-center'>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a tincidunt nisl, sed interdum ante
       </p>

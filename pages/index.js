@@ -36,7 +36,7 @@ const Page = () => {
       </section>
       <section>
         <div className='flex flex-col gap-2'>
-          <h2 className='m-0 text-center text-6xl sm:text-8xl text-brand-electric-purple'>how</h2>
+          <h2 className='m-0 text-center text-6xl sm:text-8xl'>how</h2>
           <p className='m-0 text-center mx-auto max-w-lg'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque magna sit amet ligula euismod
             iaculis

@@ -77,38 +77,38 @@ module.exports = {
             h1: {
               fontFamily: theme('fontFamily.anton'),
               textTransform: 'uppercase',
-              color: theme('colors.brand.pink'),
+              color: theme('colors.brand.electric-purple'),
               letterSpacing: '0.6em',
               paddingLeft: '0.6em'
             },
             h2: {
               fontFamily: theme('fontFamily.anton'),
               textTransform: 'uppercase',
-              color: theme('colors.brand.pink'),
+              color: theme('colors.brand.electric-purple'),
               letterSpacing: '0.6em',
               paddingLeft: '0.6em'
             },
             h3: {
               fontFamily: theme('fontFamily.anton'),
               textTransform: 'uppercase',
-              color: theme('colors.brand.pink'),
+              color: theme('colors.brand.electric-purple'),
               letterSpacing: '0.6em',
               paddingLeft: '0.6em'
             },
             h4: {
               fontFamily: theme('fontFamily.anton'),
               textTransform: 'uppercase',
-              color: theme('colors.brand.pink')
+              color: theme('colors.brand.electric-purple')
             },
             h5: {
               fontFamily: theme('fontFamily.anton'),
               textTransform: 'uppercase',
-              color: theme('colors.brand.pink')
+              color: theme('colors.brand.electric-purple')
             },
             h6: {
               fontFamily: theme('fontFamily.anton'),
               textTransform: 'uppercase',
-              color: theme('colors.brand.pink')
+              color: theme('colors.brand.electric-purple')
             },
             p: {
               lineHeight: '1.5rem'
