@@ -10,4 +10,10 @@
   button {
     @apply px-4 py-2 border-2;
   }
+  .heading-lg {
+    @apply !m-0 text-center !text-4xl md:!text-7xl;
+  }
+  .heading-md {
+    @apply !m-0 text-center !text-2xl md:!text-4xl;
+  }
 }

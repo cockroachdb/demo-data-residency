@@ -71,11 +71,12 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            '*:not(h1, h2, h3,h4, h5, h6, svg, path)': {
+            '*:not(h1, h2, h3, h4, h5, h6, svg, path)': {
               color: theme('colors.brand.white')
             },
             h1: {
               fontFamily: theme('fontFamily.anton'),
+              // fontSize: theme('fontSize.6xl')[0],
               textTransform: 'uppercase',
               color: theme('colors.brand.electric-purple'),
               letterSpacing: '0.6em',

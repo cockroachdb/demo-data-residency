@@ -44,7 +44,9 @@ const Header = () => {
               </li>
             </ul>
           </nav>
-          <div className='block sm:hidden'>{session ? <SignOutButton /> : <SignInLink />}</div>
+          <div className='block sm:hidden'>
+            {session ? <SignOutButton /> : <SignInLink onClick={() => setIsNavOpen(!isNavOpen)} />}
+          </div>
           <div className='hidden sm:flex justify-end min-w-[115px]'>{session ? <SignOutPortal /> : <SignInLink />}</div>
         </div>
         <button
