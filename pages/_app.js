@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { SessionProvider } from 'next-auth/react'
 import { Anton } from 'next/font/google'
 
@@ -15,13 +15,20 @@ const anton = Anton({
 
 const App = ({ Component, pageProps: { session, ...pageProps } }) => {
   return (
-    <SessionProvider session={session} basePath={`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/auth`}>
-      <Layout>
-        <main className={`prose max-w-7xl mx-auto px-4 pt-36  pb-16 sm:px-8 ${anton.variable}`}>
-          <Component {...pageProps} />
-        </main>
-      </Layout>
-    </SessionProvider>
+    <Fragment>
+      <style jsx global>{`
+        :root {
+          --font-anton: ${anton.variable};
+        }
+      `}</style>
+      <SessionProvider session={session} basePath={`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/auth`}>
+        <Layout>
+          <main className={`prose max-w-7xl mx-auto px-4 pt-36  pb-16 sm:px-8 ${anton.variable}`}>
+            <Component {...pageProps} />
+          </main>
+        </Layout>
+      </SessionProvider>
+    </Fragment>
   )
 }
 
