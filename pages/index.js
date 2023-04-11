@@ -2,7 +2,6 @@ import React from 'react'
 import Image from 'next/image'
 import { YouTubeLite } from 'react-youtube-lite'
 
-import CockroachLabsLogo from '../components/cockroach-labs-logo'
 import SiloLockup from '../components/silo-lockup'
 import NewsletterForm from '../components/newsletter-form'
 
@@ -13,9 +12,7 @@ const Page = () => {
     <div className='flex flex-col gap-24 sm:gap-48'>
       <section className='flex flex-col gap-8 justify-items-center'>
         <SiloLockup className='max-w-4xl h-auto mx-auto' />
-        <div className='mx-auto'>
-          <CockroachLabsLogo color='brand-white' className='w-[160px]' />
-        </div>
+
         <div className='flex flex-col gap-2'>
           <h1 className='m-0 text-brand-white text-xl text-center normal-case tracking-normal font-sans'>
             The Art of Data Residency and Application Architecture.
@@ -26,7 +23,7 @@ const Page = () => {
               href='https://www.cockroachlabs.com/product/'
               target='_blank'
               rel='noopener'
-              className='font-bold text-brand-iridescent-blue transition-color duration-300 hover:text-brand-white'
+              className='text-brand-iridescent-blue transition-color duration-300 hover:text-brand-white'
             >
               CockroachDB Serverless
             </a>{' '}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useSession } from 'next-auth/react'
 
-import SiloLogo from './silo-logo'
+import CockroachLabsLogo from './cockroach-labs-logo'
 import ActiveLink from './active-link'
 import SignInLink from './sign-in-link'
 import SignOutPortal from './sign-out-portal'
@@ -19,7 +19,7 @@ const Header = () => {
       }`}
     >
       <div className='flex items-center justify-between max-w-7xl mx-auto px-4 py-4 sm:px-8'>
-        <SiloLogo className='w-[110px]' />
+        <CockroachLabsLogo color='brand-white' className='w-[160px]' />
         <div
           className={`absolute sm:relative w-full sm:w-auto py-8 sm:py-0 top-[72px] sm:top-0 left-0 flex-col sm:flex-row items-center grow gap-8 sm:gap-0 bg-brand-deep-purple/90 border-b sm:sm:border-b-transparent sm:bg-transparent ${
             isNavOpen ? 'border-b-brand-evening-hush/50 flex' : 'hidden sm:flex'
