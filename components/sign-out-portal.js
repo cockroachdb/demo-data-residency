@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSession, signOut } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import SignOutButton from './sign-out-button'
 
@@ -40,7 +40,7 @@ const SignOutPortal = () => {
         >
           <DropdownMenu.Item disabled>
             <span className='block text-center text-xs text-brand-white'>{`Signed in with ${session.user.provider}`}</span>
-            <strong className='block text-center font-bold text-lg text-brand-white'>{`@${session.user.user_name}`}</strong>
+            <strong className='block text-center font-bold text-lg text-brand-white'>{session.user.name}</strong>
           </DropdownMenu.Item>
 
           <DropdownMenu.Separator className='w-full h-px my-4 bg-depth-1' />

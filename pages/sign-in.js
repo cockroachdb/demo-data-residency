@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { useSession, signIn } from 'next-auth/react'
 
 import GitHubLogo from '../components/github-logo'
-import TwitterLogo from '../components/twitter-logo'
+import LinkedInLogo from '../components/linkedin-logo'
 
 const Page = () => {
   const { data: session } = useSession()
@@ -27,10 +27,10 @@ const Page = () => {
             role='button'
             aria-label='Sign in with Twitter'
             className='flex gap-2 items-center justify-center text-brand-iridescent-blue text-center border-brand-iridescent-blue transition-color duration-300 hover:text-brand-white hover:border-brand-white'
-            onClick={() => signIn('twitter', { callbackUrl: `${process.env.NEXT_PUBLIC_ASSET_PREFIX}/app/` })}
+            onClick={() => signIn('linkedin', { callbackUrl: `${process.env.NEXT_PUBLIC_ASSET_PREFIX}/app/` })}
           >
-            <TwitterLogo />
-            Twitter
+            <LinkedInLogo />
+            LinkedIn
           </button>
           <button
             role='button'
