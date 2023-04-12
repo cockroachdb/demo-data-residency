@@ -57,9 +57,9 @@ module.exports = {
           'neutral-100': '#dee4fa'
         },
         depth: {
-          0: '#271d40',
-          1: '#312849',
-          2: '#372e4e'
+          0: '#170e30',
+          1: '#1e1536',
+          2: '#2f2745'
         }
       },
       fontFamily: {
@@ -67,6 +67,10 @@ module.exports = {
       },
       boxShadow: {
         '3xl': '0px 0px 100px 0px rgba(0,0,0,0.75)'
+      },
+      maxWidth: {
+        '8xl': '88rem',
+        '9xl': '96rem'
       },
       typography: (theme) => ({
         DEFAULT: {

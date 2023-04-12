@@ -1,0 +1,48 @@
+{
+  "us": [
+    {
+      "location": "Select an image...",
+      "credit": "",
+      "licence": "",
+      "source_url": "",
+      "s3_url": "placeholder.jpg"
+    },
+    {
+      "location": "World Trade Center, New York City, United States",
+      "credit": "Cody Fitzgerald",
+      "licence": "Free to use under the Unsplash License",
+      "source_url": "https://unsplash.com/photos/pyBBs3ftqjg",
+      "s3_url": "https---unsplash.com-photos-pyBBs3ftqjg.jpg"
+    },
+    {
+      "location": "300 Court Avenue, Memphis, TN, USA",
+      "credit": "Khara Woods",
+      "licence": "Free to use under the Unsplash License",
+      "source_url": "https://unsplash.com/photos/18RFbOQGCi0",
+      "s3_url": "https---unsplash.com-photos-18RFbOQGCi0.jpg"
+    }
+  ],
+  "eu": [
+    {
+      "location": "Select an image...",
+      "credit": "",
+      "licence": "",
+      "source_url": "",
+      "s3_url": "placeholder.jpg"
+    },
+    {
+      "location": "Madrid, Spain",
+      "credit": "Joel Filipe",
+      "licence": "Free to use under the Unsplash License",
+      "source_url": "https://unsplash.com/photos/JK7RP-YtSac",
+      "s3_url": "https---unsplash.com-photos-JK7RP-YtSac.jpg"
+    },
+    {
+      "location": "Dresden, Dresden, Germany",
+      "credit": "Fernando Lavin",
+      "licence": "Free to use under the Unsplash License",
+      "source_url": "https://unsplash.com/photos/PENfAtH_wVw",
+      "s3_url": "https---unsplash.com-photos-PENfAtH_wVw.jpg"
+    }
+  ]
+}

@@ -18,7 +18,7 @@ const Header = () => {
         isNavOpen ? 'sm:bg-brand-deep-purple/60 bg-brand-deep-purple/90' : 'bg-brand-deep-purple/60'
       }`}
     >
-      <div className='flex items-center justify-between max-w-7xl mx-auto px-4 py-4 sm:px-8'>
+      <div className='flex items-center justify-between max-w-9xl mx-auto px-4 py-4 sm:px-8'>
         <CockroachLabsLogo color='brand-white' className='w-[160px]' />
         <div
           className={`absolute sm:relative w-full sm:w-auto py-8 sm:py-0 top-[72px] sm:top-0 left-0 flex-col sm:flex-row items-center grow gap-8 sm:gap-0 bg-brand-deep-purple/90 border-b sm:sm:border-b-transparent sm:bg-transparent ${
