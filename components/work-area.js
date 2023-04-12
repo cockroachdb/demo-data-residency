@@ -104,7 +104,7 @@ const WorkArea = ({ country }) => {
                         sideOffset={-60}
                         alignOffset={20}
                         trigger={
-                          <Select.Trigger className='p-0 aspect-square hover:bg-depth-2 border'>
+                          <Select.Trigger className='p-0 aspect-square bg-brand-deep-purple hover:bg-depth-2 border border-brand-evening-hush'>
                             <svg
                               key={index}
                               xmlns='http://www.w3.org/2000/svg'
@@ -164,7 +164,7 @@ const WorkArea = ({ country }) => {
                         sideOffset={-60}
                         alignOffset={20}
                         trigger={
-                          <Select.Trigger className='p-0 aspect-square hover:bg-depth-2 border'>
+                          <Select.Trigger className='p-0 aspect-square bg-brand-deep-purple hover:bg-depth-2 border border-brand-evening-hush'>
                             <svg
                               key={index}
                               xmlns='http://www.w3.org/2000/svg'

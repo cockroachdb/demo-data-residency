@@ -6,7 +6,7 @@ import hex from '../public/svg-hex.json'
 
 const defaultUsColors = new Array(15).fill('none')
 const defaultEuColors = new Array(15).fill('none')
-const defaultShapes = new Array(15).fill(shapes[0])
+const defaultShapes = new Array(15).fill(shapes[24])
 const defaultGrid = new Array(15).fill('')
 
 export const AppContext = createContext()
