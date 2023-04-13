@@ -1,8 +1,9 @@
 import React, { createContext, useState } from 'react'
 
 import images from '../public/source-images.json'
-import shapes from '../public/svg-paths.json'
+import shapes from '../public/shape-paths.json'
 import hex from '../public/svg-hex.json'
+import patterns from '../public/pattern-paths.json'
 
 const defaultUsColors = new Array(15).fill('none')
 const defaultEuColors = new Array(15).fill('none')
@@ -24,6 +25,12 @@ export const AppProvider = ({ children }) => {
       url: images.eu[0].s3_url,
       colors: [...defaultEuColors],
       shapes: [...defaultShapes]
+    },
+    global: {
+      pattern: {
+        name: patterns[0].name,
+        paths: patterns[0].paths
+      }
     }
   })
 
@@ -57,6 +64,17 @@ export const AppProvider = ({ children }) => {
     }))
   }
 
+  const handlePatternChange = (event) => {
+    setValues((prevState) => ({
+      ...prevState,
+      global: {
+        pattern: {
+          ...event
+        }
+      }
+    }))
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -71,9 +89,11 @@ export const AppProvider = ({ children }) => {
           us: hex.us,
           eu: hex.eu
         },
+        patterns: patterns.filter((pattern) => pattern.paths.length),
         handleImageChange,
         handleShapeChange,
-        handleColorChange
+        handleColorChange,
+        handlePatternChange
       }}
     >
       {children}

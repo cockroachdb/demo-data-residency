@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import Image from 'next/image'
 import * as Select from '@radix-ui/react-select'
 
 import { imageLoader } from '../utils/image-loader'
-
 import { AppContext } from '../context/app-context'
+
 import RadixSelect from './radix-select'
 
-const WorkArea = ({ country }) => {
+const RegionInterface = ({ country }) => {
   return (
     <AppContext.Consumer>
       {({ grid, values, images, shapes, hex, handleImageChange, handleShapeChange, handleColorChange }) => {
@@ -52,6 +52,21 @@ const WorkArea = ({ country }) => {
                     height={300}
                     className='absolute m-0 top-0 z-0  border border-brand-evening-hush w-full'
                   />
+                  <svg
+                    viewBox='0 0 500 300'
+                    xmlns='http://www.w3.org/2000/svg'
+                    className='absolute top-0 left-0 fill-brand-black/10'
+                  >
+                    <defs>
+                      <pattern id='pattern' viewBox='0,0,200,200' width='20%' height='20%'>
+                        {values.global.pattern.paths.map((path, index) => {
+                          return <path key={index} d={path} />
+                        })}
+                      </pattern>
+                    </defs>
+
+                    <rect width={500} height={300} fill='url(#pattern)' />
+                  </svg>
                   <div>
                     <RadixSelect
                       trigger={
@@ -85,7 +100,7 @@ const WorkArea = ({ country }) => {
                                 name: location,
                                 url: s3_url
                               }}
-                              className='px-4 py-2 whitespace-nowrap cursor-pointer bg-brand-deep-purple'
+                              className='px-4 py-3 whitespace-nowrap cursor-pointer bg-brand-deep-purple border-b border-b-brand-evening-hush/30 hover:bg-depth-2'
                             >
                               {location}
                             </Select.Item>
@@ -138,7 +153,11 @@ const WorkArea = ({ country }) => {
                             const { paths } = shape
 
                             return (
-                              <Select.Item key={index} value={index} className='p-4 w-16 h-16 cursor-pointer'>
+                              <Select.Item
+                                key={index}
+                                value={index}
+                                className='p-4 w-16 h-16 cursor-pointer hover:bg-depth-2'
+                              >
                                 <svg
                                   xmlns='http://www.w3.org/2000/svg'
                                   fill='currentColor'
@@ -193,7 +212,11 @@ const WorkArea = ({ country }) => {
                         <Select.Group>
                           {hex[country].map((color, index) => {
                             return (
-                              <Select.Item key={index} value={color} className='p-4 w-16 h-16 cursor-pointer'>
+                              <Select.Item
+                                key={index}
+                                value={color}
+                                className='p-4 w-16 h-16 cursor-pointer hover:bg-depth-2'
+                              >
                                 <svg
                                   xmlns='http://www.w3.org/2000/svg'
                                   fill='currentColor'
@@ -225,9 +248,9 @@ const WorkArea = ({ country }) => {
   )
 }
 
-WorkArea.propTypes = {
+RegionInterface.propTypes = {
   /** name of country  */
   country: PropTypes.string.isRequired
 }
 
-export default WorkArea
+export default RegionInterface

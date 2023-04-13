@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useSession } from 'next-auth/react'
 
-import WorkArea from '../components/work-area'
-import RegionHeading from '../components/region-heading'
 import { AppContext } from '../context/app-context'
+
+import RegionInterface from '../components/region-interface'
+import RegionHeading from '../components/region-heading'
+import GlobalInterface from '../components/global-interface'
 
 const Page = () => {
   const { data: session } = useSession()
@@ -31,12 +33,12 @@ const Page = () => {
                 </small>
               </div>
               <RegionHeading flag='🇺🇸' country='USA' region='us-east-1 | (N. Virginia)' />
-              <WorkArea country='us' />
+              <RegionInterface country='us' />
             </div>
 
             <div className='flex flex-col gap-8'>
               <RegionHeading flag='🇺🇸' country='USA' region='us-west-2 | (Oregon)' />
-              <WorkArea country='us' />
+              <RegionInterface country='us' />
             </div>
           </div>
 
@@ -51,7 +53,7 @@ const Page = () => {
                 </small>
               </div>
               <RegionHeading flag='🇩🇪' country='Germany' region='eu-central-1 | (Frankfurt)' />
-              <WorkArea country='eu' />
+              <RegionInterface country='eu' />
             </div>
           </div>
         </div>
@@ -71,23 +73,30 @@ const Page = () => {
               <RegionHeading flag='🇺🇸' country='USA' region='us-west-2 | (Oregon)' />
               <RegionHeading flag='🇩🇪' country='Germany' region='eu-central-1 | (Frankfurt)' />
             </div>
+            <div className='grid gap-8 grid-cols-1 lg:grid-cols-3'>
+              <GlobalInterface />
+              <div />
+              <div />
+            </div>
           </div>
         </div>
       </article>
 
       <article className='flex flex-col gap-4'>
-        <h2 className='heading-lg'>data</h2>
-        <p className='mx-auto my-0 max-w-lg text-center'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a tincidunt nisl, sed interdum ante
-        </p>
+        <div>
+          <h2 className='heading-lg'>data</h2>
+          <p className='mx-auto my-0 max-w-lg text-center'>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a tincidunt nisl, sed interdum ante
+          </p>
+        </div>
       </article>
-      {/* <article>
+      <article>
         <AppContext.Consumer>
           {({ values }) => {
             return <pre>{JSON.stringify(values, null, 2)}</pre>
           }}
         </AppContext.Consumer>
-      </article> */}
+      </article>
     </section>
   )
 }
