@@ -14,88 +14,91 @@ const WorkArea = ({ country }) => {
       {({ grid, values, images, shapes, hex, handleImageChange, handleShapeChange, handleColorChange }) => {
         return (
           <div className='flex flex-col gap-8'>
-            <div className='grid gap-8 lg:grid-cols-3'>
-              <div className='relative flex flex-col gap-8'>
-                <div className='relative grid grid-cols-5 z-10'>
-                  {grid.map((_, index) => {
-                    return (
-                      <svg
-                        key={index}
-                        xmlns='http://www.w3.org/2000/svg'
-                        fill='currentColor'
-                        viewBox='0 0 200 200'
-                        aria-label='Art Shape'
-                      >
-                        {values[country].shapes[index].paths.map((path, p) => {
-                          return (
-                            <path
-                              data-shape-name={values[country].shapes[index].name}
-                              key={p}
-                              d={path}
-                              style={{
-                                fill: values[country].colors[index]
-                              }}
-                            />
-                          )
-                        })}
-                      </svg>
-                    )
-                  })}
-                </div>
-                <Image
-                  loader={imageLoader}
-                  src={values[country].url}
-                  alt={values[country].name}
-                  width={500}
-                  height={300}
-                  className='absolute m-0 top-0 z-0 w-full'
-                />
-                <div>
-                  <RadixSelect
-                    trigger={
-                      <Select.Trigger className='inline-flex items-center justify-between text-left px-4 gap-4 bg-brand-deep-purple border-brand-evening-hush text-brand-evening-hush hover:bg-depth-0'>
-                        <Select.Value aria-label={values[country].name}>
-                          <span className='block whitespace-nowrap overflow-hidden text-ellipsis w-64'>
+            <div className='grid gap-8 grid-cols-1 lg:grid-cols-3'>
+              <div className='flex flex-col gap-4'>
+                <strong className='text-brand-evening-hush'>Image</strong>
+                <div className='relative flex flex-col gap-8'>
+                  <div className='relative grid grid-cols-5 z-10'>
+                    {grid.map((_, index) => {
+                      return (
+                        <svg
+                          key={index}
+                          xmlns='http://www.w3.org/2000/svg'
+                          fill='currentColor'
+                          viewBox='0 0 200 200'
+                          aria-label='Art Shape'
+                        >
+                          {values[country].shapes[index].paths.map((path, p) => {
+                            return (
+                              <path
+                                data-shape-name={values[country].shapes[index].name}
+                                key={p}
+                                d={path}
+                                style={{
+                                  fill: values[country].colors[index]
+                                }}
+                              />
+                            )
+                          })}
+                        </svg>
+                      )
+                    })}
+                  </div>
+                  <Image
+                    loader={imageLoader}
+                    src={values[country].url}
+                    alt={values[country].name}
+                    width={500}
+                    height={300}
+                    className='absolute m-0 top-0 z-0 w-full'
+                  />
+                  <div>
+                    <RadixSelect
+                      trigger={
+                        <Select.Trigger className='flex items-center justify-between text-left px-4 gap-4 bg-brand-deep-purple border-brand-evening-hush text-brand-evening-hush hover:bg-depth-0 w-full'>
+                          <span aria-label={values[country].name} className='pointer-events-none truncate'>
                             {values[country].name}
                           </span>
-                        </Select.Value>
-                        <Select.Icon>
-                          <svg
-                            xmlns='http://www.w3.org/2000/svg'
-                            viewBox='0 0 24 24'
-                            strokeWidth={1.5}
-                            fill='currentColor'
-                            className='w-6 h-6'
-                          >
-                            <path strokeLinecap='round' strokeLinejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' />
-                          </svg>
-                        </Select.Icon>
-                      </Select.Trigger>
-                    }
-                    value={values[country].name}
-                    onChange={(event) => handleImageChange(event, country)}
-                  >
-                    <Select.Group>
-                      {images[country].map((item, index) => {
-                        const { location, s3_url } = item
-                        return (
-                          <Select.Item
-                            key={index}
-                            value={{
-                              name: location,
-                              url: s3_url
-                            }}
-                            className='p-2 whitespace-nowrap cursor-pointer bg-brand-deep-purple hover:bg-depth-0'
-                          >
-                            {location}
-                          </Select.Item>
-                        )
-                      })}
-                    </Select.Group>
-                  </RadixSelect>
+                          <Select.Icon className='text-brand-pink'>
+                            <svg
+                              xmlns='http://www.w3.org/2000/svg'
+                              viewBox='0 0 24 24'
+                              strokeWidth={1.5}
+                              fill='currentColor'
+                              className='w-6 h-6'
+                            >
+                              <path strokeLinecap='round' strokeLinejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' />
+                            </svg>
+                          </Select.Icon>
+                        </Select.Trigger>
+                      }
+                      value={values[country].name}
+                      onChange={(event) => handleImageChange(event, country)}
+                    >
+                      <Select.Group>
+                        {images[country].map((item, index) => {
+                          const { location, s3_url } = item
+                          return (
+                            <Select.Item
+                              key={index}
+                              value={{
+                                name: location,
+                                url: s3_url
+                              }}
+                              className='px-4 py-2 whitespace-nowrap cursor-pointer bg-brand-deep-purple'
+                            >
+                              {location}
+                            </Select.Item>
+                          )
+                        })}
+                      </Select.Group>
+                    </RadixSelect>
+                  </div>
                 </div>
               </div>
-              <div>
+
+              <div className='flex flex-col gap-4'>
+                <strong className='text-brand-evening-hush'>Shapes</strong>
                 <div className='relative grid grid-cols-5'>
                   {grid.map((_, index) => {
                     return (
@@ -155,7 +158,9 @@ const WorkArea = ({ country }) => {
                   })}
                 </div>
               </div>
-              <div>
+
+              <div className='flex flex-col gap-4'>
+                <strong className='text-brand-evening-hush'>Colors</strong>
                 <div className='grid grid-cols-5'>
                   {grid.map((_, index) => {
                     return (

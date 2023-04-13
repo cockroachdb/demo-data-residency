@@ -12,7 +12,7 @@ const RadixSelect = ({ trigger, sideOffset, alignOffset, value, onChange, childr
         sideOffset={sideOffset}
         className='bg-depth-0 border-2 border-brand-evening-hush overscroll-auto h-[260px] z-30'
       >
-        <Select.ScrollUpButton className='p-1 hover:bg-depth-2'>
+        <Select.ScrollUpButton className='p-1 text-brand-pink hover:bg-depth-2'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 24 24'
@@ -24,7 +24,7 @@ const RadixSelect = ({ trigger, sideOffset, alignOffset, value, onChange, childr
           </svg>
         </Select.ScrollUpButton>
         <Select.Viewport>{children}</Select.Viewport>
-        <Select.ScrollDownButton className='p-1 hover:bg-depth-2'>
+        <Select.ScrollDownButton className='p-1 text-brand-pink hover:bg-depth-2'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 24 24'
