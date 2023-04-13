@@ -50,7 +50,7 @@ const WorkArea = ({ country }) => {
                     alt={values[country].name}
                     width={500}
                     height={300}
-                    className='absolute m-0 top-0 z-0 w-full'
+                    className='absolute m-0 top-0 z-0  border border-brand-evening-hush w-full'
                   />
                   <div>
                     <RadixSelect

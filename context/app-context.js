@@ -14,14 +14,14 @@ export const AppContext = createContext()
 export const AppProvider = ({ children }) => {
   const [values, setValues] = useState({
     us: {
-      name: images.us[1].location,
-      url: images.us[1].s3_url,
+      name: images.us[0].location,
+      url: images.us[0].s3_url,
       colors: [...defaultUsColors],
       shapes: [...defaultShapes]
     },
     eu: {
-      name: images.eu[1].location,
-      url: images.eu[1].s3_url,
+      name: images.eu[0].location,
+      url: images.eu[0].s3_url,
       colors: [...defaultEuColors],
       shapes: [...defaultShapes]
     }

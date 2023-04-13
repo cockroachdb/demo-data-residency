@@ -5,21 +5,77 @@
       "credit": "",
       "licence": "",
       "source_url": "",
-      "s3_url": "placeholder.jpg"
-    },
-    {
-      "location": "World Trade Center, New York City, United States",
-      "credit": "Cody Fitzgerald",
-      "licence": "Free to use under the Unsplash License",
-      "source_url": "https://unsplash.com/photos/pyBBs3ftqjg",
-      "s3_url": "https---unsplash.com-photos-pyBBs3ftqjg.jpg"
+      "s3_url": "a-placeholder.jpg"
     },
     {
       "location": "300 Court Avenue, Memphis, TN, USA",
       "credit": "Khara Woods",
       "licence": "Free to use under the Unsplash License",
       "source_url": "https://unsplash.com/photos/18RFbOQGCi0",
-      "s3_url": "https---unsplash.com-photos-18RFbOQGCi0.jpg"
+      "s3_url": "us-https___unsplash.com_photos_18RFbOQGCi0.jpg"
+    },
+    {
+      "location": "World Trade Center, Manhattan, New York, NY, USA",
+      "credit": "Donny Jiang",
+      "licence": "Free to use under the Unsplash License",
+      "source_url": "https://unsplash.com/photos/42gFAgdIUC8",
+      "s3_url": "us-https___unsplash.com_photos_42gFAgdIUC8.jpg"
+    },
+    {
+      "location": "The Broad, Los Angeles, United States",
+      "credit": "Julien Moreau",
+      "licence": "Free to use under the Unsplash License",
+      "source_url": "https://unsplash.com/photos/688Fna1pwOQ",
+      "s3_url": "us-https___unsplash.com_photos_688Fna1pwOQ.jpg"
+    },
+    {
+      "location": "City Hall Plaza, Boston, MA, USA",
+      "credit": "Mark McLaughlin",
+      "licence": "Free to use under the Unsplash License",
+      "source_url": "https://unsplash.com/photos/8_UDWAPHISM",
+      "s3_url": "us-https___unsplash.com_photos_8_UDWAPHISM.jpg"
+    },
+    {
+      "location": "10700 N Tantau Ave, Cupertino, CA 95014, USA",
+      "credit": "Patrick Schneider",
+      "licence": "Free to use under the Unsplash License",
+      "source_url": "https://unsplash.com/photos/kYqO-zK3esU",
+      "s3_url": "us-https___unsplash.com_photos_kYqO-zK3esU.jpg"
+    },
+    {
+      "location": "Los Angeles, United States",
+      "credit": "Kimon Maritz",
+      "licence": "Free to use under the Unsplash License",
+      "source_url": "https://unsplash.com/photos/mQiZnKwGXW0",
+      "s3_url": "us-https___unsplash.com_photos_mQiZnKwGXW0.jpg"
+    },
+    {
+      "location": "World Trade Center, New York City, United States",
+      "credit": "Cody Fitzgerald",
+      "licence": "Free to use under the Unsplash License",
+      "source_url": "https://unsplash.com/photos/pyBBs3ftqjg",
+      "s3_url": "us-https___unsplash.com_photos_pyBBs3ftqjg.jpg"
+    },
+    {
+      "location": "The Rock and Roll Hall of Fame and Museum, Cleveland, USA",
+      "credit": "Lance Anderson",
+      "licence": "Free to use under the Unsplash License",
+      "source_url": "https://unsplash.com/photos/QdAAasrZhdk",
+      "s3_url": "us-https___unsplash.com_photos_QdAAasrZhdk.jpg"
+    },
+    {
+      "location": "Breuer Building, 945 Madison Avenue",
+      "credit": "Rohit Tandon",
+      "licence": "Free to use under the Unsplash License",
+      "source_url": "https://unsplash.com/photos/RUWDb3w67YE",
+      "s3_url": "us-https___unsplash.com_photos_RUWDb3w67YE.jpg"
+    },
+    {
+      "location": "Boston, MA, USA",
+      "credit": "Leon Bredella",
+      "licence": "Free to use under the Unsplash License",
+      "source_url": "https://unsplash.com/photos/vs1rD1fWOgw",
+      "s3_url": "us-https___unsplash.com_photos_vs1rD1fWOgw.jpg"
     }
   ],
   "eu": [
@@ -28,21 +84,77 @@
       "credit": "",
       "licence": "",
       "source_url": "",
-      "s3_url": "placeholder.jpg"
+      "s3_url": "a-placeholder.jpg"
     },
     {
-      "location": "Madrid, Spain",
+      "location": "Paris, France",
+      "credit": "Pierre Châtel-Innocenti",
+      "licence": "Free to use under the Unsplash License",
+      "source_url": "https://unsplash.com/photos/2MoEcGNUj-I",
+      "s3_url": "eu-https___unsplash.com_photos_2MoEcGNUj-I.jpg"
+    },
+    {
+      "location": "Perrache - Charlemagne, Lyon, Auvergne-Rhône-Alpes, France",
+      "credit": "David Werbrouck",
+      "licence": "Free to use under the Unsplash License",
+      "source_url": "https://unsplash.com/photos/hxhZMwfiGdQ",
+      "s3_url": "eu-https___unsplash.com_photos_hxhZMwfiGdQ.jpg"
+    },
+    {
+      "location": "Zurich, Switzerland",
+      "credit": "Ricardo Gomez Angel",
+      "licence": "Free to use under the Unsplash License",
+      "source_url": "https://unsplash.com/photos/jIh1QFf1naY",
+      "s3_url": "eu-https___unsplash.com_photos_jIh1QFf1naY.jpg"
+    },
+    {
+      "location": "Madrid, Spain 1",
       "credit": "Joel Filipe",
       "licence": "Free to use under the Unsplash License",
       "source_url": "https://unsplash.com/photos/JK7RP-YtSac",
-      "s3_url": "https---unsplash.com-photos-JK7RP-YtSac.jpg"
+      "s3_url": "eu-https___unsplash.com_photos_JK7RP-YtSac.jpg"
     },
     {
-      "location": "Dresden, Dresden, Germany",
+      "location": "Madrid, Spain 2",
+      "credit": "Joel Filipe",
+      "licence": "Free to use under the Unsplash License",
+      "source_url": "https://unsplash.com/photos/kt7Y-Z8FQZY",
+      "s3_url": "eu-https___unsplash.com_photos_kt7Y-Z8FQZY.jpg"
+    },
+    {
+      "location": "La Défense, France",
+      "credit": "Pierre Châtel-Innocenti",
+      "licence": "Free to use under the Unsplash License",
+      "source_url": "https://unsplash.com/photos/Lk-nu_hX6ms",
+      "s3_url": "eu-https___unsplash.com_photos_Lk-nu_hX6ms.jpg"
+    },
+    {
+      "location": "Dresden, Dresden, Germany 1",
       "credit": "Fernando Lavin",
       "licence": "Free to use under the Unsplash License",
       "source_url": "https://unsplash.com/photos/PENfAtH_wVw",
-      "s3_url": "https---unsplash.com-photos-PENfAtH_wVw.jpg"
+      "s3_url": "eu-https___unsplash.com_photos_PENfAtH_wVw.jpg"
+    },
+    {
+      "location": "Tuletorget, Sundbyberg, Sweden",
+      "credit": "Anders Jildén",
+      "licence": "Free to use under the Unsplash License",
+      "source_url": "https://unsplash.com/photos/Sc5RKXLBjGg",
+      "s3_url": "eu-https___unsplash.com_photos_Sc5RKXLBjGg.jpg"
+    },
+    {
+      "location": "Station Madrid - Puerta de Atocha, Madrid, Spain",
+      "credit": "Martin Grincevschi",
+      "licence": "Free to use under the Unsplash License",
+      "source_url": "https://unsplash.com/photos/uCnOENPOBxM",
+      "s3_url": "eu-https___unsplash.com_photos_uCnOENPOBxM.jpg"
+    },
+    {
+      "location": "Dresden, Dresden, Germany 2",
+      "credit": "Fernando Lavin",
+      "licence": "Free to use under the Unsplash License",
+      "source_url": "https://unsplash.com/photos/zX9HqgAZdqM",
+      "s3_url": "eu-https___unsplash.com_photos_zX9HqgAZdqM.jpg"
     }
   ]
 }
