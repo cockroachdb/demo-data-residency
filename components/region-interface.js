@@ -26,26 +26,27 @@ const RegionInterface = ({ country }) => {
                     <div className='relative grid grid-cols-5 z-10'>
                       {grid.map((_, index) => {
                         return (
-                          <svg
-                            key={index}
-                            xmlns='http://www.w3.org/2000/svg'
-                            fill='currentColor'
-                            viewBox='0 0 200 200'
-                            aria-label='Art Shape'
-                          >
-                            {values[country].shapes[index].paths.map((path, p) => {
-                              return (
-                                <path
-                                  data-shape-name={values[country].shapes[index].name}
-                                  key={p}
-                                  d={path}
-                                  style={{
-                                    fill: values[country].colors[index]
-                                  }}
-                                />
-                              )
-                            })}
-                          </svg>
+                          <div key={index}>
+                            <svg
+                              xmlns='http://www.w3.org/2000/svg'
+                              fill='currentColor'
+                              viewBox='0 0 200 200'
+                              aria-label='Art Shape'
+                            >
+                              {values[country].shapes[index].paths.map((path, p) => {
+                                return (
+                                  <path
+                                    data-shape-name={values[country].shapes[index].name}
+                                    key={p}
+                                    d={path}
+                                    style={{
+                                      fill: values[country].colors[index]
+                                    }}
+                                  />
+                                )
+                              })}
+                            </svg>
+                          </div>
                         )
                       })}
                     </div>
