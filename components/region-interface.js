@@ -95,7 +95,7 @@ const RegionInterface = ({ country }) => {
                       value={values[country].name}
                       onChange={(event) => handleImageChange(event, country)}
                     >
-                      <Select.Group>
+                      <Select.Group className='max-w-[220px]'>
                         {images[country].map((item, index) => {
                           const { location, s3_url } = item
                           return (
@@ -105,7 +105,7 @@ const RegionInterface = ({ country }) => {
                                 name: location,
                                 url: s3_url
                               }}
-                              className='px-4 py-3 whitespace-nowrap cursor-pointer bg-brand-deep-purple border-b border-b-brand-evening-hush/30 hover:bg-depth-2'
+                              className='px-4 py-3 whitespace-nowrap cursor-pointer bg-brand-deep-purple border-b border-b-brand-evening-hush/30 hover:bg-depth-2 truncate'
                             >
                               {location}
                             </Select.Item>
