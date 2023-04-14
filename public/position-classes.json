@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Select an position...",
+    "classes": "top-2 left-2"
+  },
+  {
+    "name": "Top Left",
+    "classes": "top-2 left-2"
+  },
+  {
+    "name": "Top Right",
+    "classes": "top-2 right-2"
+  },
+  {
+    "name": "Bottom Left",
+    "classes": "bottom-2 left-2"
+  },
+  {
+    "name": "Bottom Right",
+    "classes": "bottom-2 right-2"
+  }
+]

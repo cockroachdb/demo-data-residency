@@ -7,6 +7,7 @@ import { imageLoader } from '../utils/image-loader'
 import { AppContext } from '../context/app-context'
 
 import RadixSelect from './radix-select'
+import CockroachLabsIcon from './cockroach-labs-icon'
 
 const RegionInterface = ({ country }) => {
   return (
@@ -18,55 +19,59 @@ const RegionInterface = ({ country }) => {
               <div className='flex flex-col gap-4'>
                 <strong className='text-brand-evening-hush'>Image</strong>
                 <div className='relative flex flex-col gap-8'>
-                  <div className='relative grid grid-cols-5 z-10'>
-                    {grid.map((_, index) => {
-                      return (
-                        <svg
-                          key={index}
-                          xmlns='http://www.w3.org/2000/svg'
-                          fill='currentColor'
-                          viewBox='0 0 200 200'
-                          aria-label='Art Shape'
-                        >
-                          {values[country].shapes[index].paths.map((path, p) => {
-                            return (
-                              <path
-                                data-shape-name={values[country].shapes[index].name}
-                                key={p}
-                                d={path}
-                                style={{
-                                  fill: values[country].colors[index]
-                                }}
-                              />
-                            )
+                  <div className='relative border border-brand-evening-hush'>
+                    <CockroachLabsIcon
+                      className={`absolute w-8 h-8 xl:w-10 xl:h-10 z-20 ${values.global.position.classes}`}
+                    />
+                    <div className='relative grid grid-cols-5 z-10'>
+                      {grid.map((_, index) => {
+                        return (
+                          <svg
+                            key={index}
+                            xmlns='http://www.w3.org/2000/svg'
+                            fill='currentColor'
+                            viewBox='0 0 200 200'
+                            aria-label='Art Shape'
+                          >
+                            {values[country].shapes[index].paths.map((path, p) => {
+                              return (
+                                <path
+                                  data-shape-name={values[country].shapes[index].name}
+                                  key={p}
+                                  d={path}
+                                  style={{
+                                    fill: values[country].colors[index]
+                                  }}
+                                />
+                              )
+                            })}
+                          </svg>
+                        )
+                      })}
+                    </div>
+                    <Image
+                      loader={imageLoader}
+                      src={values[country].url}
+                      alt={values[country].name}
+                      width={500}
+                      height={300}
+                      className='absolute m-0 top-0 z-0 w-full'
+                    />
+                    <svg
+                      viewBox='0 0 500 300'
+                      xmlns='http://www.w3.org/2000/svg'
+                      className='absolute top-0 left-0 fill-brand-black/10'
+                    >
+                      <defs>
+                        <pattern id='pattern' viewBox='0,0,200,200' width='20%' height='20%'>
+                          {values.global.pattern.paths.map((path, index) => {
+                            return <path key={index} d={path} />
                           })}
-                        </svg>
-                      )
-                    })}
+                        </pattern>
+                      </defs>
+                      <rect width={500} height={300} fill='url(#pattern)' />
+                    </svg>
                   </div>
-                  <Image
-                    loader={imageLoader}
-                    src={values[country].url}
-                    alt={values[country].name}
-                    width={500}
-                    height={300}
-                    className='absolute m-0 top-0 z-0  border border-brand-evening-hush w-full'
-                  />
-                  <svg
-                    viewBox='0 0 500 300'
-                    xmlns='http://www.w3.org/2000/svg'
-                    className='absolute top-0 left-0 fill-brand-black/10'
-                  >
-                    <defs>
-                      <pattern id='pattern' viewBox='0,0,200,200' width='20%' height='20%'>
-                        {values.global.pattern.paths.map((path, index) => {
-                          return <path key={index} d={path} />
-                        })}
-                      </pattern>
-                    </defs>
-
-                    <rect width={500} height={300} fill='url(#pattern)' />
-                  </svg>
                   <div>
                     <RadixSelect
                       trigger={

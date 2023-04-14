@@ -73,11 +73,7 @@ const Page = () => {
               <RegionHeading flag='🇺🇸' country='USA' region='us-west-2 | (Oregon)' />
               <RegionHeading flag='🇩🇪' country='Germany' region='eu-central-1 | (Frankfurt)' />
             </div>
-            <div className='grid gap-8 grid-cols-1 lg:grid-cols-3'>
-              <GlobalInterface />
-              <div />
-              <div />
-            </div>
+            <GlobalInterface />
           </div>
         </div>
       </article>

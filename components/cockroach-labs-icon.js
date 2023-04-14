@@ -3,40 +3,35 @@ import PropTypes from 'prop-types'
 
 const CockroachLabsIcon = ({ className }) => {
   return (
-    <a href='https://www.cockroachlabs.com/' target='_blank' rel='noopener'>
-      <svg
-        xmlns='http://www.w3.org/2000/svg'
-        x='0px'
-        y='0px'
-        viewBox='0 0 20 24'
-        aria-label='Cockroach Labs Icon'
-        className={className}
-      >
-        <linearGradient id='logo-gradient' gradientUnits='userSpaceOnUse' x1='0' y1='12' x2='19.2675' y2='12'>
-          <stop
-            offset='0.3'
-            className='[--start-color:theme(colors.brand.electric-purple)]'
-            stopColor='var(--start-color)'
-          />
-          <stop
-            offset='1'
-            className='[--end-color:theme(colors.brand.bright-turquoise)]'
-            stopColor='var(--end-color)'
-          />
-        </linearGradient>
-        <path
-          fill='url(#logo-gradient)'
-          d='M16.65,0c-2.59,0-5,0.75-7.03,2.04C7.6,0.75,5.19,0,2.6,0C1.71,0,0.84,0.09,0,0.26l0.31,1.29
-          C1.05,1.4,1.82,1.33,2.6,1.33c2.13,0,4.13,0.57,5.85,1.56C5.48,5.27,3.58,8.92,3.58,13.02s1.9,7.75,4.87,10.14
-          c0.37,0.3,0.77,0.58,1.17,0.84c0.41-0.26,0.8-0.54,1.17-0.84c2.97-2.39,4.87-6.04,4.87-10.14s-1.9-7.75-4.87-10.14
-          c1.72-0.99,3.72-1.56,5.85-1.56c0.79,0,1.56,0.08,2.3,0.23l0.31-1.29C18.42,0.09,17.55,0,16.65,0z M8.97,15.04v6.84
-          C2.84,16.21,5.45,9.51,5.45,9.51c0.58,1.08,2.06,2.6,2.06,2.6C9.18,13.43,8.97,15.04,8.97,15.04z M10.27,21.88v-6.84
-          c0,0-0.21-1.6,1.46-2.92c0,0,1.47-1.52,2.06-2.6C13.79,9.51,16.41,16.21,10.27,21.88z M9.63,12.18v0.01
-          C9.63,12.19,9.63,12.19,9.63,12.18c-0.01,0.01-0.01,0.01-0.01,0.01v-0.01c-0.76-0.76-6.35-3.91-0.01-8.53V3.64
-          c0,0,0.01,0.01,0.01,0.01c0,0,0.01-0.01,0.01-0.01v0.02C15.98,8.27,10.39,11.42,9.63,12.18z'
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      x='0px'
+      y='0px'
+      viewBox='0 0 24 24'
+      aria-label='Cockroach Labs Icon'
+      className={className}
+    >
+      <linearGradient id='logo-gradient' gradientUnits='userSpaceOnUse' x1='0' y1='12' x2='19.2675' y2='12'>
+        <stop
+          offset='0.3'
+          className='[--start-color:theme(colors.brand.electric-purple)]'
+          stopColor='var(--start-color)'
         />
-      </svg>
-    </a>
+        <stop offset='1' className='[--end-color:theme(colors.brand.bright-turquoise)]' stopColor='var(--end-color)' />
+      </linearGradient>
+      <circle cx='12' cy='12' r='12' className='fill-brand-deep-purple' />
+      <path
+        fill='url(#logo-gradient)'
+        d='M16.22,5.27c-1.56,0-3.01,0.45-4.23,1.23c-1.22-0.78-2.67-1.23-4.23-1.23
+          c-0.54,0-1.06,0.05-1.57,0.16L6.39,6.2c0.45-0.09,0.9-0.13,1.38-0.13c1.28,0,2.49,0.34,3.52,0.94c-1.79,1.44-2.93,3.64-2.93,6.1
+          s1.14,4.67,2.93,6.1c0.23,0.18,0.46,0.35,0.71,0.51c0.25-0.16,0.48-0.32,0.71-0.51c1.79-1.44,2.93-3.64,2.93-6.1
+          s-1.14-4.67-2.93-6.1c1.04-0.6,2.24-0.94,3.52-0.94c0.47,0,0.94,0.05,1.39,0.14l0.19-0.78C17.29,5.32,16.76,5.27,16.22,5.27z
+           M11.6,14.32v4.12C7.91,15.03,9.48,11,9.48,11c0.35,0.65,1.24,1.56,1.24,1.56C11.73,13.36,11.6,14.32,11.6,14.32z M12.38,18.44
+          v-4.12c0,0-0.13-0.96,0.88-1.76c0,0,0.89-0.92,1.24-1.56C14.5,11,16.08,15.03,12.38,18.44z M12,12.6L12,12.6
+          C12,12.61,12,12.61,12,12.6C11.99,12.61,11.99,12.61,12,12.6L12,12.6c-0.47-0.46-3.83-2.36-0.01-5.13V7.46c0,0,0,0,0.01,0.01
+          c0,0,0,0,0.01-0.01v0.01C15.82,10.25,12.46,12.15,12,12.6z'
+      />
+    </svg>
   )
 }
 

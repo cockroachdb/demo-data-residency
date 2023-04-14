@@ -7,7 +7,12 @@ module.exports = {
     // This is for the Silo Logo
     'fill-brand-iridescent-blue',
     // This is for the nav link
-    'border-brand-iridescent-blue'
+    'border-brand-iridescent-blue',
+    // These are for the logo position
+    'top-2',
+    'left-2',
+    'right-2',
+    'bottom-2'
   ],
   theme: {
     extend: {
