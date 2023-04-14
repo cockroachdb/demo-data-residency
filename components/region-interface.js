@@ -164,7 +164,7 @@ const RegionInterface = ({ country }) => {
                         value={values[country].name}
                         onChange={(event) => handleShapeChange(event, country, index)}
                       >
-                        <Select.Group>
+                        <Select.Group className='grid grid-cols-3'>
                           {shapes.map((shape, index) => {
                             const { paths } = shape
 
