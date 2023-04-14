@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Black on White",
+    "classes": ["fill-brand-black", "fill-brand-white"]
+  },
+  {
+    "name": "Black on Purple",
+    "classes": ["fill-brand-black", "fill-brand-electric-purple"]
+  },
+  {
+    "name": "Purple on White",
+    "classes": ["fill-brand-electric-purple", "fill-brand-white"]
+  },
+  {
+    "name": "Purple on Black",
+    "classes": ["fill-brand-electric-purple", "fill-brand-black"]
+  },
+  {
+    "name": "White on Black",
+    "classes": ["fill-brand-white", "fill-brand-black"]
+  },
+  {
+    "name": "White on Purple",
+    "classes": ["fill-brand-white", "fill-brand-electric-purple"]
+  }
+]

@@ -5,6 +5,7 @@ import shapes from '../public/shape-paths.json'
 import hex from '../public/svg-hex.json'
 import patterns from '../public/pattern-paths.json'
 import positions from '../public/position-classes.json'
+import themes from '../public/silo-themes.json'
 
 const defaultUsColors = new Array(15).fill('none')
 const defaultEuColors = new Array(15).fill('none')
@@ -35,6 +36,10 @@ export const AppProvider = ({ children }) => {
       position: {
         name: positions[0].name,
         classes: positions[0].classes
+      },
+      theme: {
+        name: themes[0].name,
+        classes: themes[0].classes
       }
     }
   })
@@ -93,6 +98,18 @@ export const AppProvider = ({ children }) => {
     }))
   }
 
+  const handleThemeChange = (event) => {
+    setValues((prevState) => ({
+      ...prevState,
+      global: {
+        ...prevState.global,
+        theme: {
+          ...event
+        }
+      }
+    }))
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -108,12 +125,14 @@ export const AppProvider = ({ children }) => {
           eu: hex.eu
         },
         patterns: patterns.filter((pattern) => pattern.paths.length),
-        positions: positions.filter((position) => position.classes.length),
+        positions: positions,
+        themes: themes,
         handleImageChange,
         handleShapeChange,
         handleColorChange,
         handlePatternChange,
-        handlePositionChange
+        handlePositionChange,
+        handleThemeChange
       }}
     >
       {children}

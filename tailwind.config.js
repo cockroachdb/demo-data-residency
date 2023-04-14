@@ -12,7 +12,11 @@ module.exports = {
     'top-2',
     'left-2',
     'right-2',
-    'bottom-2'
+    'bottom-2',
+    // These are for the silo themes
+    'fill-brand-black',
+    'fill-brand-white',
+    'fill-brand-electric-purple'
   ],
   theme: {
     extend: {

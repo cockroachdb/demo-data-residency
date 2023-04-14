@@ -1,9 +1,5 @@
 [
   {
-    "name": "Select a position...",
-    "classes": "top-2 left-2"
-  },
-  {
     "name": "Top Left",
     "classes": "top-2 left-2"
   },
