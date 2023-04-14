@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react'
+import { useSession } from 'next-auth/react'
 
 import images from '../public/source-images.json'
 import shapes from '../public/shape-paths.json'
@@ -15,6 +16,8 @@ const defaultGrid = new Array(15).fill('')
 export const AppContext = createContext()
 
 export const AppProvider = ({ children }) => {
+  const { data: session } = useSession()
+
   const [values, setValues] = useState({
     us: {
       name: images.us[0].location,
@@ -110,9 +113,17 @@ export const AppProvider = ({ children }) => {
     }))
   }
 
+  const handelSave = () => {
+    console.log('handleSave: ', {
+      user_id: session.user.id,
+      values
+    })
+  }
+
   return (
     <AppContext.Provider
       value={{
+        session: session,
         grid: defaultGrid,
         values,
         images: {
@@ -132,7 +143,8 @@ export const AppProvider = ({ children }) => {
         handleColorChange,
         handlePatternChange,
         handlePositionChange,
-        handleThemeChange
+        handleThemeChange,
+        handelSave
       }}
     >
       {children}
