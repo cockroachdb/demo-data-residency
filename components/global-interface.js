@@ -16,9 +16,9 @@ const GlobalInterface = () => {
               <RadixSelect
                 trigger={
                   <Select.Trigger className='flex items-center justify-between text-left px-4 gap-4 bg-brand-deep-purple border-brand-evening-hush text-brand-evening-hush hover:bg-depth-0 w-full'>
-                    <span aria-label={values.global.pattern.name} className='pointer-events-none truncate'>
+                    <Select.Value aria-label={values.global.pattern.name} className='pointer-events-none truncate'>
                       {values.global.pattern.name}
-                    </span>
+                    </Select.Value>
                     <Select.Icon className='text-brand-pink'>
                       <svg
                         xmlns='http://www.w3.org/2000/svg'
@@ -59,9 +59,9 @@ const GlobalInterface = () => {
               <RadixSelect
                 trigger={
                   <Select.Trigger className='flex items-center justify-between text-left px-4 gap-4 bg-brand-deep-purple border-brand-evening-hush text-brand-evening-hush hover:bg-depth-0 w-full'>
-                    <span aria-label={values.global.position.name} className='pointer-events-none truncate'>
+                    <Select.Value aria-label={values.global.position.name} className='pointer-events-none truncate'>
                       {values.global.position.name}
-                    </span>
+                    </Select.Value>
                     <Select.Icon className='text-brand-pink'>
                       <svg
                         xmlns='http://www.w3.org/2000/svg'
