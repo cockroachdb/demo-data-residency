@@ -24,7 +24,7 @@ const RegionInterface = ({ country }) => {
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
                       viewBox='0 0 600 250'
-                      className={`absolute w-1/4 top-[calc(50%-7%)] left-[calc(50%-13%)] z-20 ${values.global.theme.classes[0]}`}
+                      className={`absolute w-1/4 top-[calc(50%-8.5%)] left-[calc(50%-13%)] z-20 ${values.global.theme.classes[0]}`}
                     >
                       <rect className={`${values.global.theme.classes[1]}`} width='600' height='249.86' />
                       <path
