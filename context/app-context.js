@@ -113,11 +113,23 @@ export const AppProvider = ({ children }) => {
     }))
   }
 
-  const handelSave = () => {
-    console.log('handleSave: ', {
-      user_id: session.user.id,
-      values
-    })
+  const handelSave = async () => {
+    try {
+      const response = await fetch('/demos/demo-data-residency/api/create', {
+        method: 'POST',
+        body: JSON.stringify({ user_id: session.user.id, values })
+      })
+
+      if (!response.ok) {
+        throw new Error('Bad response')
+      }
+
+      const json = await response.json()
+
+      console.log('json: ', json)
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (
