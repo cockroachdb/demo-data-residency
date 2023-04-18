@@ -16,4 +16,10 @@
   .heading-md {
     @apply !m-0 text-center !text-2xl md:!text-4xl;
   }
+  .us-isomorphic {
+    transform: rotateX(18deg) rotateY(340deg) rotateZ(6deg);
+  }
+  .eu-isomorphic {
+    transform: rotateX(20deg) rotateY(14deg) rotateZ(354deg);
+  }
 }

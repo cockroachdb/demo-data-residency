@@ -5,14 +5,18 @@ import { YouTubeLite } from 'react-youtube-lite'
 import SiloLockup from '../components/silo-lockup'
 import NewsletterForm from '../components/newsletter-form'
 
-import howItWorks from '../public/images/how-it-works.svg'
+import howItWorksDots from '../public/images/how-it-works-dots.svg'
+import usDots from '../public/images/us-dots.svg'
+import usGraphic from '../public/images/us-graphic.jpg'
+import euDots from '../public/images/eu-dots.svg'
+import euGraphic from '../public/images/eu-graphic.jpg'
+import GetStartedLink from '../components/get-started-link'
 
 const Page = () => {
   return (
     <div className='flex flex-col gap-24 sm:gap-48'>
       <section className='flex flex-col gap-8 justify-items-center'>
         <SiloLockup className='max-w-4xl h-auto mx-auto' />
-
         <div className='flex flex-col gap-2'>
           <h1 className='m-0 text-brand-white text-xl text-center normal-case tracking-normal font-sans'>
             The Art of Data Residency and Application Architecture.
@@ -32,7 +36,7 @@ const Page = () => {
         </div>
       </section>
       <section>
-        <div className='flex flex-col gap-2'>
+        <div className='flex flex-col gap-8'>
           <h2 className='heading-lg'>how</h2>
           <p className='m-0 text-center mx-auto max-w-lg'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque magna sit amet ligula euismod
@@ -40,7 +44,7 @@ const Page = () => {
           </p>
         </div>
         <div className='relative flex items-center justify-center mx-auto w-full'>
-          <Image src={howItWorks} alt='how it works' width={768} height={432} />
+          <Image src={howItWorksDots} alt='how it works' width={768} height={432} />
           <div className='absolute w-10/12 md:w-3/5 max-w-lg shadow-3xl border-2 border-brand-iridescent-blue'>
             <YouTubeLite
               url={`https://www.youtube.com/watch?v=${process.env.NEXT_PUBLIC_YOUTUBE_ID}`}
@@ -83,6 +87,50 @@ const Page = () => {
             </svg>
             read post
           </a>
+        </div>
+      </section>
+      <section className='grid md:grid-cols-2 gap-16 items-center mx-auto max-w-4xl'>
+        <div className='flex flex-col gap-8'>
+          <h2 className='md:text-left md:pl-0 heading-lg'>us</h2>
+          <p className='m-0 text-center md:text-left'>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id enim sapien. Donec auctor, erat et mattis
+            lobortis, erat augue bibendum ante, vitae porta metus lacus nec magna. Aenean at aliquam justo.
+          </p>
+          <GetStartedLink />
+        </div>
+        <div className='relative flex items-center justify-center'>
+          <Image src={usDots} alt='us data' width={416} height={416} />
+          <div className='absolute'>
+            <Image
+              src={usGraphic}
+              alt='us interface'
+              width={416}
+              height={416}
+              className='us-isomorphic m-0 shadow-3xl'
+            />
+          </div>
+        </div>
+      </section>
+      <section className='grid md:grid-cols-2 gap-16 items-center mx-auto max-w-4xl'>
+        <div className='flex flex-col gap-8 md:order-1'>
+          <h2 className='md:text-right md:pl-0 !-mr-8 heading-lg'>eu</h2>
+          <p className='m-0 text-center md:text-right'>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id enim sapien. Donec auctor, erat et mattis
+            lobortis, erat augue bibendum ante, vitae porta metus lacus nec magna. Aenean at aliquam justo.
+          </p>
+          <GetStartedLink className='self-center md:self-end' />
+        </div>
+        <div className='relative flex items-center justify-center'>
+          <Image src={euDots} alt='us data' width={416} height={416} />
+          <div className='absolute'>
+            <Image
+              src={euGraphic}
+              alt='eu interface'
+              width={416}
+              height={416}
+              className='eu-isomorphic m-0 shadow-3xl'
+            />
+          </div>
         </div>
       </section>
       <NewsletterForm formId={process.env.NEXT_PUBLIC_NEWSLETTER_FORM_ID} />
