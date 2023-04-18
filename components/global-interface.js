@@ -4,6 +4,7 @@ import * as Select from '@radix-ui/react-select'
 import { AppContext } from '../context/app-context'
 
 import RadixSelect from './radix-select'
+import RadixPopover from './radix-popover'
 import SaveButton from './save-button'
 
 const GlobalInterface = () => {
@@ -149,7 +150,7 @@ const GlobalInterface = () => {
                 </RadixSelect>
               </label>
             </div>
-            <SaveButton onClick={handelSave} disabled={session ? false : true} />
+            {session ? <SaveButton onClick={handelSave} disabled={session ? false : true} /> : <RadixPopover />}
           </div>
         )
       }}

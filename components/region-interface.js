@@ -7,6 +7,7 @@ import { imageLoader } from '../utils/image-loader'
 import { AppContext } from '../context/app-context'
 
 import RadixSelect from './radix-select'
+import RadixPopover from './radix-popover'
 import CockroachLabsIcon from './cockroach-labs-icon'
 import SiloLogo from './sill-logo'
 import SaveButton from './save-button'
@@ -256,10 +257,14 @@ const RegionInterface = ({ country }) => {
                       )
                     })}
                   </div>
-                  <SaveButton
-                    onClick={handelSave}
-                    disabled={session && values[country].url !== 'a-placeholder.jpg' ? false : true}
-                  />
+                  {session ? (
+                    <SaveButton
+                      onClick={handelSave}
+                      disabled={session && values[country].url !== 'a-placeholder.jpg' ? false : true}
+                    />
+                  ) : (
+                    <RadixPopover />
+                  )}
                 </div>
               </div>
             </div>
