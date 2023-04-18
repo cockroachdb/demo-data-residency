@@ -45,7 +45,7 @@ const Page = () => {
         </div>
         <div className='relative flex items-center justify-center mx-auto w-full'>
           <Image src={howItWorksDots} alt='how it works' width={768} height={432} />
-          <div className='absolute w-10/12 md:w-3/5 max-w-lg shadow-3xl border-2 border-brand-iridescent-blue'>
+          <div className='absolute w-10/12 md:w-4/5 max-w-lg shadow-3xl border-2 border-brand-iridescent-blue'>
             <YouTubeLite
               url={`https://www.youtube.com/watch?v=${process.env.NEXT_PUBLIC_YOUTUBE_ID}`}
               title='How Data Residency Works'
@@ -99,14 +99,14 @@ const Page = () => {
           <GetStartedLink />
         </div>
         <div className='relative flex items-center justify-center'>
-          <Image src={usDots} alt='us data' width={416} height={416} />
+          <Image src={usDots} alt='us data' width={380} height={380} />
           <div className='absolute'>
             <Image
               src={usGraphic}
               alt='us interface'
               width={416}
               height={416}
-              className='us-isomorphic m-0 shadow-3xl'
+              className='us-isomorphic m-0 mx-auto w-10/12 sm:w-full shadow-3xl border-2 border-brand-iridescent-blue'
             />
           </div>
         </div>
@@ -121,14 +121,14 @@ const Page = () => {
           <GetStartedLink className='self-center md:self-end' />
         </div>
         <div className='relative flex items-center justify-center'>
-          <Image src={euDots} alt='us data' width={416} height={416} />
+          <Image src={euDots} alt='us data' width={380} height={380} />
           <div className='absolute'>
             <Image
               src={euGraphic}
               alt='eu interface'
               width={416}
               height={416}
-              className='eu-isomorphic m-0 shadow-3xl'
+              className='eu-isomorphic m-0 mx-auto w-10/12 sm:w-full shadow-3xl border-2 border-brand-iridescent-blue'
             />
           </div>
         </div>
