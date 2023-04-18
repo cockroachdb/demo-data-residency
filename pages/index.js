@@ -4,6 +4,7 @@ import { YouTubeLite } from 'react-youtube-lite'
 
 import SiloLockup from '../components/silo-lockup'
 import NewsletterForm from '../components/newsletter-form'
+import CobeGlobe from '../components/cobe-globe'
 
 import howItWorks from '../public/images/how-it-works.svg'
 
@@ -84,6 +85,13 @@ const Page = () => {
             read post
           </a>
         </div>
+      </section>
+      <section className='flex flex-col gap-8 mx-auto max-w-2xl'>
+        <div className='flex flex-col gap-2'>
+          <h2 className='heading-lg'>Regions</h2>
+          <p className='m-0 text-center mx-auto max-w-lg'>One database, one query, multiple regions.</p>
+        </div>
+        <CobeGlobe />
       </section>
       <NewsletterForm formId={process.env.NEXT_PUBLIC_NEWSLETTER_FORM_ID} />
     </div>
