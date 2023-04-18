@@ -27,6 +27,7 @@ const RegionInterface = ({ country }) => {
         handleColorChange,
         handelSave
       }) => {
+        console.log(country)
         return (
           <div className='flex flex-col gap-8'>
             <div className='grid gap-8 grid-cols-1 lg:grid-cols-3'>
@@ -117,7 +118,7 @@ const RegionInterface = ({ country }) => {
                                 name: location,
                                 url: s3_url
                               }}
-                              className='px-4 py-3 whitespace-nowrap cursor-pointer bg-brand-deep-purple border-b border-b-brand-evening-hush/30 hover:bg-depth-2 truncate'
+                              className='px-4 py-3 whitespace-nowrap cursor-pointer text-brand-white bg-brand-deep-purple border-b border-b-brand-evening-hush/30 hover:bg-depth-2 truncate'
                             >
                               {location}
                             </Select.Item>
@@ -202,6 +203,7 @@ const RegionInterface = ({ country }) => {
                     {grid.map((_, index) => {
                       return (
                         <RadixSelect
+                          height={country === 'us' ? 265 : 360}
                           key={index}
                           sideOffset={-60}
                           alignOffset={20}

@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import * as Select from '@radix-ui/react-select'
 
-const RadixSelect = ({ trigger, sideOffset, alignOffset, value, onChange, children }) => {
+const RadixSelect = ({ trigger, sideOffset, alignOffset, value, height, onChange, children }) => {
+  const [_, setHeight] = useState(height)
+
+  useEffect(() => {
+    setHeight(height)
+  }, [height])
+
   return (
     <Select.Root value={value} onValueChange={onChange}>
       {trigger}
@@ -10,7 +16,10 @@ const RadixSelect = ({ trigger, sideOffset, alignOffset, value, onChange, childr
         position='popper'
         alignOffset={alignOffset}
         sideOffset={sideOffset}
-        className='bg-depth-0 border-2 border-brand-evening-hush overscroll-auto h-[260px] z-30'
+        className={`bg-depth-0 border-2 border-brand-evening-hush overscroll-auto h-[${height}px] z-30`}
+        style={{
+          height: height
+        }}
       >
         <Select.ScrollUpButton className='p-1 text-brand-pink hover:bg-depth-2'>
           <svg
@@ -42,7 +51,8 @@ const RadixSelect = ({ trigger, sideOffset, alignOffset, value, onChange, childr
 
 RadixSelect.defaultProps = {
   alignOffset: 0,
-  sideOffset: 6
+  sideOffset: 6,
+  height: 360
 }
 
 RadixSelect.propTypes = {

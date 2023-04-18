@@ -27,6 +27,7 @@ const GlobalInterface = () => {
               <label className='flex flex-col gap-4 text-brand-evening-hush'>
                 Pattern
                 <RadixSelect
+                  height={270}
                   trigger={
                     <Select.Trigger className='flex items-center justify-between text-left px-4 gap-4 bg-brand-deep-purple border-brand-evening-hush text-brand-evening-hush hover:bg-depth-0 w-full'>
                       <Select.Value aria-label={values.global.pattern.name}>{values.global.pattern.name}</Select.Value>
@@ -56,7 +57,7 @@ const GlobalInterface = () => {
                             name: name,
                             paths: paths
                           }}
-                          className='px-4 py-3 whitespace-nowrap cursor-pointer bg-brand-deep-purple border-b border-b-brand-evening-hush/30 hover:bg-depth-2'
+                          className='px-4 py-3 whitespace-nowrap cursor-pointer text-brand-white bg-brand-deep-purple border-b border-b-brand-evening-hush/30 hover:bg-depth-2'
                         >
                           {name}
                         </Select.Item>
@@ -68,6 +69,7 @@ const GlobalInterface = () => {
               <label className='flex flex-col gap-4 text-brand-evening-hush'>
                 Cockroach Position
                 <RadixSelect
+                  height={220}
                   trigger={
                     <Select.Trigger className='flex items-center justify-between text-left px-4 gap-4 bg-brand-deep-purple border-brand-evening-hush text-brand-evening-hush hover:bg-depth-0 w-full'>
                       <Select.Value aria-label={values.global.position.name}>
@@ -99,7 +101,7 @@ const GlobalInterface = () => {
                             name: name,
                             classes: classes
                           }}
-                          className='px-4 py-3 whitespace-nowrap cursor-pointer bg-brand-deep-purple border-b border-b-brand-evening-hush/30 hover:bg-depth-2'
+                          className='px-4 py-3 whitespace-nowrap cursor-pointer text-brand-white bg-brand-deep-purple border-b border-b-brand-evening-hush/30 hover:bg-depth-2'
                         >
                           {name}
                         </Select.Item>
@@ -111,6 +113,7 @@ const GlobalInterface = () => {
               <label className='flex flex-col gap-4 text-brand-evening-hush'>
                 Silo Theme
                 <RadixSelect
+                  height={325}
                   trigger={
                     <Select.Trigger className='flex items-center justify-between text-left px-4 gap-4 bg-brand-deep-purple border-brand-evening-hush text-brand-evening-hush hover:bg-depth-0 w-full'>
                       <Select.Value aria-label={values.global.theme.name}>{values.global.theme.name}</Select.Value>
@@ -140,7 +143,7 @@ const GlobalInterface = () => {
                             name: name,
                             classes: classes
                           }}
-                          className='px-4 py-3 whitespace-nowrap cursor-pointer bg-brand-deep-purple border-b border-b-brand-evening-hush/30 hover:bg-depth-2'
+                          className='px-4 py-3 whitespace-nowrap cursor-pointer text-brand-white bg-brand-deep-purple border-b border-b-brand-evening-hush/30 hover:bg-depth-2'
                         >
                           {name}
                         </Select.Item>
