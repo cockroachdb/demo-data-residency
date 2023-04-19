@@ -35,7 +35,7 @@ const Page = () => {
           </p>
         </div>
       </section>
-      <section>
+      <section className='flex flex-col gap-8'>
         <div className='flex flex-col gap-8'>
           <h2 className='heading-lg'>how</h2>
           <p className='m-0 text-center mx-auto max-w-lg'>
@@ -44,8 +44,9 @@ const Page = () => {
           </p>
         </div>
         <div className='relative flex items-center justify-center mx-auto w-full'>
-          <Image src={howItWorksDots} alt='how it works' width={768} height={432} />
-          <div className='absolute w-10/12 md:w-4/5 max-w-lg shadow-3xl border-2 border-brand-iridescent-blue'>
+          <Image src={howItWorksDots} alt='how it works' width={380} height={380} className='m-0' />
+
+          <div className='absolute w-11/12 md:w-full max-w-lg shadow-3xl border-2 border-brand-iridescent-blue'>
             <YouTubeLite
               url={`https://www.youtube.com/watch?v=${process.env.NEXT_PUBLIC_YOUTUBE_ID}`}
               title='How Data Residency Works'
@@ -105,13 +106,13 @@ const Page = () => {
             alt='us interface'
             width={416}
             height={416}
-            className='us-isomorphic absolute m-0 mx-auto w-10/12 sm:w-full shadow-3xl border-2 border-brand-iridescent-blue z-10'
+            className='us-isomorphic absolute m-0 mx-auto w-11/12 sm:w-full shadow-3xl border-2 border-brand-iridescent-blue z-10'
           />
         </div>
       </section>
       <section className='grid md:grid-cols-2 gap-16 items-center mx-auto max-w-4xl'>
         <div className='flex flex-col gap-8 md:order-1'>
-          <h2 className='md:text-right md:pl-0 !-mr-8 heading-lg'>eu</h2>
+          <h2 className='md:text-right pl-0 !-mr-8 heading-lg'>eu</h2>
           <p className='m-0 text-center md:text-right'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id enim sapien. Donec auctor, erat et mattis
             lobortis, erat augue bibendum ante, vitae porta metus lacus nec magna. Aenean at aliquam justo.
@@ -125,7 +126,7 @@ const Page = () => {
             alt='eu interface'
             width={416}
             height={416}
-            className='eu-isomorphic absolute m-0 mx-auto w-10/12 sm:w-full shadow-3xl border-2 border-brand-iridescent-blue z-10'
+            className='eu-isomorphic absolute m-0 mx-auto w-11/12 sm:w-full shadow-3xl border-2 border-brand-iridescent-blue z-10'
           />
         </div>
       </section>
