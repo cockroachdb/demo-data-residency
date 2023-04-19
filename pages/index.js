@@ -106,7 +106,7 @@ const Page = () => {
               alt='us interface'
               width={416}
               height={416}
-              className='us-isomorphic m-0 mx-auto w-10/12 sm:w-full shadow-3xl border-2 border-brand-iridescent-blue'
+              className='us-isomorphic m-0 mx-auto w-10/12 sm:w-full shadow-3xl border-2 border-brand-iridescent-blue z-10'
             />
           </div>
         </div>
@@ -128,7 +128,7 @@ const Page = () => {
               alt='eu interface'
               width={416}
               height={416}
-              className='eu-isomorphic m-0 mx-auto w-10/12 sm:w-full shadow-3xl border-2 border-brand-iridescent-blue'
+              className='eu-isomorphic m-0 mx-auto w-10/12 sm:w-full shadow-3xl border-2 border-brand-iridescent-blue z-10'
             />
           </div>
         </div>

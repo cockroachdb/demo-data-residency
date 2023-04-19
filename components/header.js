@@ -14,7 +14,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed w-full backdrop-blur h-[86px] z-30 ${
+      className={`fixed w-full backdrop-blur h-[86px] z-50 ${
         isNavOpen ? 'sm:bg-brand-deep-purple/60 bg-brand-deep-purple/90' : 'bg-brand-deep-purple/60'
       }`}
     >
