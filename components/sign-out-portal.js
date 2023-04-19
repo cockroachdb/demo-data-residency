@@ -7,10 +7,10 @@ const SignOutPortal = () => {
   const { data: session } = useSession()
   return (
     <DropdownMenu.Root>
-      <DropdownMenu.Trigger asChild>
-        <button
+      <DropdownMenu.Trigger className='p-1 border-0'>
+        <span
           role='button'
-          className='flex border-none items-center justify-end gap-2 p-1 transition-color duration-300 hover:text-brand-white hover:border-brand-white group'
+          className='flex border-none items-center justify-end gap-2 p-0 transition-color duration-300 hover:text-brand-white hover:border-brand-white group'
           aria-label='Sign out'
         >
           <img
@@ -30,7 +30,7 @@ const SignOutPortal = () => {
           >
             <path strokeLinecap='round' strokeLinejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' aria-hidden />
           </svg>
-        </button>
+        </span>
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>

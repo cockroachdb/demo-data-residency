@@ -1,5 +1,4 @@
 import React from 'react'
-// import { useSession } from 'next-auth/react'
 
 import { AppContext } from '../context/app-context'
 
@@ -8,8 +7,6 @@ import RegionHeading from '../components/region-heading'
 import GlobalInterface from '../components/global-interface'
 
 const Page = () => {
-  // const { data: session } = useSession()
-
   return (
     <section className='flex flex-col gap-16'>
       <article className='flex flex-col gap-4'>
@@ -17,7 +14,6 @@ const Page = () => {
         <p className='mx-auto my-0 max-w-lg text-center'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a tincidunt nisl, sed interdum ante
         </p>
-        {/* <pre>{JSON.stringify(session, null, 2)}</pre> */}
       </article>
 
       <article className='flex flex-col gap-4 sm:gap-8 bg-depth-0 border-2 border-depth-2 p-4 sm:p-8'>

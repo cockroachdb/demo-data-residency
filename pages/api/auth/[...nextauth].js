@@ -22,6 +22,7 @@ const authOptions = {
         ...session,
         user: {
           ...session.user,
+          admin: process.env.ADMINS.split(',').some((email) => email === session.user.email),
           id: token.sub,
           provider: token.plan ? 'GitHub' : 'LinkedIn'
         }
