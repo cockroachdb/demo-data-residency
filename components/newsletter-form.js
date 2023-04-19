@@ -33,7 +33,7 @@ const NewsletterForm = ({ formId }) => {
     <section className='grid gap-8'>
       <div className='flex flex-col gap-4'>
         <div className='flex justify-center mx-auto'>
-          <CockroachLabsIcon className={'w-7 h-7 sm:w-10 sm:h-10'} />
+          <CockroachLabsIcon className={'w-12 h-12 sm:w-16 sm:h-16'} />
         </div>
         <h2 className='heading-md'>newsletter</h2>
         <p className='m-0 text-sm text-center mx-auto max-w-lg'>
