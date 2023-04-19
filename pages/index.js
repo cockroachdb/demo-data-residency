@@ -100,15 +100,13 @@ const Page = () => {
         </div>
         <div className='relative flex items-center justify-center'>
           <Image src={usDots} alt='us data' width={380} height={380} />
-          <div className='absolute'>
-            <Image
-              src={usGraphic}
-              alt='us interface'
-              width={416}
-              height={416}
-              className='us-isomorphic m-0 mx-auto w-10/12 sm:w-full shadow-3xl border-2 border-brand-iridescent-blue z-10'
-            />
-          </div>
+          <Image
+            src={usGraphic}
+            alt='us interface'
+            width={416}
+            height={416}
+            className='us-isomorphic absolute m-0 mx-auto w-10/12 sm:w-full shadow-3xl border-2 border-brand-iridescent-blue z-10'
+          />
         </div>
       </section>
       <section className='grid md:grid-cols-2 gap-16 items-center mx-auto max-w-4xl'>
@@ -122,15 +120,13 @@ const Page = () => {
         </div>
         <div className='relative flex items-center justify-center'>
           <Image src={euDots} alt='us data' width={380} height={380} />
-          <div className='absolute'>
-            <Image
-              src={euGraphic}
-              alt='eu interface'
-              width={416}
-              height={416}
-              className='eu-isomorphic m-0 mx-auto w-10/12 sm:w-full shadow-3xl border-2 border-brand-iridescent-blue z-10'
-            />
-          </div>
+          <Image
+            src={euGraphic}
+            alt='eu interface'
+            width={416}
+            height={416}
+            className='eu-isomorphic absolute m-0 mx-auto w-10/12 sm:w-full shadow-3xl border-2 border-brand-iridescent-blue z-10'
+          />
         </div>
       </section>
       <NewsletterForm formId={process.env.NEXT_PUBLIC_NEWSLETTER_FORM_ID} />
