@@ -98,7 +98,7 @@ const Page = () => {
           </p>
           <GetStartedLink />
         </div>
-        <div className='relative flex items-center justify-center'>
+        <div className='relative flex items-center justify-center translate-x-0'>
           <Image src={usDots} alt='us data' width={380} height={380} />
           <Image
             src={usGraphic}
@@ -118,7 +118,7 @@ const Page = () => {
           </p>
           <GetStartedLink className='self-center md:self-end' />
         </div>
-        <div className='relative flex items-center justify-center'>
+        <div className='relative flex items-center justify-center translate-x-0'>
           <Image src={euDots} alt='us data' width={380} height={380} />
           <Image
             src={euGraphic}
