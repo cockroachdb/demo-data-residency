@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { imageLoader } from '../utils/image-loader'
+import GetStartedLink from '../components/get-started-link'
 
 const Page = ({ data }) => {
   return (
@@ -10,6 +11,7 @@ const Page = ({ data }) => {
         <p className='mx-auto max-w-lg text-center'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a tincidunt nisl, sed interdum ante
         </p>
+        <GetStartedLink />
       </div>
       <div className='grid md:grid-cols-2 gap-8 lg:gap-16'>
         {data.map((art, index) => {
