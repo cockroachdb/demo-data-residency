@@ -22,26 +22,27 @@ const Page = ({ data }) => {
                 {shapes.map((shape, index) => {
                   const { name, paths } = shape
                   return (
-                    <svg
-                      key={index}
-                      xmlns='http://www.w3.org/2000/svg'
-                      fill='currentColor'
-                      viewBox='0 0 200 200'
-                      aria-label='Art'
-                    >
-                      {paths.map((path, index) => {
-                        return (
-                          <path
-                            data-shape-name={name}
-                            key={index}
-                            d={path}
-                            style={{
-                              fill: colors[index]
-                            }}
-                          />
-                        )
-                      })}
-                    </svg>
+                    <div key={index}>
+                      <svg
+                        xmlns='http://www.w3.org/2000/svg'
+                        fill='currentColor'
+                        viewBox='0 0 200 200'
+                        aria-label='Art'
+                      >
+                        {paths.map((path, index) => {
+                          return (
+                            <path
+                              data-shape-name={name}
+                              key={index}
+                              d={path}
+                              style={{
+                                fill: colors[index]
+                              }}
+                            />
+                          )
+                        })}
+                      </svg>
+                    </div>
                   )
                 })}
               </div>

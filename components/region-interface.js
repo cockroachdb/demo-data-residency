@@ -27,7 +27,6 @@ const RegionInterface = ({ country }) => {
         handleColorChange,
         handelSave
       }) => {
-        console.log(country)
         return (
           <div className='flex flex-col gap-8'>
             <div className='grid gap-8 grid-cols-1 lg:grid-cols-3'>
