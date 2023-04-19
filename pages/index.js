@@ -43,10 +43,10 @@ const Page = () => {
             iaculis
           </p>
         </div>
-        <div className='relative flex items-center justify-center mx-auto w-full'>
-          <Image src={howItWorksDots} alt='how it works' width={380} height={380} className='m-0' />
+        <div className='relative flex items-center justify-center mx-auto w-full md:w-1/2'>
+          <Image src={howItWorksDots} alt='how it works' width={500} height={500} className='m-0' />
 
-          <div className='absolute w-11/12 md:w-full max-w-lg shadow-3xl border-2 border-brand-iridescent-blue'>
+          <div className='absolute mx-auto w-11/12 max-w-lg shadow-3xl border-2 border-brand-iridescent-blue'>
             <YouTubeLite
               url={`https://www.youtube.com/watch?v=${process.env.NEXT_PUBLIC_YOUTUBE_ID}`}
               title='How Data Residency Works'
@@ -100,13 +100,13 @@ const Page = () => {
           <GetStartedLink />
         </div>
         <div className='relative flex items-center justify-center translate-x-0'>
-          <Image src={usDots} alt='us data' width={380} height={380} />
+          <Image src={usDots} alt='us data' width={500} height={500} />
           <Image
             src={usGraphic}
             alt='us interface'
             width={416}
             height={416}
-            className='us-isomorphic absolute m-0 mx-auto w-11/12 sm:w-full shadow-3xl border-2 border-brand-iridescent-blue z-10'
+            className='us-isomorphic absolute m-0 mx-auto w-11/12 sm:w-full max-w-lg shadow-3xl border-2 border-brand-iridescent-blue z-10'
           />
         </div>
       </section>
@@ -120,13 +120,13 @@ const Page = () => {
           <GetStartedLink className='self-center md:self-end' />
         </div>
         <div className='relative flex items-center justify-center translate-x-0'>
-          <Image src={euDots} alt='us data' width={380} height={380} />
+          <Image src={euDots} alt='us data' width={500} height={500} />
           <Image
             src={euGraphic}
             alt='eu interface'
             width={416}
             height={416}
-            className='eu-isomorphic absolute m-0 mx-auto w-11/12 sm:w-full shadow-3xl border-2 border-brand-iridescent-blue z-10'
+            className='eu-isomorphic absolute m-0 mx-auto w-11/12 sm:w-full max-w-lg shadow-3xl border-2 border-brand-iridescent-blue z-10'
           />
         </div>
       </section>
