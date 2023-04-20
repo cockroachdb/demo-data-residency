@@ -22,7 +22,6 @@ const RegionInterface = ({ regionId, regionName }) => {
         values,
         isLoading,
         isError,
-        error,
         images,
         shapes,
         hex,
@@ -31,9 +30,6 @@ const RegionInterface = ({ regionId, regionName }) => {
         handleColorChange,
         handleLocalSave
       }) => {
-        // console.log('error: ', error)
-        // console.log('values: ', values)
-
         if (isError) return null
 
         return (

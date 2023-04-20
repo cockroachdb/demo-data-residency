@@ -11,34 +11,36 @@ export default async function (req, res) {
     )
 
     if (!response.rows.length > 0) {
-      throw new Error('No row data')
+      res.status(200).json({
+        message: 'A Ok!',
+        data: null
+      })
+    } else {
+      const newResponse = response.rows.reduce(
+        (items, item) => {
+          const { super_region, local_values, global_values } = item
+
+          items[super_region] = items[super_region] || {}
+
+          items[super_region] = {
+            ...local_values
+          }
+
+          items.global = items.global || {}
+          items.global = {
+            ...global_values
+          }
+
+          return items
+        },
+        { us: {}, eu: {}, global: {} }
+      )
+
+      res.status(200).json({
+        message: 'A Ok!',
+        data: newResponse
+      })
     }
-
-    const newResponse = response.rows.reduce(
-      (items, item) => {
-        const { super_region, local_values, global_values } = item
-
-        items[super_region] = items[super_region] || {}
-
-        items[super_region] = {
-          ...local_values
-        }
-
-        items.global = items.global || {}
-        items.global = {
-          ...global_values
-        }
-
-        return items
-      },
-      { us: {}, eu: {}, global: {} }
-    )
-
-    res.status(200).json({
-      message: 'A Ok!',
-      data: newResponse,
-      raw_data: response
-    })
   } catch (error) {
     res.status(500).json(error)
   } finally {

@@ -51,7 +51,7 @@ export const AppProvider = ({ children }) => {
 
   const [values, setValues] = useState(defaultValues)
 
-  const { isLoading, isError, error, data, refetch } = useQuery({
+  const { isLoading, isError, refetch } = useQuery({
     queryKey: ['read-query'],
     queryFn: async () => {
       if (session) {
@@ -66,9 +66,11 @@ export const AppProvider = ({ children }) => {
           }
           const json = await response.json()
 
-          console.log('json: ', json)
-
-          return json.data
+          if (!json.data) {
+            return defaultValues
+          } else {
+            return json.data
+          }
         } catch (error) {
           console.error(error)
         }
@@ -76,11 +78,7 @@ export const AppProvider = ({ children }) => {
         return defaultValues
       }
     },
-    onError: async (error) => {
-      console.log('query | onError: ', error)
-    },
     onSuccess: async (data) => {
-      console.log('query | onSuccess: ', data)
       setValues(data)
     },
     enabled: false
@@ -89,7 +87,6 @@ export const AppProvider = ({ children }) => {
   useEffect(() => {
     // This is the nextAuth status
     if (status !== 'loading') {
-      console.log('refetch')
       refetch()
     }
   }, [session])
@@ -226,7 +223,6 @@ export const AppProvider = ({ children }) => {
         values,
         isLoading,
         isError,
-        error,
         images: {
           us: images.us.filter((image) => image.source_url),
           eu: images.eu.filter((image) => image.source_url)
