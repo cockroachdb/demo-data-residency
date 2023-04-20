@@ -7,7 +7,7 @@ import RadixSelect from './radix-select'
 import RadixPopover from './radix-popover'
 import SaveButton from './save-button'
 
-const GlobalInterface = () => {
+const GlobalInterface = ({ regionId, regionName }) => {
   return (
     <AppContext.Consumer>
       {({
@@ -19,7 +19,7 @@ const GlobalInterface = () => {
         handlePatternChange,
         handlePositionChange,
         handleThemeChange,
-        handelSave
+        handleGlobalSave
       }) => {
         return (
           <div className='flex flex-col gap-8'>
@@ -153,7 +153,16 @@ const GlobalInterface = () => {
                 </RadixSelect>
               </label>
             </div>
-            {session ? <SaveButton onClick={handelSave} disabled={session ? false : true} /> : <RadixPopover />}
+            {session ? (
+              <SaveButton
+                onClick={handleGlobalSave}
+                regionId={regionId}
+                regionName={regionName}
+                disabled={session ? false : true}
+              />
+            ) : (
+              <RadixPopover />
+            )}
           </div>
         )
       }}

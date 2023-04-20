@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const RegionHeading = ({ flag, country, region }) => {
+const RegionHeading = ({ flag, regionId, region }) => {
   return (
     <div className='flex gap-2 items-center'>
       <svg
@@ -33,7 +33,7 @@ const RegionHeading = ({ flag, country, region }) => {
         </g>
       </svg>
       <span>{'|'}</span>
-      <span role='img' aria-label={`${country} flag emoji`} className='text-2xl mt-1'>
+      <span role='img' aria-label={`${regionId} flag emoji`} className='text-2xl mt-1'>
         {flag}
       </span>
       <span>{region}</span>
@@ -45,7 +45,7 @@ RegionHeading.propTypes = {
   /** flag emoji  */
   flag: PropTypes.string.isRequired,
   /** region name */
-  country: PropTypes.string.isRequired,
+  regionId: PropTypes.string.isRequired,
   /** region name */
   region: PropTypes.string.isRequired
 }

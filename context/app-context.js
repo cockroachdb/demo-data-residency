@@ -1,5 +1,6 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, use, useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 
 import images from '../public/source-images.json'
 import shapes from '../public/shape-paths.json'
@@ -16,9 +17,10 @@ const defaultGrid = new Array(15).fill('')
 export const AppContext = createContext()
 
 export const AppProvider = ({ children }) => {
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
+  const queryClient = useQueryClient()
 
-  const [values, setValues] = useState({
+  const defaultValues = {
     us: {
       name: images.us[0].location,
       url: images.us[0].s3_url,
@@ -45,35 +47,72 @@ export const AppProvider = ({ children }) => {
         classes: themes[0].classes
       }
     }
+  }
+
+  const [values, setValues] = useState(defaultValues)
+
+  const { isLoading, data, refetch } = useQuery({
+    queryKey: ['read-query'],
+    queryFn: async () => {
+      if (session) {
+        try {
+          const response = await fetch('/demos/demo-data-residency/api/read-by-user-id', {
+            method: 'POST',
+            body: JSON.stringify({ user_id: session.user.id })
+          })
+
+          if (!response.ok) {
+            throw new Error(response.statusText)
+          }
+          const json = await response.json()
+
+          return json.data
+        } catch (error) {
+          console.error(error)
+        }
+      } else {
+        return defaultValues
+      }
+    },
+    onSuccess: async (data) => {
+      setValues(data)
+    },
+    enabled: false
   })
 
-  const handleImageChange = (event, country) => {
+  useEffect(() => {
+    if (status !== 'loading') {
+      refetch()
+    }
+  }, [session])
+
+  const handleImageChange = (event, regionId) => {
     setValues((prevState) => ({
       ...prevState,
-      [country]: { ...prevState[country], ...event }
+      [regionId]: { ...prevState[regionId], ...event }
     }))
   }
 
-  const handleShapeChange = (event, country, index) => {
-    const newShapes = values[country].shapes
+  const handleShapeChange = (event, regionId, index) => {
+    const newShapes = values[regionId].shapes
     newShapes.splice(index, 1, shapes[event])
 
-    const newColors = values[country].colors
-    newColors.splice(index, 1, country === 'us' ? '#bb133e' : '#FFD700')
+    const newColors = values[regionId].colors
+    newColors.splice(index, 1, regionId === 'us' ? '#bb133e' : '#FFD700') // default colors when shape is created
 
     setValues((prevState) => ({
       ...prevState,
-      [country]: { ...prevState[country], shapes: newShapes, colors: newColors }
+      [regionId]: { ...prevState[regionId], shapes: newShapes, colors: newColors }
     }))
   }
 
-  const handleColorChange = (event, country, index) => {
-    const newColors = values[country].colors
+  const handleColorChange = (event, regionId, index) => {
+    const newColors = values[regionId].colors
     newColors.splice(index, 1, event)
 
     setValues((prevState) => ({
       ...prevState,
-      [country]: { ...prevState[country], colors: newColors }
+      [regionId]: { ...prevState[regionId], colors: newColors }
     }))
   }
 
@@ -113,24 +152,63 @@ export const AppProvider = ({ children }) => {
     }))
   }
 
-  const handelSave = async () => {
-    try {
-      const response = await fetch('/demos/demo-data-residency/api/create', {
-        method: 'POST',
-        body: JSON.stringify({ user_id: session.user.id, values })
-      })
+  const handleLocalSave = useMutation(
+    async ({ regionId, regionName }) => {
+      try {
+        const response = await fetch('/demos/demo-data-residency/api/create-art-local', {
+          method: 'POST',
+          body: JSON.stringify({
+            user_id: session.user.id,
+            username: session.user.name,
+            region: regionName,
+            values: values[regionId]
+          })
+        })
 
-      if (!response.ok) {
-        throw new Error('Bad response')
+        if (!response.ok) {
+          throw new Error(response.statusText)
+        }
+        // const json = await response.json()
+      } catch (error) {
+        console.error(error)
       }
-
-      const json = await response.json()
-
-      console.log('json: ', json)
-    } catch (error) {
-      console.error(error)
+    },
+    {
+      onSuccess: async () => {
+        console.log('onSuccess')
+        queryClient.invalidateQueries(['read-query'])
+      }
     }
-  }
+  )
+
+  const handleGlobalSave = useMutation(
+    async ({ regionId }) => {
+      try {
+        const response = await fetch('/demos/demo-data-residency/api/create-art-global', {
+          method: 'POST',
+          body: JSON.stringify({
+            user_id: session.user.id,
+            username: session.user.name,
+            values: values[regionId]
+          })
+        })
+
+        if (!response.ok) {
+          throw new Error(response.statusText)
+        }
+
+        // const json = await response.json()
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    {
+      onSuccess: async () => {
+        console.log('onSuccess')
+        queryClient.invalidateQueries(['read-query'])
+      }
+    }
+  )
 
   return (
     <AppContext.Provider
@@ -156,7 +234,8 @@ export const AppProvider = ({ children }) => {
         handlePatternChange,
         handlePositionChange,
         handleThemeChange,
-        handelSave
+        handleLocalSave,
+        handleGlobalSave
       }}
     >
       {children}

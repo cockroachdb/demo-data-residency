@@ -1,4 +1,5 @@
 import React from 'react'
+
 import PropTypes from 'prop-types'
 import Image from 'next/image'
 import * as Select from '@radix-ui/react-select'
@@ -9,10 +10,10 @@ import { AppContext } from '../context/app-context'
 import RadixSelect from './radix-select'
 import RadixPopover from './radix-popover'
 import CockroachLabsIcon from './cockroach-labs-icon'
-import SiloLogo from './sill-logo'
+import SiloLogo from './silo-logo'
 import SaveButton from './save-button'
 
-const RegionInterface = ({ country }) => {
+const RegionInterface = ({ regionId, regionName }) => {
   return (
     <AppContext.Consumer>
       {({
@@ -25,7 +26,7 @@ const RegionInterface = ({ country }) => {
         handleImageChange,
         handleShapeChange,
         handleColorChange,
-        handelSave
+        handleLocalSave
       }) => {
         return (
           <div className='flex flex-col gap-8'>
@@ -46,14 +47,14 @@ const RegionInterface = ({ country }) => {
                               viewBox='0 0 200 200'
                               aria-label='Art Shape'
                             >
-                              {values[country].shapes[index].paths.map((path, p) => {
+                              {values[regionId].shapes[index].paths.map((path, p) => {
                                 return (
                                   <path
-                                    data-shape-name={values[country].shapes[index].name}
+                                    data-shape-name={values[regionId].shapes[index].name}
                                     key={p}
                                     d={path}
                                     style={{
-                                      fill: values[country].colors[index]
+                                      fill: values[regionId].colors[index]
                                     }}
                                   />
                                 )
@@ -65,8 +66,8 @@ const RegionInterface = ({ country }) => {
                     </div>
                     <Image
                       loader={imageLoader}
-                      src={values[country].url}
-                      alt={values[country].name}
+                      src={values[regionId].url}
+                      alt={values[regionId].name}
                       width={500}
                       height={300}
                       className='absolute m-0 top-0 z-0 w-full'
@@ -90,7 +91,7 @@ const RegionInterface = ({ country }) => {
                     <RadixSelect
                       trigger={
                         <Select.Trigger className='flex items-center justify-between text-left px-4 gap-4 bg-brand-deep-purple border-brand-evening-hush text-brand-evening-hush hover:bg-depth-0 w-full'>
-                          <Select.Value aria-label={values[country].name}>{values[country].name}</Select.Value>
+                          <Select.Value aria-label={values[regionId].name}>{values[regionId].name}</Select.Value>
                           <Select.Icon className='text-brand-pink'>
                             <svg
                               xmlns='http://www.w3.org/2000/svg'
@@ -104,11 +105,11 @@ const RegionInterface = ({ country }) => {
                           </Select.Icon>
                         </Select.Trigger>
                       }
-                      value={values[country].name}
-                      onChange={(event) => handleImageChange(event, country)}
+                      value={values[regionId].name}
+                      onChange={(event) => handleImageChange(event, regionId)}
                     >
                       <Select.Group className='max-w-[220px]'>
-                        {images[country].map((item, index) => {
+                        {images[regionId].map((item, index) => {
                           const { location, s3_url } = item
                           return (
                             <Select.Item
@@ -147,14 +148,14 @@ const RegionInterface = ({ country }) => {
                               viewBox='0 0 200 200'
                               aria-label='Art Shape'
                             >
-                              {values[country].shapes[index].paths.map((path, p) => {
+                              {values[regionId].shapes[index].paths.map((path, p) => {
                                 return (
                                   <path
-                                    data-shape-name={values[country].shapes[index].name}
+                                    data-shape-name={values[regionId].shapes[index].name}
                                     key={p}
                                     d={path}
                                     style={{
-                                      fill: values[country].colors[index]
+                                      fill: values[regionId].colors[index]
                                     }}
                                   />
                                 )
@@ -162,8 +163,8 @@ const RegionInterface = ({ country }) => {
                             </svg>
                           </Select.Trigger>
                         }
-                        value={values[country].name}
-                        onChange={(event) => handleShapeChange(event, country, index)}
+                        value={values[regionId].name}
+                        onChange={(event) => handleShapeChange(event, regionId, index)}
                       >
                         <Select.Group className='grid grid-cols-3'>
                           {shapes.map((shape, index) => {
@@ -202,7 +203,7 @@ const RegionInterface = ({ country }) => {
                     {grid.map((_, index) => {
                       return (
                         <RadixSelect
-                          height={country === 'us' ? 265 : 360}
+                          height={regionId === 'us' ? 265 : 360}
                           key={index}
                           sideOffset={-60}
                           alignOffset={20}
@@ -219,17 +220,17 @@ const RegionInterface = ({ country }) => {
                                   width='200'
                                   height='200'
                                   style={{
-                                    fill: values[country].colors[index]
+                                    fill: values[regionId].colors[index]
                                   }}
                                 />
                               </svg>
                             </Select.Trigger>
                           }
-                          value={values[country].name}
-                          onChange={(event) => handleColorChange(event, country, index)}
+                          value={values[regionId].name}
+                          onChange={(event) => handleColorChange(event, regionId, index)}
                         >
                           <Select.Group>
-                            {hex[country].map((color, index) => {
+                            {hex[regionId].map((color, index) => {
                               return (
                                 <Select.Item
                                   key={index}
@@ -260,8 +261,10 @@ const RegionInterface = ({ country }) => {
                   </div>
                   {session ? (
                     <SaveButton
-                      onClick={handelSave}
-                      disabled={session && values[country].url !== 'a-placeholder.jpg' ? false : true}
+                      onClick={handleLocalSave}
+                      regionId={regionId}
+                      regionName={regionName}
+                      disabled={session && values[regionId].url !== 'a-placeholder.jpg' ? false : true}
                     />
                   ) : (
                     <RadixPopover />
@@ -277,8 +280,10 @@ const RegionInterface = ({ country }) => {
 }
 
 RegionInterface.propTypes = {
-  /** name of country  */
-  country: PropTypes.string.isRequired
+  /**  context id  */
+  regionId: PropTypes.string.isRequired,
+  /** name to use in UPSERT */
+  regionName: PropTypes.string.isRequired
 }
 
 export default RegionInterface

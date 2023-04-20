@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
 import { AppContext } from '../context/app-context'
 
@@ -28,13 +28,13 @@ const Page = () => {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id turpis venenatis
                 </small>
               </div>
-              <RegionHeading flag='🇺🇸' country='USA' region='us-east-1 | (N. Virginia)' />
-              <RegionInterface country='us' />
+              <RegionHeading flag='🇺🇸' regionId='USA' region='us-east-1 | (N. Virginia)' />
+              <RegionInterface regionId='us' regionName='us-east-1' />
             </div>
 
             <div className='flex flex-col gap-8'>
-              <RegionHeading flag='🇺🇸' country='USA' region='us-west-2 | (Oregon)' />
-              <RegionInterface country='us' />
+              <RegionHeading flag='🇺🇸' regionId='USA' region='us-west-2 | (Oregon)' />
+              <RegionInterface regionId='us' regionName='us-east-1' />
             </div>
           </div>
 
@@ -48,8 +48,8 @@ const Page = () => {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id turpis venenatis
                 </small>
               </div>
-              <RegionHeading flag='🇩🇪' country='Germany' region='eu-central-1 | (Frankfurt)' />
-              <RegionInterface country='eu' />
+              <RegionHeading flag='🇩🇪' regionId='Germany' region='eu-central-1 | (Frankfurt)' />
+              <RegionInterface regionId='eu' regionName='eu-central-1' />
             </div>
           </div>
         </div>
@@ -65,23 +65,22 @@ const Page = () => {
               </small>
             </div>
             <div className='flex flex-col lg:flex-row gap-0 lg:gap-4'>
-              <RegionHeading flag='🇺🇸' country='USA' region='us-east-1 | (N. Virginia)' />
-              <RegionHeading flag='🇺🇸' country='USA' region='us-west-2 | (Oregon)' />
-              <RegionHeading flag='🇩🇪' country='Germany' region='eu-central-1 | (Frankfurt)' />
+              <RegionHeading flag='🇺🇸' regionId='USA' region='us-east-1 | (N. Virginia)' />
+              <RegionHeading flag='🇺🇸' regionId='USA' region='us-west-2 | (Oregon)' />
+              <RegionHeading flag='🇩🇪' regionId='Germany' region='eu-central-1 | (Frankfurt)' />
             </div>
-            <GlobalInterface />
+            <GlobalInterface regionId='global' regionName='global' />
           </div>
         </div>
       </article>
 
       <article className='flex flex-col gap-4'>
-        <div>
-          <h2 className='heading-lg'>data</h2>
-          <p className='mx-auto my-0 max-w-lg text-center'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a tincidunt nisl, sed interdum ante
-          </p>
-        </div>
+        <h2 className='heading-lg'>data</h2>
+        <p className='mx-auto my-0 max-w-lg text-center'>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a tincidunt nisl, sed interdum ante
+        </p>
       </article>
+
       <article>
         <AppContext.Consumer>
           {({ values }) => {
