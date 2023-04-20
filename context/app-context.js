@@ -51,12 +51,12 @@ export const AppProvider = ({ children }) => {
 
   const [values, setValues] = useState(defaultValues)
 
-  const { isLoading, data, refetch } = useQuery({
+  const { isLoading, isError, error, data, refetch } = useQuery({
     queryKey: ['read-query'],
     queryFn: async () => {
       if (session) {
         try {
-          const response = await fetch('/demos/demo-data-residency/api/read-by-user-id', {
+          const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/read-by-user-id`, {
             method: 'POST',
             body: JSON.stringify({ user_id: session.user.id })
           })
@@ -66,6 +66,8 @@ export const AppProvider = ({ children }) => {
           }
           const json = await response.json()
 
+          console.log('json: ', json)
+
           return json.data
         } catch (error) {
           console.error(error)
@@ -74,17 +76,81 @@ export const AppProvider = ({ children }) => {
         return defaultValues
       }
     },
+    onError: async (error) => {
+      console.log('query | onError: ', error)
+    },
     onSuccess: async (data) => {
+      console.log('query | onSuccess: ', data)
       setValues(data)
     },
     enabled: false
   })
 
   useEffect(() => {
+    // This is the nextAuth status
     if (status !== 'loading') {
+      console.log('refetch')
       refetch()
     }
   }, [session])
+
+  const handleLocalSave = useMutation(
+    async ({ regionId, regionName }) => {
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/create-art-local`, {
+          method: 'POST',
+          body: JSON.stringify({
+            user_id: session.user.id,
+            username: session.user.name,
+            region: regionName,
+            values: values[regionId]
+          })
+        })
+
+        if (!response.ok) {
+          throw new Error(response.statusText)
+        }
+        // const json = await response.json()
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    {
+      onSuccess: async () => {
+        console.log('handleLocalSave | onSuccess')
+        queryClient.invalidateQueries(['read-query'])
+      }
+    }
+  )
+
+  const handleGlobalSave = useMutation(
+    async ({ regionId }) => {
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/create-art-global`, {
+          method: 'POST',
+          body: JSON.stringify({
+            user_id: session.user.id,
+            username: session.user.name,
+            values: values[regionId]
+          })
+        })
+
+        if (!response.ok) {
+          throw new Error(response.statusText)
+        }
+
+        // const json = await response.json()
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    {
+      onSuccess: async () => {
+        console.log('handleGlobalSave | onSuccess')
+        queryClient.invalidateQueries(['read-query'])
+      }
+    }
+  )
 
   const handleImageChange = (event, regionId) => {
     setValues((prevState) => ({
@@ -152,70 +218,15 @@ export const AppProvider = ({ children }) => {
     }))
   }
 
-  const handleLocalSave = useMutation(
-    async ({ regionId, regionName }) => {
-      try {
-        const response = await fetch('/demos/demo-data-residency/api/create-art-local', {
-          method: 'POST',
-          body: JSON.stringify({
-            user_id: session.user.id,
-            username: session.user.name,
-            region: regionName,
-            values: values[regionId]
-          })
-        })
-
-        if (!response.ok) {
-          throw new Error(response.statusText)
-        }
-        // const json = await response.json()
-      } catch (error) {
-        console.error(error)
-      }
-    },
-    {
-      onSuccess: async () => {
-        console.log('onSuccess')
-        queryClient.invalidateQueries(['read-query'])
-      }
-    }
-  )
-
-  const handleGlobalSave = useMutation(
-    async ({ regionId }) => {
-      try {
-        const response = await fetch('/demos/demo-data-residency/api/create-art-global', {
-          method: 'POST',
-          body: JSON.stringify({
-            user_id: session.user.id,
-            username: session.user.name,
-            values: values[regionId]
-          })
-        })
-
-        if (!response.ok) {
-          throw new Error(response.statusText)
-        }
-
-        // const json = await response.json()
-      } catch (error) {
-        console.error(error)
-      }
-    },
-    {
-      onSuccess: async () => {
-        console.log('onSuccess')
-        queryClient.invalidateQueries(['read-query'])
-      }
-    }
-  )
-
   return (
     <AppContext.Provider
       value={{
         session: session,
         grid: defaultGrid,
         values,
+        isLoading,
+        isError,
+        error,
         images: {
           us: images.us.filter((image) => image.source_url),
           eu: images.eu.filter((image) => image.source_url)

@@ -10,6 +10,10 @@ export default async function (req, res) {
       [user_id]
     )
 
+    if (!response.rows.length > 0) {
+      throw new Error('No row data')
+    }
+
     const newResponse = response.rows.reduce(
       (items, item) => {
         const { super_region, local_values, global_values } = item
@@ -32,10 +36,11 @@ export default async function (req, res) {
 
     res.status(200).json({
       message: 'A Ok!',
-      data: newResponse
+      data: newResponse,
+      raw_data: response
     })
   } catch (error) {
-    res.status(500).json({ message: 'Error!', error: error })
+    res.status(500).json(error)
   } finally {
     client.release()
   }

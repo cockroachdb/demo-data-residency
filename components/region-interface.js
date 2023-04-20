@@ -20,6 +20,9 @@ const RegionInterface = ({ regionId, regionName }) => {
         session,
         grid,
         values,
+        isLoading,
+        isError,
+        error,
         images,
         shapes,
         hex,
@@ -28,6 +31,11 @@ const RegionInterface = ({ regionId, regionName }) => {
         handleColorChange,
         handleLocalSave
       }) => {
+        // console.log('error: ', error)
+        // console.log('values: ', values)
+
+        if (isError) return null
+
         return (
           <div className='flex flex-col gap-8'>
             <div className='grid gap-8 grid-cols-1 lg:grid-cols-3'>
