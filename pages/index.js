@@ -14,7 +14,7 @@ import GetStartedLink from '../components/get-started-link'
 
 const Page = () => {
   return (
-    <div className='flex flex-col gap-24 sm:gap-48'>
+    <div className='flex flex-col gap-24 sm:gap-48 mx-auto max-w-6xl'>
       <section className='flex flex-col gap-8 justify-items-center'>
         <SiloLockup className='max-w-4xl h-auto mx-auto' />
         <div className='flex flex-col gap-2'>

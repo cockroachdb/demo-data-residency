@@ -16,7 +16,7 @@ const Page = () => {
   }, [session])
 
   return (
-    <section className='flex flex-col gap-2'>
+    <section className='flex flex-col gap-2 mx-auto max-w-6xl'>
       <h1 className='heading-lg'>sign in</h1>
       <div className='flex flex-col gap-8 mx-auto max-w-lg'>
         <p className='m-0 text-center'>

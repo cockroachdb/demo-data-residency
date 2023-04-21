@@ -8,7 +8,7 @@ import GetStartedLink from '../components/get-started-link'
 
 const Page = ({ data }) => {
   return (
-    <section className='flex flex-col gap-16'>
+    <section className='flex flex-col gap-16 mx-auto max-w-6xl'>
       <div className='flex flex-col gap-2'>
         <h1 className='heading-lg'>gallery</h1>
         <p className='mx-auto max-w-lg text-center'>
