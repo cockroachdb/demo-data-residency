@@ -5,7 +5,7 @@ const RadixPopover = () => {
   return (
     <Popover.Root>
       <Popover.Trigger asChild>
-        <button className='flex lg:self-end justify-center px-4 py-2 border-2 text-brand-hidden-sapphire text-center border-brand-hidden-sapphire transition-color duration-300 hover:text-brand-white hover:border-brand-white '>
+        <button className='flex items-center lg:self-end justify-center px-4 py-1 border-2 text-brand-hidden-sapphire min-w-[80px] min-h-[48px] text-center border-brand-hidden-sapphire transition-color duration-300 hover:text-brand-white hover:border-brand-white '>
           Save
         </button>
       </Popover.Trigger>

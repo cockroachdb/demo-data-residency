@@ -87,6 +87,12 @@ module.exports = {
             '*:not(h1, h2, h3, h4, h5, h6, svg, path)': {
               color: theme('colors.brand.white')
             },
+            'code::before': {
+              content: '""'
+            },
+            'code::after': {
+              content: '""'
+            },
             h1: {
               fontFamily: theme('fontFamily.anton'),
               // fontSize: theme('fontSize.6xl')[0],

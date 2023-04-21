@@ -18,7 +18,6 @@ export const AppContext = createContext()
 
 export const AppProvider = ({ children }) => {
   const { data: session, status } = useSession()
-  const queryClient = useQueryClient()
 
   const defaultValues = {
     us: {
@@ -51,7 +50,11 @@ export const AppProvider = ({ children }) => {
 
   const [values, setValues] = useState(defaultValues)
 
-  const { isLoading, isError, refetch } = useQuery({
+  const {
+    isLoading: queryIsLoading,
+    isError,
+    refetch
+  } = useQuery({
     queryKey: ['read-query'],
     queryFn: async () => {
       if (session) {
@@ -66,11 +69,7 @@ export const AppProvider = ({ children }) => {
           }
           const json = await response.json()
 
-          if (!json.data) {
-            return defaultValues
-          } else {
-            return json.data
-          }
+          return json.data
         } catch (error) {
           console.error(error)
         }
@@ -79,7 +78,15 @@ export const AppProvider = ({ children }) => {
       }
     },
     onSuccess: async (data) => {
-      setValues(data)
+      // console.log('query onSuccess: ', data)
+
+      const { local, global } = data
+
+      setValues({
+        us: local.us || defaultValues.us,
+        eu: local.eu || defaultValues.eu,
+        global: global || defaultValues.global
+      })
     },
     enabled: false
   })
@@ -107,15 +114,13 @@ export const AppProvider = ({ children }) => {
         if (!response.ok) {
           throw new Error(response.statusText)
         }
-        // const json = await response.json()
       } catch (error) {
         console.error(error)
       }
     },
     {
       onSuccess: async () => {
-        console.log('handleLocalSave | onSuccess')
-        queryClient.invalidateQueries(['read-query'])
+        refetch()
       }
     }
   )
@@ -135,16 +140,13 @@ export const AppProvider = ({ children }) => {
         if (!response.ok) {
           throw new Error(response.statusText)
         }
-
-        // const json = await response.json()
       } catch (error) {
         console.error(error)
       }
     },
     {
       onSuccess: async () => {
-        console.log('handleGlobalSave | onSuccess')
-        queryClient.invalidateQueries(['read-query'])
+        refetch()
       }
     }
   )
@@ -221,7 +223,9 @@ export const AppProvider = ({ children }) => {
         session: session,
         grid: defaultGrid,
         values,
-        isLoading,
+        queryIsLoading,
+        globalIsLoading: handleGlobalSave.isLoading,
+        localIsLoading: handleLocalSave.isLoading,
         isError,
         images: {
           us: images.us.filter((image) => image.source_url),

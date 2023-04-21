@@ -1,14 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import LoadingSpinner from './loading-spinner'
 
-const SaveButton = ({ onClick, regionId, regionName, disabled }) => {
+const SaveButton = ({ onClick, regionId, regionName, isLoading, disabled }) => {
   return (
     <button
-      className='flex lg:self-end justify-center px-4 py-2 border-2 text-brand-pink text-center border-brand-pink transition-color duration-300 hover:text-brand-white hover:border-brand-white disabled:text-brand-hidden-sapphire disabled:border-brand-hidden-sapphire disabled:cursor-not-allowed'
+      className='flex items-center lg:self-end justify-center px-4 py-1 border-2 text-brand-pink text-center border-brand-pink min-w-[80px] min-h-[48px] transition-color duration-300 enabled:hover:text-brand-white enabled:hover:border-brand-white disabled:text-brand-hidden-sapphire disabled:border-brand-hidden-sapphire disabled:cursor-not-allowed'
       onClick={() => onClick.mutate({ regionId, regionName })}
       disabled={disabled}
     >
-      Save
+      {isLoading ? <LoadingSpinner className='h-full items-center' color='fill-brand-pink' /> : 'Save'}
     </button>
   )
 }

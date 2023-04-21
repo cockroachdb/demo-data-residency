@@ -25,7 +25,7 @@ const Page = () => {
                   United States of America
                 </h2>
                 <small className='text-brand-gray-b'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id turpis venenatis
+                  Settings here are saved to <code>us-east-1</code> and available to all countries except Europe.
                 </small>
               </div>
               <RegionHeading flag='🇺🇸' regionId='USA' region='us-east-1 | (N. Virginia)' />
@@ -45,7 +45,7 @@ const Page = () => {
                   Europe
                 </h2>
                 <small className='text-brand-gray-b'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id turpis venenatis
+                  Settings here are saved to <code>eu-central-1</code> and only available to countries in Europe.
                 </small>
               </div>
               <RegionHeading flag='🇩🇪' regionId='Germany' region='eu-central-1 | (Frankfurt)' />
@@ -61,7 +61,8 @@ const Page = () => {
                 Global
               </h2>
               <small className='text-brand-gray-b'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id turpis venenatis
+                Settings here are saved to <code>us-east-1</code>, <code>us-west-2</code> and <code>eu-central-1</code>{' '}
+                and are available to all countries.
               </small>
             </div>
             <div className='flex flex-col lg:flex-row gap-0 lg:gap-4'>

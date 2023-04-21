@@ -12,6 +12,7 @@ import RadixPopover from './radix-popover'
 import CockroachLabsIcon from './cockroach-labs-icon'
 import SiloLogo from './silo-logo'
 import SaveButton from './save-button'
+import LoadingSpinner from './loading-spinner'
 
 const RegionInterface = ({ regionId, regionName }) => {
   return (
@@ -20,7 +21,8 @@ const RegionInterface = ({ regionId, regionName }) => {
         session,
         grid,
         values,
-        isLoading,
+        queryIsLoading,
+        localIsLoading,
         isError,
         images,
         shapes,
@@ -68,14 +70,19 @@ const RegionInterface = ({ regionId, regionName }) => {
                         )
                       })}
                     </div>
-                    <Image
-                      loader={imageLoader}
-                      src={values[regionId].url}
-                      alt={values[regionId].name}
-                      width={500}
-                      height={300}
-                      className='absolute m-0 top-0 z-0 w-full'
-                    />
+
+                    {queryIsLoading ? (
+                      <LoadingSpinner className='absolute top-0 left-0 w-full h-full flex items-center justify-center z-20 bg-brand-deep-purple/80' />
+                    ) : (
+                      <Image
+                        loader={imageLoader}
+                        src={values[regionId].url}
+                        alt={values[regionId].name}
+                        width={500}
+                        height={300}
+                        className='absolute m-0 top-0 z-0 w-full'
+                      />
+                    )}
                     <svg
                       viewBox='0 0 500 300'
                       xmlns='http://www.w3.org/2000/svg'
@@ -94,8 +101,13 @@ const RegionInterface = ({ regionId, regionName }) => {
                   <div>
                     <RadixSelect
                       trigger={
-                        <Select.Trigger className='flex items-center justify-between text-left px-4 gap-4 bg-brand-deep-purple border-brand-evening-hush text-brand-evening-hush hover:bg-depth-0 w-full'>
-                          <Select.Value aria-label={values[regionId].name}>{values[regionId].name}</Select.Value>
+                        <Select.Trigger className='flex items-center justify-between text-left px-4 gap-4 bg-brand-deep-purple border-brand-evening-hush transition-color duration-300 hover:border-brand-white text-brand-evening-hush hover:bg-depth-0 w-full'>
+                          <span
+                            aria-label={values[regionId].name}
+                            className='whitespace-nowrap overflow-hidden text-ellipsis'
+                          >
+                            {values[regionId].name}
+                          </span>
                           <Select.Icon className='text-brand-pink'>
                             <svg
                               xmlns='http://www.w3.org/2000/svg'
@@ -268,7 +280,10 @@ const RegionInterface = ({ regionId, regionName }) => {
                       onClick={handleLocalSave}
                       regionId={regionId}
                       regionName={regionName}
-                      disabled={session && values[regionId].url !== 'a-placeholder.jpg' ? false : true}
+                      isLoading={queryIsLoading || localIsLoading}
+                      disabled={
+                        values[regionId].url === 'a-placeholder.jpg' || queryIsLoading || localIsLoading ? true : false
+                      }
                     />
                   ) : (
                     <RadixPopover />

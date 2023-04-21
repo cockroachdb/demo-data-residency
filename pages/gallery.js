@@ -86,13 +86,13 @@ const Page = ({ data }) => {
                 </svg>
               </div>
 
-              <div className='flex gap-2 justify-between bg-depth-1 p-2 text-xs text-brand-white'>
+              <div className='flex gap-2 justify-between bg-depth-1 p-2 text-xs text-brand-evening-hush'>
                 <span className='text-inherit'>{`Created by: ${username}`}</span>
                 <time className='text-inherit'>
                   {new Date(local_last_update).toLocaleString('default', {
-                    month: 'short',
+                    month: 'long',
                     day: 'numeric',
-                    year: '2-digit'
+                    year: 'numeric'
                   })}
                 </time>
               </div>
@@ -119,14 +119,13 @@ export async function getServerSideProps() {
       [region]
     )
     const newResponse = response.rows.map((data) => {
-      const { user_id, username, local_last_update, local_values, global_last_update, global_values } = data
+      const { user_id, username, local_last_update, local_values, global_values } = data
 
       return {
         user_id,
         username,
-        local_last_update: String(new Date(local_last_update * 1000)),
+        local_last_update: String(new Date(local_last_update)),
         local_values,
-        global_last_update: String(new Date(global_last_update * 1000)),
         global_values
       }
     })

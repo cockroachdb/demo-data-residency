@@ -5,42 +5,39 @@ export default async function (req, res) {
   const { user_id } = JSON.parse(req.body)
 
   try {
-    const response = await client.query(
-      'SELECT l.user_id, l.super_region, l.values AS local_values, g.values AS global_values FROM art_local l JOIN art_global g ON l.user_id = g.user_id WHERE l.user_id = $1',
-      [user_id]
+    const local_response = await client.query('SELECT * FROM art_local WHERE user_id = $1', [user_id])
+    const global_response = await client.query('SELECT * FROM art_global WHERE user_id = $1', [user_id])
+
+    const local = local_response.rows.reduce(
+      (items, item) => {
+        const { super_region, values } = item
+
+        items[super_region] = items[super_region] || {}
+
+        items[super_region] = {
+          ...values
+        }
+
+        return items
+      },
+      { us: null, eu: null }
     )
 
-    if (!response.rows.length > 0) {
-      res.status(200).json({
-        message: 'A Ok!',
-        data: null
-      })
-    } else {
-      const newResponse = response.rows.reduce(
-        (items, item) => {
-          const { super_region, local_values, global_values } = item
+    const global = global_response.rows.reduce((items, item) => {
+      const { values } = item
+      items.global = items.global || []
 
-          items[super_region] = items[super_region] || {}
+      items.global = {
+        ...values
+      }
 
-          items[super_region] = {
-            ...local_values
-          }
+      return items
+    }, {})
 
-          items.global = items.global || {}
-          items.global = {
-            ...global_values
-          }
-
-          return items
-        },
-        { us: {}, eu: {}, global: {} }
-      )
-
-      res.status(200).json({
-        message: 'A Ok!',
-        data: newResponse
-      })
-    }
+    res.status(200).json({
+      message: 'A Ok! - user data',
+      data: { local, ...global }
+    })
   } catch (error) {
     res.status(500).json(error)
   } finally {

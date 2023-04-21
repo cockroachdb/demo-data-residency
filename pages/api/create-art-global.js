@@ -8,12 +8,15 @@ export default async function handler(req, res) {
   // console.log(process.env.AWS_REGION)
 
   try {
-    await client.query('UPSERT INTO art_global (user_id, username, last_updated, values) VALUES($1, $2, $3, $4)', [
-      user_id,
-      username,
-      last_updated,
-      values
-    ])
+    const response = await client.query(
+      'UPSERT INTO art_global (user_id, username, last_updated, values) VALUES($1, $2, $3, $4) RETURNING values',
+      [user_id, username, last_updated, values]
+    )
+
+    console.log('global user_id: ', user_id)
+    console.log('global username: ', username)
+    console.log('global values: ', values)
+    console.log('global response values: ', response.rows[0])
 
     res.status(200).json({
       message: 'A Ok!'
