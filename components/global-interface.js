@@ -46,17 +46,18 @@ const GlobalInterface = ({ regionId, regionName }) => {
                       </Select.Icon>
                     </Select.Trigger>
                   }
-                  value={values.global.pattern.name}
+                  value={values.global.pattern.id}
                   onChange={(event) => handlePatternChange(event)}
                 >
                   <Select.Group>
                     {patterns.map((item, index) => {
-                      const { name, paths } = item
+                      const { name, id, paths } = item
                       return (
                         <Select.Item
                           key={index}
                           value={{
                             name: name,
+                            id: id,
                             paths: paths
                           }}
                           className='px-4 py-3 whitespace-nowrap cursor-pointer text-brand-white bg-brand-deep-purple border-b border-b-brand-evening-hush/30 hover:bg-depth-2'

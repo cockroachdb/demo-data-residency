@@ -1,6 +1,6 @@
-import React, { createContext, use, useEffect, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 
 import images from '../public/source-images.json'
 import shapes from '../public/shape-paths.json'
@@ -35,6 +35,7 @@ export const AppProvider = ({ children }) => {
     global: {
       pattern: {
         name: patterns[0].name,
+        id: patterns[0].id,
         paths: patterns[0].paths
       },
       position: {
@@ -83,8 +84,8 @@ export const AppProvider = ({ children }) => {
       const { local, global } = data
 
       setValues({
-        us: local.us || defaultValues.us,
-        eu: local.eu || defaultValues.eu,
+        us: local?.us || defaultValues.us,
+        eu: local?.eu || defaultValues.eu,
         global: global || defaultValues.global
       })
     },
@@ -182,6 +183,7 @@ export const AppProvider = ({ children }) => {
   }
 
   const handlePatternChange = (event) => {
+    console.log(event)
     setValues((prevState) => ({
       ...prevState,
       global: {

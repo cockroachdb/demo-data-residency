@@ -86,16 +86,16 @@ const RegionInterface = ({ regionId, regionName }) => {
                     <svg
                       viewBox='0 0 500 300'
                       xmlns='http://www.w3.org/2000/svg'
-                      className='absolute top-0 left-0 fill-brand-black/10'
+                      className='absolute top-0 left-0 fill-brand-black/20'
                     >
                       <defs>
-                        <pattern id='pattern' viewBox='0,0,200,200' width='20%' height='20%'>
+                        <pattern id={`${values.global.pattern.id}`} viewBox='0,0,200,200' width='20%' height='30%'>
                           {values.global.pattern.paths.map((path, index) => {
                             return <path key={index} d={path} />
                           })}
                         </pattern>
                       </defs>
-                      <rect width={500} height={300} fill='url(#pattern)' />
+                      <rect width={500} height={300} fill={`url(#${values.global.pattern.id})`} />
                     </svg>
                   </div>
                   <div>
