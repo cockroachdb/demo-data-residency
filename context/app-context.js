@@ -164,7 +164,7 @@ export const AppProvider = ({ children }) => {
     newShapes.splice(index, 1, shapes[event])
 
     const newColors = values[regionId].colors
-    newColors.splice(index, 1, regionId === 'us' ? '#bb133e' : '#FFD700') // default colors when shape is created
+    newColors.splice(index, 1, '#fcfcfc') // default colors when shape is created
 
     setValues((prevState) => ({
       ...prevState,
