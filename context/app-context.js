@@ -183,7 +183,6 @@ export const AppProvider = ({ children }) => {
   }
 
   const handlePatternChange = (event) => {
-    console.log(event)
     setValues((prevState) => ({
       ...prevState,
       global: {
