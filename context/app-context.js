@@ -238,7 +238,7 @@ export const AppProvider = ({ children }) => {
           us: hex.us,
           eu: hex.eu
         },
-        patterns: patterns.filter((pattern) => pattern.paths.length),
+        patterns: patterns,
         positions: positions,
         themes: themes,
         handleImageChange,
