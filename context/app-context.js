@@ -227,7 +227,7 @@ export const AppProvider = ({ children }) => {
         values,
         queryIsLoading,
         globalIsLoading: handleGlobalSave.isLoading,
-        globalIsDisabled: [data?.local.eu, data?.local.us].some((value) => value === null),
+        globalIsDisabled: [data?.local?.eu, data?.local?.us].some((value) => value === null),
         localIsLoading: handleLocalSave.isLoading,
         isError,
         images: {
