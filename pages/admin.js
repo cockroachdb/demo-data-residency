@@ -22,8 +22,8 @@ const Page = () => {
           throw new Error('Bad response')
         }
 
-        return json.data
-        // return json.data.filter((a, index, array) => array.findIndex((b) => b.user_id === a.user_id) === index)
+        // return json.data
+        return json.data.filter((a, index, array) => array.findIndex((b) => b.user_id === a.user_id) === index)
       } catch (error) {
         console.log(error)
       }
