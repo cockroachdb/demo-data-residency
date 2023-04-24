@@ -80,6 +80,7 @@ const RegionInterface = ({ regionId, regionName }) => {
                         alt={values[regionId].name}
                         width={500}
                         height={300}
+                        priority
                         className='absolute m-0 top-0 z-0 w-full'
                       />
                     )}

@@ -8,6 +8,10 @@ export default async function (req, res) {
     const local_response = await client.query('SELECT * FROM art_local WHERE user_id = $1', [user_id])
     const global_response = await client.query('SELECT * FROM art_global WHERE user_id = $1', [user_id])
 
+    if (!local_response.rows || !global_response.rows) {
+      throw new Error('Bad Response')
+    }
+
     const local = local_response.rows.reduce(
       (items, item) => {
         const { super_region, values } = item
@@ -39,7 +43,8 @@ export default async function (req, res) {
       data: { local, ...global }
     })
   } catch (error) {
-    res.status(500).json(error)
+    console.error(error)
+    res.status(500).json({ message: 'Error!', error: error })
   } finally {
     client.release()
   }

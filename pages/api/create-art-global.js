@@ -13,17 +13,16 @@ export default async function handler(req, res) {
       [user_id, username, last_updated, values]
     )
 
-    console.log('global user_id: ', user_id)
-    console.log('global username: ', username)
-    console.log('global values: ', values)
-    console.log('global response values: ', response.rows[0])
+    if (!response.rows) {
+      throw new Error('Bad Response')
+    }
 
     res.status(200).json({
       message: 'A Ok!'
     })
   } catch (error) {
-    console.log(error)
-    res.status(500).json({ message: 'Error!' })
+    console.error(error)
+    res.status(500).json({ message: 'Error!', error: error })
   } finally {
     client.release()
   }

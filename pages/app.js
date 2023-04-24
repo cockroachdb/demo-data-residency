@@ -86,7 +86,9 @@ const Page = () => {
               <Image
                 src={previewGraphic}
                 alt='preview graphic'
-                className='absolute top-0 left-0 m-0 w-full h-full object-fit object-cover'
+                width={1020}
+                height={306}
+                className='absolute top-0 left-0 m-0 w-full h-auto object-fit object-cover'
               />
 
               {session ? (
