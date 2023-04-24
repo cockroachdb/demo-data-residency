@@ -33,7 +33,7 @@ const Page = () => {
   const mutation = useMutation(
     async (user_id) => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/admin-delete-by-id`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/admin-delete-by-id/`, {
           method: 'DELETE',
           body: JSON.stringify({
             user_id: user_id

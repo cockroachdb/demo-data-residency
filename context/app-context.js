@@ -62,7 +62,7 @@ export const AppProvider = ({ children }) => {
       console.log('app-read-query')
       if (session) {
         try {
-          const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/app-read-by-id`, {
+          const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/app-read-by-id/`, {
             method: 'POST',
             body: JSON.stringify({ user_id: session.user.id })
           })
@@ -107,7 +107,7 @@ export const AppProvider = ({ children }) => {
   const handleLocalSave = useMutation(
     async ({ regionId, regionName }) => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/create-art-local`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/create-art-local/`, {
           method: 'POST',
           body: JSON.stringify({
             user_id: session.user.id,
@@ -134,7 +134,7 @@ export const AppProvider = ({ children }) => {
   const handleGlobalSave = useMutation(
     async ({ regionId }) => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/create-art-global`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/create-art-global/`, {
           method: 'POST',
           body: JSON.stringify({
             user_id: session.user.id,
