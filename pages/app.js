@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -91,19 +91,19 @@ const Page = () => {
                 className='absolute top-0 left-0 m-0 w-full h-auto object-fit object-cover'
               />
 
-              {session ? (
-                <div className=' flex flex-col gap-4 px-8 py-8 sm:py-16 w-full z-10'>
-                  <div className='flex flex-col gap-3'>
-                    <h2 className='m-0 p-0 text-brand-white text-lg sm:text-4xl normal-case text-center tracking-normal font-sans !capitalize'>
-                      preview your art!
-                    </h2>
-                    <p className='text-center mx-auto max-w-xl'>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum semper vitae. Proin neque
-                      libero, pretium quis bibendum mattis, congue eu urna
-                    </p>
-                  </div>
-                  <div className='flex justify-center'>
-                    {globalIsDisabled ? (
+              <div className=' flex flex-col gap-4 px-8 py-8 sm:py-16 w-full z-10'>
+                <div className='flex flex-col gap-3'>
+                  <h2 className='m-0 p-0 text-brand-white text-xl sm:text-4xl normal-case text-center tracking-normal font-sans !capitalize'>
+                    preview your art!
+                  </h2>
+                  <p className='text-center mx-auto max-w-xl'>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum semper vitae. Proin neque
+                    libero, pretium quis bibendum mattis, congue eu urna
+                  </p>
+                </div>
+                <div className='flex justify-center'>
+                  <Fragment>
+                    {globalIsDisabled || !session ? (
                       <span className='px-4 py-2 border-2 border-brand-evening-hush text-brand-evening-hush capitalize cursor-not-allowed font-medium'>
                         open preview
                       </span>
@@ -116,9 +116,9 @@ const Page = () => {
                         open preview
                       </Link>
                     )}
-                  </div>
+                  </Fragment>
                 </div>
-              ) : null}
+              </div>
               {/* <pre>{JSON.stringify(session, null, 2)}</pre> */}
             </article>
           )
