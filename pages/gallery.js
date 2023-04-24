@@ -115,6 +115,8 @@ export async function getServerSideProps() {
 
   // console.log(process.env.AWS_REGION)
 
+  //THIS JOIN WON'T WORK IF A USER HASN'T SAVED GLOBAL DATA
+
   try {
     const response = await client.query(
       'SELECT l.user_id, l.username, l.region, l.last_updated AS local_last_update, l.values AS local_values, g.last_updated AS global_last_update, g.values AS global_values FROM art_local l JOIN art_global g ON l.user_id = g.user_id WHERE region = $1',

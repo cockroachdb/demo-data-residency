@@ -17,7 +17,7 @@ const defaultGrid = new Array(15).fill('')
 export const AppContext = createContext()
 
 export const AppProvider = ({ children }) => {
-  const { data: session, status: authStatus } = useSession()
+  const { data: session, status } = useSession()
 
   const defaultValues = {
     us: {
@@ -95,7 +95,7 @@ export const AppProvider = ({ children }) => {
 
   useEffect(() => {
     // This is the nextAuth status
-    if (authStatus !== 'loading') {
+    if (status !== 'loading') {
       refetch()
     }
   }, [session])
