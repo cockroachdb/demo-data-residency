@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 import { AppContext } from '../context/app-context'
 
@@ -18,7 +19,7 @@ const Page = () => {
 
       <article className='flex flex-col gap-4 sm:gap-8 bg-depth-0 border-2 border-depth-2 p-4 sm:p-8'>
         <div className='flex flex-col gap-4 sm:gap-8'>
-          <div className='flex flex-col gap-16 bg-depth-1 border-2 border-depth-2  p-4 sm:p-8'>
+          <div className='flex flex-col gap-16 bg-depth-1 border-2 border-depth-2 p-4 sm:p-8'>
             <div className='flex flex-col gap-4'>
               <div>
                 <h2 className='m-0 p-0 text-brand-white text-lg sm:text-3xl normal-case tracking-normal font-sans'>
@@ -38,7 +39,7 @@ const Page = () => {
             </div>
           </div>
 
-          <div className='flex flex-col gap-16 bg-depth-1 border-2 border-depth-2  p-4 sm:p-8'>
+          <div className='flex flex-col gap-16 bg-depth-1 border-2 border-depth-2 p-4 sm:p-8'>
             <div className='flex flex-col gap-4'>
               <div>
                 <h2 className='m-0 p-0 text-brand-white text-lg sm:text-3xl normal-case tracking-normal font-sans'>
@@ -75,6 +76,27 @@ const Page = () => {
         </div>
       </article>
 
+      <AppContext.Consumer>
+        {({ session }) => {
+          return (
+            <article className='flex flex-col justify-center gap-4 sm:gap-8 bg-depth-0 border-2 border-depth-2 p-4 sm:p-8'>
+              {session ? (
+                <div className='flex justify-center'>
+                  <Link
+                    className='px-4 py-2 border-2 no-underline border-brand-pink text-brand-pink'
+                    href={`/preview/${session.user.id}`}
+                    target='_blank'
+                  >
+                    Preview
+                  </Link>
+                </div>
+              ) : null}
+              <pre>{JSON.stringify(session, null, 2)}</pre>
+            </article>
+          )
+        }}
+      </AppContext.Consumer>
+
       <article className='flex flex-col gap-4'>
         <h2 className='heading-lg'>data</h2>
         <p className='mx-auto my-0 max-w-lg text-center'>
@@ -82,13 +104,15 @@ const Page = () => {
         </p>
       </article>
 
-      <article>
-        <AppContext.Consumer>
-          {({ values }) => {
-            return <pre>{JSON.stringify(values, null, 2)}</pre>
-          }}
-        </AppContext.Consumer>
-      </article>
+      <AppContext.Consumer>
+        {({ values }) => {
+          return (
+            <article>
+              <pre>{JSON.stringify(values, null, 2)}</pre>
+            </article>
+          )
+        }}
+      </AppContext.Consumer>
     </section>
   )
 }

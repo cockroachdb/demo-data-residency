@@ -2,11 +2,14 @@ import React from 'react'
 import { useSession } from 'next-auth/react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 
+import LoadingSpinner from '../components/loading-spinner'
+
 const Page = () => {
   const { data: session } = useSession()
+  const queryClient = useQueryClient()
 
   const query = useQuery({
-    queryKey: ['admin-read-all'],
+    queryKey: ['admin-read-query'],
     queryFn: async () => {
       try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/admin-read-all/`, {
@@ -19,12 +22,41 @@ const Page = () => {
           throw new Error('Bad response')
         }
 
-        return json.data.rows
+        return json.data
+        // return json.data.filter((a, index, array) => array.findIndex((b) => b.user_id === a.user_id) === index)
       } catch (error) {
         console.log(error)
       }
     }
   })
+
+  const mutation = useMutation(
+    async (user_id) => {
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/admin-delete-by-id`, {
+          method: 'DELETE',
+          body: JSON.stringify({
+            user_id: user_id
+          })
+        })
+
+        const json = await response.json()
+
+        if (!response.ok) {
+          throw new Error()
+        }
+
+        return json
+      } catch (error) {
+        throw new Error()
+      }
+    },
+    {
+      onSuccess: async () => {
+        queryClient.invalidateQueries(['admin-read-query'])
+      }
+    }
+  )
 
   return (
     <section className='flex flex-col gap-16 mx-auto max-w-6xl'>
@@ -37,46 +69,54 @@ const Page = () => {
       {session?.user.admin ? (
         <div>
           {query.status === 'loading' ? (
-            <div>Loading</div>
+            <div className='flex justify-center'>
+              <LoadingSpinner />
+            </div>
           ) : (
             <div>
-              <table className='relative w-full m-0'>
-                <thead className='text-primary font-bold'>
-                  <tr>
-                    <th className='sticky top-0 p-3 bg-thead text-left'>user_d</th>
-                    <th className='sticky top-0 p-3 bg-thead text-left'>username</th>
+              <table className='m-0 table-auto'>
+                <thead className='p-3 text-primary font-bold border-depth-2'>
+                  <tr className='text-brand-white'>
+                    <th className='text-inherit'>ID</th>
+                    <th className='text-inherit'>Username</th>
+                    <th className='text-inherit'>Super Region</th>
+                    <th className='text-inherit text-right'>Action</th>
                   </tr>
                 </thead>
+                <tbody className=''>
+                  {query.data.map((d, index) => {
+                    const { user_id, username, super_region } = d
+
+                    return (
+                      <tr key={index} className='border-depth-2 text-brand-neutral-400'>
+                        <td className='text-inherit'>{user_id}</td>
+                        <td className='text-inherit'>{username}</td>
+                        <td className='text-inherit uppercase'>{super_region || 'global'}</td>
+                        <td className='text-inherit text-right'>
+                          <button
+                            className='flex items-center justify-center border-brand-danger text-brand-danger ml-auto min-w-[100px] min-h-[44px]'
+                            disabled={mutation.isLoading && mutation.variables === user_id ? true : false}
+                            onClick={() => {
+                              mutation.mutate(user_id)
+                            }}
+                          >
+                            {mutation.isLoading && mutation.variables === user_id ? (
+                              <LoadingSpinner color='fill-brand-danger' />
+                            ) : (
+                              'Delete'
+                            )}
+                          </button>
+                        </td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
               </table>
-              <tbody className='divide-y divide-divide bg-tbody text-text'>
-                {query.data.map((d, i) => {
-                  console.log(d)
-                  const { user_id, username } = d
-                  return (
-                    <tr key={i} className='hover:bg-primary/10'>
-                      <td className='text-xs text-secondary p-3'>{user_id}</td>
-                      <td className='p-3 whitespace-nowrap'>{username}</td>
-                      <td className='p-3 whitespace-nowrap'>
-                        <button
-                          className='min-w-[100px] min-h-[34px] rounded border border-red-800 bg-red-600 text-white px-2 py-1 text-primary disabled:border-neutral-700 disabled:bg-secondary disabled:cursor-not-allowed'
-                          // disabled={mutation.isLoading && mutation.variables === id ? true : false}
-                          onClick={() => {
-                            // mutation.mutate(id);
-                          }}
-                        >
-                          Delete
-                          {/* {mutation.isLoading && mutation.variables === id ? <Spinner /> : 'Delete'} */}
-                        </button>
-                      </td>
-                    </tr>
-                  )
-                })}
-              </tbody>
-              <pre>{JSON.stringify(query.data, null, 2)}</pre>
             </div>
           )}
         </div>
       ) : null}
+      <pre>{JSON.stringify(query.data, null, 2)}</pre>
     </section>
   )
 }

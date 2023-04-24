@@ -17,7 +17,7 @@ const defaultGrid = new Array(15).fill('')
 export const AppContext = createContext()
 
 export const AppProvider = ({ children }) => {
-  const { data: session, status } = useSession()
+  const { data: session, status: authStatus } = useSession()
 
   const defaultValues = {
     us: {
@@ -56,11 +56,11 @@ export const AppProvider = ({ children }) => {
     isError,
     refetch
   } = useQuery({
-    queryKey: ['read-query'],
+    queryKey: ['app-read-query'],
     queryFn: async () => {
       if (session) {
         try {
-          const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/read-by-user-id`, {
+          const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/app-read-by-id`, {
             method: 'POST',
             body: JSON.stringify({ user_id: session.user.id })
           })
@@ -94,7 +94,7 @@ export const AppProvider = ({ children }) => {
 
   useEffect(() => {
     // This is the nextAuth status
-    if (status !== 'loading') {
+    if (authStatus !== 'loading') {
       refetch()
     }
   }, [session])

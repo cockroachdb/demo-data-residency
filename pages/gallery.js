@@ -7,6 +7,8 @@ import SiloLogo from '../components/silo-logo'
 import GetStartedLink from '../components/get-started-link'
 
 const Page = ({ data }) => {
+  if (!data) return null
+
   return (
     <section className='flex flex-col gap-16 mx-auto max-w-6xl'>
       <div className='flex flex-col gap-2'>

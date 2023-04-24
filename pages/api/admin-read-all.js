@@ -4,13 +4,12 @@ export default async function handler(req, res) {
   const client = await getDB().connect()
 
   try {
-    const response = await client.query(
-      'SELECT l.user_id, l.username, l.region, l.values AS local_values, g.values AS global_values FROM art_local l JOIN art_global g ON l.user_id = g.user_id'
-    )
+    const local_response = await client.query('SELECT * FROM art_local')
+    const global_response = await client.query('SELECT * FROM art_global')
 
     res.status(200).json({
       message: 'A Ok!',
-      data: response
+      data: [...local_response.rows, ...global_response.rows]
     })
   } catch (error) {
     console.log(error)

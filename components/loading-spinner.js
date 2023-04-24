@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 
 const LoadingSpinner = ({ color, className }) => {
   return (
-    <div className={`flex ${className}`} role='status'>
+    <div className={`flex text-brand-hidden-sapphire ${className}`} role='status'>
       <svg
         aria-hidden='true'
         aria-label='Loading spinner...'
-        className='not-prose flex text-brand-hidden-sapphire animate-spin w-5 h-5'
+        className='not-prose flex animate-spin w-5 h-5'
         viewBox='0 0 24 24'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
