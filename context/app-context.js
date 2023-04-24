@@ -52,6 +52,7 @@ export const AppProvider = ({ children }) => {
   const [values, setValues] = useState(defaultValues)
 
   const {
+    data,
     isLoading: queryIsLoading,
     isError,
     refetch
@@ -226,6 +227,7 @@ export const AppProvider = ({ children }) => {
         values,
         queryIsLoading,
         globalIsLoading: handleGlobalSave.isLoading,
+        globalIsDisabled: [data?.local.eu, data?.local.us].some((value) => value === null),
         localIsLoading: handleLocalSave.isLoading,
         isError,
         images: {

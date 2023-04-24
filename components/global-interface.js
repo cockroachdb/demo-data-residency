@@ -15,6 +15,7 @@ const GlobalInterface = ({ regionId, regionName }) => {
         values,
         queryIsLoading,
         globalIsLoading,
+        globalIsDisabled,
         isError,
         patterns,
         positions,
@@ -165,7 +166,7 @@ const GlobalInterface = ({ regionId, regionName }) => {
                 regionId={regionId}
                 regionName={regionName}
                 isLoading={queryIsLoading || globalIsLoading}
-                disabled={queryIsLoading || globalIsLoading}
+                disabled={queryIsLoading || globalIsLoading || globalIsDisabled}
               />
             ) : (
               <RadixPopover />
