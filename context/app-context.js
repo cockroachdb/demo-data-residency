@@ -59,6 +59,7 @@ export const AppProvider = ({ children }) => {
   } = useQuery({
     queryKey: ['app-read-query'],
     queryFn: async () => {
+      console.log('app-read-query')
       if (session) {
         try {
           const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/app-read-by-id`, {
@@ -74,6 +75,7 @@ export const AppProvider = ({ children }) => {
           return json.data
         } catch (error) {
           console.error(error)
+          console.error('app-read-query')
         }
       } else {
         return defaultValues
@@ -96,7 +98,9 @@ export const AppProvider = ({ children }) => {
   useEffect(() => {
     // This is the nextAuth status
     if (status !== 'loading') {
-      refetch()
+      setTimeout(() => {
+        refetch()
+      }, 1000)
     }
   }, [session])
 
