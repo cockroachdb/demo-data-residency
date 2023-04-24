@@ -122,6 +122,11 @@ export async function getServerSideProps() {
       'SELECT l.user_id, l.username, l.region, l.last_updated AS local_last_update, l.values AS local_values, g.last_updated AS global_last_update, g.values AS global_values FROM art_local l JOIN art_global g ON l.user_id = g.user_id WHERE region = $1',
       [region]
     )
+
+    if (!response.rows) {
+      throw new Error('Bad Response')
+    }
+
     const newResponse = response.rows.map((data) => {
       const { user_id, username, local_last_update, local_values, global_values } = data
 
