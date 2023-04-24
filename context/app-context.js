@@ -84,19 +84,11 @@ export const AppProvider = ({ children }) => {
 
       const { local, global } = data
 
-      if (local) {
-        setValues({
-          us: local.us,
-          eu: local.eu,
-          global: global
-        })
-      } else {
-        setValues({
-          us: defaultValues.us,
-          eu: defaultValues.eu,
-          global: defaultValues.global
-        })
-      }
+      setValues({
+        us: local?.us || defaultValues.us,
+        eu: local?.eu || defaultValues.eu,
+        global: global || defaultValues.global
+      })
     },
     enabled: false
   })
@@ -228,6 +220,8 @@ export const AppProvider = ({ children }) => {
       }
     }))
   }
+
+  console.log('values: ', values)
 
   return (
     <AppContext.Provider
