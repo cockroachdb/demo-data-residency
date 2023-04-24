@@ -221,8 +221,6 @@ export const AppProvider = ({ children }) => {
     }))
   }
 
-  console.log('values: ', values)
-
   return (
     <AppContext.Provider
       value={{
