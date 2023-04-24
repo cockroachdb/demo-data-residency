@@ -86,13 +86,13 @@ const Page = ({ data, message }) => {
                     className='absolute top-0 left-0 fill-brand-black/20'
                   >
                     <defs>
-                      <pattern id={`${pattern.id}`} viewBox='0,0,200,200' width='20%' height='30%'>
-                        {pattern.paths.map((path, index) => {
+                      <pattern id={`${global_values.pattern.id}`} viewBox='0,0,200,200' width='20%' height='30%'>
+                        {global_values.pattern.paths.map((path, index) => {
                           return <path key={index} d={path} />
                         })}
                       </pattern>
                     </defs>
-                    <rect width={500} height={300} fill={`url(#${pattern.id})`} />
+                    <rect width={500} height={300} fill={`url(#${global_values.pattern.id})`} />
                   </svg>
                 ) : null}
               </div>
