@@ -42,7 +42,7 @@ const Page = () => {
   return (
     <section className='flex flex-col gap-16 mx-auto max-w-6xl'>
       {query.isError ? <ErrorMessage /> : null}
-      {query.status === 'loading' ? (
+      {query.isLoading ? (
         <div className='flex justify-center'>
           <LoadingSpinner />
         </div>

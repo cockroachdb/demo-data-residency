@@ -40,7 +40,7 @@ const Page = ({ user_id }) => {
   return (
     <section className='flex flex-col gap-16 mx-auto max-w-6xl'>
       {query.isError ? <ErrorMessage /> : null}
-      {query.status === 'loading' ? (
+      {query.isLoading ? (
         <div className='flex justify-center'>
           <LoadingSpinner />
         </div>
@@ -113,6 +113,7 @@ const Page = ({ user_id }) => {
                       alt={name}
                       width={500}
                       height={300}
+                      priority
                       className='absolute m-0 top-0 z-0 w-full'
                     />
                     {global_values?.position ? (

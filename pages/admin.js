@@ -70,7 +70,7 @@ const Page = () => {
       {session?.user.admin ? (
         <div>
           {query.isError ? <ErrorMessage /> : null}
-          {query.status === 'loading' ? (
+          {query.isLoading ? (
             <div className='flex justify-center'>
               <LoadingSpinner />
             </div>
