@@ -100,13 +100,7 @@ const Page = ({ data, region, message }) => {
 
               <div className='flex gap-2 justify-between bg-depth-1 p-2 text-xs text-brand-evening-hush'>
                 <span className='text-inherit'>{`Created by: ${username}`}</span>
-                {/* <time className='text-inherit'>
-                  {new Date(local_last_update).toLocaleString('default', {
-                    month: 'long',
-                    day: 'numeric',
-                    year: 'numeric'
-                  })}
-                </time> */}
+                <time className='text-inherit'>{local_last_update}</time>
               </div>
             </div>
           )
@@ -139,7 +133,11 @@ export async function getServerSideProps() {
       return {
         user_id,
         username,
-        local_last_update: String(new Date(local_last_update)),
+        local_last_update: new Date(local_last_update).toLocaleString('default', {
+          month: 'long',
+          day: 'numeric',
+          year: 'numeric'
+        }),
         local_values,
         global_values
       }
