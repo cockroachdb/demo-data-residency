@@ -11,28 +11,33 @@ import LoadingSpinner from '../components/loading-spinner'
 import ErrorMessage from '../components/error-message'
 
 const Page = () => {
-  const query = useQuery({
-    queryKey: ['gallery-query'],
-    queryFn: async () => {
-      try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/gallery`, {
-          method: 'GET'
-        })
+  const query = useQuery(
+    {
+      queryKey: ['gallery-query'],
+      queryFn: async () => {
+        try {
+          const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/gallery`, {
+            method: 'GET'
+          })
 
-        if (!response.ok) {
-          throw new Error(response.statusText)
-        }
-        const json = await response.json()
+          if (!response.ok) {
+            throw new Error(response.statusText)
+          }
+          const json = await response.json()
 
-        return {
-          region: json.region,
-          results: json.data
+          return {
+            region: json.region,
+            results: json.data
+          }
+        } catch (error) {
+          console.error(error.message)
         }
-      } catch (error) {
-        console.error(error)
       }
+    },
+    {
+      retry: 10
     }
-  })
+  )
 
   return (
     <section className='flex flex-col gap-16 mx-auto max-w-6xl'>
