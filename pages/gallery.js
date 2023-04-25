@@ -100,13 +100,13 @@ const Page = ({ data, region, message }) => {
 
               <div className='flex gap-2 justify-between bg-depth-1 p-2 text-xs text-brand-evening-hush'>
                 <span className='text-inherit'>{`Created by: ${username}`}</span>
-                <time className='text-inherit'>
+                {/* <time className='text-inherit'>
                   {new Date(local_last_update).toLocaleString('default', {
                     month: 'long',
                     day: 'numeric',
                     year: 'numeric'
                   })}
-                </time>
+                </time> */}
               </div>
             </div>
           )
