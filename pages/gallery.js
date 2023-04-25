@@ -6,16 +6,17 @@ import CockroachLabsIcon from '../components/cockroach-labs-icon'
 import SiloLogo from '../components/silo-logo'
 import GetStartedLink from '../components/get-started-link'
 
-const Page = ({ data, message }) => {
+const Page = ({ data, region, message }) => {
   if (!data) return <div>{message}</div>
 
   return (
-    <section className='flex flex-col gap-16 mx-auto max-w-6xl'>
+    <section className='flex flex-col gap-16 mx-auto max-w-6xl' aria-details={region}>
       <div className='flex flex-col gap-2'>
         <h1 className='heading-lg'>gallery</h1>
         <p className='mx-auto max-w-lg text-center'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a tincidunt nisl, sed interdum ante
         </p>
+
         <div className='mx-auto'>
           <GetStartedLink />
         </div>
@@ -119,10 +120,8 @@ export async function getServerSideProps() {
   const { getDB } = require('../pg')
   const client = await getDB().connect()
 
-  const region = 'aws-us-east-1'
-  // const region = 'aws-eu-central-1'
-
-  // console.log(process.env.AWS_REGION)
+  const region = process.env.AWS_REGION ? `aws-${process.env.AWS_REGION}` : 'aws-us-east-1'
+  // const region = process.env.AWS_REGION ? `aws-${process.env.AWS_REGION}` : 'aws-eu-central-1'
 
   try {
     const response = await client.query(
@@ -149,6 +148,7 @@ export async function getServerSideProps() {
     return {
       props: {
         message: 'A Ok!',
+        region: region,
         data: newResponse
       }
     }
