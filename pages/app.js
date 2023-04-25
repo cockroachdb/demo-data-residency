@@ -103,11 +103,7 @@ const Page = () => {
                 </div>
                 <div className='flex justify-center'>
                   <Fragment>
-                    {globalIsDisabled || !session ? (
-                      <span className='px-4 py-2 border-2 border-brand-evening-hush text-brand-evening-hush capitalize cursor-not-allowed font-medium'>
-                        open preview
-                      </span>
-                    ) : (
+                    {session && !globalIsDisabled ? (
                       <Link
                         className='px-4 py-2 border-2 no-underline border-brand-pink text-brand-pink capitalize transition-color duration-300 hover:border-brand-white hover:text-brand-white'
                         href={`/preview/${session.user.id}`}
@@ -115,11 +111,14 @@ const Page = () => {
                       >
                         open preview
                       </Link>
+                    ) : (
+                      <span className='px-4 py-2 border-2 border-brand-evening-hush text-brand-evening-hush capitalize cursor-not-allowed font-medium'>
+                        open preview
+                      </span>
                     )}
                   </Fragment>
                 </div>
               </div>
-              {/* <pre>{JSON.stringify(session, null, 2)}</pre> */}
             </article>
           )
         }}

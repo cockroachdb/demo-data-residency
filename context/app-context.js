@@ -95,12 +95,13 @@ export const AppProvider = ({ children }) => {
 
   useEffect(() => {
     // This is the nextAuth status
+    // console.log(status)
     if (status !== 'loading') {
       setTimeout(() => {
         refetch()
       }, 1000)
     }
-  }, [session])
+  }, [status])
 
   const handleLocalSave = useMutation(
     async ({ regionId, regionName }) => {
