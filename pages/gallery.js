@@ -12,7 +12,7 @@ import ErrorMessage from '../components/error-message'
 
 const Page = () => {
   const query = useQuery({
-    queryKey: ['gallery-read-query'],
+    queryKey: ['gallery-query'],
     queryFn: async () => {
       try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/gallery`, {

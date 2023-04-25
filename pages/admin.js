@@ -9,10 +9,10 @@ const Page = () => {
   const queryClient = useQueryClient()
 
   const query = useQuery({
-    queryKey: ['admin-read-query'],
+    queryKey: ['admin-query'],
     queryFn: async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/admin-read-all/`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/admin-read-all`, {
           method: 'GET'
         })
 
@@ -33,7 +33,7 @@ const Page = () => {
   const mutation = useMutation(
     async (user_id) => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/admin-delete-by-id/`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/admin-delete-by-id`, {
           method: 'DELETE',
           body: JSON.stringify({
             user_id: user_id
@@ -53,7 +53,7 @@ const Page = () => {
     },
     {
       onSuccess: async () => {
-        queryClient.invalidateQueries(['admin-read-query'])
+        queryClient.invalidateQueries(['admin-query'])
       }
     }
   )

@@ -1,4 +1,4 @@
-import { getDB } from '../../pg'
+import { getDB } from '../../../pg'
 
 export default async function (req, res) {
   const client = await getDB().connect()

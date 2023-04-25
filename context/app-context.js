@@ -57,11 +57,11 @@ export const AppProvider = ({ children }) => {
     isError,
     refetch
   } = useQuery({
-    queryKey: ['app-read-query'],
+    queryKey: ['user-query'],
     queryFn: async () => {
       if (session) {
         try {
-          const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/app-read-by-id/`, {
+          const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user`, {
             method: 'POST',
             body: JSON.stringify({ user_id: session.user.id })
           })
