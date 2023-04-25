@@ -114,9 +114,9 @@ const Page = () => {
               </table>
             </div>
           )}
+          <pre>{JSON.stringify(query.data, null, 2)}</pre>
         </div>
       ) : null}
-      <pre>{JSON.stringify(query.data, null, 2)}</pre>
     </section>
   )
 }
