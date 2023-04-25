@@ -61,7 +61,7 @@ export const AppProvider = ({ children }) => {
     queryFn: async () => {
       if (session) {
         try {
-          const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user`, {
+          const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/user`, {
             method: 'POST',
             body: JSON.stringify({ user_id: session.user.id })
           })
@@ -106,7 +106,7 @@ export const AppProvider = ({ children }) => {
   const handleLocalSave = useMutation(
     async ({ regionId, regionName }) => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/create-art-local/`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/artlocal`, {
           method: 'POST',
           body: JSON.stringify({
             user_id: session.user.id,
@@ -133,7 +133,7 @@ export const AppProvider = ({ children }) => {
   const handleGlobalSave = useMutation(
     async ({ regionId }) => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/create-art-global/`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/artglobal`, {
           method: 'POST',
           body: JSON.stringify({
             user_id: session.user.id,
