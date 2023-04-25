@@ -16,11 +16,11 @@ const Page = () => {
           method: 'GET'
         })
 
-        const json = await response.json()
-
         if (!response.ok) {
           throw new Error('Bad response')
         }
+
+        const json = await response.json()
 
         return json.data.sort((a, b) => a.username.localeCompare(b.username))
         // return json.data.filter((a, index, array) => array.findIndex((b) => b.user_id === a.user_id) === index)
