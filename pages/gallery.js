@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { imageLoader } from '../utils/image-loader'
-
 import { useQuery } from '@tanstack/react-query'
 
-import LoadingSpinner from '../components/loading-spinner'
+import { imageLoader } from '../utils/image-loader'
+
 import CockroachLabsIcon from '../components/cockroach-labs-icon'
 import SiloLogo from '../components/silo-logo'
+import LoadingSpinner from '../components/loading-spinner'
 import ErrorMessage from '../components/error-message'
 
 const Page = () => {
