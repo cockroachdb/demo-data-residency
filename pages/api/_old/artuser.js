@@ -1,4 +1,4 @@
-import { getDB } from '../../pg'
+import { getDB } from '../../../pg'
 
 export default async function handler(req, res) {
   const client = await getDB().connect()
@@ -14,8 +14,6 @@ export default async function handler(req, res) {
       'SELECT l.user_id, l.username, l.region, l.last_updated AS local_last_update, l.values AS local_values, g.last_updated AS global_last_update, g.values AS global_values FROM art_local l LEFT JOIN art_global g ON l.user_id = g.user_id WHERE l.user_id = $1 AND region = $2',
       [user_id, region]
     )
-
-    console.log('server response: ', response)
 
     if (!response.rows) {
       throw new Error('Bad Response')

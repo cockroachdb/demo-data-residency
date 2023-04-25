@@ -14,7 +14,7 @@ const Page = ({ user_id }) => {
     queryKey: ['artuser-query'],
     queryFn: async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/artuser`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/artuser`, {
           method: 'POST',
           body: JSON.stringify({
             user_id: user_id
