@@ -127,7 +127,7 @@ export const AppProvider = ({ children }) => {
     },
     {
       onSuccess: async () => {
-        refetch()
+        // refetch()
       }
     }
   )
@@ -154,7 +154,7 @@ export const AppProvider = ({ children }) => {
     },
     {
       onSuccess: async () => {
-        refetch()
+        // refetch()
       }
     }
   )
