@@ -11,10 +11,10 @@ import ErrorMessage from '../../components/error-message'
 
 const Page = ({ user_id }) => {
   const query = useQuery({
-    queryKey: ['preview-query'],
+    queryKey: ['artuser-query'],
     queryFn: async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/preview`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/artuser`, {
           method: 'POST',
           body: JSON.stringify({
             user_id: user_id
@@ -32,7 +32,7 @@ const Page = ({ user_id }) => {
           results: json.data
         }
       } catch (error) {
-        console.log(error)
+        console.error(error)
       }
     }
   })
@@ -45,7 +45,7 @@ const Page = ({ user_id }) => {
           <LoadingSpinner />
         </div>
       ) : null}
-      {!query.isError && query.status !== 'loading' ? (
+      {!query.isError && !query.isLoading ? (
         <Fragment>
           <div className='flex flex-col gap-4'>
             <h1 className='heading-lg'>preview</h1>

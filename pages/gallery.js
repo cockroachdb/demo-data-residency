@@ -21,7 +21,7 @@ const Page = () => {
           })
 
           if (!response.ok) {
-            throw new Error(response.statusText)
+            throw new Error('Bad response')
           }
           const json = await response.json()
 
@@ -30,7 +30,7 @@ const Page = () => {
             results: json.data
           }
         } catch (error) {
-          console.error(error.message)
+          console.error(error)
         }
       }
     },
@@ -47,7 +47,7 @@ const Page = () => {
           <LoadingSpinner />
         </div>
       ) : null}
-      {!query.isError && query.status !== 'loading' ? (
+      {!query.isError && !query.isLoading ? (
         <Fragment>
           <div className='flex flex-col gap-4'>
             <h1 className='heading-lg'>gallery</h1>

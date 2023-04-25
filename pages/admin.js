@@ -26,7 +26,7 @@ const Page = () => {
         return json.data.sort((a, b) => a.username.localeCompare(b.username))
         // return json.data.filter((a, index, array) => array.findIndex((b) => b.user_id === a.user_id) === index)
       } catch (error) {
-        console.log(error)
+        console.error(error)
       }
     }
   })
@@ -75,7 +75,7 @@ const Page = () => {
               <LoadingSpinner />
             </div>
           ) : null}
-          {!query.isError && query.status !== 'loading' ? (
+          {!query.isError && !query.isLoading ? (
             <Fragment>
               <div>
                 <table className='m-0 table-auto'>
