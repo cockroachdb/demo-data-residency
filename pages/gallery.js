@@ -16,7 +16,7 @@ const Page = () => {
       queryKey: ['gallery-query'],
       queryFn: async () => {
         try {
-          const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/gallery`, {
+          const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/gallery`, {
             method: 'GET'
           })
 

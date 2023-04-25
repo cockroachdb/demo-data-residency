@@ -62,7 +62,7 @@ export const AppProvider = ({ children }) => {
       if (session) {
         try {
           // const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/user`, {
-          const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user`, {
+          const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/user`, {
             method: 'POST',
             body: JSON.stringify({ user_id: session.user.id })
           })
@@ -108,7 +108,7 @@ export const AppProvider = ({ children }) => {
     async ({ regionId, regionName }) => {
       try {
         // const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/artlocal`, {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/artlocal`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/artlocal`, {
           method: 'POST',
           body: JSON.stringify({
             user_id: session.user.id,
@@ -136,7 +136,7 @@ export const AppProvider = ({ children }) => {
     async ({ regionId }) => {
       try {
         // const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/artglobal`, {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/artglobal`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/artglobal`, {
           method: 'POST',
           body: JSON.stringify({
             user_id: session.user.id,
