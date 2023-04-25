@@ -42,7 +42,7 @@ const NewsletterForm = ({ formId }) => {
           iaculis
         </p>
       </div>
-      <div className='flex flex-col mx-auto w-full sm:max-w-lg gap-2'>
+      <div className='flex flex-col mx-auto w-full sm:max-w-lg gap-1'>
         <form onSubmit={handleSubmit} className='flex gap-2 items-end'>
           <label className='flex flex-col gap-1 grow text-xs text-brand-white font-medium'>
             <span className="after:content-['*'] after:mt-0.5 after:text-red-500 flex gap-1 grow text-xs text-brand-white font-medium">
