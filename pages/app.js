@@ -104,7 +104,6 @@ const Page = () => {
                       <Link
                         className='px-4 py-2 border-2 no-underline border-brand-pink text-brand-pink capitalize transition-color duration-300 hover:border-brand-white hover:text-brand-white'
                         href={`/preview/${session.user.id}`}
-                        target='_blank'
                       >
                         open preview
                       </Link>
