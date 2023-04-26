@@ -16,7 +16,13 @@ module.exports = {
     // These are for the silo themes
     'fill-brand-black',
     'fill-brand-white',
-    'fill-brand-electric-purple'
+    'fill-brand-electric-purple',
+    // This is for the global table
+    'bg-depth-3',
+    'table-scale-inactive',
+    'table-scale-active',
+    'table-blur-inactive',
+    'table-blur-active'
   ],
   theme: {
     extend: {
@@ -66,9 +72,10 @@ module.exports = {
           'neutral-100': '#dee4fa'
         },
         depth: {
-          0: '#170e30',
-          1: '#1e1536',
-          2: '#2f2745'
+          0: '#1e1437',
+          1: '#22183b',
+          2: '#271d3f',
+          3: '#302748'
         }
       },
       fontFamily: {

@@ -22,4 +22,19 @@
   .eu-isomorphic {
     transform: rotateX(20deg) rotateY(14deg) rotateZ(354deg);
   }
+  .table-scale-inactive {
+    @apply xl:scale-100 brightness-90;
+  }
+  .table-scale-active {
+    @apply xl:scale-110 brightness-90 !bg-depth-3;
+  }
+  .table-scale-active.global {
+    @apply relative xl:scale-125 brightness-100 shadow-2xl z-10;
+  }
+  .table-blur-inactive {
+    filter: blur(3px);
+  }
+  .table-blur-active {
+    @apply blur-none;
+  }
 }
