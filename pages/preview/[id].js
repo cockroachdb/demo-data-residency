@@ -17,73 +17,66 @@ const Page = ({ user_id }) => {
     {
       queryKey: ['artuser-query'],
       queryFn: async () => {
-        try {
-          const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/artuser`, {
-            method: 'POST',
-            body: JSON.stringify({
-              user_id: user_id
-            })
+        const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/artuser`, {
+          method: 'POST',
+          body: JSON.stringify({
+            user_id: user_id
           })
+        })
 
-          if (!response.ok) {
-            throw new Error('Bad response')
-          }
+        if (!response.ok) {
+          throw new Error()
+        }
 
-          const json = await response.json()
+        const json = await response.json()
 
-          if (json.data.length > 0) {
-            const details = {
-              'eu-central-1': {
-                headings: [
-                  {
-                    flag: '🇩🇪',
-                    regionId: 'Germany',
-                    region: 'eu-central-1 | (Frankfurt)'
-                  }
-                ]
-              },
-              'us-east-1': {
-                headings: [
-                  {
-                    flag: '🇺🇸',
-                    regionId: 'USA',
-                    region: 'us-east-1 | (N. Virginia)'
-                  },
-                  {
-                    flag: '🇺🇸',
-                    regionId: 'USA',
-                    region: 'us-west-2 | (Oregon)'
-                  }
-                ]
-              }
-            }
-
-            const lookup = json.region === 'eu-central-1' ? 'eu' : 'us'
-
-            return {
-              placeholder: {
-                region: json.region === 'eu-central-1' ? 'us-east-1, us-west-2' : 'eu-central-1',
-                message:
-                  json.region === 'eu-central-1'
-                    ? 'Access to data in these regions is not permitted'
-                    : 'Access to data in this region is not permitted',
-                headings: details[json.region === 'eu-central-1' ? 'us-east-1' : 'eu-central-1'].headings,
-                image: {
-                  name: images[lookup][0].credit,
-                  url: images[lookup][0].s3_url
+        if (json.data.length > 0) {
+          const details = {
+            'eu-central-1': {
+              headings: [
+                {
+                  flag: '🇩🇪',
+                  regionId: 'Germany',
+                  region: 'eu-central-1 | (Frankfurt)'
                 }
-              },
-              results: {
-                headings: details[json.region].headings,
-                ...json.data[0]
-              }
+              ]
+            },
+            'us-east-1': {
+              headings: [
+                {
+                  flag: '🇺🇸',
+                  regionId: 'USA',
+                  region: 'us-east-1 | (N. Virginia)'
+                },
+                {
+                  flag: '🇺🇸',
+                  regionId: 'USA',
+                  region: 'us-west-2 | (Oregon)'
+                }
+              ]
             }
-          } else {
-            return null
           }
-        } catch (error) {
-          console.error(error)
-          return null
+
+          const lookup = json.region === 'eu-central-1' ? 'eu' : 'us'
+
+          return {
+            placeholder: {
+              region: json.region === 'eu-central-1' ? 'us-east-1, us-west-2' : 'eu-central-1',
+              message:
+                json.region === 'eu-central-1'
+                  ? 'Access to data in these regions is not permitted'
+                  : 'Access to data in this region is not permitted',
+              headings: details[json.region === 'eu-central-1' ? 'us-east-1' : 'eu-central-1'].headings,
+              image: {
+                name: images[lookup][0].credit,
+                url: images[lookup][0].s3_url
+              }
+            },
+            results: {
+              headings: details[json.region].headings,
+              ...json.data[0]
+            }
+          }
         }
       }
     },
@@ -108,7 +101,7 @@ const Page = ({ user_id }) => {
                 <h1 className='heading-lg'>preview</h1>
                 <div className='flex flex-col gap-2 mx-auto max-w-lg'>
                   <p className='flex gap-2 m-0 text-center'>
-                    Art created by <strong>{data.results.username}</strong>
+                    Art by <strong className='text-brand-iridescent-blue'>{data.results.username}</strong>
                     <time className='text-inherit'>{`| ${data.results.local_last_update}`}</time>
                   </p>
                 </div>

@@ -13,23 +13,18 @@ const Page = () => {
     {
       queryKey: ['admin-query'],
       queryFn: async () => {
-        try {
-          const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/admin-read-all`, {
-            method: 'GET'
-          })
+        const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/admin-read-all`, {
+          method: 'GET'
+        })
 
-          if (!response.ok) {
-            throw new Error()
-          }
-
-          const json = await response.json()
-
-          return json.data.sort((a, b) => a.username.localeCompare(b.username))
-          // return json.data.filter((a, index, array) => array.findIndex((b) => b.user_id === a.user_id) === index)
-        } catch (error) {
-          console.error(error)
-          return null
+        if (!response.ok) {
+          throw new Error()
         }
+
+        const json = await response.json()
+
+        return json.data.sort((a, b) => a.username.localeCompare(b.username))
+        // return json.data.filter((a, index, array) => array.findIndex((b) => b.user_id === a.user_id) === index)
       }
     },
     {

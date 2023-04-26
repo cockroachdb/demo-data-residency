@@ -64,27 +64,21 @@ export const AppProvider = ({ children }) => {
     {
       queryKey: ['user-query'],
       queryFn: async () => {
-        try {
-          // const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/user`, {
-          const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/user`, {
-            method: 'POST',
-            body: JSON.stringify({ user_id: session.user.id })
-          })
+        // const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/user`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/user`, {
+          method: 'POST',
+          body: JSON.stringify({ user_id: session.user.id })
+        })
 
-          if (!response.ok) {
-            throw new Error(response.statusText)
-          }
-          const json = await response.json()
-
-          return json.data
-        } catch (error) {
-          console.error(error)
-          return null
+        if (!response.ok) {
+          throw new Error()
         }
+        const json = await response.json()
+
+        return json.data
       },
       initialData: defaultValues,
       onSuccess: async (data) => {
-        // console.log('query onSuccess: ', data)
         setValues({
           us: data?.local?.us || defaultValues.us,
           eu: data?.local?.eu || defaultValues.eu,
@@ -100,6 +94,8 @@ export const AppProvider = ({ children }) => {
 
   useEffect(() => {
     if (session && router.pathname === '/app') {
+      // console.log('//// refetch')
+      // console.log('user_id: ', session.user.id)
       refetch()
     }
   }, [session, router])

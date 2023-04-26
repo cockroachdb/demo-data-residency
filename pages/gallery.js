@@ -69,7 +69,7 @@ const Page = () => {
                   const {
                     username,
                     local_last_update,
-                    local_values: { url, name, shapes, colors },
+                    local_values: { url, name, credit, shapes, colors },
                     global_values
                   } = art
 
@@ -145,10 +145,12 @@ const Page = () => {
                           </svg>
                         ) : null}
                       </div>
-
-                      <div className='flex gap-2 justify-between bg-depth-1 p-2 text-xs text-brand-evening-hush'>
-                        <span className='text-inherit'>{`Created by: ${username}`}</span>
-                        <time className='text-inherit'>{local_last_update}</time>
+                      <div className='flex flex-col gap-2 bg-depth-1 p-2 text-xs text-brand-evening-hush'>
+                        <span className='text-inherit'>{`Photograph by: ${credit}`}</span>
+                        <div className='flex gap-2 justify-between text-inherit'>
+                          <span className='text-inherit'>{`Art by: ${username}`}</span>
+                          <time className='text-inherit'>{local_last_update}</time>
+                        </div>
                       </div>
                     </div>
                   )
