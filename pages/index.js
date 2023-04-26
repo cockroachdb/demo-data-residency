@@ -183,7 +183,7 @@ const Page = () => {
               </thead>
               <tbody>
                 {globalTable.body.map((body, index) => {
-                  const { key, user_id, image, data, region } = body
+                  const { key, user_id, image, data, emoji, region } = body
                   const isActive = key === currentRegion || key === 'global' ? 'active' : 'inactive'
 
                   return (
@@ -211,7 +211,10 @@ const Page = () => {
                           ) : null}
                         </div>
                       </td>
-                      <td className={`align-middle table-blur-${isActive}`}>{region}</td>
+                      <td className={`flex items-center gap-1 table-blur-${isActive}`}>
+                        <span className='mt-1'>{emoji}</span>
+                        <span>{region}</span>
+                      </td>
                     </tr>
                   )
                 })}
