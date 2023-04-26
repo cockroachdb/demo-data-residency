@@ -95,60 +95,46 @@ export const AppProvider = ({ children }) => {
     }
   }, [session, router])
 
-  const handleLocalSave = useMutation(
-    async ({ regionId, regionName }) => {
-      try {
-        // const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/artlocal`, {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/artlocal`, {
-          method: 'POST',
-          body: JSON.stringify({
-            user_id: session.user.id,
-            username: session.user.name,
-            region: regionName,
-            values: values[regionId]
-          })
+  const handleLocalSave = useMutation(async ({ regionId, regionName }) => {
+    try {
+      // const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/artlocal`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/artlocal`, {
+        method: 'POST',
+        body: JSON.stringify({
+          user_id: session.user.id,
+          username: session.user.name,
+          region: regionName,
+          values: values[regionId]
         })
+      })
 
-        if (!response.ok) {
-          throw new Error(response.statusText)
-        }
-      } catch (error) {
-        console.error(error)
+      if (!response.ok) {
+        throw new Error(response.statusText)
       }
-    },
-    {
-      onSuccess: async () => {
-        // refetch()
-      }
+    } catch (error) {
+      console.error(error)
     }
-  )
+  })
 
-  const handleGlobalSave = useMutation(
-    async ({ regionId }) => {
-      try {
-        // const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/artglobal`, {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/artglobal`, {
-          method: 'POST',
-          body: JSON.stringify({
-            user_id: session.user.id,
-            username: session.user.name,
-            values: values[regionId]
-          })
+  const handleGlobalSave = useMutation(async ({ regionId }) => {
+    try {
+      // const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/artglobal`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/artglobal`, {
+        method: 'POST',
+        body: JSON.stringify({
+          user_id: session.user.id,
+          username: session.user.name,
+          values: values[regionId]
         })
+      })
 
-        if (!response.ok) {
-          throw new Error(response.statusText)
-        }
-      } catch (error) {
-        console.error(error)
+      if (!response.ok) {
+        throw new Error(response.statusText)
       }
-    },
-    {
-      onSuccess: async () => {
-        // refetch()
-      }
+    } catch (error) {
+      console.error(error)
     }
-  )
+  })
 
   const handleImageChange = (event, regionId, credit) => {
     setValues((prevState) => ({
@@ -222,11 +208,11 @@ export const AppProvider = ({ children }) => {
         session: session,
         grid: defaultGrid,
         values,
+        isFetching,
+        isError,
         globalIsLoading: handleGlobalSave.isLoading,
         globalIsDisabled: [data?.local?.eu, data?.local?.us].some((value) => value === null),
         localIsLoading: handleLocalSave.isLoading,
-        isFetching,
-        isError,
         images: {
           us: images.us.filter((image) => image.source_url),
           eu: images.eu.filter((image) => image.source_url)
