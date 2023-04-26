@@ -77,6 +77,10 @@ const Page = ({ user_id }) => {
               ...json.data[0]
             }
           }
+        } else {
+          return {
+            message: 'No art in your region to display.'
+          }
         }
       }
     },
@@ -95,7 +99,7 @@ const Page = ({ user_id }) => {
       ) : null}
       {!isError && !isLoading ? (
         <Fragment>
-          {data ? (
+          {data.results ? (
             <Fragment>
               <div className='flex flex-col gap-4'>
                 <h1 className='heading-lg'>preview</h1>
@@ -247,7 +251,7 @@ const Page = ({ user_id }) => {
             <div className='flex flex-col gap-4'>
               <h1 className='heading-lg'>preview</h1>
               <div className='flex flex-col gap-2 mx-auto max-w-lg'>
-                <p className='m-0 text-center'>No art to display</p>
+                <p className='m-0 text-center'>{data.message}</p>
               </div>
             </div>
           )}
