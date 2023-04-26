@@ -39,8 +39,12 @@ const Page = () => {
         <div className='flex flex-col gap-8'>
           <h2 className='heading-lg'>how</h2>
           <p className='m-0 text-center mx-auto max-w-lg'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque magna sit amet ligula euismod
-            iaculis
+            CockroachDB provides powerful tools for working with geographically distributed data. In this demo, we are running
+            a single database, harnessing two of CockroachDB's topology patterns; GLOBAL TABLES and REGIONAL TABLES to
+            demonstrate the ease with which data can be pinned to geographical regions and groups of regions.
+            <br /><br />
+            Here’s a video walkthrough of how the app works, and how you can make your own art!
+            <br /><br />
           </p>
         </div>
         <div className='relative flex items-center justify-center mx-auto w-full md:w-1/2'>
@@ -94,8 +98,8 @@ const Page = () => {
         <div className='flex flex-col gap-8'>
           <h2 className='md:text-left md:pl-0 heading-lg'>us</h2>
           <p className='m-0 text-center md:text-left'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id enim sapien. Donec auctor, erat et mattis
-            lobortis, erat augue bibendum ante, vitae porta metus lacus nec magna. Aenean at aliquam justo.
+            Data for users outside of Europe will reside in the United States and never be replicated outside of it. Data will be
+            replicated between CockroachDB nodes on the East and West coasts to provide resilience.
           </p>
           <GetStartedLink />
         </div>
@@ -114,8 +118,8 @@ const Page = () => {
         <div className='flex flex-col gap-8 md:order-1'>
           <h2 className='md:text-right pl-0 !-mr-8 heading-lg'>eu</h2>
           <p className='m-0 text-center md:text-right'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id enim sapien. Donec auctor, erat et mattis
-            lobortis, erat augue bibendum ante, vitae porta metus lacus nec magna. Aenean at aliquam justo.
+            Data for users within Europe will reside in Europe and never be replicated outside of it. Following Schrems II,
+            if you have European-based users, the invalidation of Privacy Shield makes this especially important.
           </p>
           <GetStartedLink className='self-center md:self-end' />
         </div>

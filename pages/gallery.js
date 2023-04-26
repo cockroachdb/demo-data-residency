@@ -56,7 +56,8 @@ const Page = () => {
                 {query.data.region === 'eu-central-1' ? "You're in Europe." : "You're not in Europe."}
               </p>
               <p className='m-0 text-center'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a tincidunt nisl,{' '}
+                This gallery will only show artwork by users {query.data.region === 'eu-central-1' ? "within" : "outside of"} Europe.
+                Artwork you have created for other regions will be available to users in those regions,{' '}
                 <Link href='/app' className='text-brand-iridescent-blue'>
                   create your own artwork!
                 </Link>

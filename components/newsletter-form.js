@@ -38,8 +38,7 @@ const NewsletterForm = ({ formId }) => {
         </div>
         <h2 className='heading-md'>newsletter</h2>
         <p className='m-0 text-sm text-center mx-auto max-w-lg'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque magna sit amet ligula euismod
-          iaculis
+          The latest news, blogs, webinars, videos and what we're reading.
         </p>
       </div>
       <div className='flex flex-col mx-auto w-full sm:max-w-lg gap-1'>

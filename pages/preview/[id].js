@@ -53,7 +53,9 @@ const Page = ({ user_id }) => {
               <p className='m-0 text-center'>
                 {query.data.region === 'eu-central-1' ? "You're in Europe." : "You're not in Europe."}
               </p>
-              <p className='m-0 text-center'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a tincidunt</p>
+              <p className='m-0 text-center'>
+                
+              </p>
             </div>
           </div>
           <div className='grid gap-8 mx-auto w-9/12 lg:gap-16'>

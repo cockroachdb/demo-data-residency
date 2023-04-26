@@ -16,7 +16,7 @@ const Page = () => {
       <article className='flex flex-col gap-4'>
         <h1 className='heading-lg'>art</h1>
         <p className='mx-auto my-0 max-w-lg text-center'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a tincidunt nisl, sed interdum ante
+          The artwork you create on this page will be physically stored in CockroachDB nodes around the world.
         </p>
       </article>
 
@@ -97,8 +97,7 @@ const Page = () => {
                     preview your art!
                   </h2>
                   <p className='text-center mx-auto max-w-xl'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum semper vitae. Proin neque
-                    libero, pretium quis bibendum mattis, congue eu urna
+                    Open a large preview of your local artwork.
                   </p>
                 </div>
                 <div className='flex justify-center'>
@@ -127,7 +126,7 @@ const Page = () => {
       <article className='flex flex-col gap-4'>
         <h2 className='heading-lg'>data</h2>
         <p className='mx-auto my-0 max-w-lg text-center'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a tincidunt nisl, sed interdum ante
+          Your creations will be stored as JSON in CockroachDB. This is what it looks like.
         </p>
       </article>
 
