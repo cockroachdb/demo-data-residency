@@ -11,18 +11,17 @@ import LoadingSpinner from '../components/loading-spinner'
 import ErrorMessage from '../components/error-message'
 
 const Page = () => {
-  const query = useQuery({
-    queryKey: ['gallery-query'],
-    queryFn: async () => {
-      try {
+  const { isLoading, isError, data } = useQuery(
+    {
+      queryKey: ['gallery-query'],
+      queryFn: async () => {
+        // const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/gallery`, {
         const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/gallery`, {
           method: 'GET'
         })
 
-        console.log('gallery response: ', response)
-
         if (!response.ok) {
-          throw new Error('Bad response')
+          throw new Error()
         }
         const json = await response.json()
 
@@ -30,39 +29,35 @@ const Page = () => {
           region: json.region,
           results: json.data
         }
-      } catch (error) {
-        console.error(error)
-        return null
       }
+    },
+    {
+      retry: 10
     }
-  })
-
-  if (!query.loading) {
-    console.log('gallery data', query.data)
-  }
+  )
 
   return (
     <section className='flex flex-col gap-16 mx-auto max-w-6xl'>
-      {query.isError ? <ErrorMessage /> : null}
-      {query.isLoading ? (
+      {isError ? <ErrorMessage /> : null}
+      {isLoading ? (
         <div className='flex justify-center'>
           <LoadingSpinner />
         </div>
       ) : null}
-      {!query.isError && !query.isLoading ? (
+      {!isError && !isLoading ? (
         <Fragment>
-          {query.data ? (
+          {data ? (
             <Fragment>
               <div className='flex flex-col gap-4'>
                 <h1 className='heading-lg'>gallery</h1>
                 <div className='flex flex-col gap-2 mx-auto max-w-lg'>
                   <p className='m-0 text-center'>
-                    {query.data.region === 'eu-central-1' ? "You're in Europe." : "You're not in Europe."}
+                    {data.region === 'eu-central-1' ? "You're in Europe." : "You're not in Europe."}
                   </p>
                   <p className='m-0 text-center'>
                     This gallery will only show artwork by users{' '}
-                    {query.data.region === 'eu-central-1' ? 'within' : 'outside of'} Europe. Artwork you have created
-                    for other regions will be available to users in those regions,{' '}
+                    {data.region === 'eu-central-1' ? 'within' : 'outside of'} Europe. Artwork you have created for
+                    other regions will be available to users in those regions,{' '}
                     <Link href='/app' className='text-brand-iridescent-blue'>
                       create your own artwork!
                     </Link>
@@ -70,7 +65,7 @@ const Page = () => {
                 </div>
               </div>
               <div className='grid lg:grid-cols-2 gap-8 lg:gap-16'>
-                {query.data.results.map((art, index) => {
+                {data.results.map((art, index) => {
                   const {
                     username,
                     local_last_update,

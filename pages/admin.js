@@ -9,28 +9,33 @@ const Page = () => {
   const { data: session } = useSession()
   const queryClient = useQueryClient()
 
-  const query = useQuery({
-    queryKey: ['admin-query'],
-    queryFn: async () => {
-      try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/admin-read-all`, {
-          method: 'GET'
-        })
+  const { isLoading, isError, data } = useQuery(
+    {
+      queryKey: ['admin-query'],
+      queryFn: async () => {
+        try {
+          const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/admin-read-all`, {
+            method: 'GET'
+          })
 
-        if (!response.ok) {
-          throw new Error('Bad response')
+          if (!response.ok) {
+            throw new Error()
+          }
+
+          const json = await response.json()
+
+          return json.data.sort((a, b) => a.username.localeCompare(b.username))
+          // return json.data.filter((a, index, array) => array.findIndex((b) => b.user_id === a.user_id) === index)
+        } catch (error) {
+          console.error(error)
+          return null
         }
-
-        const json = await response.json()
-
-        return json.data.sort((a, b) => a.username.localeCompare(b.username))
-        // return json.data.filter((a, index, array) => array.findIndex((b) => b.user_id === a.user_id) === index)
-      } catch (error) {
-        console.error(error)
-        return null
       }
+    },
+    {
+      retry: 10
     }
-  })
+  )
 
   const mutation = useMutation(
     async (user_id) => {
@@ -58,14 +63,8 @@ const Page = () => {
       onSuccess: async () => {
         queryClient.invalidateQueries(['admin-query'])
       }
-    },
-    { retry: 3 }
+    }
   )
-
-  console.log('admin query: ', query)
-  if (!query.loading) {
-    console.log('admin data', query.data)
-  }
 
   return (
     <section className='flex flex-col gap-16 mx-auto max-w-6xl'>
@@ -77,15 +76,15 @@ const Page = () => {
       </div>
       {session?.user.admin ? (
         <div>
-          {query.isError ? <ErrorMessage /> : null}
-          {query.isLoading ? (
+          {isError ? <ErrorMessage /> : null}
+          {isLoading ? (
             <div className='flex justify-center'>
               <LoadingSpinner />
             </div>
           ) : null}
-          {!query.isError && !query.isLoading ? (
+          {!isError && !isLoading ? (
             <Fragment>
-              {query.data ? (
+              {data ? (
                 <Fragment>
                   <div>
                     <table className='m-0 table-auto'>
@@ -98,7 +97,7 @@ const Page = () => {
                         </tr>
                       </thead>
                       <tbody className=''>
-                        {query.data.map((d, index) => {
+                        {data.map((d, index) => {
                           const { user_id, username, super_region } = d
 
                           return (
@@ -127,7 +126,7 @@ const Page = () => {
                       </tbody>
                     </table>
                   </div>
-                  {/* <pre>{JSON.stringify(query.data, null, 2)}</pre> */}
+                  {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
                 </Fragment>
               ) : null}
             </Fragment>

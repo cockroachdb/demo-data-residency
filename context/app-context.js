@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
 import { useMutation, useQuery } from '@tanstack/react-query'
 
@@ -17,7 +18,8 @@ const defaultGrid = new Array(15).fill('')
 export const AppContext = createContext()
 
 export const AppProvider = ({ children }) => {
-  const { data: session, status } = useSession()
+  const { data: session } = useSession()
+  const router = useRouter()
 
   const defaultValues = {
     us: {
@@ -58,53 +60,49 @@ export const AppProvider = ({ children }) => {
     isLoading: queryIsLoading,
     isError,
     refetch
-  } = useQuery({
-    queryKey: ['user-query'],
-    queryFn: async () => {
-      try {
-        // const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/user`, {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/user`, {
-          method: 'POST',
-          body: JSON.stringify({ user_id: session.user.id })
-        })
+  } = useQuery(
+    {
+      queryKey: ['user-query'],
+      queryFn: async () => {
+        try {
+          // const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/user`, {
+          const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/user`, {
+            method: 'POST',
+            body: JSON.stringify({ user_id: session.user.id })
+          })
 
-        console.log('context response: ', response)
+          if (!response.ok) {
+            throw new Error(response.statusText)
+          }
+          const json = await response.json()
 
-        if (!response.ok) {
-          throw new Error(response.statusText)
+          return json.data
+        } catch (error) {
+          console.error(error)
+          return null
         }
-        const json = await response.json()
-
-        console.log('context json: ', json)
-
-        return json.data
-      } catch (error) {
-        console.error(error)
-        return null
-      }
+      },
+      initialData: defaultValues,
+      onSuccess: async (data) => {
+        // console.log('query onSuccess: ', data)
+        setValues({
+          us: data?.local?.us || defaultValues.us,
+          eu: data?.local?.eu || defaultValues.eu,
+          global: data?.global || defaultValues.global
+        })
+      },
+      enabled: false
     },
-    initialData: defaultValues,
-    onSuccess: async (data) => {
-      console.log('query onSuccess: ', data)
-
-      setValues({
-        us: data?.local?.us || defaultValues.us,
-        eu: data?.local?.eu || defaultValues.eu,
-        global: data?.global || defaultValues.global
-      })
-    },
-    enabled: false
-  })
+    {
+      retry: 10
+    }
+  )
 
   useEffect(() => {
-    // This is the nextAuth status
-    // console.log(status)
-    if (status !== 'loading') {
-      setTimeout(() => {
-        session ? refetch() : null
-      }, 1000)
+    if (session && router.pathname === '/app') {
+      refetch()
     }
-  }, [status])
+  }, [session, router])
 
   const handleLocalSave = useMutation(
     async ({ regionId, regionName }) => {
