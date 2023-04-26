@@ -13,7 +13,7 @@ const GlobalInterface = ({ regionId, regionName }) => {
       {({
         session,
         values,
-        queryIsLoading,
+        isFetching,
         globalIsLoading,
         globalIsDisabled,
         isError,
@@ -165,7 +165,7 @@ const GlobalInterface = ({ regionId, regionName }) => {
                 onClick={handleGlobalSave}
                 regionId={regionId}
                 regionName={regionName}
-                isLoading={queryIsLoading || globalIsLoading}
+                isLoading={isFetching || globalIsLoading}
                 disabled={queryIsLoading || globalIsLoading || globalIsDisabled}
               />
             ) : (

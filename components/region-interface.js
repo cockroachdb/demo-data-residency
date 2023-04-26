@@ -21,7 +21,7 @@ const RegionInterface = ({ regionId, regionName }) => {
         session,
         grid,
         values,
-        queryIsLoading,
+        isFetching,
         localIsLoading,
         isError,
         images,
@@ -71,8 +71,8 @@ const RegionInterface = ({ regionId, regionName }) => {
                       })}
                     </div>
 
-                    {queryIsLoading ? (
-                      <LoadingSpinner className='absolute top-0 left-0 w-full h-full flex items-center justify-center z-20 bg-brand-deep-purple/80' />
+                    {isFetching ? (
+                      <LoadingSpinner className='absolute top-0 left-0 w-full h-full flex items-center justify-center z-50 bg-brand-deep-purple/80' />
                     ) : (
                       <Image
                         loader={imageLoader}
@@ -282,9 +282,9 @@ const RegionInterface = ({ regionId, regionName }) => {
                       onClick={handleLocalSave}
                       regionId={regionId}
                       regionName={regionName}
-                      isLoading={queryIsLoading || localIsLoading}
+                      isLoading={isFetching || localIsLoading}
                       disabled={
-                        values[regionId].url === 'a-placeholder.jpg' || queryIsLoading || localIsLoading ? true : false
+                        values[regionId].url === 'a-placeholder.jpg' || isFetching || localIsLoading ? true : false
                       }
                     />
                   ) : (
