@@ -1,11 +1,13 @@
-import { getDB } from '../../pg'
+import { client } from '../../pg'
 
 export default async function handler(req, res) {
-  const client = await getDB().connect()
-
   try {
+    await client.connect()
+
     const local_response = await client.query('SELECT * FROM art_local')
     const global_response = await client.query('SELECT * FROM art_global')
+
+    await client.clean()
 
     if (!local_response.rows || !global_response.rows) {
       throw new Error('Bad Response')
@@ -17,7 +19,5 @@ export default async function handler(req, res) {
     })
   } catch (error) {
     res.status(500).json({ message: 'Error!' })
-  } finally {
-    client.release()
   }
 }

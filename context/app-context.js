@@ -211,7 +211,6 @@ export const AppProvider = ({ children }) => {
         isFetching,
         isError,
         globalIsLoading: handleGlobalSave.isLoading,
-        globalIsDisabled: [data?.local?.eu, data?.local?.us].some((value) => value === null),
         localIsLoading: handleLocalSave.isLoading,
         images: {
           us: images.us.filter((image) => image.source_url),
