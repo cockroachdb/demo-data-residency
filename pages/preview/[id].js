@@ -24,7 +24,7 @@ const Page = ({ user_id }) => {
           })
         })
 
-        console.log('response: ', response)
+        console.log('preview response: ', response)
 
         if (!response.ok) {
           throw new Error('Bad response')
@@ -89,9 +89,9 @@ const Page = ({ user_id }) => {
     }
   })
 
-  // if (!query.loading) {
-  //   console.log(query.data)
-  // }
+  if (!query.loading) {
+    console.log('preview data', query.data)
+  }
 
   return (
     <section className='flex flex-col gap-16 mx-auto max-w-6xl'>

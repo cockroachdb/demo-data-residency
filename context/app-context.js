@@ -68,12 +68,14 @@ export const AppProvider = ({ children }) => {
           body: JSON.stringify({ user_id: session.user.id })
         })
 
+        console.log('context response: ', response)
+
         if (!response.ok) {
           throw new Error(response.statusText)
         }
         const json = await response.json()
 
-        // console.log(json)
+        console.log('context json: ', json)
 
         return json.data
       } catch (error) {
@@ -83,14 +85,12 @@ export const AppProvider = ({ children }) => {
     },
     initialData: defaultValues,
     onSuccess: async (data) => {
-      // console.log('query onSuccess: ', data)
-
-      const { local, global } = data
+      console.log('query onSuccess: ', data)
 
       setValues({
-        us: local?.us || defaultValues.us,
-        eu: local?.eu || defaultValues.eu,
-        global: global || defaultValues.global
+        us: data?.local?.us || defaultValues.us,
+        eu: data?.local?.eu || defaultValues.eu,
+        global: data?.global || defaultValues.global
       })
     },
     enabled: false

@@ -19,7 +19,7 @@ const Page = () => {
           method: 'GET'
         })
 
-        console.log('response: ', response)
+        console.log('gallery response: ', response)
 
         if (!response.ok) {
           throw new Error('Bad response')
@@ -37,7 +37,9 @@ const Page = () => {
     }
   })
 
-  console.log(query.data)
+  if (!query.loading) {
+    console.log('gallery data', query.data)
+  }
 
   return (
     <section className='flex flex-col gap-16 mx-auto max-w-6xl'>

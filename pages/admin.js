@@ -58,8 +58,14 @@ const Page = () => {
       onSuccess: async () => {
         queryClient.invalidateQueries(['admin-query'])
       }
-    }
+    },
+    { retry: 3 }
   )
+
+  console.log('admin query: ', query)
+  if (!query.loading) {
+    console.log('admin data', query.data)
+  }
 
   return (
     <section className='flex flex-col gap-16 mx-auto max-w-6xl'>
