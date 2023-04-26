@@ -11,34 +11,31 @@ import LoadingSpinner from '../components/loading-spinner'
 import ErrorMessage from '../components/error-message'
 
 const Page = () => {
-  const query = useQuery(
-    {
-      queryKey: ['gallery-query'],
-      queryFn: async () => {
-        try {
-          const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/gallery`, {
-            method: 'GET'
-          })
+  const query = useQuery({
+    queryKey: ['gallery-query'],
+    queryFn: async () => {
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/gallery`, {
+          method: 'GET'
+        })
 
-          if (!response.ok) {
-            throw new Error('Bad response')
-          }
-          const json = await response.json()
+        console.log('response: ', response)
 
-          return {
-            region: json.region,
-            results: json.data
-          }
-        } catch (error) {
-          console.error(error)
-          return {}
+        if (!response.ok) {
+          throw new Error('Bad response')
         }
+        const json = await response.json()
+
+        return {
+          region: json.region,
+          results: json.data
+        }
+      } catch (error) {
+        console.error(error)
+        return null
       }
-    },
-    {
-      retry: 10
     }
-  )
+  })
 
   console.log(query.data)
 

@@ -61,27 +61,27 @@ export const AppProvider = ({ children }) => {
   } = useQuery({
     queryKey: ['user-query'],
     queryFn: async () => {
-      if (session) {
-        try {
-          // const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/user`, {
-          const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/user`, {
-            method: 'POST',
-            body: JSON.stringify({ user_id: session.user.id })
-          })
+      try {
+        // const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/user`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/user`, {
+          method: 'POST',
+          body: JSON.stringify({ user_id: session.user.id })
+        })
 
-          if (!response.ok) {
-            throw new Error(response.statusText)
-          }
-          const json = await response.json()
-
-          return json.data
-        } catch (error) {
-          console.error(error)
+        if (!response.ok) {
+          throw new Error(response.statusText)
         }
-      } else {
-        return defaultValues
+        const json = await response.json()
+
+        // console.log(json)
+
+        return json.data
+      } catch (error) {
+        console.error(error)
+        return null
       }
     },
+    initialData: defaultValues,
     onSuccess: async (data) => {
       // console.log('query onSuccess: ', data)
 
@@ -101,7 +101,7 @@ export const AppProvider = ({ children }) => {
     // console.log(status)
     if (status !== 'loading') {
       setTimeout(() => {
-        refetch()
+        session ? refetch() : null
       }, 1000)
     }
   }, [status])

@@ -13,84 +13,81 @@ import RegionHeading from '../../components/region-heading'
 import images from '../../public/source-images.json'
 
 const Page = ({ user_id }) => {
-  const query = useQuery(
-    {
-      queryKey: ['artuser-query'],
-      queryFn: async () => {
-        try {
-          const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/artuser`, {
-            method: 'POST',
-            body: JSON.stringify({
-              user_id: user_id
-            })
+  const query = useQuery({
+    queryKey: ['artuser-query'],
+    queryFn: async () => {
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/artuser`, {
+          method: 'POST',
+          body: JSON.stringify({
+            user_id: user_id
           })
+        })
 
-          if (!response.ok) {
-            throw new Error('Bad response')
-          }
+        console.log('response: ', response)
 
-          const json = await response.json()
-
-          if (json.data.length > 0) {
-            const details = {
-              'eu-central-1': {
-                headings: [
-                  {
-                    flag: '🇩🇪',
-                    regionId: 'Germany',
-                    region: 'eu-central-1 | (Frankfurt)'
-                  }
-                ]
-              },
-              'us-east-1': {
-                headings: [
-                  {
-                    flag: '🇺🇸',
-                    regionId: 'USA',
-                    region: 'us-east-1 | (N. Virginia)'
-                  },
-                  {
-                    flag: '🇺🇸',
-                    regionId: 'USA',
-                    region: 'us-west-2 | (Oregon)'
-                  }
-                ]
-              }
-            }
-
-            const lookup = json.region === 'eu-central-1' ? 'eu' : 'us'
-
-            return {
-              placeholder: {
-                region: json.region === 'eu-central-1' ? 'us-east-1, us-west-2' : 'eu-central-1',
-                message:
-                  json.region === 'eu-central-1'
-                    ? 'Access to data in these regions is not permitted'
-                    : 'Access to data in this region is not permitted',
-                headings: details[json.region === 'eu-central-1' ? 'us-east-1' : 'eu-central-1'].headings,
-                image: {
-                  name: images[lookup][0].credit,
-                  url: images[lookup][0].s3_url
-                }
-              },
-              results: {
-                headings: details[json.region].headings,
-                ...json.data[0]
-              }
-            }
-          } else {
-            return {}
-          }
-        } catch (error) {
-          console.error(error)
-          return {}
+        if (!response.ok) {
+          throw new Error('Bad response')
         }
+
+        const json = await response.json()
+
+        if (json.data.length > 0) {
+          const details = {
+            'eu-central-1': {
+              headings: [
+                {
+                  flag: '🇩🇪',
+                  regionId: 'Germany',
+                  region: 'eu-central-1 | (Frankfurt)'
+                }
+              ]
+            },
+            'us-east-1': {
+              headings: [
+                {
+                  flag: '🇺🇸',
+                  regionId: 'USA',
+                  region: 'us-east-1 | (N. Virginia)'
+                },
+                {
+                  flag: '🇺🇸',
+                  regionId: 'USA',
+                  region: 'us-west-2 | (Oregon)'
+                }
+              ]
+            }
+          }
+
+          const lookup = json.region === 'eu-central-1' ? 'eu' : 'us'
+
+          return {
+            placeholder: {
+              region: json.region === 'eu-central-1' ? 'us-east-1, us-west-2' : 'eu-central-1',
+              message:
+                json.region === 'eu-central-1'
+                  ? 'Access to data in these regions is not permitted'
+                  : 'Access to data in this region is not permitted',
+              headings: details[json.region === 'eu-central-1' ? 'us-east-1' : 'eu-central-1'].headings,
+              image: {
+                name: images[lookup][0].credit,
+                url: images[lookup][0].s3_url
+              }
+            },
+            results: {
+              headings: details[json.region].headings,
+              ...json.data[0]
+            }
+          }
+        } else {
+          return null
+        }
+      } catch (error) {
+        console.error(error)
+        return null
       }
-    },
-    {
-      retry: 3
     }
-  )
+  })
 
   // if (!query.loading) {
   //   console.log(query.data)
@@ -106,7 +103,7 @@ const Page = ({ user_id }) => {
       ) : null}
       {!query.isError && !query.isLoading ? (
         <Fragment>
-          {query.data.results ? (
+          {query.data ? (
             <Fragment>
               <div className='flex flex-col gap-4'>
                 <h1 className='heading-lg'>preview</h1>
