@@ -80,7 +80,7 @@ const Page = () => {
       </article>
 
       <AppContext.Consumer>
-        {({ session, globalIsDisabled }) => {
+        {({ session }) => {
           return (
             <article className='relative mx-auto w-full max-w-5xl flex flex-col justify-center gap-4 sm:gap-8 border-2 border-brand-evening-hush/50 overflow-hidden'>
               <Image
@@ -100,7 +100,7 @@ const Page = () => {
                 </div>
                 <div className='flex justify-center'>
                   <Fragment>
-                    {session && !globalIsDisabled ? (
+                    {session ? (
                       <Link
                         className='px-4 py-2 border-2 no-underline border-brand-pink text-brand-pink capitalize transition-color duration-300 hover:border-brand-white hover:text-brand-white'
                         href={`/preview/${session.user.id}`}

@@ -92,9 +92,9 @@ const Page = ({ user_id }) => {
     }
   )
 
-  if (!query.loading) {
-    // console.log(query.data)
-  }
+  // if (!query.loading) {
+  //   console.log(query.data)
+  // }
 
   return (
     <section className='flex flex-col gap-16 mx-auto max-w-6xl'>
@@ -106,7 +106,7 @@ const Page = ({ user_id }) => {
       ) : null}
       {!query.isError && !query.isLoading ? (
         <Fragment>
-          {query.data.response ? (
+          {query.data.results ? (
             <Fragment>
               <div className='flex flex-col gap-4'>
                 <h1 className='heading-lg'>preview</h1>
