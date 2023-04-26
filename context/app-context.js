@@ -22,12 +22,14 @@ export const AppProvider = ({ children }) => {
   const defaultValues = {
     us: {
       name: images.us[0].location,
+      credit: images.us[0].credit,
       url: images.us[0].s3_url,
       colors: [...defaultUsColors],
       shapes: [...defaultShapes]
     },
     eu: {
       name: images.eu[0].location,
+      credit: images.eu[0].credit,
       url: images.eu[0].s3_url,
       colors: [...defaultEuColors],
       shapes: [...defaultShapes]
@@ -159,7 +161,7 @@ export const AppProvider = ({ children }) => {
     }
   )
 
-  const handleImageChange = (event, regionId) => {
+  const handleImageChange = (event, regionId, credit) => {
     setValues((prevState) => ({
       ...prevState,
       [regionId]: { ...prevState[regionId], ...event }

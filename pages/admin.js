@@ -49,7 +49,8 @@ const Page = () => {
 
         return json
       } catch (error) {
-        throw new Error()
+        console.error(error)
+        return {}
       }
     },
     {

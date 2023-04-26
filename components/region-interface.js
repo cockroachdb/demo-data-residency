@@ -127,13 +127,14 @@ const RegionInterface = ({ regionId, regionName }) => {
                     >
                       <Select.Group className='max-w-[220px]'>
                         {images[regionId].map((item, index) => {
-                          const { location, s3_url } = item
+                          const { location, s3_url, credit } = item
                           return (
                             <Select.Item
                               key={index}
                               value={{
                                 name: location,
-                                url: s3_url
+                                url: s3_url,
+                                credit: credit
                               }}
                               className='px-4 py-3 whitespace-nowrap cursor-pointer text-brand-white bg-brand-deep-purple border-b border-b-brand-evening-hush/30 hover:bg-depth-2 truncate'
                             >

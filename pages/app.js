@@ -96,9 +96,7 @@ const Page = () => {
                   <h2 className='m-0 p-0 text-brand-white text-xl sm:text-4xl normal-case text-center tracking-normal font-sans !capitalize'>
                     preview your art!
                   </h2>
-                  <p className='text-center mx-auto max-w-xl'>
-                    Open a large preview of your local artwork.
-                  </p>
+                  <p className='text-center mx-auto max-w-xl'>Open a large preview of your local artwork.</p>
                 </div>
                 <div className='flex justify-center'>
                   <Fragment>

@@ -2,7 +2,7 @@
   "us": [
     {
       "location": "Select an image...",
-      "credit": "",
+      "credit": "placeholder image",
       "licence": "",
       "source_url": "",
       "s3_url": "a-placeholder.jpg"
@@ -81,7 +81,7 @@
   "eu": [
     {
       "location": "Select an image...",
-      "credit": "",
+      "credit": "placeholder image",
       "licence": "",
       "source_url": "",
       "s3_url": "a-placeholder.jpg"

@@ -10,7 +10,7 @@ const RegionHeading = ({ flag, regionId, region }) => {
         y='0px'
         viewBox='0 0 24 24'
         aria-label='AWS Logo Icon'
-        className='w-8 h-8 mt-2.5'
+        className='w-6 h-6 mt-[8px]'
       >
         <g>
           <path
@@ -33,10 +33,10 @@ const RegionHeading = ({ flag, regionId, region }) => {
         </g>
       </svg>
       <span>{'|'}</span>
-      <span role='img' aria-label={`${regionId} flag emoji`} className='text-2xl mt-1'>
+      <span role='img' aria-label={`${regionId} flag emoji`} className='text-xl mt-[3px]'>
         {flag}
       </span>
-      <span>{region}</span>
+      <span className='text-sm'>{region}</span>
     </div>
   )
 }
