@@ -48,13 +48,14 @@ const Page = () => {
       <section className='flex flex-col gap-8'>
         <div className='flex flex-col gap-8'>
           <h2 className='heading-lg'>how</h2>
-          <p className='m-0 text-center mx-auto max-w-lg'>
+          <p className='m-0 text-center mx-auto max-w-2xl'>
             CockroachDB provides powerful tools for working with geographically distributed data. In this demo, we are
-            running a single database, harnessing two of CockroachDB's topology patterns; GLOBAL TABLES and REGIONAL
+            running a single database, harnessing two of CockroachDB's topology patterns; <code>GLOBAL TABLES</code> and{' '}
+            <code>REGIONAL</code>
             TABLES to demonstrate the ease with which data can be pinned to geographical regions and groups of regions.
             <br />
             <br />
-            Here’s a video walkthrough of how the app works, and how you can make your own art!
+            Here's a video walkthrough of how the app works, and how you can make your own art!
             <br />
             <br />
           </p>
