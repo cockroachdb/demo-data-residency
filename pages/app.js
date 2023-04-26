@@ -36,8 +36,13 @@ const Page = () => {
               <RegionInterface regionId='us' regionName='us-east-1' />
             </div>
 
-            <div className='flex flex-col gap-8'>
-              <RegionHeading flag='🇺🇸' regionId='USA' region='us-west-2 | (Oregon)' />
+            <div className='flex flex-col gap-6'>
+              <div>
+                <small className='text-brand-gray-b'>
+                  Settings saved to <code>us-east-1</code> are backed up to <code>us-west-2</code>.
+                </small>
+                <RegionHeading flag='🇺🇸' regionId='USA' region='us-west-2 | (Oregon)' />
+              </div>
               <RegionInterface regionId='us' regionName='us-east-1' />
             </div>
           </div>

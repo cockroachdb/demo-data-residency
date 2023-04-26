@@ -31,7 +31,7 @@ const GlobalInterface = ({ regionId, regionName }) => {
           <div className='flex flex-col gap-8'>
             <div className='grid gap-8 grid-cols-1 lg:grid-cols-3'>
               <label className='flex flex-col gap-4 text-brand-evening-hush'>
-                Pattern
+                Background Pattern
                 <RadixSelect
                   height={270}
                   trigger={
