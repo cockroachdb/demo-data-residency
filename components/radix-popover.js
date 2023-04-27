@@ -10,11 +10,9 @@ const RadixPopover = () => {
         </button>
       </Popover.Trigger>
       <Popover.Portal>
-        <Popover.Content className='' side='bottom' sideOffset={20}>
-          <div className='p-2 text-brand-warning text-xs border-2 border-brand-hidden-sapphire'>
-            <div className='absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-45 w-4 h-4 border-l-2 border-t-2 border-brand-hidden-sapphire bg-brand-deep-purple'></div>
-            Sign in to save
-          </div>
+        <Popover.Content className='shadow' side='bottom' sideOffset={20}>
+          <div className='p-2 text-brand-white text-xs bg-brand-pink'>Sign in to save</div>
+          <Popover.Arrow className='fill-brand-pink' />
         </Popover.Content>
       </Popover.Portal>
     </Popover.Root>

@@ -95,7 +95,7 @@ module.exports = {
               color: theme('colors.brand.white')
             },
             code: {
-              color: '#ffff00 !important'
+              color: `${theme('colors.brand.yellow')}!important`
             },
             'code::before': {
               content: '""'
