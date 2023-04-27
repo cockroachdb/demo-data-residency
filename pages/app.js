@@ -7,6 +7,7 @@ import { AppContext } from '../context/app-context'
 import RegionInterface from '../components/region-interface'
 import RegionHeading from '../components/region-heading'
 import GlobalInterface from '../components/global-interface'
+import CodeHighlight from '../components/code-highlight'
 
 import previewGraphic from '../public/images/preview-graphic.jpg'
 
@@ -128,16 +129,17 @@ const Page = () => {
       <article className='flex flex-col gap-4'>
         <h2 className='heading-lg'>data</h2>
         <p className='mx-auto my-0 max-w-lg text-center'>
-          Your creations will be stored as JSON in CockroachDB. This is what it looks like.
+          Your creations will be stored as <code>JSON</code> in CockroachDB. This is what it looks like.
         </p>
       </article>
 
       <AppContext.Consumer>
         {({ values }) => {
           return (
-            <article>
-              <pre>{JSON.stringify(values, null, 2)}</pre>
-            </article>
+            <CodeHighlight
+              // codeBlock={codeBlock}
+              codeBlock={JSON.stringify(values, null, 2)}
+            />
           )
         }}
       </AppContext.Consumer>
