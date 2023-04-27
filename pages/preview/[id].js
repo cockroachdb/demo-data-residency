@@ -207,7 +207,7 @@ const Page = ({ user_id }) => {
 
                 <div>
                   <div className='flex flex-col gap-2'>
-                    <div className='flex gap-4'>
+                    <div className='flex flex-col sm:flex-row sm:gap-4'>
                       {data.placeholder.headings.map((heading, index) => {
                         const { flag, regionId, region } = heading
 
