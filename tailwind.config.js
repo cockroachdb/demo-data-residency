@@ -94,6 +94,9 @@ module.exports = {
             '*:not(h1, h2, h3, h4, h5, h6, svg, path)': {
               color: theme('colors.brand.white')
             },
+            code: {
+              color: '#ffff00 !important'
+            },
             'code::before': {
               content: '""'
             },
