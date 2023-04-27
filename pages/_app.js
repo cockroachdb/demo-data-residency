@@ -21,7 +21,7 @@ const queryClient = new QueryClient()
 
 const App = ({ Component, pageProps: { session, ...pageProps } }) => {
   const cdnUrl = process.env.NEXT_PUBLIC_SEO_URL // with trailing slash
-  const seoTitle = 'CockroachDB Serverless'
+  const seoTitle = 'CockroachDB Serverless Demo'
   const seoDescription = 'A CockroachDB Serverless Demo Application'
   const seoImage = 'data-residency-open-graph-image.jpg'
 
