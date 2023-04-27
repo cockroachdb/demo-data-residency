@@ -81,6 +81,9 @@ export const AppProvider = ({ children }) => {
           global: data?.global || defaultValues.global
         })
       },
+      useErrorBoundary: (error) => {
+        console.error('error user-query: ', error)
+      },
       enabled: false
     },
     {

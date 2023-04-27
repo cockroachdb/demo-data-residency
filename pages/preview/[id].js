@@ -82,6 +82,9 @@ const Page = ({ user_id }) => {
             message: 'No art in your region to display.'
           }
         }
+      },
+      useErrorBoundary: (error) => {
+        console.error('error preview-query: ', error)
       }
     },
     {

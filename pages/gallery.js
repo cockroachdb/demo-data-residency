@@ -31,6 +31,9 @@ const Page = () => {
           region: json.region,
           results: json.data
         }
+      },
+      useErrorBoundary: (error) => {
+        console.error('error gallery-query: ', error)
       }
     },
     {
