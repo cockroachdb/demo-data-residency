@@ -103,7 +103,7 @@ const Page = () => {
                 alt='preview graphic'
                 width={1020}
                 height={306}
-                className='absolute top-0 left-0 m-0 w-full h-auto object-fit object-cover'
+                className='absolute top-0 left-0 m-0 w-full h-full object-fit object-cover'
               />
 
               <div className=' flex flex-col gap-4 px-8 py-8 sm:py-16 w-full z-10'>
