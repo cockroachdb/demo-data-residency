@@ -9,6 +9,7 @@ import CockroachLabsIcon from '../components/cockroach-labs-icon'
 import SiloLogo from '../components/silo-logo'
 import LoadingSpinner from '../components/loading-spinner'
 import ErrorMessage from '../components/error-message'
+import EuropeEmoji from '../components/europe-emoji'
 
 const Page = () => {
   const { isLoading, isError, data } = useQuery(
@@ -26,6 +27,7 @@ const Page = () => {
         const json = await response.json()
 
         return {
+          isEurope: json.region === 'eu-central-1' ? true : false,
           region: json.region,
           results: json.data
         }
@@ -51,14 +53,17 @@ const Page = () => {
               <div className='flex flex-col gap-4'>
                 <h1 className='heading-lg'>gallery</h1>
                 <div className='flex flex-col gap-2 mx-auto max-w-lg'>
-                  <p className='m-0 text-center'>
-                    {data.region === 'eu-central-1' ? "You're in Europe." : "You're not in Europe."}
+                  <p className='flex items-center justify-center gap-1 m-0 font-bold text-center'>
+                    You're{' '}
+                    <Fragment>
+                      {data.isEurope ? '' : 'not'} in Europe.
+                      <EuropeEmoji isEurope={data.isEurope} />
+                    </Fragment>
                   </p>
                   <p className='m-0 text-center'>
-                    This gallery will only show artwork by users{' '}
-                    {data.region === 'eu-central-1' ? 'within' : 'outside of'} Europe. Artwork you have created for
-                    other regions will be available to users in those regions,{' '}
-                    <Link href='/app' className='text-brand-iridescent-blue'>
+                    This gallery will only show artwork by users {data.isEurope ? 'within' : 'outside of'} Europe.
+                    Artwork you have created for other regions will be available to users in those regions,{' '}
+                    <Link href='/app' className='text-brand-pink'>
                       create your own artwork!
                     </Link>
                   </p>
