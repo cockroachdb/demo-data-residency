@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react'
+import React, { useEffect, Fragment } from 'react'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -12,6 +13,14 @@ import CodeHighlight from '../components/code-highlight'
 import previewGraphic from '../public/images/preview-graphic.jpg'
 
 const Page = () => {
+  const router = useRouter()
+
+  useEffect(() => {
+    if (router.asPath) {
+      router.replace('/app')
+    }
+  }, [])
+
   return (
     <section className='flex flex-col gap-16'>
       <article className='flex flex-col gap-4'>
