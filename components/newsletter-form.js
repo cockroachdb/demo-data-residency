@@ -41,7 +41,7 @@ const NewsletterForm = ({ formId }) => {
           The latest news, blogs, webinars, videos and what we're reading.
         </p>
       </div>
-      <div className='flex flex-col mx-auto w-full sm:max-w-lg gap-1'>
+      <div className='flex flex-col mx-auto w-full sm:max-w-lg gap-2'>
         <form onSubmit={handleSubmit} className='flex gap-2 items-end'>
           <label className='flex flex-col gap-1 grow text-xs text-brand-white font-medium'>
             <span className="after:content-['*'] after:mt-0.5 after:text-red-500 flex gap-1 grow text-xs text-brand-white font-medium">
@@ -88,34 +88,41 @@ const NewsletterForm = ({ formId }) => {
         </span>
 
         <div className='flex flex-col gap-4'>
-          <div className='flex gap-2 items-center justify-center'>
+          <div className='flex gap-2 items-start sm:items-center justify-center'>
             <input
               checked={checked}
               id='checkbox'
               type='checkbox'
               value=''
-              className='w-4 h-4 bg-red-400 focus:ring-0'
+              className='w-4 h-4 bg-red-400 mt-.5 focus:ring-0'
               onChange={() => setChecked(!checked)}
             />
-            <label htmlFor='checkbox' className='text-xs font-medium text-brand-neutral-400'>
-              I agree to the{' '}
-              <a
-                href='https://www.cockroachlabs.com/cloud-terms-and-conditions/'
-                rel='noopener'
-                target='_blank'
-                className='text-brand-evening-hush transition-color duration-300 hover:text-brand-white'
-              >
-                terms of service
-              </a>{' '}
-              and{' '}
-              <a
-                href='https://www.cockroachlabs.com/privacy/'
-                rel='noopener'
-                target='_blank'
-                className='text-brand-evening-hush transition-color duration-300 hover:text-brand-white'
-              >
-                privacy policy
-              </a>
+            <label
+              htmlFor='checkbox'
+              className='flex flex-col sm:flex-row gap-1 text-xs font-medium text-brand-neutral-400'
+            >
+              <span>
+                I agree to the{' '}
+                <a
+                  href='https://www.cockroachlabs.com/cloud-terms-and-conditions/'
+                  rel='noopener'
+                  target='_blank'
+                  className='text-brand-evening-hush transition-color duration-300 hover:text-brand-white'
+                >
+                  terms of service
+                </a>
+              </span>
+              <span className='text-center sm:text-left'>
+                and{' '}
+                <a
+                  href='https://www.cockroachlabs.com/privacy/'
+                  rel='noopener'
+                  target='_blank'
+                  className='text-brand-evening-hush transition-color duration-300 hover:text-brand-white'
+                >
+                  privacy policy
+                </a>
+              </span>
             </label>
           </div>
 
