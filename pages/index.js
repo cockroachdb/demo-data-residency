@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { YouTubeLite } from 'react-youtube-lite'
 
 import SiloLockup from '../components/silo-lockup'
@@ -48,17 +49,21 @@ const Page = () => {
       <section className='flex flex-col gap-8'>
         <div className='flex flex-col gap-8'>
           <h2 className='heading-lg'>how</h2>
-          <p className='m-0 text-center mx-auto max-w-2xl'>
-            CockroachDB provides powerful tools for working with geographically distributed data. In this demo, we are
-            running a single database, harnessing two of CockroachDB's topology patterns; <code>GLOBAL TABLES</code> and{' '}
-            <code>REGIONAL</code>
-            TABLES to demonstrate the ease with which data can be pinned to geographical regions and groups of regions.
-            <br />
-            <br />
-            Here's a video walkthrough of how the app works, and how you can make your own art!
-            <br />
-            <br />
-          </p>
+          <div className='flex flex-col gap-4 text-center mx-auto max-w-2xl'>
+            <p className='m-0 '>
+              CockroachDB provides powerful tools for working with geographically distributed data. In this demo, we are
+              running a single database, harnessing two of CockroachDB's topology patterns; <code>GLOBAL TABLES</code>{' '}
+              and <code>REGIONAL TABLES</code> to demonstrate the ease with which data can be pinned to geographical
+              regions and groups of regions.
+            </p>
+            <p className='m-0 '>
+              Here's a video walkthrough of how the app works, and how you can{' '}
+              <Link href='/app' className='text-brand-pink'>
+                make your own art
+              </Link>
+              !
+            </p>
+          </div>
         </div>
         <div className='relative flex items-center justify-center mx-auto w-full md:w-1/2'>
           <Image src={howItWorksDots} alt='how it works' width={500} height={500} className='m-0 mx-auto' />
@@ -161,7 +166,7 @@ const Page = () => {
             <div className='flex justify-center'>
               <label className='relative inline-flex items-center mr-5 cursor-pointer'>
                 <input type='checkbox' value={currentRegion} className='sr-only peer' onChange={handleToggle} />
-                <div className="w-11 h-6 bg-brand-electric-purple rounded-full peer peer-focus:ring-2 peer-focus:ring-blue-600  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-900 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-iridescent-blue"></div>
+                <div className="w-11 h-6 bg-brand-danger rounded-full peer peer-focus:ring-2 peer-focus:ring-blue-600  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-900 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-blue"></div>
                 <span className='ml-3 text-sm font-medium text-brand-white uppercase'>{currentRegion}</span>
               </label>
             </div>

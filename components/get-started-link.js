@@ -7,7 +7,7 @@ const GetStartedLink = ({ className }) => {
   return (
     <Link
       href='/app'
-      className={`flex gap-2 items-center px-4 py-2 border-2 border-brand-iridescent-blue text-brand-iridescent-blue capitalize no-underline transition-color duration-300 hover:text-brand-white hover:border-brand-white ${className}`}
+      className={`flex gap-2 items-center px-4 py-2 border-2 border-brand-pink text-brand-pink capitalize no-underline transition-color duration-300 hover:text-brand-white hover:border-brand-white ${className}`}
     >
       <svg
         xmlns='http://www.w3.org/2000/svg'
