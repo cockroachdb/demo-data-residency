@@ -104,7 +104,7 @@ const Page = ({ user_id }) => {
               <div className='flex flex-col gap-4'>
                 <h1 className='heading-lg'>preview</h1>
                 <div className='flex flex-col gap-2 mx-auto max-w-lg'>
-                  <p className='flex gap-2 m-0 text-center'>
+                  <p className='flex gap-2 m-0 text-center font-bold'>
                     Art by <strong className='text-brand-pink'>{data.results.username}</strong>
                     <time className='text-inherit'>{`| ${data.results.local_last_update}`}</time>
                   </p>
