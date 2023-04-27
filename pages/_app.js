@@ -25,13 +25,15 @@ const App = ({ Component, pageProps: { session, ...pageProps } }) => {
   const seoDescription = 'A CockroachDB Serverless Demo Application'
   const seoImage = 'data-residency-open-graph-image.jpg'
 
+  const getLayout = Component.getLayout || ((page) => page)
+
   return (
     <Fragment>
       <Head>
         <title>{seoTitle}</title>
         <link rel='canonical' href={cdnUrl} />
         <meta name='robots' content='max-snippet:-1' />
-        <meta name='google-site-verification' content='etihYyfUu427u5p-XGmPGg231M6uNKL6oRoY49pUPtM' />
+        <meta name='google-site-verification' content='' />
         {/* Primary Meta Tags */}
         <meta name='title' content={seoTitle} />
         <meta name='description' content={seoDescription} />
@@ -57,13 +59,15 @@ const App = ({ Component, pageProps: { session, ...pageProps } }) => {
       </Head>
       <SessionProvider session={session} basePath={`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/auth`}>
         <QueryClientProvider client={queryClient}>
-          <AppProvider>
-            <Layout>
-              <main className={`prose max-w-9xl mx-auto px-4 pt-36  pb-16 sm:px-8 ${anton.variable}`}>
-                <Component {...pageProps} />
-              </main>
-            </Layout>
-          </AppProvider>
+          {getLayout(
+            <AppProvider>
+              <Layout>
+                <main className={`prose max-w-9xl mx-auto px-4 pt-36  pb-16 sm:px-8 ${anton.variable}`}>
+                  <Component {...pageProps} />
+                </main>
+              </Layout>
+            </AppProvider>
+          )}
         </QueryClientProvider>
       </SessionProvider>
     </Fragment>
