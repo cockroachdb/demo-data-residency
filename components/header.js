@@ -15,18 +15,18 @@ const Header = () => {
   return (
     <header
       className={`fixed w-full backdrop-blur h-[86px] z-50 ${
-        isNavOpen ? 'sm:bg-brand-deep-purple/60 bg-brand-deep-purple/90' : 'bg-brand-deep-purple/60'
+        isNavOpen ? 'md:bg-brand-deep-purple/60 bg-brand-deep-purple/90' : 'bg-brand-deep-purple/60'
       }`}
     >
-      <div className='flex items-center justify-between max-w-9xl mx-auto px-4 py-4 sm:px-8'>
+      <div className='flex items-center justify-between max-w-9xl mx-auto px-4 py-4 md:px-8'>
         <CockroachLabsLogo color='brand-white' className='w-[160px]' />
         <div
-          className={`absolute sm:relative w-full sm:w-auto py-8 sm:py-0 top-[72px] sm:top-0 left-0 flex-col sm:flex-row items-center grow gap-8 sm:gap-0 bg-brand-deep-purple/90 border-b sm:sm:border-b-transparent sm:bg-transparent ${
-            isNavOpen ? 'border-b-brand-evening-hush/50 flex' : 'hidden sm:flex'
+          className={`absolute md:relative w-full md:w-auto py-8 md:py-0 top-[72px] md:top-0 left-0 flex-col md:flex-row items-center grow gap-8 md:gap-0 bg-brand-deep-purple/95 border-b md:md:border-b-transparent md:bg-transparent ${
+            isNavOpen ? 'border-b-brand-evening-hush/50 flex h-[calc(100vh-72px)] md:h-auto' : 'hidden md:flex'
           }`}
         >
-          <nav className='flex grow justify-center text-brand-iridescent-blue font-medium'>
-            <ul className='m-0 p-0 flex flex-col sm:flex-row gap-8'>
+          <nav className='flex grow-1 md:grow justify-center text-brand-iridescent-blue font-medium w-full md:w-auto'>
+            <ul className='m-0 p-0 md:pr-[32px] flex flex-col md:flex-row gap-8 w-full md:w-auto'>
               <li className='text-center'>
                 <ActiveLink href='/' onClick={() => setIsNavOpen(false)}>
                   Home
@@ -44,14 +44,14 @@ const Header = () => {
               </li>
             </ul>
           </nav>
-          <div className='block sm:hidden'>
+          <div className='flex md:hidden w-full px-4'>
             {session ? <SignOutButton /> : <SignInLink onClick={() => setIsNavOpen(!isNavOpen)} />}
           </div>
-          <div className='hidden sm:flex justify-end min-w-[115px]'>{session ? <SignOutPortal /> : <SignInLink />}</div>
+          <div className='hidden md:flex justify-end min-w-[115px]'>{session ? <SignOutPortal /> : <SignInLink />}</div>
         </div>
         <button
           role='button'
-          className='block px-2 border-0 text-brand-iridescent-blue in-w-min transition-color duration-300 hover:text-brand-white sm:hidden'
+          className='block px-2 border-0 text-brand-iridescent-blue in-w-min transition-color duration-300 hover:text-brand-white md:hidden'
           onClick={() => setIsNavOpen(!isNavOpen)}
         >
           <svg
