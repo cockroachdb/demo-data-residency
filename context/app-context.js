@@ -55,7 +55,7 @@ export const AppProvider = ({ children }) => {
 
   const [values, setValues] = useState(defaultValues)
 
-  const { data, isFetching, isError, refetch } = useQuery(
+  const { isFetching, isError, refetch } = useQuery(
     {
       queryKey: ['user-query'],
       queryFn: async () => {
@@ -68,6 +68,7 @@ export const AppProvider = ({ children }) => {
         if (!response.ok) {
           throw new Error()
         }
+
         const json = await response.json()
 
         return json.data
@@ -95,8 +96,8 @@ export const AppProvider = ({ children }) => {
     }
   }, [session, router])
 
-  const handleLocalSave = useMutation(async ({ regionId, regionName }) => {
-    try {
+  const handleLocalSave = useMutation(
+    async ({ regionId, regionName }) => {
       // const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/artlocal`, {
       const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/artlocal`, {
         method: 'POST',
@@ -109,15 +110,16 @@ export const AppProvider = ({ children }) => {
       })
 
       if (!response.ok) {
-        throw new Error(response.statusText)
+        throw new Error()
       }
-    } catch (error) {
-      console.error(error)
+    },
+    {
+      retry: 10
     }
-  })
+  )
 
-  const handleGlobalSave = useMutation(async ({ regionId }) => {
-    try {
+  const handleGlobalSave = useMutation(
+    async ({ regionId }) => {
       // const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/artglobal`, {
       const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/artglobal`, {
         method: 'POST',
@@ -129,12 +131,13 @@ export const AppProvider = ({ children }) => {
       })
 
       if (!response.ok) {
-        throw new Error(response.statusText)
+        throw new Error()
       }
-    } catch (error) {
-      console.error(error)
+    },
+    {
+      retry: 10
     }
-  })
+  )
 
   const handleImageChange = (event, regionId, credit) => {
     setValues((prevState) => ({
@@ -211,7 +214,9 @@ export const AppProvider = ({ children }) => {
         isFetching,
         isError,
         globalIsLoading: handleGlobalSave.isLoading,
+        globalIsError: handleGlobalSave.isError,
         localIsLoading: handleLocalSave.isLoading,
+        localIsError: handleLocalSave.localIsError,
         images: {
           us: images.us.filter((image) => image.source_url),
           eu: images.eu.filter((image) => image.source_url)

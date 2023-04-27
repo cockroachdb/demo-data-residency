@@ -5,7 +5,7 @@ import LoadingSpinner from './loading-spinner'
 const SaveButton = ({ onClick, regionId, regionName, isLoading, disabled }) => {
   return (
     <button
-      className='flex items-center lg:self-end justify-center px-4 py-1 border-2 text-brand-pink text-center border-brand-pink min-w-[80px] min-h-[48px] transition-color duration-300 enabled:hover:text-brand-white enabled:hover:border-brand-white disabled:text-brand-hidden-sapphire disabled:border-brand-hidden-sapphire disabled:cursor-not-allowed'
+      className='flex items-center justify-center px-4 py-1 border-2 text-brand-pink text-center border-brand-pink w-full sm:w-auto min-w-[80px] min-h-[48px] transition-color duration-300 enabled:hover:text-brand-white enabled:hover:border-brand-white disabled:text-brand-hidden-sapphire disabled:border-brand-hidden-sapphire disabled:cursor-not-allowed'
       onClick={() => onClick.mutate({ regionId, regionName })}
       disabled={disabled}
     >

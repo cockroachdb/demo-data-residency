@@ -6,6 +6,7 @@ import { AppContext } from '../context/app-context'
 import RadixSelect from './radix-select'
 import RadixPopover from './radix-popover'
 import SaveButton from './save-button'
+import ErrorSave from './error-save'
 
 const GlobalInterface = ({ regionId, regionName }) => {
   return (
@@ -16,6 +17,7 @@ const GlobalInterface = ({ regionId, regionName }) => {
         isFetching,
         isError,
         globalIsLoading,
+        globalIsError,
         patterns,
         positions,
         themes,
@@ -159,17 +161,20 @@ const GlobalInterface = ({ regionId, regionName }) => {
                 </RadixSelect>
               </label>
             </div>
-            {session ? (
-              <SaveButton
-                onClick={handleGlobalSave}
-                regionId={regionId}
-                regionName={regionName}
-                isLoading={isFetching || globalIsLoading}
-                disabled={isFetching || globalIsLoading}
-              />
-            ) : (
-              <RadixPopover />
-            )}
+            <div className='flex flex-col gap-4 sm:flex-row items-center sm:justify-end'>
+              <ErrorSave isError={globalIsError} className='w-full sm:w-auto' />
+              {session ? (
+                <SaveButton
+                  onClick={handleGlobalSave}
+                  regionId={regionId}
+                  regionName={regionName}
+                  isLoading={isFetching || globalIsLoading}
+                  disabled={isFetching || globalIsLoading}
+                />
+              ) : (
+                <RadixPopover />
+              )}
+            </div>
           </div>
         )
       }}

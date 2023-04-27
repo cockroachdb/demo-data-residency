@@ -13,8 +13,9 @@ import CockroachLabsIcon from './cockroach-labs-icon'
 import SiloLogo from './silo-logo'
 import SaveButton from './save-button'
 import LoadingSpinner from './loading-spinner'
+import ErrorSave from './error-save'
 
-const RegionInterface = ({ regionId, regionName }) => {
+const LocalInterface = ({ regionId, regionName }) => {
   return (
     <AppContext.Consumer>
       {({
@@ -24,6 +25,7 @@ const RegionInterface = ({ regionId, regionName }) => {
         isFetching,
         isError,
         localIsLoading,
+        localIsError,
         images,
         shapes,
         hex,
@@ -277,19 +279,22 @@ const RegionInterface = ({ regionId, regionName }) => {
                       )
                     })}
                   </div>
-                  {session ? (
-                    <SaveButton
-                      onClick={handleLocalSave}
-                      regionId={regionId}
-                      regionName={regionName}
-                      isLoading={isFetching || localIsLoading}
-                      disabled={
-                        values[regionId].url === 'a-placeholder.jpg' || isFetching || localIsLoading ? true : false
-                      }
-                    />
-                  ) : (
-                    <RadixPopover />
-                  )}
+                  <div className='flex flex-col gap-4 sm:flex-row items-center sm:justify-end'>
+                    <ErrorSave isError={localIsError} className='w-full sm:w-auto ' />
+                    {session ? (
+                      <SaveButton
+                        onClick={handleLocalSave}
+                        regionId={regionId}
+                        regionName={regionName}
+                        isLoading={isFetching || localIsLoading}
+                        disabled={
+                          values[regionId].url === 'a-placeholder.jpg' || isFetching || localIsLoading ? true : false
+                        }
+                      />
+                    ) : (
+                      <RadixPopover />
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -300,11 +305,11 @@ const RegionInterface = ({ regionId, regionName }) => {
   )
 }
 
-RegionInterface.propTypes = {
+LocalInterface.propTypes = {
   /**  context id  */
   regionId: PropTypes.string.isRequired,
   /** name to use in UPSERT */
   regionName: PropTypes.string.isRequired
 }
 
-export default RegionInterface
+export default LocalInterface

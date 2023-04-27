@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 import { AppContext } from '../context/app-context'
 
-import RegionInterface from '../components/region-interface'
+import LocalInterface from '../components/local-interface'
 import RegionHeading from '../components/region-heading'
 import GlobalInterface from '../components/global-interface'
 import CodeHighlight from '../components/code-highlight'
@@ -34,7 +34,7 @@ const Page = () => {
                 </small>
               </div>
               <RegionHeading flag='🇺🇸' regionId='USA' region='us-east-1 | (N. Virginia)' />
-              <RegionInterface regionId='us' regionName='us-east-1' />
+              <LocalInterface regionId='us' regionName='us-east-1' />
             </div>
 
             <div className='flex flex-col gap-6'>
@@ -44,7 +44,7 @@ const Page = () => {
                 </small>
                 <RegionHeading flag='🇺🇸' regionId='USA' region='us-west-2 | (Oregon)' />
               </div>
-              <RegionInterface regionId='us' regionName='us-east-1' />
+              <LocalInterface regionId='us' regionName='us-east-1' />
             </div>
           </div>
 
@@ -59,7 +59,7 @@ const Page = () => {
                 </small>
               </div>
               <RegionHeading flag='🇩🇪' regionId='Germany' region='eu-central-1 | (Frankfurt)' />
-              <RegionInterface regionId='eu' regionName='eu-central-1' />
+              <LocalInterface regionId='eu' regionName='eu-central-1' />
             </div>
           </div>
         </div>
