@@ -56,7 +56,7 @@ const Page = () => {
               <div className='flex flex-col gap-4'>
                 <h1 className='heading-lg'>gallery</h1>
                 <div className='flex flex-col gap-2 mx-auto max-w-lg'>
-                  <p className='flex items-center justify-center gap-1 m-0 font-bold text-center'>
+                  <p className='flex items-center justify-center m-0 font-bold text-center'>
                     You're{' '}
                     <Fragment>
                       {data.isEurope ? '' : 'not'} in Europe.

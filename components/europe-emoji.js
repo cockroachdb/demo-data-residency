@@ -3,29 +3,35 @@ import PropTypes from 'prop-types'
 
 const EuropeEmoji = ({ isEurope }) => {
   return (
-    <span className='relative'>
-      {isEurope ? null : (
-        <span className='absolute top-[3px] left-[2px] text-brand-danger'>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            fill='none'
-            viewBox='0 0 24 24'
-            strokeWidth={2}
-            stroke='currentColor'
-            className='w-7 h-7'
-          >
-            <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              d='M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636'
-            />
-          </svg>
-        </span>
-      )}
-      <span role='img' aria-label='Flag: European Union' className='text-3xl'>
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      fill='none'
+      viewBox='0 0 24 24'
+      strokeWidth={1.5}
+      stroke='currentColor'
+      className='w-12 h-12'
+    >
+      <text width='20' height='20' style={{ transform: 'translate(4px, 18px)' }}>
         🇪🇺
-      </span>
-    </span>
+      </text>
+
+      {isEurope ? null : (
+        <g>
+          <path
+            d='M17.66,6.34c-3.12-3.12-8.19-3.12-11.31,0l11.31,11.31c3.12-3.12,3.12-8.19,0-11.31Z'
+            fill='none'
+            className='stroke-brand-danger'
+            stroke-miterlimit='10'
+          />
+          <path
+            d='M6.34,6.34c-3.12,3.12-3.12,8.19,0,11.31s8.19,3.12,11.31,0L6.34,6.34Z'
+            fill='none'
+            className='stroke-brand-danger'
+            stroke-miterlimit='10'
+          />
+        </g>
+      )}
+    </svg>
   )
 }
 
