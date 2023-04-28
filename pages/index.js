@@ -62,15 +62,14 @@ const Page = () => {
             </p>
           </div>
         </div>
-        <div className='relative flex items-center justify-center mx-auto w-full md:w-1/2'>
-          <Image src={howItWorksDots} alt='how it works' width={500} height={500} className='m-0 mx-auto' />
-
-          <div className='absolute mx-auto w-11/12 max-w-lg shadow-3xl border-2 border-brand-iridescent-blue'>
+        <div className='relative flex items-center justify-center w-full'>
+          <div className='absolute mx-auto w-full max-w-3xl shadow-3xl border-2 border-brand-iridescent-blue'>
             <YouTubeLite
               url={`https://www.youtube.com/watch?v=${process.env.NEXT_PUBLIC_YOUTUBE_ID}`}
               title='How Data Residency Works'
             />
           </div>
+          <Image src={howItWorksDots} alt='how it works' width={500} height={500} className='m-0 mx-auto' />
         </div>
       </section>
 
@@ -154,7 +153,7 @@ const Page = () => {
           </div>
         </div>
         <div className='relative'>
-          <div className='relative bg-brand-deep-purple mx-auto overflow-auto max-h-[450px] xl:max-h-max xl:overflow-visible border-2 border-depth-3 w-full max-w-4xl shadow-3xl z-10'>
+          <div className='relative bg-brand-deep-purple mx-auto overflow-auto max-h-[450px] xl:max-h-max xl:overflow-visible border-2 border-depth-3 w-full max-w-3xl shadow-3xl z-10'>
             <table className='m-0 border-collapse'>
               <thead className='bg-depth-0 border-b-2 border-b-dashed border-b-depth-3'>
                 <tr>
