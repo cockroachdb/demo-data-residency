@@ -110,7 +110,7 @@ const Page = () => {
 
             <div className='mx-auto'>
               <Link
-                href='/app'
+                href='/gallery'
                 className='flex gap-2 items-center px-4 py-2 border-2 border-brand-pink text-brand-pink capitalize no-underline transition-color duration-300 hover:text-brand-white hover:border-brand-white'
               >
                 <svg
