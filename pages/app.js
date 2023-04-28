@@ -180,8 +180,14 @@ const Page = () => {
         {({ values }) => {
           return (
             <CodeHighlight
-              // codeBlock={codeBlock}
-              codeBlock={JSON.stringify(values, null, 2)}
+              codeBlock={JSON.stringify(
+                {
+                  ...values,
+                  solve_this_clue: 'https://www.cockroachlabs.com/'
+                },
+                null,
+                2
+              )}
             />
           )
         }}
