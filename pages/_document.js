@@ -3,7 +3,7 @@ import Script from 'next/script'
 import { Html, Head, Main, NextScript } from 'next/document'
 
 const Document = () => {
-  const isProd = false //process.env.NODE_ENV === 'production'
+  const isProd = process.env.NODE_ENV === 'production'
 
   return (
     <Html lang='en'>
