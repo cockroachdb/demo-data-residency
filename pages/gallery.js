@@ -9,7 +9,6 @@ import CockroachLabsIcon from '../components/cockroach-labs-icon'
 import SiloLogo from '../components/silo-logo'
 import LoadingSpinner from '../components/loading-spinner'
 import ErrorMessage from '../components/error-message'
-import EuropeEmoji from '../components/europe-emoji'
 
 const Page = () => {
   const { isLoading, isError, data } = useQuery(
@@ -57,18 +56,19 @@ const Page = () => {
                 <h1 className='heading-lg'>gallery</h1>
                 <div className='flex flex-col gap-2 mx-auto max-w-lg'>
                   <p className='flex items-center justify-center m-0 font-bold text-center'>
-                    You're{' '}
-                    <Fragment>
-                      {data.isEurope ? '' : 'not'} in Europe.
-                      <EuropeEmoji isEurope={data.isEurope} />
-                    </Fragment>
+                    You're <Fragment>{data.isEurope ? 'in' : 'outside of'} Europe</Fragment>
                   </p>
                   <p className='m-0 text-center'>
-                    This gallery will only show artwork by users {data.isEurope ? 'within' : 'outside of'} Europe.
-                    Artwork you have created for other regions will be available to users in those regions,{' '}
-                    <Link href='/app' className='text-brand-pink'>
-                      create your own artwork!
-                    </Link>
+                    This gallery will only show artwork stored in{' '}
+                    {data.isEurope ? (
+                      <Fragment>
+                        <code>eu-central-1</code>.
+                      </Fragment>
+                    ) : (
+                      <Fragment>
+                        <code>us-east-1</code> and <code>us-west-1</code>.
+                      </Fragment>
+                    )}
                   </p>
                 </div>
               </div>

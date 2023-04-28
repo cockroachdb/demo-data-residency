@@ -21,8 +21,9 @@ const queryClient = new QueryClient()
 
 const App = ({ Component, pageProps: { session, ...pageProps } }) => {
   const cdnUrl = process.env.NEXT_PUBLIC_SEO_URL // with trailing slash
-  const seoTitle = 'CockroachDB Serverless Demo'
-  const seoDescription = 'A CockroachDB Serverless Demo Application'
+  const seoTitle = 'CockroachDB Demo: The Art of Data Residency'
+  const seoDescription =
+    'The Art of Data Residency and Application Architecture. A demo of multi-region capabilities in CockroachDB.'
   const seoImage = 'data-residency-open-graph-image.jpg'
 
   const getLayout = Component.getLayout || ((page) => page)

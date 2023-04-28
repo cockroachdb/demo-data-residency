@@ -23,23 +23,32 @@ const Page = () => {
 
   return (
     <section className='flex flex-col gap-16'>
-      <article className='flex flex-col gap-4'>
-        <h1 className='heading-lg'>art</h1>
-        <p className='mx-auto my-0 max-w-lg text-center'>
-          The artwork you create on this page will be physically stored in CockroachDB nodes around the world.
-        </p>
+      <article className='flex flex-col gap-4 text-center'>
+        <h1 className='heading-lg'>make your own art</h1>
+        <div>
+          <p className='my-0'>
+            Create artwork that will be physically stored in different CockroachDB nodes around the world.
+          </p>
+          <small className='text-brand-gray-b'>
+            Note: you must sign in <b>before</b> creating artwork if you want to save it to the gallery.
+          </small>
+        </div>
       </article>
 
       <article className='flex flex-col gap-4 sm:gap-8 bg-depth-0 border-2 border-depth-2 p-4 sm:p-8'>
         <div className='flex flex-col gap-4 sm:gap-8'>
           <div className='flex flex-col gap-16 bg-depth-1 border-2 border-depth-2 p-4 sm:p-8'>
             <div className='flex flex-col gap-4'>
-              <div>
+              <div className='flex flex-col gap-2'>
                 <h2 className='m-0 p-0 text-brand-white text-lg sm:text-3xl normal-case tracking-normal font-sans'>
-                  United States of America
+                  Create art to store in the United States
                 </h2>
+                <strong>
+                  This art will be written to <code>us-east-1</code> and replicated to <code>us-west-2</code>.
+                </strong>
                 <small className='text-brand-gray-b'>
-                  Settings here are saved to <code>us-east-1</code> and available to all countries except Europe.
+                  Anyone can view this art in the gallery, unless you're located in Europe. You must sign in and click
+                  “save” to write the data to CockroachDB and view your art in the gallery.
                 </small>
               </div>
               <RegionHeading flag='🇺🇸' regionId='USA' region='us-east-1 | (N. Virginia)' />
@@ -47,9 +56,13 @@ const Page = () => {
             </div>
 
             <div className='flex flex-col gap-6'>
-              <div>
+              <div className='flex flex-col gap-2'>
+                <strong>
+                  This art will be written to <code>us-west-2</code> and replicated to <code> us-east-1</code>.
+                </strong>
                 <small className='text-brand-gray-b'>
-                  Settings saved to <code>us-east-1</code> are backed up to <code>us-west-2</code>.
+                  Anyone can view this art in the gallery, unless you're located in Europe. You must sign in and click
+                  “save” to write the data to CockroachDB and view your art in the gallery.
                 </small>
                 <RegionHeading flag='🇺🇸' regionId='USA' region='us-west-2 | (Oregon)' />
               </div>
@@ -59,12 +72,16 @@ const Page = () => {
 
           <div className='flex flex-col gap-16 bg-depth-1 border-2 border-depth-2 p-4 sm:p-8'>
             <div className='flex flex-col gap-4'>
-              <div>
+              <div className='flex flex-col gap-2'>
                 <h2 className='m-0 p-0 text-brand-white text-lg sm:text-3xl normal-case tracking-normal font-sans'>
-                  Europe
+                  Create art to store in Europe
                 </h2>
+                <strong>
+                  This art will be written to <code>eu-central-1</code>.
+                </strong>
                 <small className='text-brand-gray-b'>
-                  Settings here are saved to <code>eu-central-1</code> and only available to countries in Europe.
+                  You will only be able to view this art in the gallery if you're located in Europe. You must sign in
+                  and click “save” to write the data to CockroachDB and view your art in the gallery.
                 </small>
               </div>
               <RegionHeading flag='🇩🇪' regionId='Germany' region='eu-central-1 | (Frankfurt)' />
@@ -75,13 +92,16 @@ const Page = () => {
 
         <div className='flex flex-col gap-16 p-4 sm:p-8'>
           <div className='flex flex-col gap-4'>
-            <div>
+            <div className='flex flex-col gap-2'>
               <h2 className='m-0 p-0 text-brand-white text-lg sm:text-3xl normal-case tracking-normal font-sans'>
-                Global
+                Apply art settings globally
               </h2>
+              <strong>
+                Settings you apply here are written to <code>us-east-1</code>, <code>us-west-2</code> and{' '}
+                <code>eu-central-1</code>.
+              </strong>
               <small className='text-brand-gray-b'>
-                Settings here are saved to <code>us-east-1</code>, <code>us-west-2</code> and <code>eu-central-1</code>{' '}
-                and are available to all countries.
+                You will be able to view the settings no matter where you're located.
               </small>
             </div>
             <div className='flex flex-col lg:flex-row gap-0 lg:gap-4'>
@@ -107,8 +127,8 @@ const Page = () => {
               />
 
               <div className=' flex flex-col gap-4 px-8 py-8 sm:py-16 w-full z-10'>
-                <div className='flex flex-col gap-3'>
-                  <h2 className='m-0 p-0 text-brand-white text-xl sm:text-4xl normal-case text-center tracking-normal font-sans !capitalize'>
+                <div className='flex flex-col gap-2'>
+                  <h2 className='m-0 p-0 text-brand-white text-xl sm:text-3xl normal-case text-center tracking-normal font-sans !capitalize'>
                     preview your art!
                   </h2>
                   <p className='text-center mx-auto max-w-xl'>Open a large preview of your local artwork.</p>
@@ -136,10 +156,24 @@ const Page = () => {
       </AppContext.Consumer>
 
       <article className='flex flex-col gap-4'>
-        <h2 className='heading-lg'>data</h2>
-        <p className='mx-auto my-0 max-w-lg text-center'>
-          Your creations will be stored as <code>JSON</code> in CockroachDB. This is what it looks like.
-        </p>
+        <div className='flex flex-col gap-2 text-center'>
+          <h2 className='heading-lg'>data</h2>
+          <p className='m-0'>
+            Your creations will be stored as <code>JSON</code> in CockroachDB. This is what it looks like.
+          </p>
+          <p className='m-0'>
+            To learn more about how data locality is set up in CockroachDB,{' '}
+            <a
+              href='https://www.cockroachlabs.com/docs/stable/multiregion-overview.html'
+              rel='noopener'
+              target='_blank'
+              className='text-brand-iridescent-blue'
+            >
+              check out the docs
+            </a>
+            .
+          </p>
+        </div>
       </article>
 
       <AppContext.Consumer>

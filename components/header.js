@@ -33,13 +33,13 @@ const Header = () => {
                 </ActiveLink>
               </li>
               <li className='text-center'>
-                <ActiveLink href='/gallery/' onClick={() => setIsNavOpen(false)}>
-                  Gallery
+                <ActiveLink href='/app/' onClick={() => setIsNavOpen(false)}>
+                  App
                 </ActiveLink>
               </li>
               <li className='text-center'>
-                <ActiveLink href='/app/' onClick={() => setIsNavOpen(false)}>
-                  App
+                <ActiveLink href='/gallery/' onClick={() => setIsNavOpen(false)}>
+                  Gallery
                 </ActiveLink>
               </li>
             </ul>
