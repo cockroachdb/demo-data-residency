@@ -14,11 +14,11 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed w-full backdrop-blur h-[86px] z-50 ${
+      className={`fixed w-full backdrop-blur z-50 ${
         isNavOpen ? 'md:bg-brand-deep-purple/60 bg-brand-deep-purple/90' : 'bg-brand-deep-purple/60'
       }`}
     >
-      <div className='flex items-center justify-between max-w-9xl mx-auto px-4 py-4 md:px-8'>
+      <div className='flex items-center justify-between max-w-9xl  h-[86px] mx-auto px-4 py-4 md:px-8'>
         <CockroachLabsLogo color='brand-white' className='w-[160px]' />
         <div
           className={`absolute md:relative w-full md:w-auto py-8 md:py-0 top-[72px] md:top-0 left-0 flex-col md:flex-row items-center grow gap-8 md:gap-0 bg-brand-deep-purple/95 border-b md:md:border-b-transparent md:bg-transparent ${
