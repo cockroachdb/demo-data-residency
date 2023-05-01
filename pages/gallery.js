@@ -17,8 +17,7 @@ const Page = () => {
       queryFn: async () => {
         // const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/gallery`, {
         const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/gallery`, {
-          method: 'GET',
-          mode: 'no-cors'
+          method: 'GET'
         })
 
         if (!response.ok) {
