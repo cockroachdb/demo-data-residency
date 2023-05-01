@@ -71,6 +71,8 @@ export const AppProvider = ({ children }) => {
 
         const json = await response.json()
 
+        console.log('user-query db_total: ', (json.metrics.db_total / 1000).toFixed(2))
+
         return json.data
       },
       initialData: defaultValues,
@@ -112,6 +114,10 @@ export const AppProvider = ({ children }) => {
         })
       })
 
+      const json = await response.json()
+
+      console.log('handleLocalSave db_total: ', (json.metrics.db_total / 1000).toFixed(2))
+
       if (!response.ok) {
         throw new Error()
       }
@@ -132,6 +138,10 @@ export const AppProvider = ({ children }) => {
           values: values[regionId]
         })
       })
+
+      const json = await response.json()
+
+      console.log('handleGlobalSave db_total: ', (json.metrics.db_total / 1000).toFixed(2))
 
       if (!response.ok) {
         throw new Error()
