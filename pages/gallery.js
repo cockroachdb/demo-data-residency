@@ -25,7 +25,7 @@ const Page = () => {
         }
         const json = await response.json()
 
-        console.log(('db_total: ', json.metrics.db_total / 1000).toFixed(2))
+        console.log(('gallery-query db_total: ', json.metrics.db_total / 1000).toFixed(2))
 
         return {
           isEurope: json.region === 'eu-central-1' ? true : false,

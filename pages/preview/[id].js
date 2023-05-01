@@ -30,6 +30,8 @@ const Page = ({ user_id }) => {
 
         const json = await response.json()
 
+        console.log(('artuser-query db_total: ', json.metrics.db_total / 1000).toFixed(2))
+
         if (json.data.length > 0) {
           const details = {
             'eu-central-1': {
