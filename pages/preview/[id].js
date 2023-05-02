@@ -17,6 +17,7 @@ const Page = ({ user_id }) => {
     {
       queryKey: ['artuser-query'],
       queryFn: async () => {
+        const fn_start = performance.now()
         const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/artuser`, {
           method: 'POST',
           body: JSON.stringify({
@@ -29,8 +30,11 @@ const Page = ({ user_id }) => {
         }
 
         const json = await response.json()
+        const fn_end = performance.now()
 
+        const fn_total = fn_end - fn_start
         console.log('artuser-query db_total: ', (json.metrics.db_total / 1000).toFixed(2))
+        console.log('artuser-query fn_total: ', (fn_total / 1000).toFixed(2))
 
         if (json.data.length > 0) {
           const details = {

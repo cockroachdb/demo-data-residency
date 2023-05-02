@@ -60,6 +60,7 @@ export const AppProvider = ({ children }) => {
       queryKey: ['user-query'],
       queryFn: async () => {
         // const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/user`, {
+        const fn_start = performance.now()
         const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/user`, {
           method: 'POST',
           body: JSON.stringify({ user_id: session.user.id })
@@ -70,9 +71,11 @@ export const AppProvider = ({ children }) => {
         }
 
         const json = await response.json()
+        const fn_end = performance.now()
 
+        const fn_total = fn_end - fn_start
         console.log('user-query db_total: ', (json.metrics.db_total / 1000).toFixed(2))
-
+        console.log('query fn_total: ', (fn_total / 1000).toFixed(2))
         return json.data
       },
       initialData: defaultValues,
@@ -104,6 +107,7 @@ export const AppProvider = ({ children }) => {
   const handleLocalSave = useMutation(
     async ({ regionId, regionName }) => {
       // const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/artlocal`, {
+      const fn_start = performance.now()
       const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/artlocal`, {
         method: 'POST',
         body: JSON.stringify({
@@ -115,8 +119,11 @@ export const AppProvider = ({ children }) => {
       })
 
       const json = await response.json()
+      const fn_end = performance.now()
 
+      const fn_total = fn_end - fn_start
       console.log('handleLocalSave db_total: ', (json.metrics.db_total / 1000).toFixed(2))
+      console.log('handleLocalSave fn_total: ', (fn_total / 1000).toFixed(2))
 
       if (!response.ok) {
         throw new Error()
@@ -130,6 +137,7 @@ export const AppProvider = ({ children }) => {
   const handleGlobalSave = useMutation(
     async ({ regionId }) => {
       // const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/artglobal`, {
+      const fn_start = performance.now()
       const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/artglobal`, {
         method: 'POST',
         body: JSON.stringify({
@@ -140,8 +148,11 @@ export const AppProvider = ({ children }) => {
       })
 
       const json = await response.json()
+      const fn_end = performance.now()
 
+      const fn_total = fn_end - fn_start
       console.log('handleGlobalSave db_total: ', (json.metrics.db_total / 1000).toFixed(2))
+      console.log('handleGlobalSave fn_total: ', (fn_total / 1000).toFixed(2))
 
       if (!response.ok) {
         throw new Error()
