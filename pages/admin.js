@@ -28,7 +28,7 @@ const Page = () => {
       }
     },
     {
-      retry: 10
+      retry: 3
     }
   )
 

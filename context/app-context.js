@@ -92,7 +92,7 @@ export const AppProvider = ({ children }) => {
       enabled: false
     },
     {
-      retry: 10
+      retry: 3
     }
   )
 
@@ -130,7 +130,7 @@ export const AppProvider = ({ children }) => {
       }
     },
     {
-      retry: 10
+      retry: 3
     }
   )
 
@@ -159,7 +159,7 @@ export const AppProvider = ({ children }) => {
       }
     },
     {
-      retry: 10
+      retry: 3
     }
   )
 

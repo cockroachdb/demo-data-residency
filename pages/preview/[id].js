@@ -94,7 +94,7 @@ const Page = ({ user_id }) => {
       }
     },
     {
-      retry: 10
+      retry: 3
     }
   )
 
