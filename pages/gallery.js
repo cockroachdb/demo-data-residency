@@ -16,7 +16,6 @@ const Page = () => {
       queryKey: ['gallery-query'],
       queryFn: async () => {
         // const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/gallery`, {
-        const fn_start = performance.now()
         const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/gallery`, {
           method: 'GET'
         })
@@ -25,11 +24,7 @@ const Page = () => {
           throw new Error()
         }
         const json = await response.json()
-        const fn_end = performance.now()
 
-        const fn_total = fn_end - fn_start
-        console.log('gallery-query db_total: ', (json.metrics.db_total / 1000).toFixed(2))
-        console.log('gallery-query fn_total: ', (fn_total / 1000).toFixed(2))
         return {
           isEurope: json.region === 'eu-central-1' ? true : false,
           region: json.region,
