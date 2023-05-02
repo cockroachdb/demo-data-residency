@@ -153,7 +153,7 @@ const Page = () => {
           </div>
         </div>
         <div className='relative'>
-          <div className='relative bg-brand-deep-purple mx-auto overflow-auto max-h-[450px] xl:max-h-max xl:overflow-visible border-2 border-depth-3 w-full max-w-3xl shadow-3xl z-10'>
+          <div className='relative bg-brand-deep-purple mx-auto overflow-auto xl:max-w-3xl w-full max-w-sm xs:w-full max-h-[450px] xl:max-h-max xl:overflow-visible border-2 border-depth-3 shadow-3xl z-10'>
             <table className='m-0 border-collapse'>
               <thead className='bg-depth-0 border-b-2 border-b-dashed border-b-depth-3'>
                 <tr>
