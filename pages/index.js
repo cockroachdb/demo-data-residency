@@ -37,10 +37,10 @@ const Page = () => {
         </div>
       </section>
 
-      <section className='flex flex-col gap-8'>
+      <section className='flex flex-col gap-16 mx-auto max-w-3xl'>
         <div className='flex flex-col gap-4 md:gap-8'>
           <h2 className='heading-md'>why</h2>
-          <div className='flex flex-col gap-4 text-center mx-auto max-w-3xl'>
+          <div className='flex flex-col gap-4'>
             <p className='m-0'>
               When your application serves users across states, countries, or continents, you need to deploy your
               database in multiple cloud regions. But setting up and managing a multi-region database can be
@@ -73,10 +73,10 @@ const Page = () => {
         </div>
       </section>
 
-      <section className='flex flex-col gap-8'>
+      <section className='flex flex-col gap-8 mx-auto max-w-3xl'>
         <div className='flex flex-col gap-4 md:gap-8'>
           <h2 className='heading-md'>make your own art</h2>
-          <div className='flex flex-col gap-8 text-center mx-auto max-w-4xl'>
+          <div className='flex flex-col gap-8 text-center'>
             <p className='m-0'>
               We're demonstrating CockroachDB's data residency (<i>also called data domiciling</i>) by letting you
               create art that will reside in specific cloud regions. CockroachDB lets you control data residency down to
@@ -96,10 +96,10 @@ const Page = () => {
         </div>
       </section>
 
-      <section className='flex flex-col gap-8'>
+      <section className='flex flex-col gap-8 mx-auto max-w-3xl'>
         <div className='flex flex-col gap-4 md:gap-8'>
           <h2 className='heading-md'>view the gallery</h2>
-          <div className='flex flex-col gap-8 text-center mx-auto max-w-4xl'>
+          <div className='flex flex-col gap-8 text-center'>
             <p className='m-0'>
               No matter where you're located, you can create art that resides in the <b>United States</b> and art that
               resides in <b>Europe</b>. That's because the app can write to any region from anywhere. But when you view
@@ -133,10 +133,10 @@ const Page = () => {
         </div>
       </section>
 
-      <section className='flex flex-col gap-8 xl:gap-24'>
+      <section className='flex flex-col gap-8 xl:gap-24 mx-auto max-w-4xl'>
         <div className='flex flex-col gap-4 md:gap-8'>
           <h2 className='heading-md'>global data</h2>
-          <div className='flex flex-col gap-8 text-center mx-auto max-w-4xl'>
+          <div className='flex flex-col gap-8 text-center'>
             <p className='m-0 '>
               The artwork's pattern and logo settings are available globally. The data is replicated across all three
               regions in the CockroachDB cluster. This setting is useful for application data that's universally
