@@ -100,50 +100,36 @@ export const AppProvider = ({ children }) => {
     }
   }, [session, router])
 
-  const handleLocalSave = useMutation(
-    async ({ regionId, regionName }) => {
-      // const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/artlocal`, {
-
-      const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/artlocal`, {
-        method: 'POST',
-        body: JSON.stringify({
-          user_id: session.user.id,
-          username: session.user.name,
-          region: regionName,
-          values: values[regionId]
-        })
+  const handleLocalSave = useMutation(async ({ regionId, regionName }) => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/artlocal`, {
+      method: 'POST',
+      body: JSON.stringify({
+        user_id: session.user.id,
+        username: session.user.name,
+        region: regionName,
+        values: values[regionId]
       })
+    })
 
-      if (!response.ok) {
-        throw new Error()
-      }
-    },
-    {
-      retry: 3
+    if (!response.ok) {
+      throw new Error()
     }
-  )
+  })
 
-  const handleGlobalSave = useMutation(
-    async ({ regionId }) => {
-      // const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/artglobal`, {
-
-      const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/artglobal`, {
-        method: 'POST',
-        body: JSON.stringify({
-          user_id: session.user.id,
-          username: session.user.name,
-          values: values[regionId]
-        })
+  const handleGlobalSave = useMutation(async ({ regionId }) => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_AWS_API_URL}/artglobal`, {
+      method: 'POST',
+      body: JSON.stringify({
+        user_id: session.user.id,
+        username: session.user.name,
+        values: values[regionId]
       })
+    })
 
-      if (!response.ok) {
-        throw new Error()
-      }
-    },
-    {
-      retry: 3
+    if (!response.ok) {
+      throw new Error()
     }
-  )
+  })
 
   const handleImageChange = (event, regionId, credit) => {
     setValues((prevState) => ({
