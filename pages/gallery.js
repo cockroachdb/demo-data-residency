@@ -54,7 +54,7 @@ const Page = () => {
             <Fragment>
               <div className='flex flex-col gap-4'>
                 <h1 className='heading-lg'>gallery</h1>
-                <div className='flex flex-col gap-2 mx-auto max-w-lg'>
+                <div className='flex flex-col gap-2 mx-auto max-w-xl'>
                   <p className='flex items-center justify-center m-0 font-bold text-center'>
                     You're <Fragment>{data.isEurope ? 'in' : 'outside of'} Europe</Fragment>
                   </p>
