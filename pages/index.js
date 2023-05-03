@@ -75,29 +75,6 @@ const Page = () => {
         </div>
       </section>
 
-      {/* <section className='flex flex-col gap-8 mx-auto max-w-3xl'>
-        <div className='flex flex-col gap-4 md:gap-8'>
-          <h2 className='heading-md'>make your own art</h2>
-          <div className='flex flex-col gap-8 text-center'>
-            <p className='m-0'>
-              We're demonstrating CockroachDB's data residency (<i>also called data domiciling</i>) by letting you
-              create art that will reside in specific cloud regions. CockroachDB lets you control data residency down to
-              the <b>row-level</b> in your tables, so you can control where data lives based on the requirements for
-              individual rows.
-            </p>
-
-            <p className='m-0'>
-              In this demo, some data is restricted either to the <b>United States</b> or <b>Europe</b>, while other
-              data is available in both places.
-            </p>
-
-            <div className='mx-auto'>
-              <TryDemoLink />
-            </div>
-          </div>
-        </div>
-      </section> */}
-
       <section className='grid md:grid-cols-2 gap-16 items-center mx-auto max-w-4xl'>
         <div className='flex flex-col gap-4 md:gap-8'>
           <h2 className='md:text-left md:pl-0 heading-md'>make your own art</h2>
@@ -126,43 +103,6 @@ const Page = () => {
           />
         </div>
       </section>
-
-      {/* <section className='flex flex-col gap-8 mx-auto max-w-3xl'>
-        <div className='flex flex-col gap-4 md:gap-8'>
-          <h2 className='heading-md'>view the gallery</h2>
-          <div className='flex flex-col gap-8 text-center'>
-            <p className='m-0'>
-              No matter where you're located, you can create art that resides in the <b>United States</b> and art that
-              resides in <b>Europe</b>. That's because the app can write to any region from anywhere. But when you view
-              the gallery, you'll only see art that resides in your current location. That's because the app can only
-              read data from your closest region(s). Some data crosses all regions, so you'll always see it.
-            </p>
-
-            <div className='mx-auto'>
-              <Link
-                href='/gallery'
-                className='flex gap-2 items-center px-4 py-2 border-2 border-brand-pink text-brand-pink capitalize no-underline transition-color duration-300 hover:text-brand-white hover:border-brand-white'
-              >
-                <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  strokeWidth={1.5}
-                  stroke='currentColor'
-                  className='w-5 h-5'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    d='M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z'
-                  />
-                </svg>
-                view the gallery
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       <section className='grid md:grid-cols-2 gap-16 items-center mx-auto max-w-4xl'>
         <div className='flex flex-col md:order-1 gap-4 md:gap-8'>
