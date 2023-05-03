@@ -133,8 +133,8 @@ const Page = () => {
         </div>
       </section>
 
-      <section className='flex flex-col gap-8 xl:gap-24 mx-auto max-w-4xl'>
-        <div className='flex flex-col gap-4 md:gap-8'>
+      <section className='flex flex-col gap-8 xl:gap-24 '>
+        <div className='flex flex-col gap-4 md:gap-8 mx-auto max-w-3xl'>
           <h2 className='heading-md'>global data</h2>
           <div className='flex flex-col gap-8 text-center'>
             <p className='m-0 '>
@@ -152,8 +152,9 @@ const Page = () => {
             </div>
           </div>
         </div>
+
         <div className='relative'>
-          <div className='relative bg-brand-deep-purple mx-auto overflow-auto xl:max-w-3xl w-full max-w-sm xs:w-full max-h-[450px] xl:max-h-max xl:overflow-visible border-2 border-depth-3 shadow-3xl z-10'>
+          <div className='relative bg-brand-deep-purple mx-auto overflow-auto xl:max-w-3xl max-h-[450px] xl:max-h-max xl:overflow-visible border-2 border-depth-3 shadow-3xl z-10'>
             <table className='m-0 border-collapse'>
               <thead className='bg-depth-0 border-b-2 border-b-dashed border-b-depth-3'>
                 <tr>
