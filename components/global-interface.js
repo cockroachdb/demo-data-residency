@@ -6,6 +6,7 @@ import { AppContext } from '../context/app-context'
 import RadixSelect from './radix-select'
 import RadixPopover from './radix-popover'
 import SaveButton from './save-button'
+import ErrorMessage from './error-message'
 import ErrorSave from './error-save'
 
 const GlobalInterface = ({ regionId, regionName }) => {
@@ -26,8 +27,9 @@ const GlobalInterface = ({ regionId, regionName }) => {
         handleThemeChange,
         handleGlobalSave
       }) => {
-        if (isError) return null
-
+        if (isError) {
+          return <ErrorMessage />
+        }
         return (
           <div className='flex flex-col gap-8'>
             <div className='grid gap-8 grid-cols-1 lg:grid-cols-3'>

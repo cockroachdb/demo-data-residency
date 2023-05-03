@@ -13,6 +13,7 @@ import CockroachLabsIcon from './cockroach-labs-icon'
 import SiloLogo from './silo-logo'
 import SaveButton from './save-button'
 import LoadingSpinner from './loading-spinner'
+import ErrorMessage from './error-message'
 import ErrorSave from './error-save'
 
 const LocalInterface = ({ regionId, regionName }) => {
@@ -34,8 +35,9 @@ const LocalInterface = ({ regionId, regionName }) => {
         handleColorChange,
         handleLocalSave
       }) => {
-        if (isError) return null
-
+        if (isError) {
+          return <ErrorMessage />
+        }
         return (
           <div className='flex flex-col gap-8'>
             <div className='grid gap-8 grid-cols-1 lg:grid-cols-3'>

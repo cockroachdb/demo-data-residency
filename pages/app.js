@@ -11,6 +11,7 @@ import GlobalInterface from '../components/global-interface'
 import CodeHighlight from '../components/code-highlight'
 
 import previewGraphic from '../public/images/preview-graphic.jpg'
+import ErrorMessage from '../components/error-message'
 
 const Page = () => {
   const router = useRouter()
@@ -115,42 +116,48 @@ const Page = () => {
       </article>
 
       <AppContext.Consumer>
-        {({ session }) => {
+        {({ session, isError }) => {
           return (
-            <article className='relative mx-auto w-full max-w-5xl flex flex-col justify-center gap-4 sm:gap-8 border-2 border-brand-evening-hush/50 overflow-hidden'>
-              <Image
-                src={previewGraphic}
-                alt='preview graphic'
-                width={1020}
-                height={306}
-                className='absolute top-0 left-0 m-0 w-full h-full object-fit object-cover'
-              />
+            <Fragment>
+              {isError ? (
+                <ErrorMessage />
+              ) : (
+                <article className='relative mx-auto w-full max-w-5xl flex flex-col justify-center gap-4 sm:gap-8 border-2 border-brand-evening-hush/50 overflow-hidden'>
+                  <Image
+                    src={previewGraphic}
+                    alt='preview graphic'
+                    width={1020}
+                    height={306}
+                    className='absolute top-0 left-0 m-0 w-full h-full object-fit object-cover'
+                  />
 
-              <div className=' flex flex-col gap-4 px-8 py-8 sm:py-16 w-full z-10'>
-                <div className='flex flex-col gap-2'>
-                  <h2 className='m-0 p-0 text-brand-white text-xl sm:text-3xl normal-case text-center tracking-normal font-sans !capitalize'>
-                    preview your art!
-                  </h2>
-                  <p className='text-center mx-auto max-w-xl'>Open a large preview of your local artwork.</p>
-                </div>
-                <div className='flex justify-center'>
-                  <Fragment>
-                    {session ? (
-                      <Link
-                        className='px-4 py-2 border-2 no-underline border-brand-pink text-brand-pink capitalize transition-color duration-300 hover:border-brand-white hover:text-brand-white'
-                        href={`/preview/${session.user.id}`}
-                      >
-                        open preview
-                      </Link>
-                    ) : (
-                      <span className='px-4 py-2 border-2 border-brand-evening-hush text-brand-evening-hush capitalize cursor-not-allowed font-medium'>
-                        open preview
-                      </span>
-                    )}
-                  </Fragment>
-                </div>
-              </div>
-            </article>
+                  <div className=' flex flex-col gap-4 px-8 py-8 sm:py-16 w-full z-10'>
+                    <div className='flex flex-col gap-2'>
+                      <h2 className='m-0 p-0 text-brand-white text-xl sm:text-3xl normal-case text-center tracking-normal font-sans !capitalize'>
+                        preview your art!
+                      </h2>
+                      <p className='text-center mx-auto max-w-xl'>Open a large preview of your local artwork.</p>
+                    </div>
+                    <div className='flex justify-center'>
+                      <Fragment>
+                        {session ? (
+                          <Link
+                            className='px-4 py-2 border-2 no-underline border-brand-pink text-brand-pink capitalize transition-color duration-300 hover:border-brand-white hover:text-brand-white'
+                            href={`/preview/${session.user.id}`}
+                          >
+                            open preview
+                          </Link>
+                        ) : (
+                          <span className='px-4 py-2 border-2 border-brand-evening-hush text-brand-evening-hush capitalize cursor-not-allowed font-medium'>
+                            open preview
+                          </span>
+                        )}
+                      </Fragment>
+                    </div>
+                  </div>
+                </article>
+              )}
+            </Fragment>
           )
         }}
       </AppContext.Consumer>
