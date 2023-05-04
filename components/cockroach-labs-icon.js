@@ -19,7 +19,7 @@ const CockroachLabsIcon = ({ className }) => {
         />
         <stop offset='1' className='[--end-color:theme(colors.brand.bright-turquoise)]' stopColor='var(--end-color)' />
       </linearGradient>
-      <circle cx='12' cy='12' r='12' className='fill-brand-deep-purple' />
+      <circle cx='12' cy='12' r='12' className='fill-depth-0' />
       <path
         fill='url(#logo-gradient)'
         d='M16.22,5.27c-1.56,0-3.01,0.45-4.23,1.23c-1.22-0.78-2.67-1.23-4.23-1.23
