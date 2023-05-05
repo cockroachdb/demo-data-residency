@@ -105,6 +105,13 @@ module.exports = {
             'code::after': {
               content: '""'
             },
+            li: {
+              margin: 0
+            },
+            'li::marker': {
+              fontWeight: theme('fontWeight.bold'),
+              color: theme('colors.brand.white')
+            },
             h1: {
               fontFamily: theme('fontFamily.anton'),
               color: theme('colors.brand.electric-purple'),
