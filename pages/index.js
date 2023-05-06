@@ -40,7 +40,7 @@ const Page = () => {
         </div>
       </section>
 
-      <section className='flex flex-col gap-16 mx-auto max-w-3xl'>
+      <section className='flex flex-col gap-16 mx-auto max-w-4xl'>
         <div className='flex flex-col gap-4 md:gap-8'>
           <h2 className='text-left md:text-center heading-md'>Why Multi-Region?</h2>
           <div className='flex flex-col gap-4'>
@@ -77,7 +77,7 @@ const Page = () => {
           </div>
         </div>
         <div className='relative flex items-center justify-center w-full'>
-          <div className='absolute mx-auto w-full max-w-3xl shadow-3xl border-2 border-brand-iridescent-blue'>
+          <div className='absolute mx-auto w-full shadow-3xl border-2 border-brand-iridescent-blue'>
             <YouTubeLite
               url={`https://www.youtube.com/watch?v=${process.env.NEXT_PUBLIC_YOUTUBE_ID}`}
               title='How Data Residency Works'
@@ -183,7 +183,7 @@ const Page = () => {
         </div>
 
         <div className='relative'>
-          <div className='relative bg-brand-deep-purple mx-auto overflow-auto xl:max-w-3xl max-h-[450px] xl:max-h-max xl:overflow-visible border-2 border-depth-3 shadow-3xl z-10'>
+          <div className='relative bg-brand-deep-purple mx-auto overflow-auto xl:max-w-4xl max-h-[450px] xl:max-h-max xl:overflow-visible border-2 border-depth-3 shadow-3xl z-10'>
             <table className='m-0 border-collapse'>
               <thead className='bg-depth-0 border-b-2 border-b-dashed border-b-depth-3'>
                 <tr>
@@ -206,9 +206,11 @@ const Page = () => {
                       key={index}
                       className={`odd:bg-depth-2 even:bg-depth-1 border-none text-center transition-all duration-300 table-scale-${isActive} ${region}`}
                     >
-                      <td className={`align-middle table-blur-${isActive}`}>{user_id}</td>
-                      <td className={`align-middle text-left table-blur-${isActive}`}>{image}</td>
-                      <td className={`align-middle table-blur-${isActive}`}>
+                      <td className={`align-middle transition-all duration-300 table-blur-${isActive}`}>{user_id}</td>
+                      <td className={`align-middle transition-all duration-300 text-left table-blur-${isActive}`}>
+                        {image}
+                      </td>
+                      <td className={`align-middle transition-all duration-300 table-blur-${isActive}`}>
                         <div className='flex items-center gap-2'>
                           {data.colors ? (
                             <Fragment>

@@ -10,20 +10,20 @@
       "region": "us-east-1"
     },
     {
-      "key": "eu",
-      "emoji": "🇩🇪",
-      "user_id": "a_123",
-      "image": "eu_unsplash.com_2MoEcGNUj-I.jpg",
-      "data": { "colors": ["#FFD700", "#00966E", "#D62612"] },
-      "region": "eu-central-1"
-    },
-    {
       "key": "global",
       "emoji": "🌎",
       "user_id": "a_123",
       "image": "",
       "data": { "positions": ["top", "left,", "white", "black"] },
       "region": "global"
+    },
+    {
+      "key": "eu",
+      "emoji": "🇩🇪",
+      "user_id": "a_123",
+      "image": "eu_unsplash.com_2MoEcGNUj-I.jpg",
+      "data": { "colors": ["#FFD700", "#00966E", "#D62612"] },
+      "region": "eu-central-1"
     },
     {
       "key": "us",
@@ -34,20 +34,20 @@
       "region": "us-east-1"
     },
     {
-      "key": "eu",
-      "emoji": "🇩🇪",
-      "user_id": "b_456",
-      "image": "eu_unsplash.com_hxhZMwfiGdQ.jpg",
-      "data": { "colors": ["#0000FF", "#0B2C5F"] },
-      "region": "eu-central-1"
-    },
-    {
       "key": "global",
       "emoji": "🌎",
       "user_id": "b_456",
       "image": "",
       "data": { "positions": ["bottom", "right,", "purple", "white"] },
       "region": "global"
+    },
+    {
+      "key": "eu",
+      "emoji": "🇩🇪",
+      "user_id": "b_456",
+      "image": "eu_unsplash.com_hxhZMwfiGdQ.jpg",
+      "data": { "colors": ["#0000FF", "#0B2C5F"] },
+      "region": "eu-central-1"
     },
     {
       "key": "us",
@@ -58,20 +58,20 @@
       "region": "us-east-1"
     },
     {
-      "key": "eu",
-      "emoji": "🇩🇪",
-      "user_id": "c_789",
-      "image": "eu_unsplash.com_jIh1QFf1naY.jpg",
-      "data": { "colors": ["#AE1C28"] },
-      "region": "eu-central-1"
-    },
-    {
       "key": "global",
       "emoji": "🌎",
       "user_id": "c_789",
       "image": "",
       "data": { "positions": ["right", "bottom,", "black", "purple"] },
       "region": "global"
+    },
+    {
+      "key": "eu",
+      "emoji": "🇩🇪",
+      "user_id": "c_789",
+      "image": "eu_unsplash.com_jIh1QFf1naY.jpg",
+      "data": { "colors": ["#AE1C28"] },
+      "region": "eu-central-1"
     }
   ]
 }
