@@ -14,7 +14,7 @@ import galleryGraphic from '../public/images/gallery-graphic.jpg'
 import usGraphic from '../public/images/us-graphic.jpg'
 import euDots from '../public/images/eu-dots.svg'
 import euGraphic from '../public/images/eu-graphic.jpg'
-import diagram from '../public/images/how-it-works-diagram_v4.svg'
+import diagram from '../public/images/how-it-works-diagram_v5.svg'
 
 import globalTable from '../public/global-table.json'
 
@@ -40,7 +40,7 @@ const Page = () => {
         </div>
       </section>
 
-      <section className='flex flex-col gap-16 mx-auto max-w-4xl'>
+      <section className='flex flex-col gap-16 mx-auto max-w-3xl'>
         <div className='flex flex-col gap-4 md:gap-8'>
           <h2 className='text-left md:text-center heading-md'>Why Multi-Region?</h2>
           <div className='flex flex-col gap-4'>
@@ -161,7 +161,7 @@ const Page = () => {
       </section>
 
       <section className='flex flex-col gap-16 xl:gap-24 '>
-        <div className='flex flex-col gap-4 md:gap-8 mx-auto max-w-4xl'>
+        <div className='flex flex-col gap-4 md:gap-8 mx-auto max-w-3xl'>
           <h2 className='text-left md:text-center heading-md'>global data</h2>
           <div className='flex flex-col gap-8 text-center'>
             <p className='m-0 text-left md:text-center'>
@@ -294,8 +294,8 @@ const Page = () => {
       <section className='flex flex-col gap-8'>
         <div className='flex flex-col gap-4 md:gap-8'>
           <h2 className='text-center heading-md'>learn how it works</h2>
-          <div className='pt-4 mx-auto max-w-5xl'>
-            <Image src={diagram} alt='how it works diagram' width={1400} height={320} className='m-0' />
+          <div className='pt-4 mx-auto max-w-4xl'>
+            <Image src={diagram} alt='how it works diagram' width={1240} height={330} className='m-0' />
           </div>
           <div className='flex flex-col gap-8 md:mx-auto max-w-2xl'>
             <p className='m-0 text-center'>
