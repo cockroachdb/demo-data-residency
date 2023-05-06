@@ -9,7 +9,7 @@ import TryDemoLink from '../components/try-demo-link'
 
 import howItWorksDots from '../public/images/how-it-works-dots.svg'
 import usDots from '../public/images/us-dots.svg'
-import markArtGraphic from '../public/images/make-art-graphic.jpg'
+
 import galleryGraphic from '../public/images/gallery-graphic.jpg'
 import usGraphic from '../public/images/us-graphic.jpg'
 import euDots from '../public/images/eu-dots.svg'
@@ -17,6 +17,7 @@ import euGraphic from '../public/images/eu-graphic.jpg'
 import diagram from '../public/images/how-it-works-diagram_v5.svg'
 
 import globalTable from '../public/global-table.json'
+import MakeYouOwnArt from '../components/make-your-own-art'
 
 const Page = () => {
   const [currentRegion, setCurrentRegion] = useState('eu')
@@ -106,13 +107,7 @@ const Page = () => {
         </div>
         <div className='relative flex items-center justify-center translate-x-0'>
           <Image src={usDots} alt='us data' width={500} height={500} />
-          <Image
-            src={markArtGraphic}
-            alt='art interface'
-            width={416}
-            height={416}
-            className='us-isomorphic absolute m-0 mx-auto w-11/12 sm:w-full max-w-lg shadow-3xl border-2 border-brand-iridescent-blue z-10'
-          />
+          <MakeYouOwnArt />
         </div>
       </section>
 
@@ -154,7 +149,7 @@ const Page = () => {
             src={galleryGraphic}
             alt='eu interface'
             width={416}
-            height={416}
+            height={250}
             className='eu-isomorphic absolute m-0 mx-auto w-11/12 sm:w-full max-w-lg shadow-3xl border-2 border-brand-iridescent-blue z-10'
           />
         </div>
@@ -263,7 +258,7 @@ const Page = () => {
             src={usGraphic}
             alt='us interface'
             width={416}
-            height={416}
+            height={250}
             className='us-isomorphic absolute m-0 mx-auto w-11/12 sm:w-full max-w-lg shadow-3xl border-2 border-brand-iridescent-blue z-10'
           />
         </div>
@@ -287,7 +282,7 @@ const Page = () => {
             src={euGraphic}
             alt='eu interface'
             width={416}
-            height={416}
+            height={250}
             className='eu-isomorphic absolute m-0 mx-auto w-11/12 sm:w-full max-w-lg shadow-3xl border-2 border-brand-iridescent-blue z-10'
           />
         </div>
