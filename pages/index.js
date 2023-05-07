@@ -6,10 +6,10 @@ import { YouTubeLite } from 'react-youtube-lite'
 import SiloLockup from '../components/silo-lockup'
 import NewsletterForm from '../components/newsletter-form'
 import TryDemoLink from '../components/try-demo-link'
+import MakeYouOwnArtAnimation from '../components/make-your-own-art-animation'
 
 import howItWorksDots from '../public/images/how-it-works-dots.svg'
 import usDots from '../public/images/us-dots.svg'
-
 import galleryGraphic from '../public/images/gallery-graphic.jpg'
 import usGraphic from '../public/images/us-graphic.jpg'
 import euDots from '../public/images/eu-dots.svg'
@@ -17,7 +17,6 @@ import euGraphic from '../public/images/eu-graphic.jpg'
 import diagram from '../public/images/how-it-works-diagram_v5.svg'
 
 import globalTable from '../public/global-table.json'
-import MakeYouOwnArt from '../components/make-your-own-art'
 
 const Page = () => {
   const [currentRegion, setCurrentRegion] = useState('eu')
@@ -107,7 +106,7 @@ const Page = () => {
         </div>
         <div className='relative flex items-center justify-center translate-x-0'>
           <Image src={usDots} alt='us data' width={500} height={500} />
-          <MakeYouOwnArt />
+          <MakeYouOwnArtAnimation />
         </div>
       </section>
 
