@@ -61,7 +61,7 @@ const NewsletterForm = ({ formId }) => {
 
           <button
             type='submit'
-            className='text-sm min-w-fit border-brand-electric-purple bg-brand-electric-purple text-brand-white disabled:border-brand-evening-hush disabled:bg-brand-evening-hush disabled:text-brand-white disabled:cursor-not-allowed px-2 transition-color duration-300 hover:text-brand-white hover:border-brand-white'
+            className='text-sm min-w-fit border-brand-electric-purple bg-brand-electric-purple text-brand-white disabled:border-brand-evening-hush/50 disabled:bg-brand-deep-purple disabled:text-brand-evening-hush/50 disabled:cursor-not-allowed px-2 transition-color duration-300 hover:text-brand-white hover:border-brand-white'
             disabled={state.isSubmitting || !checked}
             aria-label='Newsletter subscribe'
           >
@@ -69,7 +69,7 @@ const NewsletterForm = ({ formId }) => {
               xmlns='http://www.w3.org/2000/svg'
               fill='none'
               viewBox='0 0 24 24'
-              strokeWidth={1.5}
+              strokeWidth={2}
               stroke='currentColor'
               className='w-5 h-5'
             >

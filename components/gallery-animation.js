@@ -92,11 +92,11 @@ const GalleryAnimation = () => {
   }, [prefersReducedMotion])
 
   return (
-    <div className='eu-isomorphic absolute w-[120%] h-auto z-10'>
+    <div className='eu-isomorphic overflow-hidden absolute mx-auto w-11/12 sm:w-full max-w-lg shadow-3xl border-2 border-depth-2 z-10'>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         fill='currentColor'
-        viewBox='0 0 416 250'
+        viewBox='0 0 400 250'
         className='relative w-full h-full z-10'
         aria-label='Gallery animation'
       >
@@ -104,7 +104,7 @@ const GalleryAnimation = () => {
           {/* EU */}
           <g
             style={{
-              transform: 'translate(40px, 21px)'
+              transform: 'translate(8px, 8px)'
             }}
           >
             <image
@@ -113,7 +113,7 @@ const GalleryAnimation = () => {
               alt='gallery-eu-1'
               width={323}
               height={194}
-              className='w-[40%] h-auto art-shadow'
+              className='w-[47%] h-auto art-shadow'
               style={{
                 transformOrigin: 'bottom right',
                 transformBox: 'fill-box',
@@ -124,7 +124,7 @@ const GalleryAnimation = () => {
 
           <g
             style={{
-              transform: 'translate(213px, 21px)'
+              transform: 'translate(204px, 8px)'
             }}
           >
             <image
@@ -133,7 +133,7 @@ const GalleryAnimation = () => {
               alt='gallery-eu-2'
               width={323}
               height={194}
-              className='w-[40%] h-auto art-shadow'
+              className='w-[47%] h-auto art-shadow'
               style={{
                 transformOrigin: 'bottom left',
                 transformBox: 'fill-box',
@@ -144,7 +144,7 @@ const GalleryAnimation = () => {
 
           <g
             style={{
-              transform: 'translate(40px, 128px)'
+              transform: 'translate(8px, 130px)'
             }}
           >
             <image
@@ -153,7 +153,7 @@ const GalleryAnimation = () => {
               alt='gallery-eu-3'
               width={323}
               height={194}
-              className='w-[40%] h-auto art-shadow'
+              className='w-[47%] h-auto art-shadow'
               style={{
                 transformOrigin: 'top right',
                 transformBox: 'fill-box',
@@ -164,7 +164,7 @@ const GalleryAnimation = () => {
 
           <g
             style={{
-              transform: 'translate(213px, 128px)'
+              transform: 'translate(204px, 130px)'
             }}
           >
             <image
@@ -173,7 +173,7 @@ const GalleryAnimation = () => {
               alt='gallery-eu-4'
               width={323}
               height={194}
-              className='w-[40%] h-auto art-shadow'
+              className='w-[47%] h-auto art-shadow'
               style={{
                 transformOrigin: 'top left',
                 transformBox: 'fill-box',
@@ -188,7 +188,7 @@ const GalleryAnimation = () => {
 
           <g
             style={{
-              transform: 'translate(40px, 21px)'
+              transform: 'translate(8px, 8px)'
             }}
           >
             <image
@@ -197,7 +197,7 @@ const GalleryAnimation = () => {
               alt='gallery-us-1'
               width={323}
               height={194}
-              className='w-[40%] h-auto art-shadow'
+              className='w-[47%] h-auto art-shadow'
               style={{
                 transformOrigin: 'bottom right',
                 transformBox: 'fill-box',
@@ -208,7 +208,7 @@ const GalleryAnimation = () => {
 
           <g
             style={{
-              transform: 'translate(213px, 21px)'
+              transform: 'translate(204px, 8px)'
             }}
           >
             <image
@@ -217,7 +217,7 @@ const GalleryAnimation = () => {
               alt='gallery-us-2'
               width={323}
               height={194}
-              className='w-[40%] h-auto art-shadow'
+              className='w-[47%] h-auto art-shadow'
               style={{
                 transformOrigin: 'bottom left',
                 transformBox: 'fill-box',
@@ -228,7 +228,7 @@ const GalleryAnimation = () => {
 
           <g
             style={{
-              transform: 'translate(40px, 128px)'
+              transform: 'translate(8px, 130px)'
             }}
           >
             <image
@@ -237,7 +237,7 @@ const GalleryAnimation = () => {
               alt='gallery-us-3'
               width={323}
               height={194}
-              className='w-[40%] h-auto art-shadow'
+              className='w-[47%] h-auto art-shadow'
               style={{
                 transformOrigin: 'top right',
                 transformBox: 'fill-box',
@@ -248,7 +248,7 @@ const GalleryAnimation = () => {
 
           <g
             style={{
-              transform: 'translate(213px, 128px)'
+              transform: 'translate(204px, 130px)'
             }}
           >
             <image
@@ -257,7 +257,7 @@ const GalleryAnimation = () => {
               alt='gallery-us-4'
               width={323}
               height={194}
-              className='w-[40%] h-auto art-shadow'
+              className='w-[47%] h-auto art-shadow'
               style={{
                 transformOrigin: 'top left',
                 transformBox: 'fill-box',
@@ -267,7 +267,7 @@ const GalleryAnimation = () => {
           </g>
         </g>
       </svg>
-      {/* <div className='absolute top-0 w-full h-full bg-brand-deep-purple z-0' /> */}
+      <div className='absolute top-0 w-full h-full bg-brand-deep-purple z-0' />
     </div>
   )
 }
