@@ -37,22 +37,22 @@ const MakeYouOwnArtAnimation = () => {
   const partUsColorsUiRef = useRef()
   const partUsShapesUiRef = useRef()
 
-  useEffect(() => {
-    const refsReady = [
-      gEuRef,
-      partEuArtRef,
-      partEuColorsRef,
-      partEuShapesRef,
-      partEuColorsUiRef,
-      partEuShapesUiRef,
-      gUsRef,
-      partUsArtRef,
-      partUsColorsRef,
-      partUsShapesRef,
-      partUsColorsUiRef,
-      partUsShapesUiRef
-    ].every((ref) => ref.current !== null)
+  const refsReady = [
+    gEuRef,
+    partEuArtRef,
+    partEuColorsRef,
+    partEuShapesRef,
+    partEuColorsUiRef,
+    partEuShapesUiRef,
+    gUsRef,
+    partUsArtRef,
+    partUsColorsRef,
+    partUsShapesRef,
+    partUsColorsUiRef,
+    partUsShapesUiRef
+  ].every((ref) => ref.current !== null)
 
+  useEffect(() => {
     if (refsReady) {
       tl = timeline(
         [
@@ -153,7 +153,7 @@ const MakeYouOwnArtAnimation = () => {
         }
       )
     }
-  }, [])
+  }, [refsReady])
 
   useEffect(() => {
     if (prefersReducedMotion) {
@@ -164,13 +164,13 @@ const MakeYouOwnArtAnimation = () => {
   }, [prefersReducedMotion])
 
   return (
-    <div className='us-isomorphic overflow-hidden absolute mx-auto w-11/12 sm:w-full max-w-lg shadow-3xl border-2 border-brand-iridescent-blue z-10'>
+    <div className='us-isomorphic overflow-hidden absolute mx-auto w-11/12 sm:w-full max-w-lg shadow-3xl border-2 border-depth-2 z-10'>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         fill='currentColor'
         viewBox='0 0 416 250'
         className='relative w-full h-full z-10'
-        aria-label='Make your own art'
+        aria-label='Make your own art animation'
       >
         <g ref={gEuRef}>
           {/* EU */}
@@ -290,7 +290,7 @@ const MakeYouOwnArtAnimation = () => {
           />
         </g>
       </svg>
-      <div className='absolute top-0 w-full h-full bg-brand-deep-purple z-0' />
+      <div className='absolute top-0 w-full h-full bg-depth-0 z-0' />
     </div>
   )
 }

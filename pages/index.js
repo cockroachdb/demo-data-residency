@@ -124,7 +124,7 @@ const Page = () => {
             </p>
             <Link
               href='/gallery'
-              className='flex gap-2 items-center px-4 py-2 border-2 border-brand-pink text-brand-pink capitalize no-underline transition-color duration-300 hover:text-brand-white hover:border-brand-white self-start md:self-end'
+              className='flex gap-2 items-center px-4 py-2 border-2 border-brand-iridescent-blue text-brand-iridescent-blue capitalize no-underline transition-color duration-300 hover:text-brand-white hover:border-brand-white self-start md:self-end'
             >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -254,7 +254,7 @@ const Page = () => {
             alt='us interface'
             width={416}
             height={250}
-            className='us-isomorphic absolute m-0 mx-auto w-11/12 sm:w-full max-w-lg shadow-3xl border-2 border-brand-iridescent-blue z-10'
+            className='us-isomorphic absolute m-0 mx-auto w-11/12 sm:w-full max-w-lg shadow-3xl border-2 border-depth-2 z-10'
           />
         </div>
       </section>
@@ -278,7 +278,7 @@ const Page = () => {
             alt='eu interface'
             width={416}
             height={250}
-            className='eu-isomorphic absolute m-0 mx-auto w-11/12 sm:w-full max-w-lg shadow-3xl border-2 border-brand-iridescent-blue z-10'
+            className='eu-isomorphic absolute m-0 mx-auto w-11/12 sm:w-full max-w-lg shadow-3xl border-2 border-depth-2 z-10'
           />
         </div>
       </section>
