@@ -7,10 +7,10 @@ import SiloLockup from '../components/silo-lockup'
 import NewsletterForm from '../components/newsletter-form'
 import TryDemoLink from '../components/try-demo-link'
 import MakeYouOwnArtAnimation from '../components/make-your-own-art-animation'
+import GalleryAnimation from '../components/gallery-animation'
 
 import howItWorksDots from '../public/images/how-it-works-dots.svg'
 import usDots from '../public/images/us-dots.svg'
-import galleryGraphic from '../public/images/gallery-graphic.jpg'
 import usGraphic from '../public/images/us-graphic.jpg'
 import euDots from '../public/images/eu-dots.svg'
 import euGraphic from '../public/images/eu-graphic.jpg'
@@ -29,7 +29,7 @@ const Page = () => {
   return (
     <div className='flex flex-col gap-24 sm:gap-48 mx-auto max-w-6xl'>
       <section className='flex flex-col gap-8 justify-items-center'>
-        <SiloLockup className='max-w-4xl h-auto mx-auto' />
+        <SiloLockup className='max-w-5xl h-auto mx-auto' />
         <div className='flex flex-col gap-8 mx-auto max-w-4xl'>
           <h1 className='m-0 text-brand-white text-3xl md:text-5xl text-center normal-case font-sans md:leading-tight'>
             The Art of Data Residency and Application Architecture.
@@ -40,43 +40,45 @@ const Page = () => {
         </div>
       </section>
 
-      <section className='flex flex-col gap-16 mx-auto max-w-4xl'>
-        <div className='flex flex-col gap-4 md:gap-8'>
-          <h2 className='text-left md:text-center heading-md'>Why Multi-Region?</h2>
-          <div className='flex flex-col gap-4'>
-            <p className='m-0 text-left md:text-center'>
-              When your application serves users across states, countries, or continents, you need to deploy your
-              database in multiple cloud regions. But setting up and managing a multi-region database can be
-              labor-intensive and expensive.
-            </p>
-          </div>
-          <div className='flex flex-col gap-4'>
-            <h3 className='text-left md:text-center heading-sm'>The Demo</h3>
-            <p className='m-0 text-left md:text-center'>
-              In this demo, we illustrate CockroachDB's low-lift, developer-friendly tools for working with
-              geographically distributed data. We are running a <b>single logical CockroachDB serverless instance</b>{' '}
-              spanning three AWS regions:
-            </p>
-            <div className='flex justify-start sm:justify-center items-center'>
-              <ol className='columns-1 sm:columns-3 my-0 w-full sm:w-auto'>
-                <li className='mt-0'>
-                  <code>us-east-1</code>
-                </li>
-                <li>
-                  <code>us-west-2</code>
-                </li>
-                <li>
-                  <code>eu-central-1</code>
-                </li>
-              </ol>
+      <section className='relative flex flex-col gap-16 w-full mx-auto max-w-5xl'>
+        <div className='bg-depth-0 border-2 border-depth-2'>
+          <div className='flex flex-col px-4 py-8 sm:px-8 sm:py-16 gap-4 md:gap-8 mx-auto max-w-3xl'>
+            <div className='flex flex-col gap-4'>
+              <h2 className='text-left md:text-center heading-md'>Why Multi-Region?</h2>
+              <p className='m-0 text-left md:text-center'>
+                When your application serves users across states, countries, or continents, you need to deploy your
+                database in multiple cloud regions. But setting up and managing a multi-region database can be
+                labor-intensive and expensive.
+              </p>
+              <p className='m-0 text-left md:text-center'>
+                In the video below we explain how CockroachDB can be used to pin data to specific cloud regions to
+                optimize latency, maintain high availability, <b>and</b> comply with regional regulations.
+              </p>
             </div>
-            <p className='m-0 text-left md:text-center'>
-              In the video below we explain how CockroachDB can be used to pin data to specific cloud regions to
-              optimize latency, maintain high availability, <b>and</b> comply with regional regulations.
-            </p>
+            <div className='flex flex-col gap-4'>
+              <h3 className='text-left md:text-center heading-sm'>The Demo</h3>
+              <p className='m-0 text-left md:text-center'>
+                In this demo, we illustrate CockroachDB's low-lift, developer-friendly tools for working with
+                geographically distributed data. We are running a <b>single logical CockroachDB serverless instance</b>{' '}
+                spanning three AWS regions:
+              </p>
+              <div className='flex items-center justify-start md:justify-center'>
+                <ol className='columns-1 sm:columns-3 my-0 w-full sm:w-auto'>
+                  <li className='mt-0'>
+                    <code>us-east-1</code>
+                  </li>
+                  <li>
+                    <code>us-west-2</code>
+                  </li>
+                  <li>
+                    <code>eu-central-1</code>
+                  </li>
+                </ol>
+              </div>
+            </div>
           </div>
         </div>
-        <div className='relative flex items-center justify-center w-full'>
+        <div className='relative flex items-center justify-center w-full mx-auto max-w-4xl'>
           <div className='absolute mx-auto w-full shadow-3xl border-2 border-brand-iridescent-blue'>
             <YouTubeLite
               url={`https://www.youtube.com/watch?v=${process.env.NEXT_PUBLIC_YOUTUBE_ID}`}
@@ -87,7 +89,7 @@ const Page = () => {
         </div>
       </section>
 
-      <section className='grid md:grid-cols-2 gap-8 md:gap-16 items-center mx-auto max-w-4xl'>
+      <section className='grid md:grid-cols-2 gap-8 md:gap-16 items-center mx-auto max-w-5xl'>
         <div className='flex flex-col gap-4 md:gap-8'>
           <h2 className='text-left md:pl-0 heading-md'>make your own art</h2>
           <div className='flex flex-col gap-8'>
@@ -110,7 +112,7 @@ const Page = () => {
         </div>
       </section>
 
-      <section className='grid md:grid-cols-2 gap-8 md:gap-16 items-center mx-auto max-w-4xl'>
+      <section className='grid md:grid-cols-2 gap-8 md:gap-16 items-center mx-auto max-w-5xl'>
         <div className='flex flex-col md:order-1 gap-4 md:gap-8'>
           <h2 className='text-left md:text-right heading-md'>view the gallery</h2>
           <div className='flex flex-col gap-8'>
@@ -144,13 +146,7 @@ const Page = () => {
         </div>
         <div className='relative flex items-center justify-center translate-x-0'>
           <Image src={euDots} alt='us data' width={500} height={500} />
-          <Image
-            src={galleryGraphic}
-            alt='eu interface'
-            width={416}
-            height={250}
-            className='eu-isomorphic absolute m-0 mx-auto w-11/12 sm:w-full max-w-lg shadow-3xl border-2 border-brand-iridescent-blue z-10'
-          />
+          <GalleryAnimation />
         </div>
       </section>
 
@@ -238,7 +234,7 @@ const Page = () => {
         </div>
       </section>
 
-      <section className='grid md:grid-cols-2 gap-8 md:gap-16 items-center mx-auto max-w-4xl'>
+      <section className='grid md:grid-cols-2 gap-8 md:gap-16 items-center mx-auto max-w-5xl'>
         <div className='flex flex-col gap-4 md:gap-8'>
           <h2 className='text-left md:pl-0 heading-md'>united states data</h2>
           <div className='flex flex-col gap-8'>
@@ -263,7 +259,7 @@ const Page = () => {
         </div>
       </section>
 
-      <section className='grid md:grid-cols-2 gap-8 md:gap-16 items-center mx-auto max-w-4xl'>
+      <section className='grid md:grid-cols-2 gap-8 md:gap-16 items-center mx-auto max-w-5xl'>
         <div className='flex flex-col md:order-1 gap-4 md:gap-8'>
           <h2 className='text-left md:text-right heading-md'>european data</h2>
           <div className='flex flex-col gap-8'>
