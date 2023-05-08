@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { YouTubeLite } from 'react-youtube-lite'
 
-import CockroachLabsIcon from '../components/cockroach-labs-icon'
 import SiloLockup from '../components/silo-lockup'
 import NewsletterForm from '../components/newsletter-form'
 import TryDemoLink from '../components/try-demo-link'
@@ -30,10 +29,9 @@ const Page = () => {
   return (
     <div className='flex flex-col gap-24 sm:gap-48 mx-auto max-w-6xl'>
       <section className='flex flex-col gap-8 justify-items-center'>
-        <div className='flex flex-col gap-2 mx-auto max-w-6xl md:mt-8'>
-          <CockroachLabsIcon className='mx-auto max-w-[100px] md:max-w-[160px]' background='fill-transparent' />
-          {/* <SiloLockup className='mx-auto max-w-md' /> */}
-          <h1 className='m-0 text-brand-white text-5xl md:text-7xl text-center !leading-tight text-transparent bg-clip-text bg-gradient-to-r from-brand-electric-purple to-brand-iridescent-blue'>
+        <div className='flex flex-col gap-8 mx-auto max-w-5xl md:mt-8'>
+          <SiloLockup className='px-4 sm:px-44 mx-auto w-full' />
+          <h1 className='m-0 text-brand-white text-3xl md:text-6xl text-center !leading-tight text-transparent bg-clip-text bg-gradient-to-r from-brand-electric-purple to-brand-iridescent-blue'>
             The Art of Data Residency and Application Architecture.
           </h1>
           <h2 className='m-0 text-brand-white text-base font-normal text-center normal-case tracking-normal font-mono font-black'>
