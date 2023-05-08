@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const CockroachLabsIcon = ({ className }) => {
+const CockroachLabsIcon = ({ className, background }) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -19,7 +19,7 @@ const CockroachLabsIcon = ({ className }) => {
         />
         <stop offset='1' className='[--end-color:theme(colors.brand.bright-turquoise)]' stopColor='var(--end-color)' />
       </linearGradient>
-      <circle cx='12' cy='12' r='12' className='fill-depth-0' />
+      <circle cx='12' cy='12' r='12' className={background} />
       <path
         fill='url(#logo-gradient)'
         d='M16.22,5.27c-1.56,0-3.01,0.45-4.23,1.23c-1.22-0.78-2.67-1.23-4.23-1.23
@@ -35,9 +35,15 @@ const CockroachLabsIcon = ({ className }) => {
   )
 }
 
+CockroachLabsIcon.defaultProps = {
+  background: 'fill-depth-0'
+}
+
 CockroachLabsIcon.propTypes = {
   /** Tailwind class names */
-  className: PropTypes.string
+  className: PropTypes.string,
+  /** The background color of the circle */
+  background: PropTypes.string
 }
 
 export default CockroachLabsIcon

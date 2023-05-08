@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { YouTubeLite } from 'react-youtube-lite'
 
-import SiloLockup from '../components/silo-lockup'
 import NewsletterForm from '../components/newsletter-form'
 import TryDemoLink from '../components/try-demo-link'
 import MakeYouOwnArtAnimation from '../components/make-your-own-art-animation'
@@ -17,6 +16,7 @@ import euGraphic from '../public/images/eu-graphic.jpg'
 import diagram from '../public/images/how-it-works-diagram_v6.svg'
 
 import globalTable from '../public/global-table.json'
+import CockroachLabsIcon from '../components/cockroach-labs-icon'
 
 const Page = () => {
   const [currentRegion, setCurrentRegion] = useState('eu')
@@ -29,9 +29,9 @@ const Page = () => {
   return (
     <div className='flex flex-col gap-24 sm:gap-48 mx-auto max-w-6xl'>
       <section className='flex flex-col gap-8 justify-items-center'>
-        <SiloLockup className='max-w-5xl h-auto mx-auto' />
-        <div className='flex flex-col gap-8 mx-auto max-w-4xl'>
-          <h1 className='m-0 text-brand-white text-3xl md:text-5xl text-center md:!leading-[3.6rem]'>
+        <div className='flex flex-col gap-2 mx-auto max-w-6xl'>
+          <CockroachLabsIcon className='mx-auto max-w-[100px] md:max-w-[160px]' background='fill-transparent' />
+          <h1 className='m-0 text-brand-white text-5xl md:text-7xl text-center !leading-tight text-transparent bg-clip-text bg-gradient-to-r from-brand-electric-purple to-brand-iridescent-blue'>
             The Art of Data Residency and Application Architecture.
           </h1>
           <h2 className='m-0 text-brand-white text-base font-normal text-center normal-case tracking-normal font-mono font-black'>
