@@ -47,20 +47,13 @@ const Page = () => {
               <h2 className='text-left md:text-center heading-md'>Why Multi-Region?</h2>
               <p className='m-0 text-left md:text-center'>
                 When your application serves users across states, countries, or continents, you need to deploy your
-                database in multiple cloud regions. But setting up and managing a multi-region database can be
-                labor-intensive and expensive.
+                database in multiple cloud regions. But setting up and managing a multi-region database with traditional
+                tools can be labor-intensive and expensive.
               </p>
               <p className='m-0 text-left md:text-center'>
-                In the video below we explain how CockroachDB can be used to pin data to specific cloud regions to
-                optimize latency, maintain high availability, <b>and</b> comply with regional regulations.
-              </p>
-            </div>
-            <div className='flex flex-col gap-4'>
-              <h3 className='text-left md:text-center heading-sm'>The Demo</h3>
-              <p className='m-0 text-left md:text-center'>
-                In this demo, we illustrate CockroachDB's low-lift, developer-friendly tools for working with
-                geographically distributed data. We are running a <b>single logical CockroachDB serverless instance</b>{' '}
-                spanning three AWS regions:
+                In this demo, we illustrate CockroachDB's multi-region capabilities, which simplify the operations [ADD
+                MORE…] We are running a <b>single logical CockroachDB serverless</b> instance spanning three AWS
+                regions:
               </p>
               <div className='flex items-center justify-start md:justify-center'>
                 <ol className='columns-1 sm:columns-3 my-0 w-full sm:w-auto'>
@@ -76,6 +69,7 @@ const Page = () => {
                 </ol>
               </div>
             </div>
+            <TryDemoLink className='self-start md:self-center' />
           </div>
         </div>
         <div className='relative flex items-center justify-center w-full mx-auto max-w-4xl'>
