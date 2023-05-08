@@ -165,7 +165,7 @@ const Page = () => {
             <div className='flex md:justify-center'>
               <label className='relative inline-flex items-center mr-5 cursor-pointer'>
                 <input type='checkbox' value={currentRegion} className='sr-only peer' onChange={handleToggle} />
-                <div className="w-11 h-6 bg-brand-electric-purple rounded-full peer peer-focus:ring-2 peer-focus:ring-blue-500  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-brand-white after:border-brand-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-iridescent-blue"></div>
+                <div className="w-11 h-6 bg-brand-iridescent-blue rounded-full peer peer-focus:ring-2 peer-focus:ring-blue-500  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-brand-white after:border-brand-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-electric-purple"></div>
                 <span className='ml-3 text-sm font-medium text-brand-white uppercase'>{currentRegion}</span>
               </label>
             </div>
