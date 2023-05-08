@@ -63,7 +63,7 @@ const App = ({ Component, pageProps: { session, ...pageProps } }) => {
           {getLayout(
             <AppProvider>
               <Layout>
-                <main className={`prose max-w-9xl mx-auto px-4 pt-36  pb-16 sm:px-8 ${anton.variable}`}>
+                <main className={`prose max-w-9xl mx-auto px-4 pt-28 md:pt-36 pb-16 sm:px-8 ${anton.variable}`}>
                   <Component {...pageProps} />
                 </main>
               </Layout>
