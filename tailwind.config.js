@@ -91,7 +91,7 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            '*:not(h1, h2, h3, h4, h5, h6, svg, path)': {
+            '*:not(h1, h2, h3, h4, h5, h6,svg, path)': {
               color: theme('colors.brand.white')
             },
             code: {
@@ -113,34 +113,40 @@ module.exports = {
               color: theme('colors.brand.white')
             },
             h1: {
-              fontFamily: theme('fontFamily.anton'),
+              fontFamily: theme('fontFamily.poppins'),
               color: theme('colors.brand.electric-purple'),
-              textTransform: 'uppercase'
+              fontWeight: '900',
+              textTransform: 'capitalize'
             },
             h2: {
-              fontFamily: theme('fontFamily.anton'),
+              fontFamily: theme('fontFamily.poppins'),
               color: theme('colors.brand.electric-purple'),
-              textTransform: 'uppercase'
+              fontWeight: '900',
+              textTransform: 'capitalize'
             },
             h3: {
-              fontFamily: theme('fontFamily.anton'),
+              fontFamily: theme('fontFamily.poppins'),
               color: theme('colors.brand.electric-purple'),
-              textTransform: 'uppercase'
+              fontWeight: '900',
+              textTransform: 'capitalize'
             },
             h4: {
-              fontFamily: theme('fontFamily.anton'),
+              fontFamily: theme('fontFamily.poppins'),
               color: theme('colors.brand.electric-purple'),
-              textTransform: 'uppercase'
+              fontWeight: '900',
+              textTransform: 'capitalize'
             },
             h5: {
-              fontFamily: theme('fontFamily.anton'),
+              fontFamily: theme('fontFamily.poppins'),
               color: theme('colors.brand.electric-purple'),
-              textTransform: 'uppercase'
+              fontWeight: '900',
+              textTransform: 'capitalize'
             },
             h6: {
-              fontFamily: theme('fontFamily.anton'),
+              fontFamily: theme('fontFamily.poppins'),
               color: theme('colors.brand.electric-purple'),
-              textTransform: 'uppercase'
+              fontWeight: '900',
+              textTransform: 'capitalize'
             },
             p: {
               lineHeight: '1.5rem'

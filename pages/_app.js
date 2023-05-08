@@ -3,18 +3,18 @@ import Head from 'next/head'
 
 import { SessionProvider } from 'next-auth/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { Anton } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 
 import { AppProvider } from '../context/app-context'
 import Layout from '../components/layout'
 
 import '../styles/globals.css'
 
-const anton = Anton({
+const poppins = Poppins({
   subsets: ['latin'],
   weight: '400',
   display: 'swap',
-  variable: '--font-anton'
+  variable: '--font-poppins'
 })
 
 const queryClient = new QueryClient()
@@ -63,7 +63,7 @@ const App = ({ Component, pageProps: { session, ...pageProps } }) => {
           {getLayout(
             <AppProvider>
               <Layout>
-                <main className={`prose max-w-9xl mx-auto px-4 pt-28 md:pt-36 pb-16 sm:px-8 ${anton.variable}`}>
+                <main className={`prose max-w-9xl mx-auto px-4 pt-28 md:pt-36 pb-16 sm:px-8 ${poppins.variable}`}>
                   <Component {...pageProps} />
                 </main>
               </Layout>

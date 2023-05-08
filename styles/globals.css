@@ -11,13 +11,13 @@
     @apply px-4 py-2 border-2;
   }
   .heading-lg {
-    @apply !m-0 text-center !text-4xl sm:!text-7xl tracking-widest !leading-10 sm:!leading-[6rem];
+    @apply !m-0 text-center !text-4xl sm:!text-7xl;
   }
   .heading-md {
-    @apply !m-0 text-center !text-3xl sm:!text-5xl tracking-widest;
+    @apply !m-0 text-center !text-3xl sm:!text-5xl;
   }
   .heading-sm {
-    @apply !m-0 text-center !text-2xl sm:!text-3xl tracking-widest;
+    @apply !m-0 text-center !text-2xl sm:!text-3xl;
   }
   .us-isomorphic {
     transform: rotateX(18deg) rotateY(340deg) rotateZ(6deg);
