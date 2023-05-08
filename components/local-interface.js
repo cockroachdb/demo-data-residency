@@ -225,7 +225,7 @@ const LocalInterface = ({ regionId, regionName }) => {
                     {grid.map((_, index) => {
                       return (
                         <RadixSelect
-                          height={regionId === 'us' ? 265 : 360}
+                          height={265}
                           key={index}
                           sideOffset={-60}
                           alignOffset={20}
