@@ -41,7 +41,7 @@ const Page = () => {
           <div className='flex flex-col gap-16 bg-depth-1 border-2 border-depth-2 p-4 sm:p-8'>
             <div className='flex flex-col gap-4'>
               <div className='flex flex-col gap-2'>
-                <h2 className='m-0 p-0 text-brand-white text-lg sm:text-3xl normal-case tracking-normal font-sans'>
+                <h2 className='m-0 p-0 text-brand-white text-lg sm:text-3xl normal-case tracking-normal'>
                   Create art to store in the United States
                 </h2>
                 <strong>

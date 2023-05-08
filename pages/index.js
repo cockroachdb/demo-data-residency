@@ -31,10 +31,10 @@ const Page = () => {
       <section className='flex flex-col gap-8 justify-items-center'>
         <SiloLockup className='max-w-5xl h-auto mx-auto' />
         <div className='flex flex-col gap-8 mx-auto max-w-4xl'>
-          <h1 className='m-0 text-brand-white text-3xl md:text-5xl text-center normal-case font-sans md:leading-tight'>
+          <h1 className='m-0 text-brand-white text-3xl md:text-5xl text-center md:!leading-[3.6rem]'>
             The Art of Data Residency and Application Architecture.
           </h1>
-          <h2 className='m-0 text-brand-white text-base font-normal text-center normal-case tracking-normal font-mono'>
+          <h2 className='m-0 text-brand-white text-base font-normal text-center normal-case tracking-normal font-mono font-black'>
             /* A demo of multi-region capabilities in CockroachDB. */
           </h2>
         </div>
