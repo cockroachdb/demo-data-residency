@@ -5,6 +5,7 @@ import { YouTubeLite } from 'react-youtube-lite'
 
 import SiloLockup from '../components/silo-lockup'
 import NewsletterForm from '../components/newsletter-form'
+import CobeGlobe from '../components/cobe-globe'
 import TryDemoLink from '../components/try-demo-link'
 import MakeYouOwnArtAnimation from '../components/make-your-own-art-animation'
 import GalleryAnimation from '../components/gallery-animation'
@@ -14,7 +15,6 @@ import EuDottedMap from '../components/eu-dotted-map'
 import howItWorksDots from '../public/images/how-it-works-dots.svg'
 import usDots from '../public/images/us-dots.svg'
 import euDots from '../public/images/eu-dots.svg'
-import euGraphic from '../public/images/eu-graphic.jpg'
 import diagram from '../public/images/how-it-works-diagram_v6.svg'
 
 import globalTable from '../public/global-table.json'
@@ -35,7 +35,7 @@ const Page = () => {
           <h1 className='m-0 text-brand-white text-2xl md:text-6xl text-center !leading-tight text-transparent bg-clip-text bg-gradient-to-r from-brand-electric-purple to-brand-iridescent-blue'>
             The Art of Data Residency and Application Architecture.
           </h1>
-          <h2 className='m-0 px-8 text-brand-white text-base font-normal text-center normal-case tracking-normal font-mono font-black'>
+          <h2 className='m-0 px-4 text-brand-white text-base font-normal text-center normal-case tracking-normal font-mono font-black'>
             /* A demo of multi-region capabilities in CockroachDB. */
           </h2>
         </div>
@@ -44,16 +44,19 @@ const Page = () => {
       <section className='relative flex flex-col gap-16 w-full mx-auto max-w-5xl'>
         <div className='bg-depth-0 border-2 border-depth-2'>
           <div className='flex flex-col px-4 py-8 sm:px-8 sm:py-16 gap-4 md:gap-8 mx-auto max-w-3xl'>
-            <div className='flex flex-col gap-4'>
+            <div className='flex flex-col gap-8'>
               <h2 className='text-left md:text-center heading-md'>Why A Multi-Region Database?</h2>
               <p className='m-0 text-left md:text-center'>
                 When your application serves users across states, countries, or continents, you need to make sure you
-                keep your latency low, meet local regulations, and deliver an always-on experience. The solution:
-                running a multi-region database.
+                keep your latency low, meet local regulations, and deliver an always-on experience. <br />
+                The solution: <b>running a multi-region database</b>.
               </p>
+              <div className='mx-auto w-full max-w-[32rem]'>
+                <CobeGlobe />
+              </div>
               <p className='m-0 text-left md:text-center'>
                 Setting up and managing a multi-region database with traditional tools can be labor-intensive and
-                expensive. But CockroachDB can help. A distributed SQL database, CockroachDB lets you pin data to
+                expensive. But CockroachDB can help. A <b>distributed SQL database</b>, CockroachDB lets you pin data to
                 specific cloud regions to optimize latency, comply with regional regulations, and maintain high
                 availability.
               </p>
@@ -74,8 +77,8 @@ const Page = () => {
                   </li>
                 </ol>
               </div>
+              <TryDemoLink className='self-start md:self-center' />
             </div>
-            <TryDemoLink className='self-start md:self-center' />
           </div>
         </div>
         <div className='relative flex items-center justify-center w-full mx-auto max-w-4xl'>
@@ -278,7 +281,7 @@ const Page = () => {
       <section className='flex flex-col gap-8'>
         <div className='flex flex-col gap-4 md:gap-8'>
           <h2 className='text-center heading-md'>learn how it works</h2>
-          <div className='pt-4 mx-auto max-w-2xl'>
+          <div className='pt-4 mx-auto max-w-xl'>
             <Image src={diagram} alt='how it works diagram' width={595} height={884} className='m-0' />
           </div>
           <div className='flex flex-col gap-8 md:mx-auto max-w-2xl'>
