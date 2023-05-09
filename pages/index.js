@@ -111,8 +111,9 @@ const Page = () => {
               requirements for individual rows.
             </p>
             <p className='m-0'>
-              In this demo, some data is stored in either the <b>United States</b> or <b>Europe</b>, while other data is
-              stored in both places.
+              In this demo, some data is stored in either the <span className='text-brand-blue'>United</span>{' '}
+              <span className='text-brand-danger'>States</span> or <span className='text-brand-yellow'>Europe</span>,
+              while other data is stored in both places.
             </p>
             <TryDemoLink className='self-start' />
           </div>
@@ -168,9 +169,11 @@ const Page = () => {
           <h2 className='text-left md:text-center heading-md'>global data</h2>
           <div className='flex flex-col gap-8 text-center'>
             <p className='m-0 text-left md:text-center'>
-              The artwork's pattern and logo settings are stored in both the United States and Europe, and available for
-              viewing globally. The data is replicated across all three regions in the CockroachDB cluster. This setting
-              is useful for application data that's universally relevant.
+              The artwork's pattern and logo settings are stored in both the{' '}
+              <span className='text-brand-blue'>United</span> <span className='text-brand-danger'>States</span> and{' '}
+              <span className='text-brand-yellow'>Europe</span>, and available for viewing globally. The data is
+              replicated across all three regions in the CockroachDB cluster. This setting is useful for application
+              data that's universally relevant.
             </p>
             <p className='m-0 text-left md:text-center'>
               Use the toggle below to understand how the gallery data is represented in CockroachDB.
