@@ -18,6 +18,7 @@ import euDots from '../public/images/eu-dots.svg'
 import diagram from '../public/images/how-it-works-diagram_v6.svg'
 
 import globalTable from '../public/global-table.json'
+import CockroachLabsIcon from '../components/cockroach-labs-icon'
 
 const Page = () => {
   const [currentRegion, setCurrentRegion] = useState('eu')
@@ -45,7 +46,9 @@ const Page = () => {
         <div className='bg-depth-0 border-2 border-depth-2'>
           <div className='flex flex-col px-4 py-8 sm:px-8 sm:py-16 gap-4 md:gap-8 mx-auto max-w-3xl'>
             <div className='flex flex-col gap-8'>
+              <CockroachLabsIcon className='mx-auto w-28' />
               <h2 className='text-left md:text-center heading-md'>Why A Multi-Region Database?</h2>
+
               <p className='m-0 text-left md:text-center'>
                 When your application serves users across states, countries, or continents, you need to make sure you
                 keep your latency low, meet local regulations, and deliver an always-on experience. <br />
