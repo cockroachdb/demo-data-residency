@@ -32,11 +32,11 @@ const NewsletterForm = ({ formId }) => {
 
   return (
     <section className='bg-depth-0 border-2 border-depth-2 grid gap-8 p-4 md:p-8 w-full mx-auto max-w-5xl'>
-      <div className='flex flex-col gap-4'>
-        <div className='flex justify-center mx-auto'>
-          <CockroachLabsIcon className={'w-12 h-12 sm:w-16 sm:h-16'} />
+      <div className='flex flex-col gap-4 justify-center mx-auto'>
+        <div className=''>
+          <CockroachLabsIcon className='mx-auto w-16 sm:w-20 ' />
+          <h2 className='heading-md'>newsletter</h2>
         </div>
-        <h2 className='heading-md'>newsletter</h2>
         <p className='m-0 text-sm text-center mx-auto max-w-lg'>
           The latest news, blogs, webinars, videos and what we're reading.
         </p>

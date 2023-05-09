@@ -33,21 +33,25 @@ const Page = () => {
       <section className='flex flex-col gap-8 justify-items-center'>
         <div className='flex flex-col gap-8 mx-auto max-w-5xl md:mt-8'>
           <SiloLockup className='px-4 sm:px-44 mx-auto w-full' />
-          <h1 className='m-0 text-brand-white text-2xl md:text-6xl text-center !leading-tight text-transparent bg-clip-text bg-gradient-to-r from-brand-electric-purple to-brand-iridescent-blue'>
-            The Art of Data Residency and Application Architecture.
-          </h1>
-          <h2 className='m-0 px-4 text-brand-white text-base font-normal text-center normal-case tracking-normal font-mono font-black'>
-            /* A demo of multi-region capabilities in CockroachDB. */
-          </h2>
+          <div className='flex flex-col gap-4'>
+            <h1 className='m-0 text-brand-white text-4xl md:text-6xl text-center !leading-tight text-transparent bg-clip-text bg-gradient-to-r from-brand-electric-purple to-brand-iridescent-blue'>
+              The Art of Data Residency and Application Architecture.
+            </h1>
+            <h2 className='m-0 px-4 text-brand-white text-base font-normal text-center normal-case tracking-normal font-mono font-black'>
+              /* A demo of multi-region capabilities in CockroachDB. */
+            </h2>
+          </div>
         </div>
       </section>
 
       <section className='relative flex flex-col gap-16 w-full mx-auto max-w-5xl'>
         <div className='bg-depth-0 border-2 border-depth-2'>
-          <div className='flex flex-col px-4 py-8 sm:px-8 sm:py-16 gap-4 md:gap-8 mx-auto max-w-3xl'>
+          <div className='flex flex-col px-4 py-8 sm:px-8 pt-8 pb-10 gap-4 md:gap-8 mx-auto max-w-3xl'>
             <div className='flex flex-col gap-8'>
-              <CockroachLabsIcon className='mx-auto w-28' />
-              <h2 className='text-left md:text-center heading-md'>Why A Multi-Region Database?</h2>
+              <div className='flex flex-col gap-2'>
+                <CockroachLabsIcon className='sm:mx-auto w-16 sm:w-28' />
+                <h2 className='text-left md:text-center heading-md'>Why A Multi-Region Database?</h2>
+              </div>
 
               <p className='m-0 text-left md:text-center'>
                 When your application serves users across states, countries, or continents, you need to make sure you
@@ -281,12 +285,9 @@ const Page = () => {
       </section>
 
       <section className='flex flex-col gap-8'>
-        <div className='flex flex-col gap-4 md:gap-8'>
+        <div className='flex flex-col gap-8 mx-auto max-w-3xl'>
           <h2 className='text-center heading-md'>learn how it works</h2>
-          <div className='pt-4 mx-auto max-w-xl'>
-            <Image src={diagram} alt='how it works diagram' width={595} height={884} className='m-0' />
-          </div>
-          <div className='flex flex-col gap-8 md:mx-auto max-w-2xl'>
+          <div className='flex flex-col gap-8'>
             <p className='m-0 text-center'>
               We've written an in-depth blog post explaining how we used AWS multi-region application architecture
               together with CockroachDB Serverless to make this demo.
@@ -317,6 +318,8 @@ const Page = () => {
               </a>
             </div>
           </div>
+
+          <Image src={diagram} alt='how it works diagram' width={595} height={884} className='m-0 mx-auto p-8' />
         </div>
       </section>
 
