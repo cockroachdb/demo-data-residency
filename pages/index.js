@@ -45,16 +45,21 @@ const Page = () => {
         <div className='bg-depth-0 border-2 border-depth-2'>
           <div className='flex flex-col px-4 py-8 sm:px-8 sm:py-16 gap-4 md:gap-8 mx-auto max-w-3xl'>
             <div className='flex flex-col gap-4'>
-              <h2 className='text-left md:text-center heading-md'>Why Multi-Region?</h2>
+              <h2 className='text-left md:text-center heading-md'>Why A Multi-Region Database?</h2>
               <p className='m-0 text-left md:text-center'>
-                When your application serves users across states, countries, or continents, you need to deploy your
-                database in multiple cloud regions. But setting up and managing a multi-region database with traditional
-                tools can be labor-intensive and expensive.
+                When your application serves users across states, countries, or continents, you need to make sure you
+                keep your latency low, meet local regulations, and deliver an always-on experience. The solution:
+                running a multi-region database.
               </p>
               <p className='m-0 text-left md:text-center'>
-                In this demo, we illustrate CockroachDB's multi-region capabilities, which simplify the operations [ADD
-                MORE…] We are running a <b>single logical CockroachDB serverless</b> instance spanning three AWS
-                regions:
+                Setting up and managing a multi-region database with traditional tools can be labor-intensive and
+                expensive. But CockroachDB can help. A distributed SQL database, CockroachDB lets you pin data to
+                specific cloud regions to optimize latency, comply with regional regulations, and maintain high
+                availability.
+              </p>
+              <p className='m-0 text-left md:text-center'>
+                In this demo, we illustrate CockroachDB's multi-region capabilities. We are running a{' '}
+                <b>single logical CockroachDB serverless instance</b> spanning three AWS regions:
               </p>
               <div className='flex items-center justify-start md:justify-center'>
                 <ol className='columns-1 sm:columns-3 my-0 w-full sm:w-auto'>
@@ -89,10 +94,10 @@ const Page = () => {
           <h2 className='text-left md:pl-0 heading-md'>make your own art</h2>
           <div className='flex flex-col gap-8'>
             <p className='m-0'>
-              We're demonstrating CockroachDB's data residency (<i>also called data domiciling</i>) by letting you
-              create art that will reside in specific cloud regions. CockroachDB lets you control data residency down to
-              the <b>row-level</b> in your tables, so you can control where data lives based on the requirements for
-              individual rows.
+              We're demonstrating CockroachDB's data residency (<i>also called data domiciling</i>) capabilities by
+              letting you create art that will reside in specific cloud regions. CockroachDB lets you control data
+              residency down to the <b>row-level</b> in your tables, so you can control where data lives based on the
+              requirements for individual rows.
             </p>
             <p className='m-0'>
               In this demo, some data is stored in either the <b>United States</b> or <b>Europe</b>, while other data is
