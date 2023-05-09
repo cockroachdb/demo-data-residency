@@ -32,7 +32,7 @@ const Page = () => {
     <div className='flex flex-col gap-24 sm:gap-48 mx-auto max-w-6xl'>
       <section className='flex flex-col gap-8 justify-items-center'>
         <div className='flex flex-col gap-8 mx-auto max-w-5xl md:mt-8'>
-          <SiloLockup className='px-4 sm:px-44 mx-auto w-full' />
+          <SiloLockup className='px-4 sm:px-24 mx-auto w-full' />
           <div className='flex flex-col gap-4'>
             <h1 className='m-0 text-brand-white text-4xl md:text-6xl text-center !leading-tight text-transparent bg-clip-text bg-gradient-to-r from-brand-electric-purple to-brand-iridescent-blue'>
               The Art of Data Residency and Application Architecture.
@@ -88,15 +88,16 @@ const Page = () => {
             </div>
           </div>
         </div>
-        <div className='relative flex items-center justify-center w-full mx-auto max-w-4xl'>
-          <div className='absolute mx-auto w-full shadow-3xl border-2 border-brand-iridescent-blue'>
-            <YouTubeLite
-              url={`https://www.youtube.com/watch?v=${process.env.NEXT_PUBLIC_YOUTUBE_ID}`}
-              title='How Data Residency Works'
-            />
-          </div>
-          <Image src={howItWorksDots} alt='how it works' width={600} height={600} className='m-0 mx-auto' />
+      </section>
+
+      <section className='relative flex items-center justify-center w-full mx-auto max-w-4xl'>
+        <div className='absolute mx-auto w-full shadow-3xl border-2 border-brand-iridescent-blue'>
+          <YouTubeLite
+            url={`https://www.youtube.com/watch?v=${process.env.NEXT_PUBLIC_YOUTUBE_ID}`}
+            title='How Data Residency Works'
+          />
         </div>
+        <Image src={howItWorksDots} alt='how it works' width={600} height={600} className='m-0 mx-auto' />
       </section>
 
       <section className='grid md:grid-cols-2 gap-8 md:gap-16 items-center mx-auto max-w-5xl'>
