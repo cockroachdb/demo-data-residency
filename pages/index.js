@@ -242,9 +242,8 @@ const Page = () => {
           <h2 className='text-left md:pl-0 heading-md'>united states data</h2>
           <div className='flex flex-col gap-8'>
             <p className='m-0 text-left'>
-              Certain images, colors, and shapes in the demo are stored in the <b>United States</b>. If you're located
-              anywhere in the world except <b>Europe</b> you can only see <b>United States</b> data in the gallery.{' '}
-              <br />
+              Certain images and colors in the demo are stored in the <b>United States</b>. If you're located anywhere
+              in the world except <b>Europe</b> you can only see <b>United States</b> data in the gallery. <br />
               The data is replicated between CockroachDB instances on the{' '}
               <span className='text-brand-blue'>East coast</span> and{' '}
               <span className='text-brand-danger'>West coast</span> to provide high-availability and guard against
@@ -264,8 +263,8 @@ const Page = () => {
           <h2 className='text-left md:text-right heading-md'>european data</h2>
           <div className='flex flex-col gap-8'>
             <p className='m-0 text-left md:text-right'>
-              Certain images, colors, and shapes in the demo are stored in <b>Europe</b> and will never be available
-              outside of it. If you're located in <b>Europe</b>, you can only see{' '}
+              Certain images and colors in the demo are stored in <b>Europe</b> and will never be available outside of
+              it. If you're located in <b>Europe</b>, you can only see{' '}
               <span className='text-brand-yellow'>European</span> data. Given the stringent European data privacy
               regulations, this capability is especially important.
             </p>
