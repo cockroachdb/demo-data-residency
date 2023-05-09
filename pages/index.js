@@ -54,7 +54,7 @@ const Page = () => {
                 keep your latency low, meet local regulations, and deliver an always-on experience. <br />
                 The solution: <b>running a multi-region database</b>.
               </p>
-              <div className='mx-auto w-full max-w-[32rem]'>
+              <div className='mx-auto w-full max-w-[28rem]'>
                 <CobeGlobe />
               </div>
               <p className='m-0 text-left md:text-center'>

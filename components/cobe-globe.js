@@ -71,7 +71,7 @@ const CobeGlobe = () => {
         xmlns='http://www.w3.org/2000/svg'
         fill='currentColor'
         viewBox='0 0 24 24'
-        className='relative opacity-10 z-10'
+        className='relative opacity-5 z-10'
         aria-label='3D globe'
       >
         <linearGradient id='logo-gradient' gradientUnits='userSpaceOnUse' x1='0' y1='12' x2='19.2675' y2='12'>
