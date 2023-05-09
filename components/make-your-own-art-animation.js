@@ -164,7 +164,7 @@ const MakeYouOwnArtAnimation = () => {
   }, [prefersReducedMotion])
 
   return (
-    <div className='us-isomorphic overflow-hidden absolute mx-auto w-11/12 sm:w-full max-w-lg shadow-3xl border-2 border-depth-2 z-10'>
+    <div className='overflow-hidden absolute mx-auto w-11/12 sm:w-full max-w-lg shadow-3xl border-2 border-depth-2 z-10'>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         fill='currentColor'

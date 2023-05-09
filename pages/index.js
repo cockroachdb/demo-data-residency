@@ -8,10 +8,11 @@ import NewsletterForm from '../components/newsletter-form'
 import TryDemoLink from '../components/try-demo-link'
 import MakeYouOwnArtAnimation from '../components/make-your-own-art-animation'
 import GalleryAnimation from '../components/gallery-animation'
+import UsDottedMap from '../components/us-dotted-map'
+import EuDottedMap from '../components/eu-dotted-map'
 
 import howItWorksDots from '../public/images/how-it-works-dots.svg'
 import usDots from '../public/images/us-dots.svg'
-import usGraphic from '../public/images/us-graphic.jpg'
 import euDots from '../public/images/eu-dots.svg'
 import euGraphic from '../public/images/eu-graphic.jpg'
 import diagram from '../public/images/how-it-works-diagram_v6.svg'
@@ -234,22 +235,19 @@ const Page = () => {
           <div className='flex flex-col gap-8'>
             <p className='m-0 text-left'>
               Certain images, colors, and shapes in the demo are stored in the <b>United States</b>. If you're located
-              anywhere in the world except <b>Europe</b> you can only see <b>United States</b> data in the gallery. The
-              data is replicated between CockroachDB instances on the East coast and West coast to provide
-              high-availability and guard against regional outages.
+              anywhere in the world except <b>Europe</b> you can only see <b>United States</b> data in the gallery.{' '}
+              <br />
+              The data is replicated between CockroachDB instances on the{' '}
+              <span className='text-brand-blue'>East coast</span> and{' '}
+              <span className='text-brand-danger'>West coast</span> to provide high-availability and guard against
+              regional outages.
             </p>
             <TryDemoLink className='self-start' />
           </div>
         </div>
         <div className='relative flex items-center justify-center translate-x-0'>
           <Image src={usDots} alt='us data' width={500} height={500} />
-          <Image
-            src={usGraphic}
-            alt='us interface'
-            width={416}
-            height={250}
-            className='us-isomorphic absolute m-0 mx-auto w-11/12 sm:w-full max-w-lg shadow-3xl border-2 border-depth-2 z-10'
-          />
+          <UsDottedMap />
         </div>
       </section>
 
@@ -259,21 +257,16 @@ const Page = () => {
           <div className='flex flex-col gap-8'>
             <p className='m-0 text-left md:text-right'>
               Certain images, colors, and shapes in the demo are stored in <b>Europe</b> and will never be available
-              outside of it. If you're located in <b>Europe</b>, you can only see European data. Given the stringent
-              European data privacy regulations, this capability is especially important.
+              outside of it. If you're located in <b>Europe</b>, you can only see{' '}
+              <span className='text-brand-yellow'>European</span> data. Given the stringent European data privacy
+              regulations, this capability is especially important.
             </p>
             <TryDemoLink className='self-start md:self-end' />
           </div>
         </div>
         <div className='relative flex items-center justify-center translate-x-0'>
           <Image src={euDots} alt='us data' width={500} height={500} />
-          <Image
-            src={euGraphic}
-            alt='eu interface'
-            width={416}
-            height={250}
-            className='eu-isomorphic absolute m-0 mx-auto w-11/12 sm:w-full max-w-lg shadow-3xl border-2 border-depth-2 z-10'
-          />
+          <EuDottedMap />
         </div>
       </section>
 

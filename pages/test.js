@@ -1,8 +1,8 @@
 import React from 'react'
-import GalleryAnimation from '../components/gallery-animation'
+import UsDottedMap from '../components/us-dotted-map'
 
 const Page = () => {
-  return <GalleryAnimation />
+  return <UsDottedMap />
 }
 
 export default Page
