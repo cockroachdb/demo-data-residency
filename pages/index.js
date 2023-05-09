@@ -128,10 +128,12 @@ const Page = () => {
           <h2 className='text-left md:text-right heading-md'>view the gallery</h2>
           <div className='flex flex-col gap-8'>
             <p className='m-0 text-left md:text-right'>
-              No matter where you're located, you can create art that resides in the <b>United States</b> and art that
-              resides in <b>Europe</b>. That's because the app can write to any region from anywhere. But when you view
-              the gallery, you'll only see art that resides in your current location. That's because the app can only
-              read data from your closest region(s). Some data crosses all regions, so you'll always see it.
+              No matter where you're located, you can create art that resides in the{' '}
+              <span className='text-brand-blue'>United</span> <span className='text-brand-danger'>States</span> and art
+              that resides in <span className='text-brand-yellow'>Europe</span>. That's because the app can write to any
+              region from anywhere. But when you view the gallery, you'll only see art that resides in your current
+              location. That's because the app can only read data from your closest region(s). Some data crosses all
+              regions, so you'll always see it.
             </p>
             <Link
               href='/gallery'
