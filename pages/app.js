@@ -12,6 +12,7 @@ import CodeHighlight from '../components/code-highlight'
 
 import previewGraphic from '../public/images/preview-graphic.jpg'
 import ErrorMessage from '../components/error-message'
+import StepXofX from '../components/step-x-of-x'
 
 const Page = () => {
   const router = useRouter()
@@ -24,14 +25,18 @@ const Page = () => {
 
   return (
     <section className='flex flex-col gap-16'>
-      <article className='flex flex-col gap-4 text-center'>
+      <article className='flex flex-col gap-4 text-center mx-auto max-w-3xl'>
         <h1 className='heading-lg'>make your own art</h1>
-        <div>
-          <p className='my-0'>
+        <div className='mx-auto max-w-xl'>
+          <h2 className=' m-0 p-0 text-brand-white text-lg sm:text-3xl'>
+            <StepXofX value={1} /> Sign in with GitHub or LinkedIn
+          </h2>
+          <p className='mt-0 text-center'>
             Create artwork that will be physically stored in different CockroachDB nodes around the world.
           </p>
-          <small className='text-brand-gray-b'>
-            Note: you must sign in <b>before</b> creating artwork if you want to save it to the gallery.
+          <small className='block text-brand-gray-b text-center'>
+            If you want to save your art to the gallery, you must sign in before you start creating. If you don't want
+            to save your art, you can still interact with the application.
           </small>
         </div>
       </article>
@@ -41,8 +46,8 @@ const Page = () => {
           <div className='flex flex-col gap-16 bg-depth-1 border-2 border-depth-2 p-4 sm:p-8'>
             <div className='flex flex-col gap-4'>
               <div className='flex flex-col gap-2'>
-                <h2 className='m-0 p-0 text-brand-white text-lg sm:text-3xl normal-case tracking-normal'>
-                  Create art to store in the United States
+                <h2 className='m-0 p-0 text-brand-white text-lg sm:text-3xl'>
+                  <StepXofX value={2} /> Create art to store in the United States
                 </h2>
                 <strong>
                   This art will be written to <code>us-east-1</code> and replicated to <code>us-west-2</code>.
@@ -74,8 +79,8 @@ const Page = () => {
           <div className='flex flex-col gap-16 bg-depth-1 border-2 border-depth-2 p-4 sm:p-8'>
             <div className='flex flex-col gap-4'>
               <div className='flex flex-col gap-2'>
-                <h2 className='m-0 p-0 text-brand-white text-lg sm:text-3xl normal-case tracking-normal font-sans'>
-                  Create art to store in Europe
+                <h2 className='m-0 p-0 text-brand-white text-lg sm:text-3xl font-sans'>
+                  <StepXofX value={3} /> Create art to store in Europe
                 </h2>
                 <strong>
                   This art will be written to <code>eu-central-1</code>.
@@ -94,8 +99,8 @@ const Page = () => {
         <div className='flex flex-col gap-16 p-4 sm:p-8'>
           <div className='flex flex-col gap-4'>
             <div className='flex flex-col gap-2'>
-              <h2 className='m-0 p-0 text-brand-white text-lg sm:text-3xl normal-case tracking-normal font-sans'>
-                Apply art settings globally
+              <h2 className='m-0 p-0 text-brand-white text-lg sm:text-3xl font-sans'>
+                <StepXofX value={4} /> Apply art settings globally
               </h2>
               <strong>
                 Settings you apply here are written to <code>us-east-1</code>, <code>us-west-2</code> and{' '}

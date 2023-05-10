@@ -41,6 +41,7 @@ const Page = () => {
               /* A demo of multi-region capabilities in CockroachDB. */
             </h2>
           </div>
+          <TryDemoLink className='self-center' />
         </div>
       </section>
 
@@ -62,10 +63,10 @@ const Page = () => {
                 <CobeGlobe />
               </div>
               <p className='m-0 text-left md:text-center'>
-                Setting up and managing a multi-region database with traditional tools can be labor-intensive and
-                expensive. But CockroachDB can help. A <b>distributed SQL database</b>, CockroachDB lets you pin data to
-                specific cloud regions to optimize latency, comply with regional regulations, and maintain high
-                availability.
+                Setting up and managing a multi-region database with traditional tools can be labor-intensive. But
+                CockroachDB can help. A <b>distributed SQL database</b>, CockroachDB lets you pin data to specific
+                locations (servers, availability zones, or cloud regions) to optimize latency, comply with regional
+                regulations, and maintain high availability.
               </p>
               <p className='m-0 text-left md:text-center'>
                 In this demo, we illustrate CockroachDB's multi-region capabilities. We are running a{' '}
@@ -84,7 +85,6 @@ const Page = () => {
                   </li>
                 </ol>
               </div>
-              <TryDemoLink className='self-start md:self-center' />
             </div>
           </div>
         </div>
@@ -105,16 +105,12 @@ const Page = () => {
           <h2 className='text-left md:pl-0 heading-md'>make your own art</h2>
           <div className='flex flex-col gap-8'>
             <p className='m-0'>
-              We're demonstrating CockroachDB's data residency (<i>also called data domiciling</i>) capabilities by
-              letting you create art that will reside in specific cloud regions. CockroachDB lets you control data
-              residency down to the <b>row-level</b> in your tables, so you can control where data lives based on the
-              requirements for individual rows.
+              In this demo, you will create art that resides in specific cloud regions. Some data is stored in either
+              the <span className='text-brand-blue'>United</span> <span className='text-brand-danger'>States</span> or{' '}
+              <span className='text-brand-yellow'>Europe</span>, while other data is stored in both places. That's
+              because the app can write to any region from anywhere.
             </p>
-            <p className='m-0'>
-              In this demo, some data is stored in either the <span className='text-brand-blue'>United</span>{' '}
-              <span className='text-brand-danger'>States</span> or <span className='text-brand-yellow'>Europe</span>,
-              while other data is stored in both places.
-            </p>
+
             <TryDemoLink className='self-start' />
           </div>
         </div>
@@ -129,12 +125,9 @@ const Page = () => {
           <h2 className='text-left md:text-right heading-md'>view the gallery</h2>
           <div className='flex flex-col gap-8'>
             <p className='m-0 text-left md:text-right'>
-              No matter where you're located, you can create art that resides in the{' '}
-              <span className='text-brand-blue'>United</span> <span className='text-brand-danger'>States</span> and art
-              that resides in <span className='text-brand-yellow'>Europe</span>. That's because the app can write to any
-              region from anywhere. But when you view the gallery, you'll only see art that resides in your current
-              location. That's because the app can only read data from your closest region(s). Some data crosses all
-              regions, so you'll always see it.
+              When you view the gallery, you'll only see art that resides in your current location. That's because the
+              app can only read data from your closest region(s). Some data crosses all regions, so you'll always see
+              it.
             </p>
             <Link
               href='/gallery'
