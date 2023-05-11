@@ -96,7 +96,6 @@ module.exports = {
             },
             code: {
               color: `${theme('colors.brand.iridescent-blue')}!important`,
-              background: theme('colors.depth.2'),
               padding: '2px 4px'
             },
             'code::before': {

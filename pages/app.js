@@ -13,6 +13,7 @@ import CodeHighlight from '../components/code-highlight'
 import previewGraphic from '../public/images/preview-graphic.jpg'
 import ErrorMessage from '../components/error-message'
 import StepXofX from '../components/step-x-of-x'
+import GetStartedWithCockroachDB from '../components/get-started-with-cockroachdb'
 
 const Page = () => {
   const router = useRouter()
@@ -53,8 +54,7 @@ const Page = () => {
                   This art will be written to <code>us-east-1</code> and replicated to <code>us-west-2</code>.
                 </strong>
                 <small className='text-brand-gray-b'>
-                  Anyone can view this art in the gallery, unless you're located in Europe. You must sign in and click
-                  “save” to write the data to CockroachDB and view your art in the gallery.
+                  Only users outside of Europe will be able to view this artwork in the gallery.
                 </small>
               </div>
               <RegionHeading flag='🇺🇸' regionId='USA' region='us-east-1 | (N. Virginia)' />
@@ -67,8 +67,7 @@ const Page = () => {
                   This art will be written to <code>us-west-2</code> and replicated to <code> us-east-1</code>.
                 </strong>
                 <small className='text-brand-gray-b'>
-                  Anyone can view this art in the gallery, unless you're located in Europe. You must sign in and click
-                  “save” to write the data to CockroachDB and view your art in the gallery.
+                  Only users outside of Europe will be able to view this artwork in the gallery.
                 </small>
                 <RegionHeading flag='🇺🇸' regionId='USA' region='us-west-2 | (Oregon)' />
               </div>
@@ -86,8 +85,7 @@ const Page = () => {
                   This art will be written to <code>eu-central-1</code>.
                 </strong>
                 <small className='text-brand-gray-b'>
-                  You will only be able to view this art in the gallery if you're located in Europe. You must sign in
-                  and click “save” to write the data to CockroachDB and view your art in the gallery.
+                  Only users inside of Europe will be able to view this artwork in the gallery.
                 </small>
               </div>
               <RegionHeading flag='🇩🇪' regionId='Germany' region='eu-central-1 | (Frankfurt)' />
@@ -139,6 +137,7 @@ const Page = () => {
                   <div className=' flex flex-col gap-4 px-8 py-8 sm:py-16 w-full z-10'>
                     <div className='flex flex-col gap-2'>
                       <h2 className='m-0 p-0 text-brand-white text-xl sm:text-3xl normal-case text-center tracking-normal font-sans !capitalize'>
+                        <StepXofX value={5} />
                         preview your art!
                       </h2>
                       <p className='text-center mx-auto max-w-xl'>Open a large preview of your local artwork.</p>
@@ -195,43 +194,46 @@ const Page = () => {
         }}
       </AppContext.Consumer>
 
-      <article className='flex flex-col gap-4'>
-        <div className='flex flex-col gap-2 text-center'>
-          <h2 className='heading-lg'>data</h2>
-          <p className='m-0'>
-            Your creations will be stored as <code>JSON</code> in CockroachDB. This is what it looks like.
-          </p>
-          <p className='m-0'>
-            To learn more about how data locality is set up in CockroachDB,{' '}
-            <a
-              href='https://www.cockroachlabs.com/docs/stable/multiregion-overview.html'
-              rel='noopener'
-              target='_blank'
-              className='text-brand-iridescent-blue'
-            >
-              check out the docs
-            </a>
-            .
-          </p>
+      <article className='flex flex-col gap-16 mx-auto w-full max-w-5xl'>
+        <div className='flex flex-col gap-4'>
+          <div className='flex flex-col gap-2 text-center'>
+            <h2 className='heading-lg'>data</h2>
+            <p className='m-0'>
+              Your creations will be stored as <code>JSON</code> in CockroachDB. This is what it looks like.
+            </p>
+            <p className='m-0'>
+              To learn more about how data locality is set up in CockroachDB,{' '}
+              <a
+                href='https://www.cockroachlabs.com/docs/stable/multiregion-overview.html'
+                rel='noopener'
+                target='_blank'
+                className='text-brand-iridescent-blue'
+              >
+                check out the docs
+              </a>
+              .
+            </p>
+          </div>
         </div>
+        <AppContext.Consumer>
+          {({ values }) => {
+            return (
+              <CodeHighlight
+                codeBlock={JSON.stringify(
+                  {
+                    ...values,
+                    solve_this_clue: 'https://www.cockroachlabs.com/'
+                  },
+                  null,
+                  2
+                )}
+              />
+            )
+          }}
+        </AppContext.Consumer>
       </article>
 
-      <AppContext.Consumer>
-        {({ values }) => {
-          return (
-            <CodeHighlight
-              codeBlock={JSON.stringify(
-                {
-                  ...values,
-                  solve_this_clue: 'https://www.cockroachlabs.com/'
-                },
-                null,
-                2
-              )}
-            />
-          )
-        }}
-      </AppContext.Consumer>
+      <GetStartedWithCockroachDB />
     </section>
   )
 }

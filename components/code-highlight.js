@@ -6,7 +6,7 @@ const CodeHighlight = ({ codeBlock, language, showLineNumbers }) => {
   return (
     <article className='relative flex flex-col '>
       <div className='absolute right-0 -top-10 flex justify-end text-xs uppercase'>
-        <div className='flex gap-2 items-center bg-depth-2 p-3 border-t-2 border-l-2 border-r-2 border-depth-3'>
+        <div className='flex gap-2 items-center bg-depth-0 p-3 border-t-2 border-l-2 border-r-2 border-depth-2'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
@@ -35,9 +35,9 @@ const CodeHighlight = ({ codeBlock, language, showLineNumbers }) => {
           height: '400px',
           overflow: 'scroll',
           borderRadius: '0px',
-          border: '2px solid #302748',
+          border: '2px solid #271d3f',
           padding: '1rem',
-          background: '#271d3f',
+          background: '#1e1437!important',
           fontSize: '0.85rem'
         }}
       />

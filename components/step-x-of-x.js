@@ -8,7 +8,7 @@ const StepXofX = ({ value }) => {
       <span className='inline-flex justify-center items-center bg-brand-pink text-brand-white rounded-full w-5 h-5 font-bold text-center'>
         {value}
       </span>{' '}
-      <span className='lowercase'>of</span> <span className='text-brand-pink font-bold'>4</span>
+      <span className='lowercase'>of</span> <span className='text-brand-pink font-bold'>5</span>
     </div>
   )
 }

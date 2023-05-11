@@ -9,6 +9,7 @@ import CockroachLabsIcon from '../components/cockroach-labs-icon'
 import SiloLogo from '../components/silo-logo'
 import LoadingSpinner from '../components/loading-spinner'
 import ErrorMessage from '../components/error-message'
+import GetStartedWithCockroachDB from '../components/get-started-with-cockroachdb'
 
 const Page = () => {
   const { isLoading, isError, data } = useQuery(
@@ -168,6 +169,7 @@ const Page = () => {
           ) : null}
         </Fragment>
       ) : null}
+      <GetStartedWithCockroachDB />
     </section>
   )
 }

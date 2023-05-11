@@ -19,6 +19,7 @@ import diagram from '../public/images/how-it-works-diagram_v6.svg'
 
 import globalTable from '../public/global-table.json'
 import CockroachLabsIcon from '../components/cockroach-labs-icon'
+import GetStartedWithCockroachDB from '../components/get-started-with-cockroachdb'
 
 const Page = () => {
   const [currentRegion, setCurrentRegion] = useState('eu')
@@ -164,8 +165,8 @@ const Page = () => {
             <p className='m-0 text-left md:text-center'>
               The artwork's pattern and logo settings are stored in both the{' '}
               <span className='text-brand-blue'>United</span> <span className='text-brand-danger'>States</span> and{' '}
-              <span className='text-brand-yellow'>Europe</span>, and available for viewing globally. The data is
-              replicated across all three regions in the CockroachDB cluster. This setting is useful for application
+              <span className='text-brand-yellow'>Europe</span>, and are made available for viewing globally. The data
+              is replicated across all three regions in the CockroachDB cluster. This setting is useful for application
               data that's universally relevant.
             </p>
             <p className='m-0 text-left md:text-center'>
@@ -321,7 +322,7 @@ const Page = () => {
           <Image src={diagram} alt='how it works diagram' width={595} height={884} className='m-0 mx-auto p-8' />
         </div>
       </section>
-
+      <GetStartedWithCockroachDB />
       <NewsletterForm formId={process.env.NEXT_PUBLIC_NEWSLETTER_FORM_ID} />
     </div>
   )

@@ -9,6 +9,7 @@ import SiloLogo from '../../components/silo-logo'
 import LoadingSpinner from '../../components/loading-spinner'
 import ErrorMessage from '../../components/error-message'
 import RegionHeading from '../../components/region-heading'
+import GetStartedWithCockroachDB from '../../components/get-started-with-cockroachdb'
 
 import images from '../../public/source-images.json'
 
@@ -260,6 +261,7 @@ const Page = ({ user_id }) => {
           )}
         </Fragment>
       ) : null}
+      <GetStartedWithCockroachDB />
     </section>
   )
 }
