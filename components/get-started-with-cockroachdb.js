@@ -7,17 +7,18 @@ const GetStartedWithCockroachDB = () => {
     <section className='grid gap-8 px-8 sm:px-16 w-full mx-auto max-w-5xl'>
       <div className='flex flex-col gap-4 justify-center mx-auto'>
         <h2 className='heading-md text-transparent bg-clip-text bg-gradient-to-r from-brand-electric-purple to-brand-iridescent-blue'>
-          Get Started With CockroachDB Today
+          <span className='text-transparent block'>Get Started With</span>{' '}
+          <span className='text-transparent block'>CockroachDB Today</span>
         </h2>
-        <ul className='mx-auto m-0 p-0 space-y-1 text-gray-500 list-inside dark:text-gray-400 lg:columns-3'>
+        <ul className='mx-auto m-0 p-0 space-y-2'>
           {list.map((item, index) => {
             return (
-              <li key={index} className='flex items-center text-lg'>
+              <li key={index} className='flex items-center text-2xl'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   fill='currentColor'
                   viewBox='0 0 24 24'
-                  className='w-6 h-6 mr-1.5 text-brand-iridescent-blue flex-shrink-0'
+                  className='w-6 h-6 mt-0.5 mr-1.5 text-brand-iridescent-blue flex-shrink-0'
                 >
                   <path
                     fillRule='evenodd'
