@@ -35,7 +35,7 @@ const NewsletterForm = ({ formId }) => {
       <div className='flex flex-col gap-4 justify-center mx-auto'>
         <div className=''>
           <CockroachLabsIcon className='mx-auto w-16 sm:w-20 ' />
-          <h2 className='heading-md'>newsletter</h2>
+          <h2 className='heading-md'>Newsletter</h2>
         </div>
         <p className='m-0 text-sm text-center mx-auto max-w-lg'>
           The latest news, blogs, webinars, videos and what we're reading.

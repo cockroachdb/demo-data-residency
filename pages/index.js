@@ -35,7 +35,7 @@ const Page = () => {
         <div className='flex flex-col gap-8 mx-auto max-w-5xl md:mt-8'>
           <SiloLockup className='px-4 sm:px-24 mx-auto w-full' />
           <div className='flex flex-col gap-4'>
-            <h1 className='m-0 text-brand-white text-4xl md:text-6xl text-center !leading-tight text-transparent bg-clip-text bg-gradient-to-r from-brand-electric-purple to-brand-iridescent-blue'>
+            <h1 className='m-0 text-brand-white text-4xl md:text-6xl text-center normal-case !leading-tight text-transparent bg-clip-text bg-gradient-to-r from-brand-electric-purple to-brand-iridescent-blue'>
               The Art of Data Residency and Application Architecture.
             </h1>
             <h2 className='m-0 px-4 text-brand-white text-base font-normal text-center normal-case tracking-normal font-mono font-black'>
@@ -52,7 +52,7 @@ const Page = () => {
             <div className='flex flex-col gap-8'>
               <div className='flex flex-col gap-2'>
                 <CockroachLabsIcon className='sm:mx-auto w-16 sm:w-28' />
-                <h2 className='text-left md:text-center heading-md'>Why A Multi-Region Database?</h2>
+                <h2 className='text-left md:text-center heading-md'>Why a Multi-Region Database?</h2>
               </div>
 
               <p className='m-0 text-left md:text-center'>
@@ -103,7 +103,7 @@ const Page = () => {
 
       <section className='grid md:grid-cols-2 gap-8 md:gap-16 items-center mx-auto max-w-5xl'>
         <div className='flex flex-col gap-4 md:gap-8'>
-          <h2 className='text-left md:pl-0 heading-md'>make your own art</h2>
+          <h2 className='text-left md:pl-0 heading-md'>Make Your Own Art</h2>
           <div className='flex flex-col gap-8'>
             <p className='m-0'>
               In this demo, you will create art that resides in specific cloud regions. Some data is stored in either
@@ -123,10 +123,10 @@ const Page = () => {
 
       <section className='grid md:grid-cols-2 gap-8 md:gap-16 items-center mx-auto max-w-5xl'>
         <div className='flex flex-col md:order-1 gap-4 md:gap-8'>
-          <h2 className='text-left md:text-right heading-md'>view the gallery</h2>
+          <h2 className='text-left md:text-right heading-md'>View the Gallery</h2>
           <div className='flex flex-col gap-8'>
             <p className='m-0 text-left md:text-right'>
-              When you view the gallery, you'll only see art that resides in your current location. That's because the
+              When you view the Gallery, you'll only see art that resides in your current location. That's because the
               app can only read data from your closest region(s). Some data crosses all regions, so you'll always see
               it.
             </p>
@@ -160,7 +160,7 @@ const Page = () => {
 
       <section className='flex flex-col gap-16 xl:gap-24 '>
         <div className='flex flex-col gap-4 md:gap-8 mx-auto max-w-3xl'>
-          <h2 className='text-left md:text-center heading-md'>global data</h2>
+          <h2 className='text-left md:text-center heading-md'>Global Data</h2>
           <div className='flex flex-col gap-8 text-center'>
             <p className='m-0 text-left md:text-center'>
               The artwork's pattern and logo settings are stored in both the{' '}
@@ -246,7 +246,7 @@ const Page = () => {
 
       <section className='grid md:grid-cols-2 gap-8 md:gap-16 items-center mx-auto max-w-5xl'>
         <div className='flex flex-col gap-4 md:gap-8'>
-          <h2 className='text-left md:pl-0 heading-md'>united states data</h2>
+          <h2 className='text-left md:pl-0 heading-md'>United States Data</h2>
           <div className='flex flex-col gap-8'>
             <p className='m-0 text-left'>
               Certain images and colors in the demo are stored in the <b>United States</b>. If you're located anywhere
@@ -267,7 +267,7 @@ const Page = () => {
 
       <section className='grid md:grid-cols-2 gap-8 md:gap-16 items-center mx-auto max-w-5xl'>
         <div className='flex flex-col md:order-1 gap-4 md:gap-8'>
-          <h2 className='text-left md:text-right heading-md'>european data</h2>
+          <h2 className='text-left md:text-right heading-md'>European Data</h2>
           <div className='flex flex-col gap-8'>
             <p className='m-0 text-left md:text-right'>
               Certain images and colors in the demo are stored in <b>Europe</b> and will never be available outside of
@@ -286,7 +286,7 @@ const Page = () => {
 
       <section className='flex flex-col gap-8'>
         <div className='flex flex-col gap-8 mx-auto max-w-3xl'>
-          <h2 className='text-center heading-md'>learn how it works</h2>
+          <h2 className='text-center heading-md'>Learn How It Works</h2>
           <div className='flex flex-col gap-8'>
             <p className='m-0 text-center'>
               We've written an in-depth blog post explaining how we used AWS multi-region application architecture

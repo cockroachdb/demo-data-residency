@@ -114,38 +114,32 @@ module.exports = {
             h1: {
               fontFamily: theme('fontFamily.poppins'),
               color: theme('colors.brand.electric-purple'),
-              fontWeight: '900',
-              textTransform: 'capitalize'
+              fontWeight: '900'
             },
             h2: {
               fontFamily: theme('fontFamily.poppins'),
               color: theme('colors.brand.electric-purple'),
-              fontWeight: '900',
-              textTransform: 'capitalize'
+              fontWeight: '900'
             },
             h3: {
               fontFamily: theme('fontFamily.poppins'),
               color: theme('colors.brand.electric-purple'),
-              fontWeight: '900',
-              textTransform: 'capitalize'
+              fontWeight: '900'
             },
             h4: {
               fontFamily: theme('fontFamily.poppins'),
               color: theme('colors.brand.electric-purple'),
-              fontWeight: '900',
-              textTransform: 'capitalize'
+              fontWeight: '900'
             },
             h5: {
               fontFamily: theme('fontFamily.poppins'),
               color: theme('colors.brand.electric-purple'),
-              fontWeight: '900',
-              textTransform: 'capitalize'
+              fontWeight: '900'
             },
             h6: {
               fontFamily: theme('fontFamily.poppins'),
               color: theme('colors.brand.electric-purple'),
-              fontWeight: '900',
-              textTransform: 'capitalize'
+              fontWeight: '900'
             },
             p: {
               lineHeight: '1.5rem'

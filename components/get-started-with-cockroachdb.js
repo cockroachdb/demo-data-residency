@@ -7,7 +7,7 @@ const GetStartedWithCockroachDB = () => {
     <section className='grid gap-8 px-8 sm:px-16 w-full mx-auto max-w-5xl'>
       <div className='flex flex-col gap-4 justify-center mx-auto'>
         <h2 className='heading-md  text-transparent bg-clip-text bg-gradient-to-r from-brand-electric-purple to-brand-iridescent-blue'>
-          Get started with CockroachDB today
+          Get Started With CockroachDB Today
         </h2>
         <ul className='mx-auto space-y-1 text-gray-500 list-inside dark:text-gray-400 lg:columns-3'>
           {list.map((item, index) => {

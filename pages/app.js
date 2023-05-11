@@ -27,7 +27,7 @@ const Page = () => {
   return (
     <section className='flex flex-col gap-24'>
       <article className='flex flex-col gap-4 text-center mx-auto max-w-3xl'>
-        <h1 className='heading-lg'>make your own art</h1>
+        <h1 className='heading-lg'>Make Your Own Art</h1>
         <div className='mx-auto max-w-xl'>
           <h2 className=' m-0 p-0 text-brand-white text-lg sm:text-3xl'>
             <StepXofX value={1} /> Sign in with GitHub or LinkedIn
@@ -197,7 +197,7 @@ const Page = () => {
       <article className='flex flex-col gap-16 mx-auto w-full max-w-5xl'>
         <div className='flex flex-col gap-4'>
           <div className='flex flex-col gap-2 text-center'>
-            <h2 className='heading-lg'>data</h2>
+            <h2 className='heading-lg'>Data</h2>
             <p className='m-0'>
               Your creations will be stored as <code>JSON</code> in CockroachDB. This is what it looks like.
             </p>

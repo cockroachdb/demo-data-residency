@@ -4,7 +4,6 @@ import { useSession, signIn } from 'next-auth/react'
 
 import GitHubLogo from '../components/github-logo'
 import LinkedInLogo from '../components/linkedin-logo'
-import GetStartedWithCockroachDB from '../components/get-started-with-cockroachdb'
 
 const Page = () => {
   const { data: session } = useSession()
@@ -19,7 +18,7 @@ const Page = () => {
   return (
     <section className='flex flex-col gap-8 mx-auto max-w-3xl'>
       <div className='flex flex-col gap-2'>
-        <h1 className='heading-lg'>sign in</h1>
+        <h1 className='heading-lg'>Sign In</h1>
         <p className='m-0 text-center'>We will not save or share your email address.</p>
       </div>
       <div className='flex justify-center gap-4 mx-auto max-w-sm'>
