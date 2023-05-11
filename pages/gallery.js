@@ -45,7 +45,7 @@ const Page = () => {
     <section className='flex flex-col gap-16 mx-auto max-w-6xl'>
       {isError ? <ErrorMessage /> : null}
       {isLoading ? (
-        <div className='flex justify-center'>
+        <div className='flex justify-center h-screen'>
           <LoadingSpinner />
         </div>
       ) : null}
