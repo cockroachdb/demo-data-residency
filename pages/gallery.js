@@ -155,10 +155,12 @@ const Page = () => {
                         ) : null}
                       </div>
                       <div className='flex flex-col gap-2 bg-depth-1 p-2 text-xs text-brand-evening-hush'>
-                        <span className='text-inherit'>{`Photograph by: ${credit}`}</span>
+                        <span className='text-inherit text-[0.7rem]'>{`Photo credit: ${credit}`}</span>
                         <div className='flex gap-2 justify-between text-inherit'>
-                          <span className='text-inherit'>{`Art by: ${username}`}</span>
-                          <time className='text-inherit'>{local_last_update}</time>
+                          <span className='text-brand-white'>
+                            Art by: <span className='text-brand-pink font-bold'>{username}</span>
+                          </span>
+                          <time className='text-brand-white'>{local_last_update}</time>
                         </div>
                       </div>
                     </div>

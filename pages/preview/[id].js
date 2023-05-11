@@ -204,7 +204,7 @@ const Page = ({ user_id }) => {
                     </div>
 
                     <div className='flex gap-2 justify-between bg-depth-1 p-2 text-xs text-brand-evening-hush'>
-                      <span className='text-inherit'>{`Photograph by: ${data.results.local_values.credit}`}</span>
+                      <span className='text-inherit text-[0.7rem]'>{`Photo credit: ${data.results.local_values.credit}`}</span>
                     </div>
                   </div>
                 </div>
