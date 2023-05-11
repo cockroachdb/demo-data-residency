@@ -3,15 +3,15 @@ import { timeline } from 'motion'
 
 import usePrefersReducedMotion from '../hooks/use-prefers-reduced-motion'
 
-import galleryEu1 from '../public/images/gallery-eu-1.jpg'
-import galleryEu2 from '../public/images/gallery-eu-2.jpg'
-import galleryEu3 from '../public/images/gallery-eu-3.jpg'
-import galleryEu4 from '../public/images/gallery-eu-4.jpg'
+import galleryEu1 from '../public/images/gallery-eu-1.webp'
+import galleryEu2 from '../public/images/gallery-eu-2.webp'
+import galleryEu3 from '../public/images/gallery-eu-3.webp'
+import galleryEu4 from '../public/images/gallery-eu-4.webp'
 
-import galleryUs1 from '../public/images/gallery-us-1.jpg'
-import galleryUs2 from '../public/images/gallery-us-2.jpg'
-import galleryUs3 from '../public/images/gallery-us-3.jpg'
-import galleryUs4 from '../public/images/gallery-us-4.jpg'
+import galleryUs1 from '../public/images/gallery-us-1.webp'
+import galleryUs2 from '../public/images/gallery-us-2.webp'
+import galleryUs3 from '../public/images/gallery-us-3.webp'
+import galleryUs4 from '../public/images/gallery-us-4.webp'
 
 const duration = 0.4
 const offset = 0.1
