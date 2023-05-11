@@ -13,7 +13,7 @@ const GetStartedWithCockroachDB = () => {
         <ul className='mx-auto m-0 p-0 space-y-2'>
           {list.map((item, index) => {
             return (
-              <li key={index} className='flex items-center text-2xl'>
+              <li key={index} className='flex items-center text-base sm:text-lg'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   fill='currentColor'
