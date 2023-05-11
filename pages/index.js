@@ -12,9 +12,13 @@ import GalleryAnimation from '../components/gallery-animation'
 import UsDottedMap from '../components/us-dotted-map'
 import EuDottedMap from '../components/eu-dotted-map'
 
-import howItWorksDots from '../public/images/how-it-works-dots.svg'
-import usDots from '../public/images/us-dots.svg'
-import euDots from '../public/images/eu-dots.svg'
+import videoDots from '../public/images/index-graphics_video.svg'
+import artDots from '../public/images/index-graphics_make-your-own-art.svg'
+import galleryDots from '../public/images/index-graphics_gallery.svg'
+import globalDots from '../public/images/index-graphics_global-data.svg'
+import usDots from '../public/images/index-graphics_us-data.svg'
+import euDots from '../public/images/index-graphics_eu-data.svg'
+
 import diagram from '../public/images/how-it-works-diagram_v6.svg'
 
 import globalTable from '../public/global-table.json'
@@ -98,7 +102,7 @@ const Page = () => {
             title='How Data Residency Works'
           />
         </div>
-        <Image src={howItWorksDots} alt='how it works' width={600} height={600} className='m-0 mx-auto' />
+        <Image src={videoDots} alt='how it works' width={600} height={600} className='m-0 mx-auto' />
       </section>
 
       <section className='grid md:grid-cols-2 gap-8 md:gap-16 items-center mx-auto max-w-5xl'>
@@ -116,7 +120,7 @@ const Page = () => {
           </div>
         </div>
         <div className='relative flex items-center justify-center translate-x-0'>
-          <Image src={usDots} alt='us data' width={500} height={500} />
+          <Image src={artDots} alt='us data' width={400} height={400} />
           <MakeYouOwnArtAnimation />
         </div>
       </section>
@@ -153,7 +157,7 @@ const Page = () => {
           </div>
         </div>
         <div className='relative flex items-center justify-center translate-x-0'>
-          <Image src={euDots} alt='us data' width={500} height={500} />
+          <Image src={galleryDots} alt='us data' width={400} height={400} />
           <GalleryAnimation />
         </div>
       </section>
@@ -239,7 +243,7 @@ const Page = () => {
             </table>
           </div>
           <div className='absolute w-full top-1/2 -translate-y-1/2 z-0'>
-            <Image src={howItWorksDots} alt='how it works' width={500} height={500} className='m-0 mx-auto' />
+            <Image src={globalDots} alt='how it works' width={550} height={550} className='m-0 mx-auto' />
           </div>
         </div>
       </section>
@@ -260,7 +264,7 @@ const Page = () => {
           </div>
         </div>
         <div className='relative flex items-center justify-center translate-x-0'>
-          <Image src={usDots} alt='us data' width={500} height={500} />
+          <Image src={usDots} alt='us data' width={400} height={400} />
           <UsDottedMap />
         </div>
       </section>
@@ -279,7 +283,7 @@ const Page = () => {
           </div>
         </div>
         <div className='relative flex items-center justify-center translate-x-0'>
-          <Image src={euDots} alt='us data' width={500} height={500} />
+          <Image src={euDots} alt='us data' width={400} height={400} />
           <EuDottedMap />
         </div>
       </section>

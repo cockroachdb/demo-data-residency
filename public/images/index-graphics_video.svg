@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="how-it-works-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 432 432">
+<svg id="video" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 432 432">
   <circle cx="216" cy="216" r="211.04" fill="#00fced"/>
   <circle cx="323.63" cy="329.31" r="94.54" fill="#6933ff"/>
   <circle cx="126.73" cy="51.51" r="43.36" fill="#6933ff"/>
-  <circle cx="66.46" cy="262.24" r="27.47" fill="#6933ff"/>
-  <circle cx="193.08" cy="59.78" r="12.99" fill="#6933ff"/>
+  <circle cx="183.08" cy="29.78" r="12.99" fill="#6933ff"/>
 </svg>
