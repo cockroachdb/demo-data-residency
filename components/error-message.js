@@ -2,7 +2,7 @@ import React from 'react'
 
 const ErrorMessage = () => {
   return (
-    <div className='w-full p-8 bg-depth-0 border-2 border-depth-2  '>
+    <div className='w-full p-8 border-2 border-depth-2  '>
       <div className='flex flex-col gap-2 justify-content text-center text-brand-danger'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
