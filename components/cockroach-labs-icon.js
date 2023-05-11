@@ -36,7 +36,7 @@ const CockroachLabsIcon = ({ className, background }) => {
 }
 
 CockroachLabsIcon.defaultProps = {
-  background: 'fill-depth-0'
+  background: 'fill-brand-deep-purple'
 }
 
 CockroachLabsIcon.propTypes = {

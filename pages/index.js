@@ -34,10 +34,10 @@ const Page = () => {
   }
 
   return (
-    <div className='flex flex-col gap-24 sm:gap-48 mx-auto max-w-6xl'>
+    <div className='flex flex-col gap-24 sm:gap-32 mx-auto max-w-6xl'>
       <section className='flex flex-col gap-8 justify-items-center'>
         <div className='flex flex-col gap-8 mx-auto max-w-5xl md:mt-8'>
-          <SiloLockup className='px-4 sm:px-24 mx-auto w-full' />
+          <SiloLockup className='mx-auto max-w-2xl ' />
           <div className='flex flex-col gap-4'>
             <h1 className='m-0 text-brand-white text-4xl md:text-6xl text-center normal-case !leading-tight text-transparent bg-clip-text bg-gradient-to-r from-brand-electric-purple to-brand-iridescent-blue'>
               The Art of Data Residency and Application Architecture.
@@ -51,8 +51,8 @@ const Page = () => {
       </section>
 
       <section className='relative flex flex-col gap-16 w-full mx-auto max-w-5xl'>
-        <div className='bg-depth-0 border-2 border-depth-2'>
-          <div className='flex flex-col px-4 py-8 sm:px-8 pt-8 pb-10 gap-4 md:gap-8 mx-auto max-w-3xl'>
+        <div className='border-2 border-depth-2'>
+          <div className='flex flex-col px-4 py-8 sm:px-8 pt-8 pb-16 gap-4 md:gap-8 mx-auto max-w-3xl'>
             <div className='flex flex-col gap-8'>
               <div className='flex flex-col gap-2'>
                 <CockroachLabsIcon className='sm:mx-auto w-16 sm:w-28' />
@@ -162,7 +162,7 @@ const Page = () => {
         </div>
       </section>
 
-      <section className='flex flex-col gap-16 xl:gap-24 '>
+      <section className='flex flex-col gap-16 xl:gap-24 mb-24'>
         <div className='flex flex-col gap-4 md:gap-8 mx-auto max-w-3xl'>
           <h2 className='text-left md:text-center heading-md'>Global Data</h2>
           <div className='flex flex-col gap-8 text-center'>

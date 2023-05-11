@@ -42,9 +42,9 @@ const Page = () => {
         </div>
       </article>
 
-      <article className='flex flex-col gap-4 sm:gap-8 bg-depth-0 border-2 border-depth-2 p-4 sm:p-8'>
+      <article className='flex flex-col gap-4 sm:gap-8 border-2 border-depth-2 p-4 sm:p-8'>
         <div className='flex flex-col gap-4 sm:gap-8'>
-          <div className='flex flex-col gap-16 bg-depth-1 border-2 border-depth-2 p-4 sm:p-8'>
+          <div className='flex flex-col gap-16 border-2 border-depth-2 p-4 sm:p-8'>
             <div className='flex flex-col gap-4'>
               <div className='flex flex-col gap-2'>
                 <h2 className='m-0 p-0 text-brand-white text-lg sm:text-3xl'>
@@ -75,7 +75,7 @@ const Page = () => {
             </div>
           </div>
 
-          <div className='flex flex-col gap-16 bg-depth-1 border-2 border-depth-2 p-4 sm:p-8'>
+          <div className='flex flex-col gap-16 border-2 border-depth-2 p-4 sm:p-8'>
             <div className='flex flex-col gap-4'>
               <div className='flex flex-col gap-2'>
                 <h2 className='m-0 p-0 text-brand-white text-lg sm:text-3xl font-sans'>

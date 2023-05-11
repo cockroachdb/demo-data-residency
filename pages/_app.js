@@ -63,7 +63,7 @@ const App = ({ Component, pageProps: { session, ...pageProps } }) => {
           {getLayout(
             <AppProvider>
               <Layout>
-                <main className={`prose max-w-9xl mx-auto px-4 pt-28 md:pt-28 pb-16 sm:px-8 ${poppins.variable}`}>
+                <main className={`prose max-w-9xl mx-auto px-4 pt-24 pb-8 sm:px-8 ${poppins.variable}`}>
                   <Component {...pageProps} />
                 </main>
               </Layout>
