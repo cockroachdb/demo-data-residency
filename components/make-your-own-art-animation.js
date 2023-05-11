@@ -3,17 +3,17 @@ import { timeline } from 'motion'
 
 import usePrefersReducedMotion from '../hooks/use-prefers-reduced-motion'
 
-import partEuArt from '../public/images/part-eu-art.jpg'
-import partEuColors from '../public/images/part-eu-colors.jpg'
-import partEuShapes from '../public/images/part-eu-shapes.jpg'
-import partEuColorsUi from '../public/images/part-eu-colors-ui.jpg'
-import partEuShapesUi from '../public/images/part-eu-shapes-ui.jpg'
+import partEuArt from '../public/images/part-eu-art.webp'
+import partEuColors from '../public/images/part-eu-colors.webp'
+import partEuShapes from '../public/images/part-eu-shapes.webp'
+import partEuColorsUi from '../public/images/part-eu-colors-ui.webp'
+import partEuShapesUi from '../public/images/part-eu-shapes-ui.webp'
 
-import partUsArt from '../public/images/part-us-art.jpg'
-import partUsColors from '../public/images/part-us-colors.jpg'
-import partUsShapes from '../public/images/part-us-shapes.jpg'
-import partUsColorsUi from '../public/images/part-us-colors-ui.jpg'
-import partUsShapesUi from '../public/images/part-us-shapes-ui.jpg'
+import partUsArt from '../public/images/part-us-art.webp'
+import partUsColors from '../public/images/part-us-colors.webp'
+import partUsShapes from '../public/images/part-us-shapes.webp'
+import partUsColorsUi from '../public/images/part-us-colors-ui.webp'
+import partUsShapesUi from '../public/images/part-us-shapes-ui.webp'
 
 const duration = 0.6
 const offset = 0.14
