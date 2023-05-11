@@ -234,7 +234,7 @@ const Page = () => {
                       </td>
                       <td className={`flex items-center gap-1 whitespace-nowrap table-blur-${isActive}`}>
                         <span className='mt-1'>{emoji}</span>
-                        <span>{region}</span>
+                        <span className='mr-6'>{region}</span>
                       </td>
                     </tr>
                   )
