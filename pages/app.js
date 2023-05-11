@@ -25,7 +25,7 @@ const Page = () => {
   }, [])
 
   return (
-    <section className='flex flex-col gap-16'>
+    <section className='flex flex-col gap-24'>
       <article className='flex flex-col gap-4 text-center mx-auto max-w-3xl'>
         <h1 className='heading-lg'>make your own art</h1>
         <div className='mx-auto max-w-xl'>
