@@ -25,7 +25,7 @@ const Page = () => {
         <button
           role='button'
           aria-label='Sign in with Twitter'
-          className='flex gap-2 items-center justify-center text-brand-iridescent-blue text-center border-brand-iridescent-blue transition-color duration-300 hover:text-brand-white hover:border-brand-white'
+          className='link-button flex gap-2 items-center justify-center text-brand-iridescent-blue text-center border-brand-iridescent-blue transition-color duration-300 hover:text-brand-white hover:border-brand-white'
           onClick={() => signIn('linkedin', { callbackUrl: `${process.env.NEXT_PUBLIC_ASSET_PREFIX}/app/` })}
         >
           <LinkedInLogo />
@@ -34,7 +34,7 @@ const Page = () => {
         <button
           role='button'
           aria-label='Sign in with GitHub'
-          className='flex gap-2 items-center justify-center text-brand-iridescent-blue border-brand-iridescent-blue transition-color duration-300 hover:text-brand-white hover:border-brand-white'
+          className='link-button flex gap-2 items-center justify-center text-brand-iridescent-blue border-brand-iridescent-blue transition-color duration-300 hover:text-brand-white hover:border-brand-white'
           onClick={() => signIn('github', { callbackUrl: `${process.env.NEXT_PUBLIC_ASSET_PREFIX}/app/` })}
         >
           <GitHubLogo />

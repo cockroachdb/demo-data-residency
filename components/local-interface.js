@@ -106,7 +106,7 @@ const LocalInterface = ({ regionId, regionName }) => {
                   <div>
                     <RadixSelect
                       trigger={
-                        <Select.Trigger className='flex items-center justify-between text-left px-4 gap-4 bg-brand-deep-purple border-brand-evening-hush transition-color duration-300 hover:border-brand-white text-brand-evening-hush hover:bg-depth-0 w-full'>
+                        <Select.Trigger className='link-button flex items-center justify-between text-left gap-4 bg-brand-deep-purple border-brand-evening-hush transition-color duration-300 hover:border-brand-white text-brand-evening-hush hover:bg-depth-0 w-full'>
                           <span
                             aria-label={values[regionId].name}
                             className='whitespace-nowrap overflow-hidden text-ellipsis'

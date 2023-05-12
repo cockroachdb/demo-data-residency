@@ -146,7 +146,7 @@ const Page = () => {
                       <Fragment>
                         {session ? (
                           <Link
-                            className='flex gap-2 items-center  px-4 py-2 border-2 no-underline border-brand-pink text-brand-pink capitalize transition-color duration-300 hover:border-brand-white hover:text-brand-white'
+                            className='link-button flex gap-2 items-center border-2 no-underline border-brand-pink text-brand-pink capitalize transition-color duration-300 hover:border-brand-white hover:text-brand-white'
                             href={`/preview/${session.user.id}`}
                           >
                             <svg
@@ -155,7 +155,6 @@ const Page = () => {
                               viewBox='0 0 24 24'
                               strokeWidth={1.5}
                               stroke='currentColor'
-                              className='w-6 h-6'
                             >
                               <path
                                 strokeLinecap='round'
@@ -173,7 +172,6 @@ const Page = () => {
                               viewBox='0 0 24 24'
                               strokeWidth={1.5}
                               stroke='currentColor'
-                              className='w-6 h-6'
                             >
                               <path
                                 strokeLinecap='round'

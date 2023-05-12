@@ -135,7 +135,7 @@ const Page = () => {
             </p>
             <Link
               href='/gallery'
-              className='flex gap-2 items-center px-4 py-2 border-2 border-brand-iridescent-blue text-brand-iridescent-blue capitalize no-underline transition-color duration-300 hover:text-brand-white hover:border-brand-white self-start md:self-end'
+              className='link-button flex gap-2 items-center border-2 border-brand-iridescent-blue text-brand-iridescent-blue capitalize no-underline transition-color duration-300 hover:text-brand-white hover:border-brand-white self-start md:self-end'
             >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -143,7 +143,6 @@ const Page = () => {
                 viewBox='0 0 24 24'
                 strokeWidth={1.5}
                 stroke='currentColor'
-                className='w-5 h-5'
               >
                 <path
                   strokeLinecap='round'
@@ -301,7 +300,7 @@ const Page = () => {
                 href='https://www.cockroachlabs.com/blog'
                 target='_blank'
                 rel='noopener'
-                className='flex gap-2 items-center self-center px-4 py-2 border-2 border-brand-iridescent-blue text-brand-iridescent-blue capitalize no-underline transition-color duration-300 hover:text-brand-white hover:border-brand-white'
+                className='link-button flex gap-2 items-center self-center border-2 border-brand-iridescent-blue text-brand-iridescent-blue capitalize no-underline transition-color duration-300 hover:text-brand-white hover:border-brand-white'
               >
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
@@ -309,7 +308,6 @@ const Page = () => {
                   viewBox='0 0 24 24'
                   strokeWidth={1.5}
                   stroke='currentColor'
-                  className='w-5 h-5'
                 >
                   <path
                     strokeLinecap='round'

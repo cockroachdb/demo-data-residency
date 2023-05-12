@@ -38,7 +38,7 @@ const GlobalInterface = ({ regionId, regionName }) => {
                 <RadixSelect
                   height={270}
                   trigger={
-                    <Select.Trigger className='flex items-center justify-between text-left px-4 gap-4 bg-brand-deep-purple border-brand-evening-hush transition-color duration-300 hover:border-brand-white text-brand-evening-hush hover:bg-depth-0 w-full'>
+                    <Select.Trigger className='link-button flex items-center justify-between text-left gap-4 bg-brand-deep-purple border-brand-evening-hush transition-color duration-300 hover:border-brand-white text-brand-evening-hush hover:bg-depth-0 w-full'>
                       <Select.Value aria-label={values.global.pattern.name}>{values.global.pattern.name}</Select.Value>
                       <Select.Icon className='text-brand-pink'>
                         <svg
@@ -81,7 +81,7 @@ const GlobalInterface = ({ regionId, regionName }) => {
                 <RadixSelect
                   height={220}
                   trigger={
-                    <Select.Trigger className='flex items-center justify-between text-left px-4 gap-4 bg-brand-deep-purple border-brand-evening-hush transition-color duration-300 hover:border-brand-white text-brand-evening-hush hover:bg-depth-0 w-full'>
+                    <Select.Trigger className='link-button flex items-center justify-between text-left gap-4 bg-brand-deep-purple border-brand-evening-hush transition-color duration-300 hover:border-brand-white text-brand-evening-hush hover:bg-depth-0 w-full'>
                       <Select.Value aria-label={values.global.position.name}>
                         {values.global.position.name}
                       </Select.Value>
@@ -125,7 +125,7 @@ const GlobalInterface = ({ regionId, regionName }) => {
                 <RadixSelect
                   height={325}
                   trigger={
-                    <Select.Trigger className='flex items-center justify-between text-left px-4 gap-4 bg-brand-deep-purple border-brand-evening-hush transition-color duration-300 hover:border-brand-white text-brand-evening-hush hover:bg-depth-0 w-full'>
+                    <Select.Trigger className='link-button flex items-center justify-between text-left gap-4 bg-brand-deep-purple border-brand-evening-hush transition-color duration-300 hover:border-brand-white text-brand-evening-hush hover:bg-depth-0 w-full'>
                       <Select.Value aria-label={values.global.theme.name}>{values.global.theme.name}</Select.Value>
                       <Select.Icon className='text-brand-pink'>
                         <svg

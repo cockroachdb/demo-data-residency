@@ -7,8 +7,11 @@
   body {
     @apply min-w-[320px] antialiased bg-brand-deep-purple;
   }
-  button {
-    @apply px-4 py-2 border-2;
+  .link-button {
+    @apply px-2 py-2 sm:px-4 sm:py-2 border-2 text-sm sm:text-base;
+  }
+  .link-button > svg {
+    @apply w-4 h-5 sm:w-5 sm:h-5;
   }
   .heading-lg {
     @apply !m-0 text-center !text-4xl sm:!text-7xl;

@@ -36,7 +36,7 @@ const SignOutPortal = () => {
       <DropdownMenu.Portal>
         <DropdownMenu.Content
           align='end'
-          className='flex flex-col items-center bg-brand-deep-purple border-2 border-depth-2 shadow-lg px-4 py-6 w-52 mt-2 z-50'
+          className='hidden md:flex flex-col items-center bg-brand-deep-purple border-2 border-depth-2 shadow-lg px-4 py-6 w-52 mt-2 z-50'
         >
           <DropdownMenu.Item disabled>
             <span className='block text-center text-xs text-brand-white'>{`Signed in with ${session.user.provider}`}</span>

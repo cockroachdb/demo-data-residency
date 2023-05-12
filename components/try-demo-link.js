@@ -7,16 +7,9 @@ const TryDemoLink = ({ className }) => {
   return (
     <Link
       href='/app'
-      className={`flex gap-2 items-center px-4 py-2 border-2 border-brand-iridescent-blue text-brand-iridescent-blue capitalize no-underline transition-color duration-300 hover:text-brand-white hover:border-brand-white ${className}`}
+      className={`link-button flex gap-2 items-center border-2 border-brand-iridescent-blue text-brand-iridescent-blue capitalize no-underline transition-color duration-300 hover:text-brand-white hover:border-brand-white ${className}`}
     >
-      <svg
-        xmlns='http://www.w3.org/2000/svg'
-        fill='none'
-        viewBox='0 0 24 24'
-        strokeWidth={1.5}
-        stroke='currentColor'
-        className='w-5 h-5'
-      >
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth={1.5} stroke='currentColor'>
         <path
           strokeLinecap='round'
           strokeLinejoin='round'
