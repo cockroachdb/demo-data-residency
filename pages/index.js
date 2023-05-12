@@ -119,7 +119,7 @@ const Page = () => {
           </div>
         </div>
         <div className='relative flex items-center justify-center translate-x-0'>
-          <Image src={artDots} alt='us data' width={400} height={400} />
+          <Image src={artDots} alt='us data' width={400} height={400} className='px-12 sm:px-0' />
           <MakeYouOwnArtAnimation />
         </div>
       </section>
@@ -156,7 +156,7 @@ const Page = () => {
           </div>
         </div>
         <div className='relative flex items-center justify-center translate-x-0'>
-          <Image src={galleryDots} alt='us data' width={400} height={400} />
+          <Image src={galleryDots} alt='us data' width={400} height={400} className='px-12 sm:px-0' />
           <GalleryAnimation />
         </div>
       </section>
@@ -186,7 +186,7 @@ const Page = () => {
         </div>
 
         <div className='relative'>
-          <div className='relative bg-brand-deep-purple mx-auto overflow-auto xl:max-w-4xl max-h-[450px] xl:max-h-max xl:overflow-visible border-2 border-depth-3 shadow-3xl z-10'>
+          <div className='relative bg-brand-deep-purple mx-auto overflow-auto xl:max-w-4xl max-h-[300px] sm:max-h-max xl:overflow-visible border-2 border-depth-3 shadow-3xl z-10'>
             <table className='m-0 border-collapse'>
               <thead className='bg-depth-0 border-b-2 border-b-dashed border-b-depth-3'>
                 <tr>
@@ -242,7 +242,7 @@ const Page = () => {
             </table>
           </div>
           <div className='absolute w-full top-1/2 -translate-y-1/2 z-0'>
-            <Image src={globalDots} alt='how it works' width={550} height={550} className='m-0 mx-auto' />
+            <Image src={globalDots} alt='how it works' width={530} height={530} className='mx-auto' />
           </div>
         </div>
       </section>
@@ -263,7 +263,7 @@ const Page = () => {
           </div>
         </div>
         <div className='relative flex items-center justify-center translate-x-0'>
-          <Image src={usDots} alt='us data' width={400} height={400} />
+          <Image src={usDots} alt='us data' width={400} height={400} className='px-12 sm:px-0' />
           <UsDottedMap />
         </div>
       </section>
@@ -282,7 +282,7 @@ const Page = () => {
           </div>
         </div>
         <div className='relative flex items-center justify-center translate-x-0'>
-          <Image src={euDots} alt='us data' width={400} height={400} />
+          <Image src={euDots} alt='us data' width={400} height={400} className='px-12 sm:px-0' />
           <EuDottedMap />
         </div>
       </section>
