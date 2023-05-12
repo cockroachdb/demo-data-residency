@@ -6,7 +6,7 @@ const CodeHighlight = ({ codeBlock, language, showLineNumbers }) => {
   return (
     <article className='relative flex flex-col '>
       <div className='absolute right-0 -top-10 flex justify-end text-xs uppercase'>
-        <div className='flex gap-2 items-center bg-brand-deep-purple p-3 border-t-2 border-l-2 border-r-2 border-depth-2'>
+        <div className='flex gap-2 items-center bg-depth-0 p-3 border-t-2 border-l-2 border-r-2 border-depth-2'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
