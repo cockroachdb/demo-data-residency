@@ -106,6 +106,9 @@ module.exports = {
             'code::after': {
               content: '""'
             },
+            'code:not(pre > span > code)': {
+              whiteSpace: 'nowrap'
+            },
             li: {
               margin: 0
             },
