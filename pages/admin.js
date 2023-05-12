@@ -23,8 +23,8 @@ const Page = () => {
 
         const json = await response.json()
 
-        return json.data.sort((a, b) => a.username.localeCompare(b.username))
-        // return json.data.filter((a, index, array) => array.findIndex((b) => b.user_id === a.user_id) === index)
+        // return json.data.sort((a, b) => a.username.localeCompare(b.username))
+        return json.data.filter((a, index, array) => array.findIndex((b) => b.user_id === a.user_id) === index)
       }
     },
     {
@@ -64,9 +64,9 @@ const Page = () => {
   return (
     <section className='flex flex-col gap-16 mx-auto max-w-6xl'>
       <div className='flex flex-col gap-2'>
-        <h1 className='heading-lg'>admin</h1>
+        <h1 className='heading-lg'>Admin</h1>
         <p className='mx-auto max-w-lg text-center'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a tincidunt nisl, sed interdum ante
+          {session?.user.admin ? 'A place to delete users if required' : "You don't have permission to view this page"}
         </p>
       </div>
       {session?.user.admin ? (
@@ -102,7 +102,7 @@ const Page = () => {
                               <td className='text-inherit uppercase'>{super_region || 'global'}</td>
                               <td className='text-inherit text-right'>
                                 <button
-                                  className='flex items-center justify-center border-brand-danger text-brand-danger ml-auto min-w-[100px] min-h-[44px]'
+                                  className='link-button flex items-center justify-center border-brand-danger text-brand-danger ml-auto min-w-[100px] min-h-[44px]'
                                   disabled={mutation.isLoading && mutation.variables === user_id ? true : false}
                                   onClick={() => {
                                     mutation.mutate(user_id)
