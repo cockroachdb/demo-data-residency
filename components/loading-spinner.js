@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const LoadingSpinner = ({ color, className }) => {
+const LoadingSpinner = ({ className, color }) => {
   return (
-    <div className={`flex text-brand-hidden-sapphire ${className}`} role='status'>
+    <div className={`flex text-brand-${color} ${className}`} role='status'>
       <svg
         aria-hidden='true'
         aria-label='Loading spinner...'
@@ -12,19 +12,24 @@ const LoadingSpinner = ({ color, className }) => {
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
       >
-        <circle
-          className='opacity-50'
-          fill='transparent'
-          cx='12'
-          cy='12'
-          r='10'
-          stroke='currentColor'
-          strokeWidth='4'
-        />
-        <path
-          className={`${color}`}
-          d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'
-        />
+        <defs>
+          <linearGradient id='linear' x1='0%' y1='0%' x2='100%' y2='0%'>
+            <stop offset='0%' stopColor='transparent' />
+            <stop offset='50%' stopColor='transparent' />
+            <stop
+              offset='50%'
+              className='[--start-color:theme(colors.brand.deep-purple)]'
+              stopColor='var(--start-color)'
+            />
+            <stop
+              offset='100%'
+              className='[--start-color:theme(colors.brand.deep-purple)]'
+              stopColor='var(--start-color)'
+            />
+          </linearGradient>
+        </defs>
+        <circle fill='transparent' cx='12' cy='12' r='10' stroke='currentColor' strokeWidth={1.5} />
+        <circle fill='transparent' cx='12' cy='12' r='10' stroke='url(#linear)' strokeWidth={1.5} />
       </svg>
     </div>
   )
@@ -32,11 +37,11 @@ const LoadingSpinner = ({ color, className }) => {
 
 LoadingSpinner.defaultProps = {
   className: '',
-  color: 'fill-brand-iridescent-blue'
+  color: 'iridescent-blue'
 }
 
 LoadingSpinner.propTypes = {
-  /** The text color */
+  /** The color of the spinner */
   color: PropTypes.string,
   /** The class names to apply */
   className: PropTypes.string

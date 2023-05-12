@@ -109,7 +109,7 @@ const Page = () => {
                                   }}
                                 >
                                   {mutation.isLoading && mutation.variables === user_id ? (
-                                    <LoadingSpinner color='fill-brand-danger' />
+                                    <LoadingSpinner color='danger' />
                                   ) : (
                                     'Delete'
                                   )}
