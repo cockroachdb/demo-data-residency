@@ -140,7 +140,7 @@ const Page = () => {
                         <StepXofX value={5} />
                         preview your art!
                       </h2>
-                      <p className='text-center mx-auto max-w-xl'>Open a large preview of your local artwork.</p>
+                      <p className='text-center mx-auto max-w-xl'>Open a large preview of your artwork.</p>
                     </div>
                     <div className='flex justify-center'>
                       <Fragment>
@@ -165,7 +165,7 @@ const Page = () => {
                             open preview
                           </Link>
                         ) : (
-                          <span className='flex gap-2 items-center  px-4 py-2 border-2 border-brand-evening-hush text-brand-evening-hush capitalize cursor-not-allowed font-medium'>
+                          <span className='link-button flex gap-2 items-center  border-2 border-brand-evening-hush text-brand-evening-hush capitalize cursor-not-allowed font-medium'>
                             <svg
                               xmlns='http://www.w3.org/2000/svg'
                               fill='none'
@@ -197,10 +197,10 @@ const Page = () => {
           <div className='flex flex-col gap-2 text-center'>
             <h2 className='heading-lg'>Data</h2>
             <p className='m-0'>
-              Your creations will be stored as <code>JSON</code> in CockroachDB. This is what it looks like.
+              Your artwork will be stored as <code>JSON</code> in CockroachDB. This is what it looks like.
             </p>
             <p className='m-0'>
-              To learn more about how data locality is set up in CockroachDB,{' '}
+              To learn more about how data residency is set up in CockroachDB,{' '}
               <a
                 href='https://www.cockroachlabs.com/docs/stable/multiregion-overview.html'
                 rel='noopener'
