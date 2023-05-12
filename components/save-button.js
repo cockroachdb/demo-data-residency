@@ -9,11 +9,11 @@ const SaveButton = ({ onClick, regionId, regionName, isLoading, session, disable
       <Popover.Trigger asChild>
         <button
           className={`link-button flex gap-2 items-center justify-center border-2  w-full sm:w-auto min-w-[100px] transition-color duration-300 ${
-            disabled
+            disabled || !session
               ? 'text-brand-hidden-sapphire border-brand-hidden-sapphire cursor-not-allowed'
               : 'text-brand-pink text-center border-brand-pink  hover:text-brand-white hover:border-brand-white'
           }`}
-          onClick={() => (disabled ? () => {} : onClick.mutate({ regionId, regionName }))}
+          onClick={() => (disabled || !session ? () => {} : onClick.mutate({ regionId, regionName }))}
         >
           <Fragment>
             {isLoading ? (
@@ -39,7 +39,7 @@ const SaveButton = ({ onClick, regionId, regionName, isLoading, session, disable
       </Popover.Trigger>
       <Popover.Portal>
         <Popover.Content className='shadow' side='bottom' sideOffset={20}>
-          {disabled && !isLoading && !session ? (
+          {!isLoading && !session ? (
             <Fragment>
               <Popover.Arrow className='fill-brand-pink' />
               <div className='p-2 text-brand-white text-xs bg-brand-pink'>Sign in to save</div>
