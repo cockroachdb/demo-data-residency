@@ -4,7 +4,6 @@ import * as Select from '@radix-ui/react-select'
 import { AppContext } from '../context/app-context'
 
 import RadixSelect from './radix-select'
-import RadixPopover from './radix-popover'
 import SaveButton from './save-button'
 import ErrorMessage from './error-message'
 import ErrorSave from './error-save'
@@ -165,17 +164,19 @@ const GlobalInterface = ({ regionId, regionName }) => {
             </div>
             <div className='flex flex-col gap-4 sm:flex-row items-center sm:justify-end'>
               <ErrorSave isError={globalIsError} className='w-full sm:w-auto' />
-              {session ? (
-                <SaveButton
-                  onClick={handleGlobalSave}
-                  regionId={regionId}
-                  regionName={regionName}
-                  isLoading={isFetching || globalIsLoading}
-                  disabled={isFetching || globalIsLoading}
-                />
-              ) : (
-                <RadixPopover />
-              )}
+              <SaveButton
+                onClick={handleGlobalSave}
+                regionId={regionId}
+                regionName={regionName}
+                isLoading={isFetching || globalIsLoading}
+                session={session}
+                disabled={
+                  values.us.url === 'a-placeholder.jpg' ||
+                  values.eu.url === 'a-placeholder.jpg' ||
+                  isFetching ||
+                  globalIsLoading
+                }
+              />
             </div>
           </div>
         )

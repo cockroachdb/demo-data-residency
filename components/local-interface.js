@@ -8,7 +8,6 @@ import { imageLoader } from '../utils/image-loader'
 import { AppContext } from '../context/app-context'
 
 import RadixSelect from './radix-select'
-import RadixPopover from './radix-popover'
 import CockroachLabsIcon from './cockroach-labs-icon'
 import SiloLogo from './silo-logo'
 import SaveButton from './save-button'
@@ -283,19 +282,16 @@ const LocalInterface = ({ regionId, regionName }) => {
                   </div>
                   <div className='flex flex-col gap-4 sm:flex-row items-center sm:justify-end'>
                     <ErrorSave isError={localIsError} className='w-full sm:w-auto ' />
-                    {session ? (
-                      <SaveButton
-                        onClick={handleLocalSave}
-                        regionId={regionId}
-                        regionName={regionName}
-                        isLoading={isFetching || localIsLoading}
-                        disabled={
-                          values[regionId].url === 'a-placeholder.jpg' || isFetching || localIsLoading ? true : false
-                        }
-                      />
-                    ) : (
-                      <RadixPopover />
-                    )}
+                    <SaveButton
+                      onClick={handleLocalSave}
+                      regionId={regionId}
+                      regionName={regionName}
+                      isLoading={isFetching || localIsLoading}
+                      session={session}
+                      disabled={
+                        values[regionId].url === 'a-placeholder.jpg' || isFetching || localIsLoading ? true : false
+                      }
+                    />
                   </div>
                 </div>
               </div>
