@@ -320,7 +320,7 @@ const Page = () => {
             </div>
           </div>
 
-          <Image src={diagram} alt='how it works diagram' width={595} height={884} className='m-0 mx-auto p-8' />
+          <Image src={diagram} alt='how it works diagram' width={595} height={884} className='m-0 mx-auto p-4' />
         </div>
       </section>
       <GetStartedWithCockroachDB />
