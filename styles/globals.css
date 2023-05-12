@@ -17,7 +17,7 @@
     @apply !m-0 text-center !text-3xl sm:!text-5xl;
   }
   .heading-sm {
-    @apply !m-0 text-center !text-2xl sm:!text-3xl;
+    @apply !m-0 text-center !text-2xl sm:!text-4xl;
   }
   .table-scale-inactive {
     @apply xl:scale-100 brightness-90 !bg-depth-2;

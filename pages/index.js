@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { YouTubeLite } from 'react-youtube-lite'
 
 import SiloLockup from '../components/silo-lockup'
-import NewsletterForm from '../components/newsletter-form'
 import CobeGlobe from '../components/cobe-globe'
 import TryDemoLink from '../components/try-demo-link'
 import MakeYouOwnArtAnimation from '../components/make-your-own-art-animation'
@@ -327,7 +326,6 @@ const Page = () => {
         </div>
       </section>
       <GetStartedWithCockroachDB />
-      <NewsletterForm formId={process.env.NEXT_PUBLIC_NEWSLETTER_FORM_ID} />
     </div>
   )
 }
