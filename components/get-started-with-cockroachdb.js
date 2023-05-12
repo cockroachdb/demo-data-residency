@@ -36,7 +36,7 @@ const GetStartedWithCockroachDB = () => {
 
       <div className='mx-auto'>
         <a
-          href='https://cockroachlabs.cloud/signup'
+          href='https://cockroachlabs.cloud/signup?utm_source=demo-mr'
           target='_blank'
           rel='noopener'
           className='link-button flex gap-2 items-center self-center border-2 border-brand-iridescent-blue text-brand-iridescent-blue capitalize no-underline transition-color duration-300 hover:text-brand-white hover:border-brand-white'
