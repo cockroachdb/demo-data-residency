@@ -99,6 +99,7 @@ const Page = () => {
           <YouTubeLite
             url={`https://www.youtube.com/watch?v=${process.env.NEXT_PUBLIC_YOUTUBE_ID}`}
             title='How Data Residency Works'
+            customThumbnail='https://www.cockroachlabs.com/demos/demo-data-residency/images/demo-apps-data-residency.jpg'
           />
         </div>
         <Image src={videoDots} alt='how it works' width={600} height={600} className='m-0 mx-auto' />
