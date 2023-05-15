@@ -102,7 +102,7 @@ const Page = () => {
             customThumbnail='https://www.cockroachlabs.com/demos/demo-data-residency/images/demo-apps-data-residency.jpg'
           />
         </div>
-        <Image src={videoDots} alt='how it works' width={600} height={600} className='m-0 mx-auto' />
+        <Image src={videoDots} alt='how it works' width={600} height={600} className='m-0 mx-auto px-12 md:px-0' />
       </section>
 
       <section className='grid md:grid-cols-2 gap-8 md:gap-16 items-center mx-auto max-w-5xl'>
