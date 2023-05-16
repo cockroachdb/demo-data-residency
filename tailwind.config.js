@@ -80,9 +80,6 @@ module.exports = {
           3: '#302748'
         }
       },
-      fontFamily: {
-        anton: 'var(--font-anton)'
-      },
       boxShadow: {
         '3xl': '0px 0px 100px 0px rgba(0,0,0,0.75)'
       },
@@ -117,32 +114,32 @@ module.exports = {
               color: theme('colors.brand.white')
             },
             h1: {
-              fontFamily: theme('fontFamily.poppins'),
+              fontFamily: 'poppins',
               color: theme('colors.brand.electric-purple'),
               fontWeight: '900'
             },
             h2: {
-              fontFamily: theme('fontFamily.poppins'),
+              fontFamily: 'poppins',
               color: theme('colors.brand.electric-purple'),
               fontWeight: '900'
             },
             h3: {
-              fontFamily: theme('fontFamily.poppins'),
+              fontFamily: 'poppins',
               color: theme('colors.brand.electric-purple'),
               fontWeight: '900'
             },
             h4: {
-              fontFamily: theme('fontFamily.poppins'),
+              fontFamily: 'poppins',
               color: theme('colors.brand.electric-purple'),
               fontWeight: '900'
             },
             h5: {
-              fontFamily: theme('fontFamily.poppins'),
+              fontFamily: 'poppins',
               color: theme('colors.brand.electric-purple'),
               fontWeight: '900'
             },
             h6: {
-              fontFamily: theme('fontFamily.poppins'),
+              fontFamily: 'poppins',
               color: theme('colors.brand.electric-purple'),
               fontWeight: '900'
             },
