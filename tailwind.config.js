@@ -87,6 +87,9 @@ module.exports = {
         '8xl': '88rem',
         '9xl': '96rem'
       },
+      fontFamily: {
+        poppins: ['var(--font-poppins)']
+      },
       typography: (theme) => ({
         DEFAULT: {
           css: {
@@ -114,34 +117,28 @@ module.exports = {
               color: theme('colors.brand.white')
             },
             h1: {
-              fontFamily: 'poppins',
-              color: theme('colors.brand.electric-purple'),
-              fontWeight: '900'
+              fontFamily: theme('fontFamily.poppins'),
+              color: theme('colors.brand.electric-purple')
             },
             h2: {
-              fontFamily: 'poppins',
-              color: theme('colors.brand.electric-purple'),
-              fontWeight: '900'
+              fontFamily: theme('fontFamily.poppins'),
+              color: theme('colors.brand.electric-purple')
             },
             h3: {
-              fontFamily: 'poppins',
-              color: theme('colors.brand.electric-purple'),
-              fontWeight: '900'
+              fontFamily: theme('fontFamily.poppins'),
+              color: theme('colors.brand.electric-purple')
             },
             h4: {
-              fontFamily: 'poppins',
-              color: theme('colors.brand.electric-purple'),
-              fontWeight: '900'
+              fontFamily: theme('fontFamily.poppins'),
+              color: theme('colors.brand.electric-purple')
             },
             h5: {
-              fontFamily: 'poppins',
-              color: theme('colors.brand.electric-purple'),
-              fontWeight: '900'
+              fontFamily: theme('fontFamily.poppins'),
+              color: theme('colors.brand.electric-purple')
             },
             h6: {
-              fontFamily: 'poppins',
-              color: theme('colors.brand.electric-purple'),
-              fontWeight: '900'
+              fontFamily: theme('fontFamily.poppins'),
+              color: theme('colors.brand.electric-purple')
             },
             p: {
               lineHeight: '1.5rem'

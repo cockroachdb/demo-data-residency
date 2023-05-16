@@ -38,7 +38,7 @@ const Page = () => {
         <div className='flex flex-col gap-8 mx-auto max-w-5xl md:mt-8'>
           <SiloLockup className='mx-auto max-w-2xl ' />
           <div className='flex flex-col gap-4'>
-            <h1 className='m-0 text-brand-white text-4xl md:text-6xl text-center normal-case !leading-tight text-transparent bg-clip-text bg-gradient-to-r from-brand-electric-purple to-brand-iridescent-blue'>
+            <h1 className='m-0 text-brand-white text-4xl md:text-6xl text-center normal-case !leading-[1.1] text-transparent bg-clip-text bg-gradient-to-r from-brand-electric-purple to-brand-iridescent-blue'>
               The Art of Data Residency and Application Architecture.
             </h1>
             <h2 className='m-0 px-4 text-brand-white text-base font-normal text-center normal-case tracking-normal font-mono font-black'>
