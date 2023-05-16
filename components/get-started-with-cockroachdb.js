@@ -4,7 +4,7 @@ const GetStartedWithCockroachDB = () => {
   const list = ['No credit card required.', 'Free up to 5 GB storage.', 'Single-click deployment.']
 
   return (
-    <section className='border-2 border-depth-2 grid gap-8 lg:gap-4 p-8 md:p-16 w-full mx-auto max-w-5xl'>
+    <section className='border-2 border-depth-2 grid gap-8 lg:gap-4 p-8 md:p-16 w-full mx-auto max-w-6xl'>
       <div className='flex flex-col gap-4 justify-center mx-auto'>
         <h2 className='flex flex-col xl:flex-row lg:gap-2 heading-md text-transparent bg-clip-text bg-gradient-to-r from-brand-electric-purple to-brand-iridescent-blue'>
           <span className='text-transparent'>Get Started With</span>
