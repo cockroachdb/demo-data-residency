@@ -185,7 +185,7 @@ const Page = () => {
                 codeBlock={JSON.stringify(
                   {
                     ...values,
-                    solve_this_clue: 'https://www.cockroachlabs.com/'
+                    riddle_me_this: 'https://www.cockroachlabs.com/img/23-1-scavenger-32016.png'
                   },
                   null,
                   2
