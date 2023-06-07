@@ -1,7 +1,7 @@
 import React from 'react'
 
 const GetStartedWithCockroachDB = () => {
-  const list = ['No credit card required.', 'Free up to 5 GB storage.', 'Single-click deployment.']
+  const list = ['No credit card required.', 'Free up to 10 GB storage.', 'Single-click deployment.']
 
   return (
     <section className='border-2 border-depth-2 grid gap-8 lg:gap-4 p-8 md:p-16 w-full mx-auto max-w-6xl'>
