@@ -1,14 +1,14 @@
 import React from 'react'
 
 const GetStartedWithCockroachDB = () => {
-  const list = ['No credit card required.', 'Free up to 10 GB storage.', 'Single-click deployment.']
+  const list = ['No credit card required', 'Free storage up to 10 GB', 'Single-click deployment']
 
   return (
     <section className='border-2 border-depth-2 grid gap-8 lg:gap-4 p-8 md:p-16 w-full mx-auto max-w-6xl'>
       <div className='flex flex-col gap-4 justify-center mx-auto'>
         <h2 className='flex flex-col xl:flex-row lg:gap-2 heading-md text-transparent bg-clip-text bg-gradient-to-r from-brand-electric-purple to-brand-iridescent-blue'>
-          <span className='text-transparent'>Get Started With</span>
-          <span className='text-transparent'>CockroachDB Today</span>
+          <span className='text-transparent'>Get started with</span>
+          <span className='text-transparent'>CockroachDB today</span>
         </h2>
         <ul className='mx-auto m-0 p-0 space-y-2 lg:columns-3'>
           {list.map((item, index) => {
@@ -39,7 +39,7 @@ const GetStartedWithCockroachDB = () => {
           href='https://cockroachlabs.cloud/signup?utm_source=demo-mr'
           target='_blank'
           rel='noopener'
-          className='link-button flex gap-2 items-center self-center border-2 border-brand-iridescent-blue text-brand-iridescent-blue capitalize no-underline transition-color duration-300 hover:text-brand-white hover:border-brand-white'
+          className='link-button flex gap-2 items-center self-center border-2 border-brand-iridescent-blue text-brand-iridescent-blue no-underline transition-color duration-300 hover:text-brand-white hover:border-brand-white'
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -54,7 +54,7 @@ const GetStartedWithCockroachDB = () => {
               d='M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25'
             />
           </svg>
-          sign up
+          Sign up
         </a>
       </div>
     </section>

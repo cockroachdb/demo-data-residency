@@ -1,26 +1,26 @@
 [
   {
-    "name": "Black on White",
+    "name": "Black on white",
     "classes": ["fill-brand-black", "fill-brand-white"]
   },
   {
-    "name": "Black on Purple",
+    "name": "Black on purple",
     "classes": ["fill-brand-black", "fill-brand-electric-purple"]
   },
   {
-    "name": "Purple on White",
+    "name": "Purple on white",
     "classes": ["fill-brand-electric-purple", "fill-brand-white"]
   },
   {
-    "name": "Purple on Black",
+    "name": "Purple on black",
     "classes": ["fill-brand-electric-purple", "fill-brand-black"]
   },
   {
-    "name": "White on Black",
+    "name": "White on black",
     "classes": ["fill-brand-white", "fill-brand-black"]
   },
   {
-    "name": "White on Purple",
+    "name": "White on purple",
     "classes": ["fill-brand-white", "fill-brand-electric-purple"]
   }
 ]

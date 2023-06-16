@@ -5,6 +5,7 @@ import Image from 'next/image'
 
 import { AppContext } from '../context/app-context'
 
+import SignInLink from '../components/sign-in-link'
 import LocalInterface from '../components/local-interface'
 import RegionHeading from '../components/region-heading'
 import GlobalInterface from '../components/global-interface'
@@ -28,16 +29,21 @@ const Page = () => {
   return (
     <section className='flex flex-col gap-24'>
       <article className='flex flex-col gap-4 text-center mx-auto max-w-3xl'>
-        <h1 className='heading-lg'>Make Your Own Art</h1>
-        <div className='mx-auto max-w-xl'>
-          <h2 className=' m-0 p-0 text-brand-white text-lg sm:text-3xl'>
-            <StepXofX value={1} /> Sign in with GitHub or LinkedIn
-          </h2>
-          <p className='mt-0 text-center'>
-            Create artwork that will be physically stored in different CockroachDB nodes around the world.
-          </p>
+        <h1 className='heading-lg'>Make your own art</h1>
+        <div className='flex flex-col gap-4 mx-auto max-w-xl'>
+          <div>
+            <h2 className=' m-0 p-0 text-brand-white text-lg sm:text-3xl'>
+              <StepXofX value={1} /> Sign in with GitHub or LinkedIn
+            </h2>
+            <p className='m-0 text-center'>
+              Create artwork that will be physically stored in different CockroachDB nodes around the world.
+            </p>
+          </div>
+          <div>
+            <SignInLink />
+          </div>
           <small className='block text-brand-gray-b text-center'>
-            If you want to save your art to the gallery, you must sign in before you start creating. If you don't want
+            If you want to save your art to the Gallery, you must sign in before you start creating. If you don't want
             to save your art, you can still interact with the application.
           </small>
         </div>
@@ -55,7 +61,7 @@ const Page = () => {
                   This art will be written to <code>us-east-1</code> and replicated to <code>us-west-2</code>.
                 </strong>
                 <small className='text-brand-gray-b'>
-                  Only users outside of Europe will be able to view this artwork in the gallery.
+                  Only users outside of Europe will be able to view this artwork in the Gallery.
                 </small>
               </div>
               <RegionHeading flag='🇺🇸' regionId='USA' region='us-east-1 | (N. Virginia)' />
@@ -68,7 +74,7 @@ const Page = () => {
                   This art will be written to <code>us-west-2</code> and replicated to <code> us-east-1</code>.
                 </strong>
                 <small className='text-brand-gray-b'>
-                  Only users outside of Europe will be able to view this artwork in the gallery.
+                  Only users outside of Europe will be able to view this artwork in the Gallery.
                 </small>
                 <RegionHeading flag='🇺🇸' regionId='USA' region='us-west-2 | (Oregon)' />
               </div>
@@ -86,7 +92,7 @@ const Page = () => {
                   This art will be written to <code>eu-central-1</code>.
                 </strong>
                 <small className='text-brand-gray-b'>
-                  Only users inside of Europe will be able to view this artwork in the gallery.
+                  Only users inside of Europe will be able to view this artwork in the Gallery.
                 </small>
               </div>
               <RegionHeading flag='🇩🇪' regionId='Germany' region='eu-central-1 | (Frankfurt)' />
@@ -102,7 +108,7 @@ const Page = () => {
                 <StepXofX value={4} /> Apply art settings globally
               </h2>
               <strong>
-                Settings you apply here are written to <code>us-east-1</code>, <code>us-west-2</code> and{' '}
+                Settings you apply here are written to <code>us-east-1</code>, <code>us-west-2</code>, and{' '}
                 <code>eu-central-1</code>.
               </strong>
               <small className='text-brand-gray-b'>
@@ -137,9 +143,9 @@ const Page = () => {
 
                   <div className=' flex flex-col gap-4 px-8 py-8 sm:py-16 w-full z-10'>
                     <div className='flex flex-col gap-2'>
-                      <h2 className='m-0 p-0 text-brand-white text-xl sm:text-3xl normal-case text-center tracking-normal font-sans !capitalize'>
+                      <h2 className='m-0 p-0 text-brand-white text-xl sm:text-3xl normal-case text-center tracking-normal font-sans'>
                         <StepXofX value={5} />
-                        preview your art!
+                        Preview your art
                       </h2>
                       <p className='text-center mx-auto max-w-xl'>Open a large preview of your artwork.</p>
                     </div>

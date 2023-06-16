@@ -39,7 +39,7 @@ const Page = () => {
           <SiloLockup className='mx-auto max-w-2xl ' />
           <div className='flex flex-col gap-4'>
             <h1 className='m-0 text-brand-white text-4xl md:text-6xl text-center normal-case !leading-[1.1] text-transparent bg-clip-text bg-gradient-to-r from-brand-electric-purple to-brand-iridescent-blue'>
-              The Art of Data Residency and Application Architecture.
+              The Art of Data Residency and Application Architecture
             </h1>
             <h2 className='m-0 px-4 text-brand-white text-base font-normal text-center normal-case tracking-normal font-mono font-black'>
               /* A demo of multi-region capabilities in CockroachDB. */
@@ -55,7 +55,7 @@ const Page = () => {
             <div className='flex flex-col gap-8'>
               <div className='flex flex-col gap-2'>
                 <CockroachLabsIcon className='sm:mx-auto w-16 sm:w-28' />
-                <h2 className='text-left md:text-center heading-md'>Why a Multi-Region Database?</h2>
+                <h2 className='text-left md:text-center heading-md'>Why a multi-region database?</h2>
               </div>
 
               <p className='m-0 text-left md:text-center'>
@@ -67,13 +67,13 @@ const Page = () => {
                 <CobeGlobe />
               </div>
               <p className='m-0 text-left md:text-center'>
-                Setting up and managing a multi-region database with traditional tools can be labor-intensive. But
+                Setting up and managing a multi-region database with traditional tools can be labor intensive. But
                 CockroachDB can help. A <b>distributed SQL database</b>, CockroachDB lets you pin data to specific
                 locations (servers, availability zones, or cloud regions) to optimize latency, comply with regional
                 regulations, and maintain high availability.
               </p>
               <p className='m-0 text-left md:text-center'>
-                In this demo, we illustrate CockroachDB's multi-region capabilities. We are running a{' '}
+                In this demo, we illustrate CockroachDB's multi-region capabilities. We're running a{' '}
                 <b>single logical CockroachDB serverless instance</b> spanning three AWS regions:
               </p>
               <div className='flex items-center justify-start md:justify-center'>
@@ -107,11 +107,11 @@ const Page = () => {
 
       <section className='grid md:grid-cols-2 gap-8 md:gap-16 items-center mx-auto max-w-5xl'>
         <div className='flex flex-col gap-4 md:gap-8'>
-          <h2 className='text-left md:pl-0 heading-md'>Make Your Own Art</h2>
+          <h2 className='text-left md:pl-0 heading-md'>Make your own art</h2>
           <div className='flex flex-col gap-8'>
             <p className='m-0'>
-              In this demo, you will create art that resides in specific cloud regions. Some data is stored in either
-              the <span className='text-brand-blue'>United</span> <span className='text-brand-danger'>States</span> or{' '}
+              In this demo, you'll create art that resides in specific cloud regions. Some data is stored in either the{' '}
+              <span className='text-brand-blue'>United</span> <span className='text-brand-danger'>States</span> or{' '}
               <span className='text-brand-yellow'>Europe</span>, while other data is stored in both places. That's
               because the app can write to any region from anywhere.
             </p>
@@ -136,7 +136,7 @@ const Page = () => {
             </p>
             <Link
               href='/gallery'
-              className='link-button flex gap-2 items-center border-2 border-brand-iridescent-blue text-brand-iridescent-blue capitalize no-underline transition-color duration-300 hover:text-brand-white hover:border-brand-white self-start md:self-end'
+              className='link-button flex gap-2 items-center border-2 border-brand-iridescent-blue text-brand-iridescent-blue no-underline transition-color duration-300 hover:text-brand-white hover:border-brand-white self-start md:self-end'
             >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -151,7 +151,7 @@ const Page = () => {
                   d='M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z'
                 />
               </svg>
-              view the gallery
+              View the Gallery
             </Link>
           </div>
         </div>
@@ -163,7 +163,7 @@ const Page = () => {
 
       <section className='flex flex-col gap-16 xl:gap-24 mb-24'>
         <div className='flex flex-col gap-4 md:gap-8 mx-auto max-w-3xl'>
-          <h2 className='text-left md:text-center heading-md'>Global Data</h2>
+          <h2 className='text-left md:text-center heading-md'>Global data</h2>
           <div className='flex flex-col gap-8 text-center'>
             <p className='m-0 text-left md:text-center'>
               The artwork's pattern and logo settings are stored in both the{' '}
@@ -173,7 +173,7 @@ const Page = () => {
               data that's universally relevant.
             </p>
             <p className='m-0 text-left md:text-center'>
-              Use the toggle below to understand how the gallery data is represented in CockroachDB.
+              Use the toggle below to understand how the Gallery data is represented in CockroachDB.
             </p>
             <div className='flex md:justify-center'>
               <label className='relative inline-flex items-center mr-5 cursor-pointer'>
@@ -249,14 +249,14 @@ const Page = () => {
 
       <section className='grid md:grid-cols-2 gap-8 md:gap-16 items-center mx-auto max-w-5xl'>
         <div className='flex flex-col gap-4 md:gap-8'>
-          <h2 className='text-left md:pl-0 heading-md'>United States Data</h2>
+          <h2 className='text-left md:pl-0 heading-md'>United States data</h2>
           <div className='flex flex-col gap-8'>
             <p className='m-0 text-left'>
               Certain images and colors in the demo are stored in the <b>United States</b>. If you're located anywhere
-              in the world except <b>Europe</b> you can only see <b>United States</b> data in the gallery. <br />
+              in the world except <b>Europe</b>, you can only see <b>United States</b> data in the Gallery. <br />
               The data is replicated between CockroachDB instances on the{' '}
               <span className='text-brand-blue'>East coast</span> and{' '}
-              <span className='text-brand-danger'>West coast</span> to provide high-availability and guard against
+              <span className='text-brand-danger'>West coast</span> to provide high availability and guard against
               regional outages.
             </p>
             <TryDemoLink className='self-start' />
@@ -270,7 +270,7 @@ const Page = () => {
 
       <section className='grid md:grid-cols-2 gap-8 md:gap-16 items-center mx-auto max-w-5xl'>
         <div className='flex flex-col md:order-1 gap-4 md:gap-8'>
-          <h2 className='text-left md:text-right heading-md'>European Data</h2>
+          <h2 className='text-left md:text-right heading-md'>European data</h2>
           <div className='flex flex-col gap-8'>
             <p className='m-0 text-left md:text-right'>
               Certain images and colors in the demo are stored in <b>Europe</b> and will never be available outside of
@@ -289,7 +289,7 @@ const Page = () => {
 
       <section className='flex flex-col gap-8'>
         <div className='flex flex-col gap-8 mx-auto max-w-3xl'>
-          <h2 className='text-center heading-md'>Learn How It Works</h2>
+          <h2 className='text-center heading-md'>Learn how it works</h2>
           <div className='flex flex-col gap-8'>
             <p className='m-0 text-center'>
               We've written an in-depth blog post explaining how we used AWS multi-region application architecture
@@ -316,7 +316,7 @@ const Page = () => {
                     d='M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z'
                   />
                 </svg>
-                Read Post
+                Read post
               </a>
             </div>
           </div>

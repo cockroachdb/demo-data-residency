@@ -15,13 +15,6 @@
       "s3_url": "us-https___unsplash.com_photos_18RFbOQGCi0.jpg"
     },
     {
-      "location": "World Trade Center",
-      "credit": "Donny Jiang",
-      "licence": "Free to use under the Unsplash License",
-      "source_url": "https://unsplash.com/photos/42gFAgdIUC8",
-      "s3_url": "us-https___unsplash.com_photos_42gFAgdIUC8.jpg"
-    },
-    {
       "location": "The Broad",
       "credit": "Julien Moreau",
       "licence": "Free to use under the Unsplash License",
@@ -48,13 +41,6 @@
       "licence": "Free to use under the Unsplash License",
       "source_url": "https://unsplash.com/photos/mQiZnKwGXW0",
       "s3_url": "us-https___unsplash.com_photos_mQiZnKwGXW0.jpg"
-    },
-    {
-      "location": "World Trade Center",
-      "credit": "Cody Fitzgerald",
-      "licence": "Free to use under the Unsplash License",
-      "source_url": "https://unsplash.com/photos/pyBBs3ftqjg",
-      "s3_url": "us-https___unsplash.com_photos_pyBBs3ftqjg.jpg"
     },
     {
       "location": "The Rock and Roll Hall of Fame",
