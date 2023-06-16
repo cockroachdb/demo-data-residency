@@ -1,18 +1,18 @@
 [
   {
-    "name": "Top Left",
+    "name": "Top left",
     "classes": "top-2 left-2"
   },
   {
-    "name": "Top Right",
+    "name": "Top right",
     "classes": "top-2 right-2"
   },
   {
-    "name": "Bottom Left",
+    "name": "Bottom left",
     "classes": "bottom-2 left-2"
   },
   {
-    "name": "Bottom Right",
+    "name": "Bottom right",
     "classes": "bottom-2 right-2"
   }
 ]
