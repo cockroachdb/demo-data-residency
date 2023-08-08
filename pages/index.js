@@ -1,6 +1,8 @@
 import React, { Fragment, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+
 import { YouTubeLite } from 'react-youtube-lite'
 
 import SiloLockup from '../components/silo-lockup'
@@ -26,6 +28,9 @@ import GetStartedWithCockroachDB from '../components/get-started-with-cockroachd
 
 const Page = () => {
   const [currentRegion, setCurrentRegion] = useState('eu')
+  const router = useRouter()
+
+  const { agnostic } = router.query
 
   const handleToggle = (event) => {
     const { value } = event.target
@@ -74,18 +79,19 @@ const Page = () => {
               </p>
               <p className='m-0 text-left md:text-center'>
                 In this demo, we illustrate CockroachDB's multi-region capabilities. We're running a{' '}
-                <b>single logical CockroachDB serverless instance</b> spanning three AWS regions:
+                <b>single logical CockroachDB serverless instance</b> spanning three {agnostic ? 'cloud' : 'AWS'}{' '}
+                regions:
               </p>
               <div className='flex items-center justify-start md:justify-center'>
                 <ol className='columns-1 sm:columns-3 my-0 w-full sm:w-auto'>
                   <li className='mt-0'>
-                    <code>us-east-1</code>
+                    <code>{agnostic ? 'US East' : 'us-east-1'}</code>
                   </li>
                   <li>
-                    <code>us-west-2</code>
+                    <code>{agnostic ? 'US West' : 'us-west-2'}</code>
                   </li>
                   <li>
-                    <code>eu-central-1</code>
+                    <code>{agnostic ? 'EU Central' : 'eu-central-1'}</code>
                   </li>
                 </ol>
               </div>
@@ -292,8 +298,8 @@ const Page = () => {
           <h2 className='text-center heading-md'>Learn how it works</h2>
           <div className='flex flex-col gap-8'>
             <p className='m-0 text-center'>
-              We've written an in-depth blog post explaining how we used AWS multi-region application architecture
-              together with CockroachDB Serverless to make this demo.
+              We've written an in-depth blog post explaining how we used multi-region{' '}
+              {agnostic ? 'cloud provider' : 'AWS'} architecture together with CockroachDB Serverless to make this demo.
             </p>
 
             <div className='mx-auto'>

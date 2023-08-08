@@ -107,3 +107,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# CockroachDB
+inflight_trace_dump
+
+# OS
+.DS_Store
