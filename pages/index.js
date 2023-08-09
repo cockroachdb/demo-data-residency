@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { useSearchParams } from 'next/navigation'
 
 import { YouTubeLite } from 'react-youtube-lite'
 
@@ -26,11 +26,15 @@ import globalTable from '../public/global-table.json'
 import CockroachLabsIcon from '../components/cockroach-labs-icon'
 import GetStartedWithCockroachDB from '../components/get-started-with-cockroachdb'
 
+import store from '../store'
+
 const Page = () => {
   const [currentRegion, setCurrentRegion] = useState('eu')
-  const router = useRouter()
+  const [providerAgnostic, setProviderAgnostic] = store.useState('providerAgnostic')
 
-  const { agnostic } = router.query
+  const searchParams = useSearchParams()
+  const agnostic = searchParams.get('agnostic') === 'true'
+  setProviderAgnostic(agnostic)
 
   const handleToggle = (event) => {
     const { value } = event.target
@@ -79,19 +83,19 @@ const Page = () => {
               </p>
               <p className='m-0 text-left md:text-center'>
                 In this demo, we illustrate CockroachDB's multi-region capabilities. We're running a{' '}
-                <b>single logical CockroachDB serverless instance</b> spanning three {agnostic ? 'cloud' : 'AWS'}{' '}
-                regions:
+                <b>single logical CockroachDB serverless instance</b> spanning three{' '}
+                {providerAgnostic ? 'cloud' : 'AWS'} regions:
               </p>
               <div className='flex items-center justify-start md:justify-center'>
                 <ol className='columns-1 sm:columns-3 my-0 w-full sm:w-auto'>
                   <li className='mt-0'>
-                    <code>{agnostic ? 'US East' : 'us-east-1'}</code>
+                    <code>{providerAgnostic ? 'US East' : 'us-east-1'}</code>
                   </li>
                   <li>
-                    <code>{agnostic ? 'US West' : 'us-west-2'}</code>
+                    <code>{providerAgnostic ? 'US West' : 'us-west-2'}</code>
                   </li>
                   <li>
-                    <code>{agnostic ? 'EU Central' : 'eu-central-1'}</code>
+                    <code>{providerAgnostic ? 'EU Central' : 'eu-central-1'}</code>
                   </li>
                 </ol>
               </div>
@@ -299,7 +303,8 @@ const Page = () => {
           <div className='flex flex-col gap-8'>
             <p className='m-0 text-center'>
               We've written an in-depth blog post explaining how we used multi-region{' '}
-              {agnostic ? 'cloud provider' : 'AWS'} architecture together with CockroachDB Serverless to make this demo.
+              {providerAgnostic ? 'cloud provider' : 'AWS'} architecture together with CockroachDB Serverless to make
+              this demo.
             </p>
 
             <div className='mx-auto'>

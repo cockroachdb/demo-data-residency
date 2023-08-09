@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import Image from 'next/image'
 import { useQuery } from '@tanstack/react-query'
-import { useRouter } from 'next/router'
 
 import { imageLoader } from '../utils/image-loader'
 
@@ -11,9 +10,10 @@ import LoadingSpinner from '../components/loading-spinner'
 import ErrorMessage from '../components/error-message'
 import GetStartedWithCockroachDB from '../components/get-started-with-cockroachdb'
 
+import store from '../store'
+
 const Page = () => {
-  const router = useRouter()
-  const { agnostic } = router.query
+  const [agnostic] = store.useState('providerAgnostic')
 
   const { isLoading, isError, data } = useQuery(
     {

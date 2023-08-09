@@ -1,6 +1,5 @@
 import React, { useEffect, Fragment } from 'react'
 import { useRouter } from 'next/router'
-
 import Image from 'next/image'
 
 import { AppContext } from '../context/app-context'
@@ -17,9 +16,12 @@ import ErrorMessage from '../components/error-message'
 import StepXofX from '../components/step-x-of-x'
 import GetStartedWithCockroachDB from '../components/get-started-with-cockroachdb'
 
+import store from '../store'
+
 const Page = () => {
   const router = useRouter()
-  const { agnostic } = router.query
+  const [agnostic] = store.useState('providerAgnostic')
+
   const usEast = agnostic ? 'US East' : 'us-east-1'
   const usEastFull = agnostic ? 'US East' : 'us-east-1 | (N. Virginia)'
   const usWest = agnostic ? 'US West' : 'us-west-2'
@@ -29,7 +31,7 @@ const Page = () => {
 
   useEffect(() => {
     if (router.asPath) {
-      // router.replace('/app')
+      router.replace('/app')
     }
   }, [])
 
