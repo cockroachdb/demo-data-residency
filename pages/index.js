@@ -81,7 +81,7 @@ const Page = () => {
                 locations (servers, availability zones, or cloud regions) to optimize latency, comply with regional
                 regulations, and maintain high availability.
               </p>
-              <p className='m-0 text-left md:text-center'>
+              <p className='m-0 text-left md:text-center' suppressHydrationWarning>
                 In this demo, we illustrate CockroachDB's multi-region capabilities. We're running a{' '}
                 <b>single logical CockroachDB serverless instance</b> spanning three{' '}
                 {providerAgnostic ? 'cloud' : 'AWS'} regions:
