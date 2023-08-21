@@ -67,13 +67,14 @@ const Page = () => {
                   <StepXofX value={2} /> Create art to store in the United States
                 </h2>
                 <strong>
-                  This art will be written to <code>{usEast}</code> and replicated to <code>{usWest}</code>.
+                  This art will be written to <code suppressHydrationWarning>{usEast}</code> and replicated to{' '}
+                  <code>{usWest}</code>.
                 </strong>
                 <small className='text-brand-gray-b'>
                   Only users outside of Europe will be able to view this artwork in the Gallery.
                 </small>
               </div>
-              <RegionHeading flag='🇺🇸' regionId='USA' region={usEastFull} agnostic />
+              <RegionHeading flag='🇺🇸' regionId='USA' region={usEastFull} agnostic suppressHydrationWarning />
               <LocalInterface regionId='us' regionName='us-east-1' />
             </div>
 
@@ -85,7 +86,7 @@ const Page = () => {
                 <small className='text-brand-gray-b'>
                   Only users outside of Europe will be able to view this artwork in the Gallery.
                 </small>
-                <RegionHeading flag='🇺🇸' regionId='USA' region={usWestFull} agnostic />
+                <RegionHeading flag='🇺🇸' regionId='USA' region={usWestFull} agnostic suppressHydrationWarning />
               </div>
               <LocalInterface regionId='us' regionName='us-east-1' />
             </div>
@@ -98,13 +99,13 @@ const Page = () => {
                   <StepXofX value={3} /> Create art to store in Europe
                 </h2>
                 <strong>
-                  This art will be written to <code>{euCentral}</code>.
+                  This art will be written to <code suppressHydrationWarning>{euCentral}</code>.
                 </strong>
                 <small className='text-brand-gray-b'>
                   Only users inside of Europe will be able to view this artwork in the Gallery.
                 </small>
               </div>
-              <RegionHeading flag='🇩🇪' regionId='Germany' region={euCentralFull} agnostic />
+              <RegionHeading flag='🇩🇪' regionId='Germany' region={euCentralFull} agnostic suppressHydrationWarning />
               <LocalInterface regionId='eu' regionName='eu-central-1' />
             </div>
           </div>
@@ -125,9 +126,9 @@ const Page = () => {
               </small>
             </div>
             <div className='flex flex-col lg:flex-row gap-0 lg:gap-4'>
-              <RegionHeading flag='🇺🇸' regionId='USA' region={usEastFull} agnostic />
-              <RegionHeading flag='🇺🇸' regionId='USA' region={usWestFull} agnostic />
-              <RegionHeading flag='🇩🇪' regionId='Germany' region={euCentralFull} agnostic />
+              <RegionHeading flag='🇺🇸' regionId='USA' region={usEastFull} agnostic suppressHydrationWarning />
+              <RegionHeading flag='🇺🇸' regionId='USA' region={usWestFull} agnostic suppressHydrationWarning />
+              <RegionHeading flag='🇩🇪' regionId='Germany' region={euCentralFull} agnostic suppressHydrationWarning />
             </div>
             <GlobalInterface regionId='global' regionName='global' />
           </div>

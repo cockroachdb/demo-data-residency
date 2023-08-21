@@ -89,13 +89,13 @@ const Page = () => {
               <div className='flex items-center justify-start md:justify-center'>
                 <ol className='columns-1 sm:columns-3 my-0 w-full sm:w-auto'>
                   <li className='mt-0'>
-                    <code>{providerAgnostic ? 'US East' : 'us-east-1'}</code>
+                    <code suppressHydrationWarning>{providerAgnostic ? 'US East' : 'us-east-1'}</code>
                   </li>
                   <li>
-                    <code>{providerAgnostic ? 'US West' : 'us-west-2'}</code>
+                    <code suppressHydrationWarning>{providerAgnostic ? 'US West' : 'us-west-2'}</code>
                   </li>
                   <li>
-                    <code>{providerAgnostic ? 'EU Central' : 'eu-central-1'}</code>
+                    <code suppressHydrationWarning>{providerAgnostic ? 'EU Central' : 'eu-central-1'}</code>
                   </li>
                 </ol>
               </div>

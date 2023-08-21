@@ -66,12 +66,12 @@ const Page = () => {
                     This gallery will only show artwork stored in{' '}
                     {data.isEurope ? (
                       <Fragment>
-                        <code>{agnostic ? 'EU Central' : 'eu-central-1'}</code>.
+                        <code suppressHydrationWarning>{agnostic ? 'EU Central' : 'eu-central-1'}</code>.
                       </Fragment>
                     ) : (
                       <Fragment>
-                        <code>{agnostic ? 'US East' : 'us-east-1'}</code> and{' '}
-                        <code>{agnostic ? 'US West' : 'us-west-2'}</code>.
+                        <code suppressHydrationWarning>{agnostic ? 'US East' : 'us-east-1'}</code> and{' '}
+                        <code suppressHydrationWarning>{agnostic ? 'US West' : 'us-west-2'}</code>.
                       </Fragment>
                     )}
                   </p>
