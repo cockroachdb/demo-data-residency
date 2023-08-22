@@ -25,6 +25,8 @@ import diagram from '../public/images/how-it-works-diagram_v6.svg'
 import diagramAgnostic from '../public/images/how-it-works-diagram_v6.svg'
 
 import globalTable from '../public/global-table.json'
+import globalTableAgnostic from '../public/global-table-agnostic.json'
+
 import CockroachLabsIcon from '../components/cockroach-labs-icon'
 import GetStartedWithCockroachDB from '../components/get-started-with-cockroachdb'
 
@@ -37,6 +39,9 @@ const Page = () => {
   const searchParams = useSearchParams()
   const agnostic = searchParams.get('agnostic') === 'true'
   setProviderAgnostic(agnostic)
+
+  const diagramPath = agnostic ? diagramAgnostic : diagram
+  const globalTablePath = agnostic ? globalTableAgnostic : globalTable
 
   const handleToggle = (event) => {
     const { value } = event.target
@@ -202,7 +207,7 @@ const Page = () => {
             <table className='m-0 border-collapse'>
               <thead className='bg-depth-0 border-b-2 border-b-dashed border-b-depth-3'>
                 <tr>
-                  {globalTable.headings.map((heading, index) => {
+                  {globalTablePath.headings.map((heading, index) => {
                     return (
                       <th key={index} className='p-4 whitespace-nowrap'>
                         {heading}
@@ -212,7 +217,7 @@ const Page = () => {
                 </tr>
               </thead>
               <tbody>
-                {globalTable.body.map((body, index) => {
+                {globalTablePath.body.map((body, index) => {
                   const { key, user_id, image, data, emoji, region } = body
                   const isActive = key === currentRegion || key === 'global' ? 'active' : 'inactive'
 
@@ -336,7 +341,7 @@ const Page = () => {
 
           <Image
             suppressHydrationWarning
-            src={agnostic ? diagramAgnostic : diagram}
+            src={diagramPath}
             alt='how it works diagram'
             width={595}
             height={884}
