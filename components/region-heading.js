@@ -42,7 +42,9 @@ const RegionHeading = ({ flag, regionId, region, agnostic }) => {
       <span role='img' aria-label={`${regionId} flag emoji`} className='text-xl mt-[3px]'>
         {flag}
       </span>
-      <span className='text-sm'>{region}</span>
+      <span suppressHydrationWarning className='text-sm'>
+        {region}
+      </span>
     </div>
   )
 }

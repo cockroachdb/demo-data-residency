@@ -68,7 +68,7 @@ const Page = () => {
                 </h2>
                 <strong>
                   This art will be written to <code suppressHydrationWarning>{usEast}</code> and replicated to{' '}
-                  <code>{usWest}</code>.
+                  <code suppressHydrationWarning>{usWest}</code>.
                 </strong>
                 <small className='text-brand-gray-b'>
                   Only users outside of Europe will be able to view this artwork in the Gallery.
@@ -81,7 +81,8 @@ const Page = () => {
             <div className='flex flex-col gap-6'>
               <div className='flex flex-col gap-2'>
                 <strong>
-                  This art will be written to <code>{usWest}</code> and replicated to <code>{usEast}</code>.
+                  This art will be written to <code suppressHydrationWarning>{usWest}</code> and replicated to{' '}
+                  <code suppressHydrationWarning>{usEast}</code>.
                 </strong>
                 <small className='text-brand-gray-b'>
                   Only users outside of Europe will be able to view this artwork in the Gallery.
@@ -118,8 +119,8 @@ const Page = () => {
                 <StepXofX value={4} /> Apply art settings globally
               </h2>
               <strong>
-                Settings you apply here are written to <code>{usEast}</code>, <code>{usWest}</code>, and{' '}
-                <code>{euCentral}</code>.
+                Settings you apply here are written to <code suppressHydrationWarning>{usEast}</code>,{' '}
+                <code suppressHydrationWarning>{usWest}</code>, and <code suppressHydrationWarning>{euCentral}</code>.
               </strong>
               <small className='text-brand-gray-b'>
                 You will be able to view the settings no matter where you're located.

@@ -20,7 +20,9 @@ import globalDots from '../public/images/index-graphics_global-data.svg'
 import usDots from '../public/images/index-graphics_us-data.svg'
 import euDots from '../public/images/index-graphics_eu-data.svg'
 
+// TODO: Switch out diagram for agnostic version when available.
 import diagram from '../public/images/how-it-works-diagram_v6.svg'
+import diagramAgnostic from '../public/images/how-it-works-diagram_v6.svg'
 
 import globalTable from '../public/global-table.json'
 import CockroachLabsIcon from '../components/cockroach-labs-icon'
@@ -301,7 +303,7 @@ const Page = () => {
         <div className='flex flex-col gap-8 mx-auto max-w-3xl'>
           <h2 className='text-center heading-md'>Learn how it works</h2>
           <div className='flex flex-col gap-8'>
-            <p className='m-0 text-center'>
+            <p suppressHydrationWarning className='m-0 text-center'>
               We've written an in-depth blog post explaining how we used multi-region{' '}
               {providerAgnostic ? 'cloud provider' : 'AWS'} architecture together with CockroachDB Serverless to make
               this demo.
@@ -332,7 +334,14 @@ const Page = () => {
             </div>
           </div>
 
-          <Image src={diagram} alt='how it works diagram' width={595} height={884} className='m-0 mx-auto p-4' />
+          <Image
+            suppressHydrationWarning
+            src={agnostic ? diagramAgnostic : diagram}
+            alt='how it works diagram'
+            width={595}
+            height={884}
+            className='m-0 mx-auto p-4'
+          />
         </div>
       </section>
       <GetStartedWithCockroachDB />
