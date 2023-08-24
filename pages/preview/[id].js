@@ -13,7 +13,18 @@ import GetStartedWithCockroachDB from '../../components/get-started-with-cockroa
 
 import images from '../../public/source-images.json'
 
+import store from '../store'
+
 const Page = ({ user_id }) => {
+  const [agnostic] = store.useState('providerAgnostic')
+
+  const usEast = agnostic ? 'US East' : 'us-east-1'
+  const usEastFull = agnostic ? 'US East' : 'us-east-1 | (N. Virginia)'
+  const usWest = agnostic ? 'US West' : 'us-west-2'
+  const usWestFull = agnostic ? 'US West' : 'us-west-2 | (Oregon)'
+  const euCentral = agnostic ? 'EU Central' : 'eu-central-1'
+  const euCentralFull = agnostic ? 'EU Central' : 'eu-central-1 | (Frankfurt)'
+
   const { isLoading, isError, data } = useQuery(
     {
       queryKey: ['artuser-query'],
@@ -38,7 +49,7 @@ const Page = ({ user_id }) => {
                 {
                   flag: '🇩🇪',
                   regionId: 'Germany',
-                  region: 'eu-central-1 | (Frankfurt)'
+                  region: euCentralFull
                 }
               ]
             },
@@ -47,12 +58,12 @@ const Page = ({ user_id }) => {
                 {
                   flag: '🇺🇸',
                   regionId: 'USA',
-                  region: 'us-east-1 | (N. Virginia)'
+                  region: usEastFull
                 },
                 {
                   flag: '🇺🇸',
                   regionId: 'USA',
-                  region: 'us-west-2 | (Oregon)'
+                  region: usWestFull
                 }
               ]
             }
@@ -62,7 +73,7 @@ const Page = ({ user_id }) => {
 
           return {
             placeholder: {
-              region: json.region === 'eu-central-1' ? 'us-east-1, us-west-2' : 'eu-central-1',
+              region: json.region === 'eu-central-1' ? `${usEast}, ${usWest}` : euCentral,
               message:
                 json.region === 'eu-central-1'
                   ? 'Access to data in these regions is not permitted'
@@ -121,7 +132,15 @@ const Page = ({ user_id }) => {
                       {data.results.headings.map((heading, index) => {
                         const { flag, regionId, region } = heading
 
-                        return <RegionHeading key={index} flag={flag} regionId={regionId} region={region} />
+                        return (
+                          <RegionHeading
+                            suppressHydrationWarning
+                            key={index}
+                            flag={flag}
+                            regionId={regionId}
+                            region={region}
+                          />
+                        )
                       })}
                     </div>
                     <div className='relative'>
@@ -215,7 +234,15 @@ const Page = ({ user_id }) => {
                       {data.placeholder.headings.map((heading, index) => {
                         const { flag, regionId, region } = heading
 
-                        return <RegionHeading key={index} flag={flag} regionId={regionId} region={region} />
+                        return (
+                          <RegionHeading
+                            suppressHydrationWarning
+                            key={index}
+                            flag={flag}
+                            regionId={regionId}
+                            region={region}
+                          />
+                        )
                       })}
                     </div>
                     <div className='relative'>
