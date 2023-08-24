@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const RegionHeading = ({ flag, regionId, region, agnostic }) => {
   return (
     <div className='flex gap-2 items-center'>
-      {!agnostic && (
+      {!agnostic &&
         <div className='flex gap-2 items-center'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -37,7 +37,7 @@ const RegionHeading = ({ flag, regionId, region, agnostic }) => {
 
           <span>{'|'}</span>
         </div>
-      )}
+      }
 
       <span role='img' aria-label={`${regionId} flag emoji`} className='text-xl mt-[3px]'>
         {flag}
