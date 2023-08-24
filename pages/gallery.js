@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { useQuery } from '@tanstack/react-query'
 
 import { imageLoader } from '../utils/image-loader'
@@ -11,7 +10,11 @@ import LoadingSpinner from '../components/loading-spinner'
 import ErrorMessage from '../components/error-message'
 import GetStartedWithCockroachDB from '../components/get-started-with-cockroachdb'
 
+import store from '../store'
+
 const Page = () => {
+  const [agnostic] = store.useState('providerAgnostic')
+
   const { isLoading, isError, data } = useQuery(
     {
       queryKey: ['gallery-query'],
@@ -63,11 +66,12 @@ const Page = () => {
                     This gallery will only show artwork stored in{' '}
                     {data.isEurope ? (
                       <Fragment>
-                        <code>eu-central-1</code>.
+                        <code suppressHydrationWarning>{agnostic ? 'EU Central' : 'eu-central-1'}</code>.
                       </Fragment>
                     ) : (
                       <Fragment>
-                        <code>us-east-1</code> and <code>us-west-1</code>.
+                        <code suppressHydrationWarning>{agnostic ? 'US East' : 'us-east-1'}</code> and{' '}
+                        <code suppressHydrationWarning>{agnostic ? 'US West' : 'us-west-2'}</code>.
                       </Fragment>
                     )}
                   </p>

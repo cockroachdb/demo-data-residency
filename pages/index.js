@@ -1,6 +1,8 @@
 import React, { Fragment, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
+
 import { YouTubeLite } from 'react-youtube-lite'
 
 import SiloLockup from '../components/silo-lockup'
@@ -19,13 +21,26 @@ import usDots from '../public/images/index-graphics_us-data.svg'
 import euDots from '../public/images/index-graphics_eu-data.svg'
 
 import diagram from '../public/images/how-it-works-diagram_v6.svg'
+import diagramAgnostic from '../public/images/how-it-works-diagram_v7.svg'
 
 import globalTable from '../public/global-table.json'
+import globalTableAgnostic from '../public/global-table-agnostic.json'
+
 import CockroachLabsIcon from '../components/cockroach-labs-icon'
 import GetStartedWithCockroachDB from '../components/get-started-with-cockroachdb'
 
+import store from '../store'
+
 const Page = () => {
   const [currentRegion, setCurrentRegion] = useState('eu')
+  const [providerAgnostic, setProviderAgnostic] = store.useState('providerAgnostic')
+
+  const searchParams = useSearchParams()
+  const agnostic = searchParams.get('agnostic') === 'true'
+  setProviderAgnostic(agnostic)
+
+  const diagramPath = agnostic ? diagramAgnostic : diagram
+  const globalTablePath = agnostic ? globalTableAgnostic : globalTable
 
   const handleToggle = (event) => {
     const { value } = event.target
@@ -72,20 +87,21 @@ const Page = () => {
                 locations (servers, availability zones, or cloud regions) to optimize latency, comply with regional
                 regulations, and maintain high availability.
               </p>
-              <p className='m-0 text-left md:text-center'>
+              <p className='m-0 text-left md:text-center' suppressHydrationWarning>
                 In this demo, we illustrate CockroachDB's multi-region capabilities. We're running a{' '}
-                <b>single logical CockroachDB serverless instance</b> spanning three AWS regions:
+                <b>single logical CockroachDB serverless instance</b> spanning three{' '}
+                {providerAgnostic ? 'cloud' : 'AWS'} regions:
               </p>
               <div className='flex items-center justify-start md:justify-center'>
                 <ol className='columns-1 sm:columns-3 my-0 w-full sm:w-auto'>
                   <li className='mt-0'>
-                    <code>us-east-1</code>
+                    <code suppressHydrationWarning>{providerAgnostic ? 'US East' : 'us-east-1'}</code>
                   </li>
                   <li>
-                    <code>us-west-2</code>
+                    <code suppressHydrationWarning>{providerAgnostic ? 'US West' : 'us-west-2'}</code>
                   </li>
                   <li>
-                    <code>eu-central-1</code>
+                    <code suppressHydrationWarning>{providerAgnostic ? 'EU Central' : 'eu-central-1'}</code>
                   </li>
                 </ol>
               </div>
@@ -190,7 +206,7 @@ const Page = () => {
             <table className='m-0 border-collapse'>
               <thead className='bg-depth-0 border-b-2 border-b-dashed border-b-depth-3'>
                 <tr>
-                  {globalTable.headings.map((heading, index) => {
+                  {globalTablePath.headings.map((heading, index) => {
                     return (
                       <th key={index} className='p-4 whitespace-nowrap'>
                         {heading}
@@ -200,7 +216,7 @@ const Page = () => {
                 </tr>
               </thead>
               <tbody>
-                {globalTable.body.map((body, index) => {
+                {globalTablePath.body.map((body, index) => {
                   const { key, user_id, image, data, emoji, region } = body
                   const isActive = key === currentRegion || key === 'global' ? 'active' : 'inactive'
 
@@ -291,9 +307,10 @@ const Page = () => {
         <div className='flex flex-col gap-8 mx-auto max-w-3xl'>
           <h2 className='text-center heading-md'>Learn how it works</h2>
           <div className='flex flex-col gap-8'>
-            <p className='m-0 text-center'>
-              We've written an in-depth blog post explaining how we used AWS multi-region application architecture
-              together with CockroachDB Serverless to make this demo.
+            <p suppressHydrationWarning className='m-0 text-center'>
+              We've written an in-depth blog post explaining how we used multi-region{' '}
+              {providerAgnostic ? 'cloud provider' : 'AWS'} architecture together with CockroachDB Serverless to make
+              this demo.
             </p>
 
             <div className='mx-auto'>
@@ -321,7 +338,14 @@ const Page = () => {
             </div>
           </div>
 
-          <Image src={diagram} alt='how it works diagram' width={595} height={884} className='m-0 mx-auto p-4' />
+          <Image
+            suppressHydrationWarning
+            src={diagramPath}
+            alt='how it works diagram'
+            width={595}
+            height={884}
+            className='m-0 mx-auto p-4'
+          />
         </div>
       </section>
       <GetStartedWithCockroachDB />

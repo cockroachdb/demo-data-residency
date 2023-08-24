@@ -1,6 +1,5 @@
 import React, { useEffect, Fragment } from 'react'
 import { useRouter } from 'next/router'
-
 import Image from 'next/image'
 
 import { AppContext } from '../context/app-context'
@@ -17,8 +16,18 @@ import ErrorMessage from '../components/error-message'
 import StepXofX from '../components/step-x-of-x'
 import GetStartedWithCockroachDB from '../components/get-started-with-cockroachdb'
 
+import store from '../store'
+
 const Page = () => {
   const router = useRouter()
+  const [agnostic] = store.useState('providerAgnostic')
+
+  const usEast = agnostic ? 'US East' : 'us-east-1'
+  const usEastFull = agnostic ? 'US East' : 'us-east-1 | (N. Virginia)'
+  const usWest = agnostic ? 'US West' : 'us-west-2'
+  const usWestFull = agnostic ? 'US West' : 'us-west-2 | (Oregon)'
+  const euCentral = agnostic ? 'EU Central' : 'eu-central-1'
+  const euCentralFull = agnostic ? 'EU Central' : 'eu-central-1 | (Frankfurt)'
 
   useEffect(() => {
     if (router.asPath) {
@@ -58,25 +67,27 @@ const Page = () => {
                   <StepXofX value={2} /> Create art to store in the United States
                 </h2>
                 <strong>
-                  This art will be written to <code>us-east-1</code> and replicated to <code>us-west-2</code>.
+                  This art will be written to <code suppressHydrationWarning>{usEast}</code> and replicated to{' '}
+                  <code suppressHydrationWarning>{usWest}</code>.
                 </strong>
                 <small className='text-brand-gray-b'>
                   Only users outside of Europe will be able to view this artwork in the Gallery.
                 </small>
               </div>
-              <RegionHeading flag='🇺🇸' regionId='USA' region='us-east-1 | (N. Virginia)' />
+              <RegionHeading flag='🇺🇸' regionId='USA' region={usEastFull} agnostic suppressHydrationWarning />
               <LocalInterface regionId='us' regionName='us-east-1' />
             </div>
 
             <div className='flex flex-col gap-6'>
               <div className='flex flex-col gap-2'>
                 <strong>
-                  This art will be written to <code>us-west-2</code> and replicated to <code> us-east-1</code>.
+                  This art will be written to <code suppressHydrationWarning>{usWest}</code> and replicated to{' '}
+                  <code suppressHydrationWarning>{usEast}</code>.
                 </strong>
                 <small className='text-brand-gray-b'>
                   Only users outside of Europe will be able to view this artwork in the Gallery.
                 </small>
-                <RegionHeading flag='🇺🇸' regionId='USA' region='us-west-2 | (Oregon)' />
+                <RegionHeading flag='🇺🇸' regionId='USA' region={usWestFull} agnostic suppressHydrationWarning />
               </div>
               <LocalInterface regionId='us' regionName='us-east-1' />
             </div>
@@ -89,13 +100,13 @@ const Page = () => {
                   <StepXofX value={3} /> Create art to store in Europe
                 </h2>
                 <strong>
-                  This art will be written to <code>eu-central-1</code>.
+                  This art will be written to <code suppressHydrationWarning>{euCentral}</code>.
                 </strong>
                 <small className='text-brand-gray-b'>
                   Only users inside of Europe will be able to view this artwork in the Gallery.
                 </small>
               </div>
-              <RegionHeading flag='🇩🇪' regionId='Germany' region='eu-central-1 | (Frankfurt)' />
+              <RegionHeading flag='🇩🇪' regionId='Germany' region={euCentralFull} agnostic suppressHydrationWarning />
               <LocalInterface regionId='eu' regionName='eu-central-1' />
             </div>
           </div>
@@ -108,17 +119,17 @@ const Page = () => {
                 <StepXofX value={4} /> Apply art settings globally
               </h2>
               <strong>
-                Settings you apply here are written to <code>us-east-1</code>, <code>us-west-2</code>, and{' '}
-                <code>eu-central-1</code>.
+                Settings you apply here are written to <code suppressHydrationWarning>{usEast}</code>,{' '}
+                <code suppressHydrationWarning>{usWest}</code>, and <code suppressHydrationWarning>{euCentral}</code>.
               </strong>
               <small className='text-brand-gray-b'>
                 You will be able to view the settings no matter where you're located.
               </small>
             </div>
             <div className='flex flex-col lg:flex-row gap-0 lg:gap-4'>
-              <RegionHeading flag='🇺🇸' regionId='USA' region='us-east-1 | (N. Virginia)' />
-              <RegionHeading flag='🇺🇸' regionId='USA' region='us-west-2 | (Oregon)' />
-              <RegionHeading flag='🇩🇪' regionId='Germany' region='eu-central-1 | (Frankfurt)' />
+              <RegionHeading flag='🇺🇸' regionId='USA' region={usEastFull} agnostic suppressHydrationWarning />
+              <RegionHeading flag='🇺🇸' regionId='USA' region={usWestFull} agnostic suppressHydrationWarning />
+              <RegionHeading flag='🇩🇪' regionId='Germany' region={euCentralFull} agnostic suppressHydrationWarning />
             </div>
             <GlobalInterface regionId='global' regionName='global' />
           </div>
