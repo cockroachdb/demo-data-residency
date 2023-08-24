@@ -13,7 +13,7 @@ import GetStartedWithCockroachDB from '../../components/get-started-with-cockroa
 
 import images from '../../public/source-images.json'
 
-import store from '../store'
+import store from '../../store'
 
 const Page = ({ user_id }) => {
   const [agnostic] = store.useState('providerAgnostic')
