@@ -20,9 +20,8 @@ import globalDots from '../public/images/index-graphics_global-data.svg'
 import usDots from '../public/images/index-graphics_us-data.svg'
 import euDots from '../public/images/index-graphics_eu-data.svg'
 
-// TODO: Switch out diagram for agnostic version when available.
 import diagram from '../public/images/how-it-works-diagram_v6.svg'
-import diagramAgnostic from '../public/images/how-it-works-diagram_v6.svg'
+import diagramAgnostic from '../public/images/how-it-works-diagram_v7.svg'
 
 import globalTable from '../public/global-table.json'
 import globalTableAgnostic from '../public/global-table-agnostic.json'
