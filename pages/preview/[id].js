@@ -135,6 +135,7 @@ const Page = ({ user_id }) => {
                         return (
                           <RegionHeading
                             suppressHydrationWarning
+                            agnostic
                             key={index}
                             flag={flag}
                             regionId={regionId}
@@ -237,6 +238,7 @@ const Page = ({ user_id }) => {
                         return (
                           <RegionHeading
                             suppressHydrationWarning
+                            agnostic
                             key={index}
                             flag={flag}
                             regionId={regionId}
