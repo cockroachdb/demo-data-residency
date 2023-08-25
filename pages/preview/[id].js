@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import Image from 'next/image'
+import Cookies from 'cookies'
 import { useQuery } from '@tanstack/react-query'
 
 import { imageLoader } from '../../utils/image-loader'
