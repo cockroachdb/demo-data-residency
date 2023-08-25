@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
@@ -31,17 +31,21 @@ import GetStartedWithCockroachDB from '../components/get-started-with-cockroachd
 
 import store from '../store'
 
-const Page = () => {
-  const [currentRegion, setCurrentRegion] = useState('eu')
-  const [providerAgnostic, setProviderAgnostic] = store.useState('providerAgnostic')
-
-  const searchParams = useSearchParams()
-  if (searchParams.has('agnostic')) {
-    setProviderAgnostic(searchParams.get('agnostic') == 'true')
+export const getServerSideProps = async (context) => {
+  return {
+    props: {
+      isAgnostic: context.query.agnostic ?? false
+    }
   }
+}
 
-  const diagramPath = providerAgnostic ? diagramAgnostic : diagram
-  const globalTablePath = providerAgnostic ? globalTableAgnostic : globalTable
+const Page = ({ isAgnostic }) => {
+  const [currentRegion, setCurrentRegion] = useState('eu')
+  // const [providerAgnostic, setProviderAgnostic] = store.useState('providerAgnostic')
+
+  console.log({ isAgnostic })
+
+  const globalTablePath = isAgnostic ? globalTableAgnostic : globalTable
 
   const handleToggle = (event) => {
     const { value } = event.target
@@ -90,19 +94,19 @@ const Page = () => {
               </p>
               <p className='m-0 text-left md:text-center' suppressHydrationWarning>
                 In this demo, we illustrate CockroachDB's multi-region capabilities. We're running a{' '}
-                <b>single logical CockroachDB serverless instance</b> spanning three{' '}
-                {providerAgnostic ? 'cloud' : 'AWS'} regions:
+                <b>single logical CockroachDB serverless instance</b> spanning three {isAgnostic ? 'cloud' : 'AWS'}{' '}
+                regions:
               </p>
               <div className='flex items-center justify-start md:justify-center'>
                 <ol className='columns-1 sm:columns-3 my-0 w-full sm:w-auto'>
                   <li className='mt-0'>
-                    <code suppressHydrationWarning>{providerAgnostic ? 'US East' : 'us-east-1'}</code>
+                    <code suppressHydrationWarning>{isAgnostic ? 'US East' : 'us-east-1'}</code>
                   </li>
                   <li>
-                    <code suppressHydrationWarning>{providerAgnostic ? 'US West' : 'us-west-2'}</code>
+                    <code suppressHydrationWarning>{isAgnostic ? 'US West' : 'us-west-2'}</code>
                   </li>
                   <li>
-                    <code suppressHydrationWarning>{providerAgnostic ? 'EU Central' : 'eu-central-1'}</code>
+                    <code suppressHydrationWarning>{isAgnostic ? 'EU Central' : 'eu-central-1'}</code>
                   </li>
                 </ol>
               </div>
@@ -225,6 +229,7 @@ const Page = () => {
 
                   return (
                     <tr
+                      suppressHydrationWarning
                       key={index}
                       className={`odd:bg-depth-2 even:bg-depth-1 border-none text-center transition-all duration-300 table-scale-${isActive} ${region}`}
                     >
@@ -314,8 +319,8 @@ const Page = () => {
           <div className='flex flex-col gap-8'>
             <p suppressHydrationWarning className='m-0 text-center'>
               We've written an in-depth blog post explaining how we used multi-region{' '}
-              {providerAgnostic ? 'cloud provider' : 'AWS'} architecture together with CockroachDB Serverless to make
-              this demo.
+              {isAgnostic ? 'cloud provider' : 'AWS'} architecture together with CockroachDB Serverless to make this
+              demo.
             </p>
 
             <div className='mx-auto'>
@@ -342,10 +347,8 @@ const Page = () => {
               </a>
             </div>
           </div>
-
           <Image
-            suppressHydrationWarning
-            src={diagramPath}
+            src={isAgnostic ? diagramAgnostic : diagram}
             alt='how it works diagram'
             width={595}
             height={884}
