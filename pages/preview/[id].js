@@ -149,7 +149,7 @@ const Page = ({ isAgnostic, user_id }) => {
 
                         return (
                           <RegionHeading
-                            agnostic={isAgnostic}
+                            isAgnostic={isAgnostic}
                             key={index}
                             flag={flag}
                             regionId={regionId}
