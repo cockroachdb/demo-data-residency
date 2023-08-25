@@ -13,7 +13,8 @@ import GetStartedWithCockroachDB from '../../components/get-started-with-cockroa
 
 import images from '../../public/source-images.json'
 
-export const getServerSideProps = async ({ req, res, query }) => {
+export const getServerSideProps = async ({ req, res, query, params }) => {
+  const { id } = params
   const cookies = new Cookies(req, res)
   const { agnostic } = query
   let isAgnostic = JSON.parse(cookies.get('isAgnostic') ?? 'false')
@@ -24,7 +25,8 @@ export const getServerSideProps = async ({ req, res, query }) => {
 
   return {
     props: {
-      isAgnostic
+      isAgnostic,
+      user_id: id
     }
   }
 }
@@ -303,18 +305,6 @@ const Page = ({ isAgnostic, user_id }) => {
       <GetStartedWithCockroachDB />
     </section>
   )
-}
-
-export async function getServerSideProps(context) {
-  const {
-    params: { id }
-  } = context
-
-  return {
-    props: {
-      user_id: id
-    }
-  }
 }
 
 export default Page
