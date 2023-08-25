@@ -13,17 +13,29 @@ import GetStartedWithCockroachDB from '../../components/get-started-with-cockroa
 
 import images from '../../public/source-images.json'
 
-import store from '../../store'
+export const getServerSideProps = async ({ req, res, query }) => {
+  const cookies = new Cookies(req, res)
+  const { agnostic } = query
+  let isAgnostic = JSON.parse(cookies.get('isAgnostic') ?? 'false')
+  if (agnostic) {
+    isAgnostic = agnostic === 'true'
+    cookies.set('isAgnostic', JSON.stringify(isAgnostic))
+  }
 
-const Page = ({ user_id }) => {
-  const [agnostic] = store.useState('providerAgnostic')
+  return {
+    props: {
+      isAgnostic
+    }
+  }
+}
 
-  const usEast = agnostic ? 'US East' : 'us-east-1'
-  const usEastFull = agnostic ? 'US East' : 'us-east-1 | (N. Virginia)'
-  const usWest = agnostic ? 'US West' : 'us-west-2'
-  const usWestFull = agnostic ? 'US West' : 'us-west-2 | (Oregon)'
-  const euCentral = agnostic ? 'EU Central' : 'eu-central-1'
-  const euCentralFull = agnostic ? 'EU Central' : 'eu-central-1 | (Frankfurt)'
+const Page = ({ isAgnostic, user_id }) => {
+  const usEast = isAgnostic ? 'US East' : 'us-east-1'
+  const usEastFull = isAgnostic ? 'US East' : 'us-east-1 | (N. Virginia)'
+  const usWest = isAgnostic ? 'US West' : 'us-west-2'
+  const usWestFull = isAgnostic ? 'US West' : 'us-west-2 | (Oregon)'
+  const euCentral = isAgnostic ? 'EU Central' : 'eu-central-1'
+  const euCentralFull = isAgnostic ? 'EU Central' : 'eu-central-1 | (Frankfurt)'
 
   const { isLoading, isError, data } = useQuery(
     {
@@ -134,8 +146,7 @@ const Page = ({ user_id }) => {
 
                         return (
                           <RegionHeading
-                            suppressHydrationWarning
-                            agnostic
+                            agnostic={isAgnostic}
                             key={index}
                             flag={flag}
                             regionId={regionId}
@@ -237,8 +248,7 @@ const Page = ({ user_id }) => {
 
                         return (
                           <RegionHeading
-                            suppressHydrationWarning
-                            agnostic
+                            isAgnostic={isAgnostic}
                             key={index}
                             flag={flag}
                             regionId={regionId}

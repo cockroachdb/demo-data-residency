@@ -1,7 +1,7 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
+import Cookies from 'cookies'
 
 import { YouTubeLite } from 'react-youtube-lite'
 
@@ -29,21 +29,24 @@ import globalTableAgnostic from '../public/global-table-agnostic.json'
 import CockroachLabsIcon from '../components/cockroach-labs-icon'
 import GetStartedWithCockroachDB from '../components/get-started-with-cockroachdb'
 
-import store from '../store'
+export const getServerSideProps = async ({ req, res, query }) => {
+  const cookies = new Cookies(req, res)
+  const { agnostic } = query
+  let isAgnostic = JSON.parse(cookies.get('isAgnostic') ?? 'false')
+  if (agnostic) {
+    isAgnostic = agnostic === 'true'
+    cookies.set('isAgnostic', JSON.stringify(isAgnostic))
+  }
 
-export const getServerSideProps = async (context) => {
   return {
     props: {
-      isAgnostic: context.query.agnostic ?? false
+      isAgnostic
     }
   }
 }
 
 const Page = ({ isAgnostic }) => {
   const [currentRegion, setCurrentRegion] = useState('eu')
-  // const [providerAgnostic, setProviderAgnostic] = store.useState('providerAgnostic')
-
-  console.log({ isAgnostic })
 
   const globalTablePath = isAgnostic ? globalTableAgnostic : globalTable
 
@@ -61,7 +64,7 @@ const Page = ({ isAgnostic }) => {
             <h1 className='m-0 text-brand-white text-4xl md:text-6xl text-center normal-case !leading-[1.1] text-transparent bg-clip-text bg-gradient-to-r from-brand-electric-purple to-brand-iridescent-blue'>
               The Art of Data Residency and Application Architecture
             </h1>
-            <h2 className='m-0 px-4 text-brand-white text-base font-normal text-center normal-case tracking-normal font-mono font-black'>
+            <h2 className='m-0 px-4 text-brand-white text-base font-normal text-center normal-case tracking-normal font-mono'>
               /* A demo of multi-region capabilities in CockroachDB. */
             </h2>
           </div>
@@ -92,7 +95,7 @@ const Page = ({ isAgnostic }) => {
                 locations (servers, availability zones, or cloud regions) to optimize latency, comply with regional
                 regulations, and maintain high availability.
               </p>
-              <p className='m-0 text-left md:text-center' suppressHydrationWarning>
+              <p className='m-0 text-left md:text-center'>
                 In this demo, we illustrate CockroachDB's multi-region capabilities. We're running a{' '}
                 <b>single logical CockroachDB serverless instance</b> spanning three {isAgnostic ? 'cloud' : 'AWS'}{' '}
                 regions:
@@ -100,13 +103,13 @@ const Page = ({ isAgnostic }) => {
               <div className='flex items-center justify-start md:justify-center'>
                 <ol className='columns-1 sm:columns-3 my-0 w-full sm:w-auto'>
                   <li className='mt-0'>
-                    <code suppressHydrationWarning>{isAgnostic ? 'US East' : 'us-east-1'}</code>
+                    <code>{isAgnostic ? 'US East' : 'us-east-1'}</code>
                   </li>
                   <li>
-                    <code suppressHydrationWarning>{isAgnostic ? 'US West' : 'us-west-2'}</code>
+                    <code>{isAgnostic ? 'US West' : 'us-west-2'}</code>
                   </li>
                   <li>
-                    <code suppressHydrationWarning>{isAgnostic ? 'EU Central' : 'eu-central-1'}</code>
+                    <code>{isAgnostic ? 'EU Central' : 'eu-central-1'}</code>
                   </li>
                 </ol>
               </div>
@@ -200,9 +203,7 @@ const Page = ({ isAgnostic }) => {
               <label className='relative inline-flex items-center mr-5 cursor-pointer'>
                 <input type='checkbox' value={currentRegion} className='sr-only peer' onChange={handleToggle} />
                 <div className="w-11 h-6 bg-brand-iridescent-blue rounded-full peer peer-focus:ring-2 peer-focus:ring-blue-500  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-brand-white after:border-brand-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-electric-purple"></div>
-                <span suppressHydrationWarning className='ml-3 text-sm font-medium text-brand-white uppercase'>
-                  {currentRegion}
-                </span>
+                <span className='ml-3 text-sm font-medium text-brand-white uppercase'>{currentRegion}</span>
               </label>
             </div>
           </div>
@@ -229,7 +230,6 @@ const Page = ({ isAgnostic }) => {
 
                   return (
                     <tr
-                      suppressHydrationWarning
                       key={index}
                       className={`odd:bg-depth-2 even:bg-depth-1 border-none text-center transition-all duration-300 table-scale-${isActive} ${region}`}
                     >
@@ -257,9 +257,7 @@ const Page = ({ isAgnostic }) => {
                       </td>
                       <td className={`flex items-center gap-1 whitespace-nowrap table-blur-${isActive}`}>
                         <span className='mt-1'>{emoji}</span>
-                        <span suppressHydrationWarning className='mr-6'>
-                          {region}
-                        </span>
+                        <span className='mr-6'>{region}</span>
                       </td>
                     </tr>
                   )
@@ -317,7 +315,7 @@ const Page = ({ isAgnostic }) => {
         <div className='flex flex-col gap-8 mx-auto max-w-3xl'>
           <h2 className='text-center heading-md'>Learn how it works</h2>
           <div className='flex flex-col gap-8'>
-            <p suppressHydrationWarning className='m-0 text-center'>
+            <p className='m-0 text-center'>
               We've written an in-depth blog post explaining how we used multi-region{' '}
               {isAgnostic ? 'cloud provider' : 'AWS'} architecture together with CockroachDB Serverless to make this
               demo.

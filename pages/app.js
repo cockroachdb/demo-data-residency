@@ -1,6 +1,7 @@
 import React, { useEffect, Fragment } from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
+import Cookies from 'cookies'
 
 import { AppContext } from '../context/app-context'
 
@@ -16,18 +17,31 @@ import ErrorMessage from '../components/error-message'
 import StepXofX from '../components/step-x-of-x'
 import GetStartedWithCockroachDB from '../components/get-started-with-cockroachdb'
 
-import store from '../store'
+export const getServerSideProps = async ({ req, res, query }) => {
+  const cookies = new Cookies(req, res)
+  const { agnostic } = query
+  let isAgnostic = JSON.parse(cookies.get('isAgnostic') ?? 'false')
+  if (agnostic) {
+    isAgnostic = agnostic === 'true'
+    cookies.set('isAgnostic', JSON.stringify(isAgnostic))
+  }
 
-const Page = () => {
+  return {
+    props: {
+      isAgnostic
+    }
+  }
+}
+
+const Page = ({ isAgnostic }) => {
   const router = useRouter()
-  const [agnostic] = store.useState('providerAgnostic')
 
-  const usEast = agnostic ? 'US East' : 'us-east-1'
-  const usEastFull = agnostic ? 'US East' : 'us-east-1 | (N. Virginia)'
-  const usWest = agnostic ? 'US West' : 'us-west-2'
-  const usWestFull = agnostic ? 'US West' : 'us-west-2 | (Oregon)'
-  const euCentral = agnostic ? 'EU Central' : 'eu-central-1'
-  const euCentralFull = agnostic ? 'EU Central' : 'eu-central-1 | (Frankfurt)'
+  const usEast = isAgnostic ? 'US East' : 'us-east-1'
+  const usEastFull = isAgnostic ? 'US East' : 'us-east-1 | (N. Virginia)'
+  const usWest = isAgnostic ? 'US West' : 'us-west-2'
+  const usWestFull = isAgnostic ? 'US West' : 'us-west-2 | (Oregon)'
+  const euCentral = isAgnostic ? 'EU Central' : 'eu-central-1'
+  const euCentralFull = isAgnostic ? 'EU Central' : 'eu-central-1 | (Frankfurt)'
 
   useEffect(() => {
     if (router.asPath) {
@@ -67,27 +81,25 @@ const Page = () => {
                   <StepXofX value={2} /> Create art to store in the United States
                 </h2>
                 <strong>
-                  This art will be written to <code suppressHydrationWarning>{usEast}</code> and replicated to{' '}
-                  <code suppressHydrationWarning>{usWest}</code>.
+                  This art will be written to <code>{usEast}</code> and replicated to <code>{usWest}</code>.
                 </strong>
                 <small className='text-brand-gray-b'>
                   Only users outside of Europe will be able to view this artwork in the Gallery.
                 </small>
               </div>
-              <RegionHeading flag='🇺🇸' regionId='USA' region={usEastFull} agnostic suppressHydrationWarning />
+              <RegionHeading flag='🇺🇸' regionId='USA' region={usEastFull} isAgnostic={isAgnostic} />
               <LocalInterface regionId='us' regionName='us-east-1' />
             </div>
 
             <div className='flex flex-col gap-6'>
               <div className='flex flex-col gap-2'>
                 <strong>
-                  This art will be written to <code suppressHydrationWarning>{usWest}</code> and replicated to{' '}
-                  <code suppressHydrationWarning>{usEast}</code>.
+                  This art will be written to <code>{usWest}</code> and replicated to <code>{usEast}</code>.
                 </strong>
                 <small className='text-brand-gray-b'>
                   Only users outside of Europe will be able to view this artwork in the Gallery.
                 </small>
-                <RegionHeading flag='🇺🇸' regionId='USA' region={usWestFull} agnostic suppressHydrationWarning />
+                <RegionHeading flag='🇺🇸' regionId='USA' region={usWestFull} isAgnostic={isAgnostic} />
               </div>
               <LocalInterface regionId='us' regionName='us-east-1' />
             </div>
@@ -100,13 +112,13 @@ const Page = () => {
                   <StepXofX value={3} /> Create art to store in Europe
                 </h2>
                 <strong>
-                  This art will be written to <code suppressHydrationWarning>{euCentral}</code>.
+                  This art will be written to <code>{euCentral}</code>.
                 </strong>
                 <small className='text-brand-gray-b'>
                   Only users inside of Europe will be able to view this artwork in the Gallery.
                 </small>
               </div>
-              <RegionHeading flag='🇩🇪' regionId='Germany' region={euCentralFull} agnostic suppressHydrationWarning />
+              <RegionHeading flag='🇩🇪' regionId='Germany' region={euCentralFull} isAgnostic={isAgnostic} />
               <LocalInterface regionId='eu' regionName='eu-central-1' />
             </div>
           </div>
@@ -119,17 +131,17 @@ const Page = () => {
                 <StepXofX value={4} /> Apply art settings globally
               </h2>
               <strong>
-                Settings you apply here are written to <code suppressHydrationWarning>{usEast}</code>,{' '}
-                <code suppressHydrationWarning>{usWest}</code>, and <code suppressHydrationWarning>{euCentral}</code>.
+                Settings you apply here are written to <code>{usEast}</code>, <code>{usWest}</code>, and{' '}
+                <code>{euCentral}</code>.
               </strong>
               <small className='text-brand-gray-b'>
                 You will be able to view the settings no matter where you're located.
               </small>
             </div>
             <div className='flex flex-col lg:flex-row gap-0 lg:gap-4'>
-              <RegionHeading flag='🇺🇸' regionId='USA' region={usEastFull} agnostic suppressHydrationWarning />
-              <RegionHeading flag='🇺🇸' regionId='USA' region={usWestFull} agnostic suppressHydrationWarning />
-              <RegionHeading flag='🇩🇪' regionId='Germany' region={euCentralFull} agnostic suppressHydrationWarning />
+              <RegionHeading flag='🇺🇸' regionId='USA' region={usEastFull} isAgnostic={isAgnostic} />
+              <RegionHeading flag='🇺🇸' regionId='USA' region={usWestFull} isAgnostic={isAgnostic} />
+              <RegionHeading flag='🇩🇪' regionId='Germany' region={euCentralFull} isAgnostic={isAgnostic} />
             </div>
             <GlobalInterface regionId='global' regionName='global' />
           </div>

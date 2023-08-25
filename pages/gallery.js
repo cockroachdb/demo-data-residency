@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import Image from 'next/image'
+import Cookies from 'cookies'
 import { useQuery } from '@tanstack/react-query'
 
 import { imageLoader } from '../utils/image-loader'
@@ -10,10 +11,24 @@ import LoadingSpinner from '../components/loading-spinner'
 import ErrorMessage from '../components/error-message'
 import GetStartedWithCockroachDB from '../components/get-started-with-cockroachdb'
 
-import store from '../store'
+export const getServerSideProps = async ({ req, res, query }) => {
+  const cookies = new Cookies(req, res)
+  const { agnostic } = query
+  let isAgnostic = JSON.parse(cookies.get('isAgnostic') ?? 'false')
+  if (agnostic) {
+    isAgnostic = agnostic === 'true'
+    cookies.set('isAgnostic', JSON.stringify(isAgnostic))
+  }
 
-const Page = () => {
-  const [agnostic] = store.useState('providerAgnostic')
+  return {
+    props: {
+      isAgnostic
+    }
+  }
+}
+
+const Page = ({ isAgnostic }) => {
+  console.log({ isAgnostic })
 
   const { isLoading, isError, data } = useQuery(
     {
@@ -66,12 +81,12 @@ const Page = () => {
                     This gallery will only show artwork stored in{' '}
                     {data.isEurope ? (
                       <Fragment>
-                        <code suppressHydrationWarning>{agnostic ? 'EU Central' : 'eu-central-1'}</code>.
+                        <code>{isAgnostic ? 'EU Central' : 'eu-central-1'}</code>.
                       </Fragment>
                     ) : (
                       <Fragment>
-                        <code suppressHydrationWarning>{agnostic ? 'US East' : 'us-east-1'}</code> and{' '}
-                        <code suppressHydrationWarning>{agnostic ? 'US West' : 'us-west-2'}</code>.
+                        <code>{isAgnostic ? 'US East' : 'us-east-1'}</code> and{' '}
+                        <code>{isAgnostic ? 'US West' : 'us-west-2'}</code>.
                       </Fragment>
                     )}
                   </p>
